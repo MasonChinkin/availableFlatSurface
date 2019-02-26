@@ -5,8 +5,8 @@ export const signup = user => {
     data: {
       user
     }
-  })
-}
+  });
+};
 
 export const signin = user => {
   return $.ajax({
@@ -15,15 +15,15 @@ export const signin = user => {
     data: {
       user
     }
-  })
-}
+  });
+};
 
 export const signout = () => {
   return $.ajax({
     method: 'DELETE',
     url: '/api/session'
-  })
-}
+  });
+};
 
 // Bonuses: edit and delete user accounts
 // export const editUser = user => {
