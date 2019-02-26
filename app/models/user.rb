@@ -13,11 +13,12 @@
 #
 
 class User < ApplicationRecord
-  validates :name, :email, :password_digest, :session_token, :vip, presence: true
+  validates :name, :email, :password_digest, :session_token, presence: true
   validates :vip, inclusion: {in: [true, false]}
   validates :password, length: {minimum: 6, allow_nil: true}
 
-  before_validation :ensure_session_token, :ensure_vip
+  before_validation :ensure_session_token
+  before_validation :ensure_vip
 
   attr_reader :password
 
@@ -27,7 +28,7 @@ class User < ApplicationRecord
   end
 
   def ensure_session_token
-    self.session_token ||= SecureRandon::urlsafe_base64
+    self.session_token ||= SecureRandom::urlsafe_base64
   end
 
   # Temporary. Create user form will have option.
@@ -36,7 +37,7 @@ class User < ApplicationRecord
   end
 
   def reset_session_token
-    self.session_token = SecureRandon::urlsafe_base64
+    self.session_token = SecureRandom::urlsafe_base64
     self.save!
     self.session_token
   end
