@@ -22,7 +22,6 @@ class SignupForm extends Component {
     e.preventDefault()
     console.log(this.state)
     this.props.signup(this.state)
-      .then(() => this.props.history.push('/'))
   }
 
   render() {
