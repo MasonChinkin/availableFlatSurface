@@ -30,24 +30,21 @@ class SignupForm extends Component {
       <div className='signup-form'>
         <h1>Welcome to AvailableFlatSurface!</h1>
         <form onSubmit={this.handleSubmit} className='flex-col-start'>
-          <label>name
-            <input
-              type="text"
-              value={this.state.name}
-              onChange={this.handleInput('name')} />
-          </label>
-          <label>email
-            <input
-              type="text"
-              value={this.state.email}
-              onChange={this.handleInput('email')} />
-          </label>
-          <label>password
-            <input
-              type="password"
-              value={this.state.password}
-              onChange={this.handleInput('password')} />
-          </label>
+          <input
+            type="text"
+            placeholder="name"
+            value={this.state.name}
+            onChange={this.handleInput('name')} />
+          <input
+            type="text"
+            placeholder="email"
+            value={this.state.email}
+            onChange={this.handleInput('email')} />
+          <input
+            type="password"
+            placeholder="password"
+            value={this.state.password}
+            onChange={this.handleInput('password')} />
 
           <input type="submit" onSubmit={this.handleSubmit} value="Create Account" />
         </form>

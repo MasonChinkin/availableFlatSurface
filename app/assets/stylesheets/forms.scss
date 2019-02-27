@@ -1,9 +1,17 @@
 .signup-form {
   width: 460px;
   height: 857px;
+}
+
+.signin-form {
+  width: 460px;
+  height: 400px;
+}
+
+[class*="-form"] {
   background: white;
 }
 
-.signup-form input {
+[class*="-form"] input {
   border: 1px solid rgb(222, 222, 222);
 }

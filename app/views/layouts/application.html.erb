@@ -6,6 +6,15 @@
     <%= csp_meta_tag %>
     <script src="http://localhost:35729/livereload.js"></script>
 
+    <% if current_user %>
+      <script>
+        window.currentUser = {
+          "id": <%= current_user.id %>,
+          "name": "<%= current_user.name %>"
+          };
+      </script>
+    <% end %>
+
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
