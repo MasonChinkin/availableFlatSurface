@@ -1,8 +1,11 @@
 import React from 'react';
+import SignUpFormContainer from './session/SignupFormContainer';
+import { Route } from 'react-router-dom'
 
 const App = () => (
   <div>
-    <h1>react is working</h1>
+    <Route path={`/signup`} component={SignUpFormContainer} />
+    {/* <SignUpFormContainer /> */}
   </div>
 )
 

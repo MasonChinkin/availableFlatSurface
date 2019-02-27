@@ -23,7 +23,7 @@ export const signup = user => dispatch => {
   return SessionUtils.signup(user)
     .then(
       user => dispatch(receiveUser(user)),
-      errors => dispatch(receiveSessionErrors(errors))
+      errors => dispatch(receiveSessionErrors(errors.responseJSON))
     );
 };
 
@@ -31,7 +31,7 @@ export const signin = user => dispatch => {
   return SessionUtils.signin(user)
     .then(
       user => dispatch(receiveUser(user)),
-      errors => dispatch(receiveSessionErrors(errors))
+      errors => dispatch(receiveSessionErrors(errors.responseJSON))
     );
 };
 
@@ -39,6 +39,6 @@ export const signout = user => dispatch => {
   return SessionUtils.signout(user)
     .then(
       userId => dispatch(signoutUser(userId)),
-      errors => dispatch(receiveSessionErrors(errors))
+      errors => dispatch(receiveSessionErrors(errors.responseJSON))
     );
 };
