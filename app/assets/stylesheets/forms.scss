@@ -15,6 +15,10 @@ $input-border-hover: rgb(200, 200, 200);
   width: 460px;
   font-family: 'Roboto',
     sans-serif;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 [class*="-form"]>h1 {
