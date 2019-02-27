@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
 
 const NavBar = ({ currentUser, signout }) => {
 
@@ -10,8 +11,8 @@ const NavBar = ({ currentUser, signout }) => {
     </>
   ) : (
       <>
-        <h1 className="signup-button">Sign up</h1>
-        <h1 className="signup-button">Sign in</h1>
+        <Link className="signup-button" to={`/signup`}>Sign up</Link>
+        <Link className="signup-button" to={`/signin`}>Sign in</Link>
       </>
     );
 
