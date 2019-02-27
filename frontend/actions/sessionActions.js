@@ -9,9 +9,8 @@ const receiveUser = user => ({
   user
 });
 
-const signoutUser = userId => ({
-  type: LOGOUT_USER,
-  userId
+const signoutUser = () => ({
+  type: LOGOUT_USER
 });
 
 const receiveSessionErrors = errors => ({
@@ -35,10 +34,10 @@ export const signin = user => dispatch => {
     );
 };
 
-export const signout = user => dispatch => {
-  return SessionUtils.signout(user)
+export const signout = () => dispatch => {
+  return SessionUtils.signout()
     .then(
-      userId => dispatch(signoutUser(userId)),
+      userId => dispatch(signoutUser()),
       errors => dispatch(receiveSessionErrors(errors.responseJSON))
     );
 };
