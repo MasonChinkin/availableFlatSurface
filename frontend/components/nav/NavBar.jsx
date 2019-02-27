@@ -5,30 +5,32 @@ const NavBar = ({ currentUser, signout }) => {
 
   const sessionButtons = currentUser ? (
     <>
-      <button><i className='far fa-calendar-alt'></i></button>
-      <h1>Hi, {currentUser.name} <i className="material-icons">keyboard_arrow_down</i></h1>
-      <button onClick={signout}>signout (temp)</button>
+      <li><i className='far fa-calendar-alt'></i></li>
+      <li>Hi, {currentUser.name} <i className="material-icons">keyboard_arrow_down</i></li>
+      <li onClick={signout}>signout (temp)</li>
     </>
   ) : (
       <>
         <Link className="signup-button" to={`/signup`}>Sign up</Link>
-        <Link className="signup-button" to={`/signin`}>Sign in</Link>
+        <Link className="signin-button" to={`/signin`}>Sign in</Link>
       </>
     );
 
   return (
     <nav>
-      <div className="left-nav">
-        <h1><img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Venn0110.svg" alt="table symbol" />
-          AvailableOpenTable</h1>
-        <button >
-          <i className="material-icons">place</i>
-          <i className="material-icons">keyboard_arrow_down</i>
-        </button>
-      </div>
-      <div className="right-nav">
+      <ul className="left-nav">
+        <li className="nav-logo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Venn0110.svg" alt="table symbol" />
+          AvailableOpenTable
+          </li>
+        <li className="nav-place">
+          <i className="material-icons place">place</i>
+          <i className="material-icons keyboard-arrow">keyboard_arrow_down</i>
+        </li>
+      </ul>
+      <ul className="right-nav">
         {sessionButtons}
-      </div>
+      </ul>
     </nav>
   )
 }

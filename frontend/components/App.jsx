@@ -6,11 +6,11 @@ import { AuthedRoute, NotAuthedRoute } from '../utils/routesUtil';
 import NavBarContainer from './nav/NavBarContainer';
 
 const App = () => (
-  <div>
+  <>
     <Route path={`/`} component={NavBarContainer} />
-    <AuthedRoute path={`/signup`} component={SignUpFormContainer} />
-    <AuthedRoute path={`/signin`} component={SigninFormContainer} />
-  </div>
+    <NotAuthedRoute path={`/signup`} component={SignUpFormContainer} />
+    <NotAuthedRoute path={`/signin`} component={SigninFormContainer} />
+  </>
 )
 
 export default App;

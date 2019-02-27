@@ -1,17 +1,85 @@
+$input-border: rgb(228, 228, 228);
+$input-border-hover: rgb(200, 200, 200);
+
 .signup-form {
-  width: 460px;
-  height: 857px;
+  height: 500px;
 }
 
 .signin-form {
-  width: 460px;
   height: 400px;
 }
 
 [class*="-form"] {
   background: white;
+  padding: 1.875rem 1.4rem;
+  width: 460px;
+  font-family: 'Roboto',
+    sans-serif;
+}
+
+[class*="-form"]>h1 {
+  font-size: 1.5rem;
+  line-height: 1.165;
+  font-weight: 500;
+  border-bottom: $input-border 1px solid;
+  margin-bottom: 1rem;
+  padding-bottom: 5px;
 }
 
 [class*="-form"] input {
-  border: 1px solid rgb(222, 222, 222);
+  border: 1px solid $input-border;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+}
+
+[class*="-form"] input:hover {
+  border: 1px solid $input-border-hover;
+}
+
+[class*="-form"] input[type="submit"] {
+  color: white;
+  font-size: 1.2rem;
+  background: rgb(207, 53, 32);
+}
+
+.form-footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 25px;
+  padding-top: 15px;
+  border-top: 1px solid $input-border;
+}
+
+.form-footer>* {
+  margin-bottom: 15px;
+}
+
+.form-footer>ul {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.form-footer>ul>li>img {
+  height: 32px;
+  width: auto;
+}
+
+.form-footer>ul>li {
+  display: flex;
+  width: 47%;
+  justify-content: space-between;
+  align-items: center;
+  border: $input-border 1px solid;
+  border-radius: 3px;
+  padding: 0.6rem 0.3rem;
+}
+
+.form-footer>ul>li:first-child {
+  margin-right: 5%
+}
+
+.form-footer-link {
+  color: rgb(220, 100, 110)
 }

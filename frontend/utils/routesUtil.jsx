@@ -6,7 +6,7 @@ const mapStateToProps = state => ({
   loggedIn: Boolean(state.session.currentUser),
 });
 
-const Auth = ({ component: Component, path, loggedIn }) => (
+const NotAuthed = ({ component: Component, path, loggedIn }) => (
   <Route
     path={path}
     render={props => (
@@ -15,7 +15,7 @@ const Auth = ({ component: Component, path, loggedIn }) => (
   />
 );
 
-const Protected = ({ component: Component, path, loggedIn }) => (
+const Authed = ({ component: Component, path, loggedIn }) => (
   <Route
     path={path}
     render={props => (
@@ -24,5 +24,5 @@ const Protected = ({ component: Component, path, loggedIn }) => (
   />
 );
 
-export const AuthedRoute = withRouter(connect(mapStateToProps)(Auth));
-export const NotAuthedRoute = withRouter(connect(mapStateToProps, undefined)(Protected));
+export const NotAuthedRoute = withRouter(connect(mapStateToProps)(NotAuthed));
+export const AuthedRoute = withRouter(connect(mapStateToProps, undefined)(Authed));
