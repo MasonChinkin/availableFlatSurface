@@ -40,7 +40,7 @@ class SigninForm extends Component {
   demoSignin(e) {
     let email = "007@gmail.com".split('');
     let password = "password".split('');
-    let speed = 50;
+    let speed = 70;
 
     this.setIntervalX(() => this.fillField("email", email), speed, email.length)
       .then(() => (this.setIntervalX(() => this.fillField("password", password), speed, password.length)))
