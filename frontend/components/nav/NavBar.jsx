@@ -7,6 +7,10 @@ class NavBar extends React.Component {
     this.dropDown = this.dropDown.bind(this)
   }
 
+  fname(name) {
+    return name.split(' ')[0]
+  }
+
   dropDown() {
     // let el = document.getElementsByClassName('drop-down');
 
@@ -14,11 +18,10 @@ class NavBar extends React.Component {
   }
 
   render() {
-    const fname = this.props.currentUser.name.split(' ')[0]
     const sessionButtons = this.props.currentUser ? (
       <>
         <li className="calendar-button"><i className='far fa-calendar-alt'></i></li>
-        <li onClick={this.dropDown} className="profile-button">Hi, {fname} <i className="material-icons">keyboard_arrow_down</i>
+        <li onClick={this.dropDown} className="profile-button">Hi, {this.fname(this.props.currentUser.name)} <i className="material-icons">keyboard_arrow_down</i>
           <ul className="drop-down">
             <li><Link to={`/`}>My Profile</Link></li>
             <li><Link to={`/`}>Dining History</Link></li>
