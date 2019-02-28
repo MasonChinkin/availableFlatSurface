@@ -27,14 +27,29 @@ class SignupForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.clearSessionErrors();
     this.props.signup(this.state);
   }
 
+  componentWillUnmount() {
+    this.props.clearSessionErrors();
+  }
+
   render() {
+    const errors = this.props.errors.map(err => {
+      return (
+        <li>{err}</li>
+      )
+    })
+
     return (
       <div className="modal-background" onClick={this.handleModalClick}>
         <div className='signup-form'>
           <h1>Welcome to AvailableFlatSurface!</h1>
+
+          <ul className="form-error">
+            {errors}
+          </ul>
           <form onSubmit={this.handleSubmit} className='flex-col-start'>
             <input
               type="text"
@@ -47,11 +62,12 @@ class SignupForm extends Component {
               value={this.state.lname}
               onChange={this.handleInput('lname')} />
             <input
-              type="text"
+              type="email"
               placeholder="Enter email *"
               value={this.state.email}
               onChange={this.handleInput('email')} />
             <input
+              id="password"
               type="password"
               placeholder="Enter password *"
               value={this.state.password}

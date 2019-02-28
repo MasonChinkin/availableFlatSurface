@@ -1,8 +1,4 @@
-$font-main: 'Lato',
-sans-serif;
-$font-weight: 300;
-$input-border: rgb(220, 220, 220);
-$input-border-hover: rgb(200, 200, 200);
+@import 'constants';
 
 .signup-form {
   height: 600px;

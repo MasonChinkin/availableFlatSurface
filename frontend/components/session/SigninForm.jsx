@@ -20,15 +20,19 @@ class SigninForm extends Component {
     }
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.signin(this.state)
-      .then(() => this.props.history.push('/'));
-  }
-
   handleModalClick() {
     // must check target because for some reason currentTarget is document, must investigate
     if (event.target.className === "modal-background") this.props.history.push('/');
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.clearSessionErrors();
+    this.props.signin(this.state);
+  }
+
+  componentWillUnmount() {
+    this.props.clearSessionErrors();
   }
 
   render() {
