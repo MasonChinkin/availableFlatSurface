@@ -93,7 +93,7 @@ class SigninForm extends Component {
               value={this.state.password}
               onChange={this.handleInput('password')} />
 
-            <input type="submit" className="submit-button" value="Sign In" />
+            <input className="submit-button" type="submit" className="submit-button" value="Sign In" />
             <input className="submit-button" onClick={this.demoSignin} value="Demo Account" />
 
             <div className="form-footer">

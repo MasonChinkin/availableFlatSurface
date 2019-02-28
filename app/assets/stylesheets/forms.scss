@@ -41,11 +41,12 @@
   border: 1px solid $input-border-hover;
 }
 
-[class*="-form"] input[type="submit"] {
+.submit-button {
   color: white;
   font-size: 1.2rem;
   font-weight: $font-weight;
   background: rgb(207, 53, 32);
+  text-align: center;
 }
 
 .form-footer {
