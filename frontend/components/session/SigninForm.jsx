@@ -39,12 +39,12 @@ class SigninForm extends Component {
           <form onSubmit={this.handleSubmit} className='flex-col-start'>
             <input
               type="text"
-              placeholder="email *"
+              placeholder="Email *"
               value={this.state.email}
               onChange={this.handleInput('email')} />
             <input
               type="password"
-              placeholder="password *"
+              placeholder="Password *"
               value={this.state.password}
               onChange={this.handleInput('password')} />
 

@@ -5,7 +5,8 @@ class SignupForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
+      fname: '',
+      lname: '',
       email: '',
       password: ''
     };
@@ -37,17 +38,22 @@ class SignupForm extends Component {
           <form onSubmit={this.handleSubmit} className='flex-col-start'>
             <input
               type="text"
-              placeholder="name *"
-              value={this.state.name}
-              onChange={this.handleInput('name')} />
+              placeholder="First Name *"
+              value={this.state.fname}
+              onChange={this.handleInput('fname')} />
             <input
               type="text"
-              placeholder="email *"
+              placeholder="Last Name *"
+              value={this.state.lname}
+              onChange={this.handleInput('lname')} />
+            <input
+              type="text"
+              placeholder="Email *"
               value={this.state.email}
               onChange={this.handleInput('email')} />
             <input
               type="password"
-              placeholder="password *"
+              placeholder="Password *"
               value={this.state.password}
               onChange={this.handleInput('password')} />
 
