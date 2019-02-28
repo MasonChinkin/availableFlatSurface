@@ -8,7 +8,8 @@ class SignupForm extends Component {
       fname: '',
       lname: '',
       email: '',
-      password: ''
+      password: '',
+      repassword: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -48,12 +49,17 @@ class SignupForm extends Component {
               onChange={this.handleInput('lname')} />
             <input
               type="text"
-              placeholder="Email *"
+              placeholder="Enter email *"
               value={this.state.email}
               onChange={this.handleInput('email')} />
             <input
               type="password"
-              placeholder="Password *"
+              placeholder="Enter password *"
+              value={this.state.password}
+              onChange={this.handleInput('password')} />
+            <input
+              type="password"
+              placeholder="Re-enter password *"
               value={this.state.password}
               onChange={this.handleInput('password')} />
 
@@ -62,12 +68,12 @@ class SignupForm extends Component {
             <div className="form-footer">
               <h2>Don't want to complete the form? (not implemented)</h2>
               <ul>
-                <li>
+                <li className="facebook-button">
                   <img src="https://68ef2f69c7787d4078ac-7864ae55ba174c40683f10ab811d9167.ssl.cf1.rackcdn.com/facebook-icon_64x64.png"
                     alt="facebook logo" />
                   Continue with Facebook
               </li>
-                <li>
+                <li className="google-button">
                   <img src="https://68ef2f69c7787d4078ac-7864ae55ba174c40683f10ab811d9167.ssl.cf1.rackcdn.com/google-plus-icon_64x64.png"
                     alt="facebook logo" />
                   Continue with Google

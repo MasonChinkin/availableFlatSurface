@@ -53,12 +53,12 @@ class SigninForm extends Component {
             <div className="form-footer">
               <h2>Don't want to complete the form? (not implemented)</h2>
               <ul>
-                <li>
+                <li className="facebook-button">
                   <img src="https://68ef2f69c7787d4078ac-7864ae55ba174c40683f10ab811d9167.ssl.cf1.rackcdn.com/facebook-icon_64x64.png"
                     alt="facebook logo" />
                   Continue with Facebook
                 </li>
-                <li>
+                <li className="google-button">
                   <img src="https://68ef2f69c7787d4078ac-7864ae55ba174c40683f10ab811d9167.ssl.cf1.rackcdn.com/google-plus-icon_64x64.png"
                     alt="facebook logo" />
                   Continue with Google

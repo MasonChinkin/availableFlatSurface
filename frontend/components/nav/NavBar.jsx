@@ -5,9 +5,15 @@ const NavBar = ({ currentUser, signout }) => {
 
   const sessionButtons = currentUser ? (
     <>
-      <li><i className='far fa-calendar-alt'></i></li>
-      <li>Hi, {currentUser.name} <i className="material-icons">keyboard_arrow_down</i></li>
-      <li onClick={signout}>signout (temp)</li>
+      <li className="calendar-button"><i className='far fa-calendar-alt'></i></li>
+      <li className="profile-button">Hi, {currentUser.name} <i className="material-icons">keyboard_arrow_down</i>
+        <ul className="drop-down">
+          <li><Link to={`/`}>My Profile</Link></li>
+          <li><Link to={`/`}>Dining History</Link></li>
+          <li><Link onClick={signout} to={`/`}>Sign out</Link></li>
+        </ul>
+      </li>
+      <li className="logout-button" onClick={signout}>signout (temp)</li>
     </>
   ) : (
       <>
@@ -21,7 +27,7 @@ const NavBar = ({ currentUser, signout }) => {
       <ul className="left-nav">
         <li className="nav-logo">
           <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Venn0110.svg" alt="table symbol" />
-          AvailableOpenTable
+          AvailableFlatSurface
           </li>
         <li className="nav-place">
           <i className="material-icons place">place</i>
