@@ -12,11 +12,13 @@ class SigninForm extends Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleModalClick = this.handleModalClick.bind(this);
+    this.demoSignin = this.demoSignin.bind(this);
+    this.setIntervalX = this.setIntervalX.bind(this);
   }
 
   handleInput(field) {
     return (e) => {
-      this.setState({ [field]: e.currentTarget.value })
+      this.setState({ [field]: e.currentTarget.value });
     }
   }
 
@@ -33,6 +35,35 @@ class SigninForm extends Component {
 
   componentWillUnmount() {
     this.props.clearSessionErrors();
+  }
+
+  demoSignin(e) {
+    let email = "007@gmail.com".split('');
+    let password = "password".split('');
+    let speed = 75;
+
+    this.setIntervalX(() => this.fillField("email", email), speed, email.length)
+      .then(() => (this.setIntervalX(() => this.fillField("password", password), speed, password.length)))
+      .then(() => this.handleSubmit(e));
+  }
+
+  setIntervalX(callback, delay, repetitions) {
+    return new Promise(resolve => {
+      var x = 0;
+      var intervalID = window.setInterval(function () {
+
+        callback();
+
+        if (++x === repetitions) {
+          window.clearInterval(intervalID);
+          resolve();
+        }
+      }, delay);
+    });
+  }
+
+  fillField(field, value) {
+    this.setState({ [field]: this.state[field] + value.shift() });
   }
 
   render() {
@@ -53,6 +84,7 @@ class SigninForm extends Component {
               onChange={this.handleInput('password')} />
 
             <input type="submit" className="submit-button" onSubmit={this.handleSubmit} value="Sign In" />
+            <input type="submit" className="submit-button" onClick={this.demoSignin} value="Demo Account" />
 
             <div className="form-footer">
               <h2>Don't want to complete the form? (not implemented)</h2>

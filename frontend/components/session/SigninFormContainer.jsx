@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { signin } from '../../actions/sessionActions';
+import { signin, clearSessionErrors } from '../../actions/sessionActions';
 import SigninForm from './SigninForm';
 
 const mST = ({ errors }) => ({
