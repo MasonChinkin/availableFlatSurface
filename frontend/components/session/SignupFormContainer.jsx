@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import { signup } from '../../actions/sessionActions';
-import SignupForm from './signupForm';
+import SignupForm from './SignupForm';
 
 const mDP = dispatch => ({
   signup: user => dispatch(signup(user))
