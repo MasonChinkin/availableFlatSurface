@@ -1,20 +1,25 @@
+$font-main: 'Lato',
+sans-serif;
+$footer-margin-left: 10%;
+
 footer {
   background: rgb(38, 38, 38);
-  font-family: 'Roboto',
-    sans-serif;
+  font-family: $font-main;
   height: 350px;
 }
 
 .footer-flex {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
+  margin-left: $footer-margin-left;
 }
 
 .footer-flex>ul {
   color: white;
   font-size: 18px;
   font-weight: bold;
-  margin: 10px 0;
+  margin-top: 10px;
+  margin-right: 100px;
 }
 
 .footer-flex>ul>* {
@@ -29,7 +34,7 @@ footer {
 
 .legal {
   font-size: 13px;
-  margin: 30px 0 10px 10%;
+  margin: 30px 0 10px $footer-margin-left;
 }
 
 .legal>ul {

@@ -1,10 +1,12 @@
+$font-main: 'Lato',
+sans-serif;
+
 nav {
   display: flex;
   justify-content: space-between;
   height: 54px;
   padding: 0 1.25rem;
-  font-family: 'Roboto',
-    sans-serif;
+  font-family: $font-main;
   background: white;
 }
 

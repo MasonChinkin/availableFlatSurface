@@ -1,4 +1,7 @@
-$input-border: rgb(228, 228, 228);
+$font-main: 'Lato',
+sans-serif;
+$font-weight: 300;
+$input-border: rgb(220, 220, 220);
 $input-border-hover: rgb(200, 200, 200);
 
 .signup-form {
@@ -6,15 +9,15 @@ $input-border-hover: rgb(200, 200, 200);
 }
 
 .signin-form {
-  height: 400px;
+  height: auto;
 }
 
 [class*="-form"] {
   background: white;
   padding: 1.875rem 1.4rem;
   width: 460px;
-  font-family: 'Roboto',
-    sans-serif;
+  font-family: $font-main;
+  font-weight: $font-weight;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -24,7 +27,7 @@ $input-border-hover: rgb(200, 200, 200);
 [class*="-form"]>h1 {
   font-size: 1.5rem;
   line-height: 1.165;
-  font-weight: 500;
+  font-weight: $font-weight;
   border-bottom: $input-border 1px solid;
   margin-bottom: 1rem;
   padding-bottom: 5px;
@@ -32,6 +35,7 @@ $input-border-hover: rgb(200, 200, 200);
 
 [class*="-form"] input {
   border: 1px solid $input-border;
+  height: 54px;
   padding: 1rem;
   margin-bottom: 0.5rem;
   border-radius: 5px;
@@ -44,6 +48,7 @@ $input-border-hover: rgb(200, 200, 200);
 [class*="-form"] input[type="submit"] {
   color: white;
   font-size: 1.2rem;
+  font-weight: $font-weight;
   background: rgb(207, 53, 32);
 }
 
@@ -78,16 +83,19 @@ $input-border-hover: rgb(200, 200, 200);
   border: $input-border 1px solid;
   border-radius: 3px;
   padding: 0.6rem 0.3rem;
+  font-size: 14px;
 }
 
 .form-footer>ul>li:first-child {
   margin-right: 5%
 }
 
-.form-footer-link {
-  color: rgb(220, 100, 110)
-}
-
 .form-footer>p {
   line-height: 1.5;
+  font-size: 14px;
+  color: grey;
+}
+
+.form-footer-link {
+  color: rgb(220, 100, 110)
 }
