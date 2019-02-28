@@ -8,8 +8,7 @@ class SignupForm extends Component {
       fname: '',
       lname: '',
       email: '',
-      password: '',
-      repassword: ''
+      password: ''
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -57,13 +56,8 @@ class SignupForm extends Component {
               placeholder="Enter password *"
               value={this.state.password}
               onChange={this.handleInput('password')} />
-            <input
-              type="password"
-              placeholder="Re-enter password *"
-              value={this.state.password}
-              onChange={this.handleInput('password')} />
 
-            <input type="submit" onSubmit={this.handleSubmit} value="Create Account" />
+            <input type="submit" className="submit-button" onSubmit={this.handleSubmit} value="Create Account" />
 
             <div className="form-footer">
               <h2>Don't want to complete the form? (not implemented)</h2>

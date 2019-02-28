@@ -48,7 +48,7 @@ class SigninForm extends Component {
               value={this.state.password}
               onChange={this.handleInput('password')} />
 
-            <input type="submit" onSubmit={this.handleSubmit} value="Sign In" />
+            <input type="submit" className="submit-button" onSubmit={this.handleSubmit} value="Sign In" />
 
             <div className="form-footer">
               <h2>Don't want to complete the form? (not implemented)</h2>

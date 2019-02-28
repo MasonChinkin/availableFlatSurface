@@ -13,7 +13,6 @@ const NavBar = ({ currentUser, signout }) => {
           <li><Link onClick={signout} to={`/`}>Sign out</Link></li>
         </ul>
       </li>
-      <li className="logout-button" onClick={signout}>signout (temp)</li>
     </>
   ) : (
       <>
@@ -29,7 +28,7 @@ const NavBar = ({ currentUser, signout }) => {
           <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Venn0110.svg" alt="table symbol" />
           AvailableFlatSurface
           </li>
-        <li className="nav-place">
+        <li className="nav-place-button">
           <i className="material-icons place">place</i>
           <i className="material-icons keyboard-arrow">keyboard_arrow_down</i>
         </li>
