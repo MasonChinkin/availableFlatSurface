@@ -67,10 +67,20 @@ class SigninForm extends Component {
   }
 
   render() {
+
+    const errors = this.props.errors.map(err => {
+      return (
+        <li>{err}</li>
+      )
+    })
+
     return (
       <div className="modal-background" onClick={this.handleModalClick}>
         <div className='signin-form'>
           <h1>Please sign in</h1>
+          <ul className="form-errors">
+            {errors}
+          </ul>
           <form onSubmit={this.handleSubmit} className='flex-col-start'>
             <input
               type="text"
@@ -83,8 +93,8 @@ class SigninForm extends Component {
               value={this.state.password}
               onChange={this.handleInput('password')} />
 
-            <input type="submit" className="submit-button" onSubmit={this.handleSubmit} value="Sign In" />
-            <input type="submit" className="submit-button" onClick={this.demoSignin} value="Demo Account" />
+            <input type="submit" className="submit-button" value="Sign In" />
+            <input className="submit-button" onClick={this.demoSignin} value="Demo Account" />
 
             <div className="form-footer">
               <h2>Don't want to complete the form? (not implemented)</h2>

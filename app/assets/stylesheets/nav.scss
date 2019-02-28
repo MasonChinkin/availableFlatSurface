@@ -4,7 +4,7 @@ nav {
   display: flex;
   justify-content: space-between;
   height: 54px;
-  padding: 0 1.25rem;
+  padding: 0 1rem;
   font-family: $font-main;
   background: white;
 }
@@ -73,22 +73,33 @@ nav>ul>* {
 }
 
 .drop-down {
-  display: none;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  transition: all .4s;
   position: absolute;
   background: white;
-  left: -1px;
-  top: 54px;
+  right: 42px;
+  top: 25px;
   white-space: nowrap;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, .1);
+  padding: 4px 0;
 }
 
-.profile-button:hover .drop-down {
-  display: block;
+.drop-down-active {
+  visibility: visible;
+  opacity: 1;
+  top: 48px;
 }
+
 
 .drop-down>li {
-  color: grey;
   padding: 10px;
   margin: 10px;
+}
+
+.drop-down a {
+  color: grey;
 }

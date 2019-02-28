@@ -1,20 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
+import DropDown from './DropDown';
 
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
-    this.dropDown = this.dropDown.bind(this)
+    this.state = { dropped: false };
+    this.dropDown = this.dropDown.bind(this);
   }
 
   fname(name) {
-    return name.split(' ')[0]
+    return name.split(' ')[0];
   }
 
   dropDown() {
-    // let el = document.getElementsByClassName('drop-down');
-
-    // el.style.display = (el.style.display === 'none') ? 'block' : 'none';
+    this.setState({ dropped: !this.state.dropped });
   }
 
   render() {
@@ -22,12 +22,7 @@ class NavBar extends React.Component {
       <>
         <li className="calendar-button"><i className='far fa-calendar-alt'></i></li>
         <li onClick={this.dropDown} className="profile-button">Hi, {this.fname(this.props.currentUser.name)} <i className="material-icons">keyboard_arrow_down</i>
-          <ul className="drop-down">
-            <li><Link to={`/`}>My Profile</Link></li>
-            <li><Link to={`/`}>Dining History</Link></li>
-            <li><Link to={`/`}>Saved Restaurants</Link></li>
-            <li><Link onClick={this.props.signout} to={`/`}>Sign out</Link></li>
-          </ul>
+          <DropDown signout={this.props.signout} dropped={this.state.dropped} />
         </li>
       </>
     ) : (

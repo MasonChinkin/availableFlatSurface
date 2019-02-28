@@ -27,7 +27,7 @@ class SignupForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.clearSessionErrors();
+    // this.props.clearSessionErrors();
     this.props.signup(this.state);
   }
 
@@ -36,9 +36,9 @@ class SignupForm extends Component {
   }
 
   render() {
-    const errors = this.props.errors.map(err => {
+    const errors = this.props.errors.map((err, i) => {
       return (
-        <li>{err}</li>
+        <li key={i}>{err}</li>
       )
     })
 
@@ -47,7 +47,7 @@ class SignupForm extends Component {
         <div className='signup-form'>
           <h1>Welcome to AvailableFlatSurface!</h1>
 
-          <ul className="form-error">
+          <ul className="form-errors">
             {errors}
           </ul>
           <form onSubmit={this.handleSubmit} className='flex-col-start'>
