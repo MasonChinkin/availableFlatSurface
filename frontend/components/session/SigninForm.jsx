@@ -22,7 +22,6 @@ class SigninForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
     this.props.signin(this.state)
       .then(() => this.props.history.push('/'));
   }
