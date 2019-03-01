@@ -1,0 +1,16 @@
+@import '../_/constants';
+
+.search-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: auto;
+}
+
+.search-item {
+  width: 617px;
+  height: 166px;
+  border-bottom: 1px solid $input-border;
+  padding: .875rem 0;
+}

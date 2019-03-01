@@ -3,7 +3,7 @@ import { requestAllRestaurants } from '../../../actions/restaurantActions';
 import RestaurantSearch from './RestaurantSearch';
 
 const mSP = ({ entities }) => ({
-  restaurants: entities.restaurants
+  restaurants: Object.values(entities.restaurants)
 });
 
 const mDP = dispatch => ({
