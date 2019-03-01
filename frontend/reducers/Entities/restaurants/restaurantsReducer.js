@@ -13,6 +13,6 @@ const restaurantReducer = (oldState = {}, action) => {
     default:
       return oldState;
   }
-}
+};
 
 export default restaurantReducer;
