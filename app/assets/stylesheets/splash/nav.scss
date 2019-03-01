@@ -1,4 +1,4 @@
-@import 'constants';
+@import '../_/constants';
 
 nav {
   display: flex;
@@ -7,10 +7,15 @@ nav {
   padding: 0 1rem;
   font-family: $font-main;
   background: white;
+
+  & img {
+    height: 40px;
+  }
 }
 
-nav img {
-  height: 40px;
+nav>ul>* {
+  display: flex;
+  align-items: center;
 }
 
 .left-nav {
@@ -22,11 +27,10 @@ nav img {
 .right-nav {
   display: flex;
   justify-content: flex-end;
-}
 
-nav>ul>* {
-  display: flex;
-  align-items: center;
+  &>* {
+    padding: 0 1rem;
+  }
 }
 
 .nav-logo {
@@ -34,10 +38,10 @@ nav>ul>* {
   font-weight: 700;
   margin-right: 20px;
   cursor: pointer;
-}
 
-.nav-logo>img {
-  margin-right: 5px;
+  & img {
+    margin-right: 5px;
+  }
 }
 
 .nav-place-button {
@@ -51,10 +55,6 @@ nav>ul>* {
 
 .place {
   color: lightgrey;
-}
-
-.right-nav>* {
-  padding: 0 1rem;
 }
 
 .signup-button {
@@ -86,20 +86,19 @@ nav>ul>* {
   border-bottom-right-radius: 5px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, .1);
   padding: 4px 0;
+
+  &>li {
+    padding: 10px;
+    margin: 10px;
+  }
+
+  & a {
+    color: grey;
+  }
 }
 
 .drop-down-active {
   visibility: visible;
   opacity: 1;
   top: 48px;
-}
-
-
-.drop-down>li {
-  padding: 10px;
-  margin: 10px;
-}
-
-.drop-down a {
-  color: grey;
 }

@@ -1,7 +1,7 @@
-@import 'constants';
+@import '../_/constants';
 
 .signup-form {
-  height: 600px;
+  height: auto;
 }
 
 .signin-form {
@@ -13,44 +13,45 @@
   padding: 1.875rem 1.4rem;
   width: 460px;
   font-family: $font-main;
-  font-weight: $font-weight;
+  font-weight: $form-font-weight;
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  & input {
+    border: 1px solid $input-border;
+    height: 54px;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+
+    &:hover {
+      border: 1px solid $input-border-hover;
+    }
+
+    &:focus {
+      border: 1px solid $input-border-focus;
+      border-radius: 0;
+    }
+  }
 }
 
 [class*="-form"]>h1 {
   font-size: 1.5rem;
   line-height: 1.165;
-  font-weight: $font-weight;
+  font-weight: $form-font-weight;
   border-bottom: $input-border 1px solid;
   margin-bottom: 1rem;
   padding-bottom: 5px;
 }
 
-[class*="-form"] input {
-  border: 1px solid $input-border;
-  height: 54px;
-  padding: 1rem;
-  margin-bottom: 0.5rem;
-  border-radius: 5px;
-}
-
-[class*="-form"] input:hover {
-  border: 1px solid $input-border-hover;
-}
-
 .submit-button {
   color: white;
   font-size: 1.2rem;
-  font-weight: $font-weight;
+  font-weight: $form-font-weight;
   background: rgb(207, 53, 32);
   text-align: center;
-
-  &:focus {
-    outline: none;
-  }
 }
 
 .form-footer {

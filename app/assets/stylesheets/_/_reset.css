@@ -139,3 +139,10 @@ html {
 *:after {
   box-sizing: inherit;
 }
+
+input,
+textarea,
+select,
+a {
+  outline: none;
+}
