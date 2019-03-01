@@ -3,7 +3,8 @@
 footer {
   background: rgb(38, 38, 38);
   font-family: $font-main;
-  height: 350px;
+  height: auto;
+  padding: 20px 0;
 }
 
 .footer-flex {
@@ -16,7 +17,7 @@ footer {
   color: white;
   font-size: 18px;
   font-weight: bold;
-  margin-top: 10px;
+  margin-bottom: 15px;
   margin-right: 100px;
 }
 
