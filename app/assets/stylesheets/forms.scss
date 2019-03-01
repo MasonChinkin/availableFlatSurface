@@ -47,6 +47,10 @@
   font-weight: $font-weight;
   background: rgb(207, 53, 32);
   text-align: center;
+
+  &:focus {
+    outline: none;
+  }
 }
 
 .form-footer {

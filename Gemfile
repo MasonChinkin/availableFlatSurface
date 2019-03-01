@@ -65,3 +65,4 @@ gem "annotate", "~> 2.7", :group => :development
 gem "better_errors", "~> 2.5", :group => :development
 gem "binding_of_caller", "~> 0.8.0", :group => :development
 gem "jquery-rails", "~> 4.3"
+gem "aws-sdk-s3"

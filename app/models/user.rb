@@ -21,6 +21,8 @@ class User < ApplicationRecord
   before_validation :ensure_session_token
   before_validation :ensure_vip
 
+  has_many :restaurants
+
   attr_reader :password
 
   def self.find_by_credentials(email, password)

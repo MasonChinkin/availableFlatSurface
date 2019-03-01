@@ -42,6 +42,9 @@ class SigninForm extends Component {
     let password = "password".split('');
     let speed = 70;
 
+    // stop demo from triggering sign in
+    e.preventDefault();
+
     this.setIntervalX(() => this.fillField("email", email), speed, email.length)
       .then(() => (this.setIntervalX(() => this.fillField("password", password), speed, password.length)))
       .then(() => this.handleSubmit(e));
@@ -94,7 +97,7 @@ class SigninForm extends Component {
               onChange={this.handleInput('password')} />
 
             <input className="submit-button" type="submit" className="submit-button" value="Sign In" />
-            <input className="submit-button" onClick={this.demoSignin} value="Demo Account" />
+            <input className="submit-button" type="submit" onClick={this.demoSignin} value=" Demo Account" />
 
             <div className="form-footer">
               <h2>Don't want to complete the form? (not implemented)</h2>
