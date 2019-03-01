@@ -27,6 +27,7 @@ class Restaurant < ApplicationRecord
   validates :name, :description, :street_address, :city, :country, :email, :user_id, presence: true
 
   has_many_attached :photos
+  has_one_attached :profile_photo
 
   belongs_to :user
 end

@@ -4,7 +4,7 @@ nav {
   display: flex;
   justify-content: space-between;
   height: 54px;
-  padding: 0 1rem;
+  padding: 0 2rem;
   font-family: $font-main;
   background: white;
 
@@ -87,13 +87,15 @@ nav>ul>* {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, .1);
   padding: 4px 0;
 
-  &>li {
-    padding: 10px;
-    margin: 10px;
-  }
-
   & a {
+    display: block;
     color: grey;
+    padding: 15px;
+    cursor: pointer;
+
+    &:hover {
+      filter: brightness(50%);
+    }
   }
 }
 
