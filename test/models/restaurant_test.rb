@@ -6,11 +6,6 @@
 #  name            :string           not null
 #  description     :text             not null
 #  cost            :integer
-#  street_address  :string           not null
-#  city            :string           not null
-#  state           :string
-#  country         :string           not null
-#  email           :string           not null
 #  phone           :string
 #  website         :string
 #  payment_options :string
@@ -21,6 +16,8 @@
 #  user_id         :integer          not null
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  address         :string           not null
+#  email           :string           not null
 #
 
 require 'test_helper'
