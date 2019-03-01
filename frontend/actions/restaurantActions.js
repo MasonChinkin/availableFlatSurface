@@ -1,7 +1,7 @@
 import * as RestaurantUtils from '../utils/restaurantUtils'
 
-const RECEIVE_ALL_RESTAURANTS = 'RECEIVE_ALL_RESTAURANTS';
-const RECEIVE_RESTAURANT = 'RECEIVE_RESTAURANTS';
+export const RECEIVE_ALL_RESTAURANTS = 'RECEIVE_ALL_RESTAURANTS';
+export const RECEIVE_RESTAURANT = 'RECEIVE_RESTAURANTS';
 
 const receiveAllRestaurants = restaurants => ({
   type: RECEIVE_ALL_RESTAURANTS,
@@ -9,16 +9,16 @@ const receiveAllRestaurants = restaurants => ({
 });
 
 const receiveRestaurant = restaurant => ({
-  type: RECEIVE_ALL_RESTAURANTS,
+  type: RECEIVE_RESTAURANT,
   restaurant
 });
 
 export const requestAllRestaurants = () => dispatch => {
   return RestaurantUtils.fetchRestaurants()
-    .then(restaurants => dispatches(receiveAllRestaurants(restaurants)))
+    .then(restaurants => dispatch(receiveAllRestaurants(restaurants)));
 }
 
 export const requestRestaurant = () => dispatch => {
   return RestaurantUtils.fetchRestaurants()
-    .then(restaurants => dispatches(receiveAllRestaurants(restaurants)))
+    .then(restaurant => dispatch(receiveRestaurant(restaurant)));
 }
