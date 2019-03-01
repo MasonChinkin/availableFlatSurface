@@ -4,25 +4,45 @@ import React from 'react';
 class DropDown extends React.Component {
   constructor(props) {
     super(props);
-    this.windowClick = this.windowClick.bind(this);
-    this.state = { dropped: this.props.dropped };
+    // this.windowClick = this.windowClick.bind(this);
   }
 
-  componentDidMount() {
-    window.addEventListener('click', this.windowClick);
-  }
+  // windowClick(e) {
+  //   // console.log(e)
+  //   if (e.path[1].className !== 'drop-down') this.setState({
+  //     dropped: !this.props.dropped,
+  //   });
+  // }
 
-  windowClick(e) {
-    // console.log(e)
-    if (e.path[1].className !== 'drop-down') this.setState({ dropped: !this.state.dropped });
+  // componentDidMount() {
+  //   console.log('adding event listener')
+  //   window.addEventListener('click', this.props.dropDown);
+  // }
 
-    // window.removeEventListener('click', this.windowClick);
-  }
+  // componentWillUnmount() {
+  //   console.log('remove event listener')
+  //   // window.removeEventListener('click', this.props.dropDown);
+  // }
+  // flipWindowListener(bool) {
+  //   if (bool) {
+  //     window.addEventListener('click', this.props.dropDown);
+  //   } else {
+  //     window.removeEventListener('click', this.props.dropDown);
+  //     // this.props.dropDown();
+  //   }
+  // }
+
+  // componentDidUpdate(prevProps, prevState) {
+  //   if (prevProps.dropped !== this.props.dropped) {
+  //     debugger
+  //     this.flipWindowListener(this.props.dropped);
+  //   }
+  // }
 
   render() {
-    const dropDownClass = this.state.dropped ? "drop-down drop-down-active" : "drop-down";
+    // const dropDownClass = this.props.dropped ? "drop-down drop-down-active" : "drop-down";
     return (
-      <ul className={dropDownClass} >
+      <ul className="drop-down drop-down-active" >
         <Link to={`/`}>My Profile</Link>
         <Link to={`/`}>Dining History</Link>
         <Link to={`/`}>Saved Restaurants</Link>

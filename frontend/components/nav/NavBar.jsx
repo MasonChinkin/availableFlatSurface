@@ -5,7 +5,6 @@ import DropDown from './DropDown';
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { dropped: false };
     this.dropDown = this.dropDown.bind(this);
   }
 
@@ -14,15 +13,26 @@ class NavBar extends React.Component {
   }
 
   dropDown() {
-    this.setState({ dropped: !this.state.dropped });
+    this.props.flipWindowListener(!this.props.dropped);
+    event.stopPropagation(); // avoid double event on click
+  }
+
+  componentDidUpdate() {
+    if (this.props.dropped) {
+      window.addEventListener('click', this.dropDown);
+    } else {
+      window.removeEventListener('click', this.dropDown);
+    }
   }
 
   render() {
+    const component = this.props.dropped ? (<DropDown signout={this.props.signout} />) : "";
+
     const sessionButtons = this.props.currentUser ? (
       <>
         <li className="calendar-button"><i className='far fa-calendar-alt'></i></li>
         <li onClick={this.dropDown} className="profile-button">Hi, {this.fname(this.props.currentUser.name)} <i className="material-icons">keyboard_arrow_down</i>
-          <DropDown signout={this.props.signout} dropped={this.state.dropped} />
+          {component}
         </li>
       </>
     ) : (
