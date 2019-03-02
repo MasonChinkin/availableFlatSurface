@@ -26,7 +26,7 @@ class NavBar extends React.Component {
   }
 
   render() {
-    const component = this.props.dropped ? (<DropDown signout={this.props.signout} />) : "";
+    const component = this.props.dropped ? (<DropDown signout={this.props.signout} dropped={this.props.dropped} />) : "";
 
     const sessionButtons = this.props.currentUser ? (
       <>
