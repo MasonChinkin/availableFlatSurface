@@ -3,3 +3,7 @@
 [class*="-button"] {
   cursor: pointer;
 }
+
+.submit-button:hover {
+  filter: brightness(85%);
+}

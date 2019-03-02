@@ -1,11 +1,11 @@
-import * as RestaurantUtils from '../utils/restaurantUtils'
+import * as RestaurantUtils from '../utils/restaurantUtils';
 
-export const RECEIVE_ALL_RESTAURANTS = 'RECEIVE_ALL_RESTAURANTS';
+export const RECEIVE_SEARCHED_RESTAURANTS = 'RECEIVE_SEARCHED_RESTAURANTS';
 export const RECEIVE_RESTAURANT = 'RECEIVE_RESTAURANTS';
 
-const receiveAllRestaurants = restaurants => {
+const receiveSearchedRestaurants = restaurants => {
   return {
-    type: RECEIVE_ALL_RESTAURANTS,
+    type: RECEIVE_SEARCHED_RESTAURANTS,
     restaurants
   }
 };
@@ -15,13 +15,13 @@ const receiveRestaurant = restaurant => ({
   restaurant
 });
 
-export const requestAllRestaurants = () => dispatch => {
+export const requestSearchedRestaurants = searchTerm => dispatch => {
 
-  return RestaurantUtils.fetchRestaurants()
-    .then(restaurants => dispatch(receiveAllRestaurants(restaurants)));
+  return RestaurantUtils.searchRestaurants(searchTerm)
+    .then(restaurants => dispatch(receiveSearchedRestaurants(restaurants)));
 }
 
-export const requestRestaurant = () => dispatch => {
-  return RestaurantUtils.fetchRestaurants()
+export const requestRestaurant = id => dispatch => {
+  return RestaurantUtils.fetchRestaurants(id)
     .then(restaurant => dispatch(receiveRestaurant(restaurant)));
 }

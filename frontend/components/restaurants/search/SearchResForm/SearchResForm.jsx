@@ -3,6 +3,15 @@ import React, { Component } from 'react';
 
 class SearchResForm extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchTerm: ''
+    };
+
+    this.handleSubmit = this.handleSubmit.bind(this)
+  }
+
   numPeople() {
     let options = [];
 
@@ -39,10 +48,21 @@ class SearchResForm extends Component {
     return resTimes;
   }
 
+  handleInput(field) {
+    return (e) => {
+      this.setState({ [field]: e.currentTarget.value });
+    }
+  }
+
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.requestSearchedRestaurants(this.state);
+  }
+
   render() {
     return (
       <div className="restaurant-index-search-form">
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <select id="res-search-input-left" defaultValue='2 people'>
             {this.numPeople()}
           </select>
@@ -51,7 +71,7 @@ class SearchResForm extends Component {
           <select id="res-search-input" defaultValue='7:00 PM'>
             {this.times()}
           </select>
-          <input type='text' id="res-search-input" placeholder='Restaurant name' />
+          <input type='text' onChange={this.handleInput('searchTerm')} value={this.state.searchTerm} id="res-search-input" placeholder='Restaurant name' />
           <input type="submit" id="res-search-input-right" className="submit-button" value="Find a Table" />
         </form>
       </div >

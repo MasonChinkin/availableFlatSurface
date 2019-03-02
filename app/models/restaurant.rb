@@ -31,4 +31,18 @@ class Restaurant < ApplicationRecord
   has_one_attached :profile_photo
 
   belongs_to :user
+
+  def self.find_by_name(str)
+    return Restaurant.all if str.nil?
+
+    matches = []
+
+    Restaurant.all.each do |rest|
+      if rest.name.include?(str)
+        matches << rest
+      end
+    end
+
+    matches
+  end
 end

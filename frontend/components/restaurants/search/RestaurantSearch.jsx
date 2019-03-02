@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
 import RestaurantSearchItem from './RestaurantSearchItem/RestaurantSearchItem';
-import SearchResForm from './SearchResForm/SearchResForm';
+import SearchResFormContainer from './SearchResForm/SearchResFormContainer';
 
 class RestaurantSearch extends Component {
-  componentDidMount() {
-    this.props.requestAllRestaurants();
-  }
-
   render() {
     const restaurants = this.props.restaurants.map(rest => {
       return <RestaurantSearchItem key={rest.id} restaurant={rest} />
@@ -14,7 +10,7 @@ class RestaurantSearch extends Component {
 
     return (
       <>
-        <SearchResForm />
+        <SearchResFormContainer />
         <main className="search-content">
           {restaurants}
         </main>

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/Root';
-import { requestAllRestaurants } from './actions/restaurantActions';
+import { requestSearchedRestaurants } from './actions/restaurantActions';
 
 document.addEventListener("DOMContentLoaded", () => {
   let root = document.getElementById('root');
@@ -15,10 +15,10 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 
-  let store = configureStore(preloadedState)
+  let store = configureStore(preloadedState);
 
-  window.getState = requestAllRestaurants
-  window.requestAllRestaurants = store.getState;
+  window.getState = store.getState();
+  window.requestSearchedRestaurants = requestSearchedRestaurants;
 
   ReactDOM.render(
     <Root store={store} />,
