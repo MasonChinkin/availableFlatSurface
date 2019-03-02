@@ -44,7 +44,7 @@ class SignupForm extends Component {
 
     return (
       <div className="modal-background" onClick={this.handleModalClick}>
-        <div className='signup-form'>
+        <div className='signup-splash-form'>
           <h1>Welcome to AvailableFlatSurface!</h1>
 
           <ul className="form-errors">

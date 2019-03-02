@@ -1,0 +1,54 @@
+@import '../_/constants';
+
+$font-size: 15px;
+
+.restaurant-index-search-form {
+  background: rgb(34, 38, 48);
+  display: flex;
+  justify-content: center;
+}
+
+.restaurant-index-search-form>form {
+  background: rgb(34, 38, 48);
+}
+
+// below necessary to remove select border radius
+select:not([multiple]) {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: white;
+  background-position: right 50%;
+  background-repeat: no-repeat;
+  background-image: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1"><path d="M4 8L0 4h8z"/></svg>');
+  border-width: 0px;
+}
+
+#res-search-input-left {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-right: 1px solid $input-border;
+  font-size: $font-size;
+  width: 125px;
+}
+
+#res-search-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 0px;
+  border-right: 1px solid $input-border;
+  font-size: $font-size;
+  width: 180px;
+}
+
+#res-search-input-right {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-right: 0px solid $input-border;
+  font-size: $font-size;
+  font-weight: 400;
+  width: 145px;
+}

@@ -79,7 +79,7 @@ class SigninForm extends Component {
 
     return (
       <div className="modal-background" onClick={this.handleModalClick}>
-        <div className='signin-form'>
+        <div className='signin-splash-form'>
           <h1>Please sign in</h1>
           <ul className="form-errors">
             {errors}

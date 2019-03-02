@@ -32,9 +32,11 @@ class ResButtons extends Component {
   render() {
 
     const buttons = this.getResTimes().map((time, i) => {
-      let hours = (time[0] < 13) ? `${time[0]}` : `${time[0] - 12}`;
-      let minutes = (time[1] < 10) ? `0${time[1]}` : `${time[1]}`;
-      minutes = (time[0] < 12) ? `${minutes} AM` : `${minutes} PM`;
+      let hour = time[0];
+      let min = time[1];
+      let hours = (hour < 13) ? `${hour}` : `${hour - 12}`;
+      let minutes = (min < 10) ? `0${min}` : `${min}`;
+      minutes = (hour < 12) ? `${minutes} AM` : `${minutes} PM`;
 
       let buttonTime = `${hours}:${minutes}`;
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import RestaurantSearchItem from './RestaurantSearchItem/RestaurantSearchItem';
-import SearchResForm from './SearchResForm';
+import SearchResForm from './SearchResForm/SearchResForm';
 
 class RestaurantSearch extends Component {
   componentDidMount() {

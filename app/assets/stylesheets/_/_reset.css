@@ -144,5 +144,6 @@ input,
 textarea,
 select,
 a {
+  border-width: inherit;
   outline: none;
 }

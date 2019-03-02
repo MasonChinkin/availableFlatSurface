@@ -9,6 +9,20 @@
 }
 
 [class*="-form"] {
+  font-family: $font-main;
+  font-weight: $form-font-weight;
+  padding: 1rem;
+
+  & input {
+    padding: 1rem;
+  }
+
+  & select {
+    padding: 1rem;
+  }
+}
+
+[class*="splash-form"] {
   background: white;
   padding: 1.875rem 1.4rem;
   width: 460px;
@@ -18,13 +32,16 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border: 1px solid $input-border;
+
+  & .submit-button {
+    font-size: 1.2rem;
+  }
 
   & input {
     border: 1px solid $input-border;
-    height: 54px;
-    padding: 1rem;
     margin-bottom: 0.5rem;
-    border-radius: 5px;
+    height: 54px;
 
     &:hover {
       border: 1px solid $input-border-hover;
@@ -48,7 +65,6 @@
 
 .submit-button {
   color: white;
-  font-size: 1.2rem;
   font-weight: $form-font-weight;
   background: rgb(207, 53, 32);
   text-align: center;

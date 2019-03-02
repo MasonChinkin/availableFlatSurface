@@ -12,6 +12,8 @@ const App = () => (
   <>
     <Route path={`/`} component={NavBarContainer} />
     <Route exact path={`/`} component={BackgroundImage} />
+    <Route exact path={`/signup`} component={BackgroundImage} />
+    <Route exact path={`/signin`} component={BackgroundImage} />
     <NotAuthedRoute path={`/signup`} component={SignUpFormContainer} />
     <NotAuthedRoute path={`/signin`} component={SigninFormContainer} />
     <Route path={`/search`} component={RestaurantSearchContainer} />
