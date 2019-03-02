@@ -1,0 +1,75 @@
+@import '../_/constants';
+
+.search-res {
+  height: 100px;
+  background: grey;
+  text-align: center;
+  color: white;
+}
+
+.restaurant-profile-photo-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  width: 75%;
+  height: 217px;
+  border-bottom: 1px solid $input-border;
+  padding: .875rem 0;
+}
+
+.restaurant-profile-photo-wrapper>img {
+  height: 188px;
+  width: 188px;
+  margin-right: 16px;
+}
+
+.search-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: $font-main;
+  height: auto;
+  margin: .875rem 0;
+}
+
+.search-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-size: 14px;
+  width: 100%;
+
+  &>* {
+    display: flex;
+    justify-content: space-between
+  }
+
+  &>h1 {
+    font-size: 18px;
+    color: rgb(30, 100, 140);
+    font-weight: 700;
+  }
+
+  & .fa-clock,
+  .fa-line-chart {
+    color: rgb(207, 30, 50);
+    margin-right: 3px;
+    font-size: 12px;
+  }
+}
+
+.res-submit-button {
+  width: 100px;
+  padding: .6em 0;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.restaurant-item-middle {
+  font-weight: 300;
+}
+
+.restaurant-item-bottom {
+  font-weight: 500;
+}

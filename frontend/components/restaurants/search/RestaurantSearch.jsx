@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import RestaurantSearchItem from './RestaurantSearchItem';
+import RestaurantSearchItem from './RestaurantSearchItem/RestaurantSearchItem';
+import SearchResForm from './SearchResForm';
 
 class RestaurantSearch extends Component {
   componentDidMount() {
@@ -13,6 +14,7 @@ class RestaurantSearch extends Component {
 
     return (
       <>
+        <SearchResForm />
         <main className="search-content">
           {restaurants}
         </main>
