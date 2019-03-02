@@ -11,13 +11,13 @@ class ResButtons extends Component {
     time.setMinutes(0);
 
     let hours = time.getHours();
-    hours += 4;
-    time.setHours(hours)
+    hours += (hours < 7) ? 0 : 2;
+    time.setHours(hours);
 
     const resTimes = [];
     for (let i = 0; i < 5; i++) {
       let minutes = time.getMinutes();
-      minutes += (i * 15);
+      minutes += (i === 0) ? 0 : 15;
       time.setMinutes(minutes);
 
       let buttonHours = (time.getHours())
@@ -32,9 +32,10 @@ class ResButtons extends Component {
   render() {
 
     const buttons = this.getResTimes().map((time, i) => {
-      let hours = (time[0] < 12) ? `${time[0]}` : `${time[0] - 12}`;
+      let hours = (time[0] < 13) ? `${time[0]}` : `${time[0] - 12}`;
       let minutes = (time[1] < 10) ? `0${time[1]}` : `${time[1]}`;
       minutes = (time[0] < 12) ? `${minutes} AM` : `${minutes} PM`;
+
       let buttonTime = `${hours}:${minutes}`;
 
       return <Link key={i} className="submit-button res-submit-button" to="/">{buttonTime}</Link>

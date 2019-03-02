@@ -19,6 +19,7 @@
 #  address         :string           not null
 #  email           :string           not null
 #  cuisine         :string
+#  rating          :integer
 #
 
 require 'test_helper'
