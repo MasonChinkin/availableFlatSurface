@@ -7,6 +7,9 @@
 # Ignore bundler config.
 /.bundle
 
+# Ignore webpack bundle
+/app/assets/javascripts/bundle.js
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*

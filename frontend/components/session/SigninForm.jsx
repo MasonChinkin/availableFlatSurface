@@ -38,7 +38,7 @@ class SigninForm extends Component {
   }
 
   demoSignin(e) {
-    let email = "007@gmail.com".split('');
+    let email = "captain.marvel@gmail.com".split('');
     let password = "password".split('');
     let speed = 70;
 
