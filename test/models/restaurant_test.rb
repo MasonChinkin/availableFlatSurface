@@ -18,6 +18,7 @@
 #  updated_at      :datetime         not null
 #  address         :string           not null
 #  email           :string           not null
+#  cuisine         :string
 #
 
 require 'test_helper'
