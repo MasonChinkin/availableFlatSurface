@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom'
 // import Calendar from 'react-calendar';
 
 class SearchResForm extends Component {
@@ -56,7 +57,8 @@ class SearchResForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.requestSearchedRestaurants(this.state);
+    this.props.requestSearchedRestaurants(this.state)
+      .then(this.props.history.push('/search'))
   }
 
   render() {
@@ -71,8 +73,17 @@ class SearchResForm extends Component {
           <select id="res-search-input" defaultValue='7:00 PM'>
             {this.times()}
           </select>
-          <input type='text' onChange={this.handleInput('searchTerm')} value={this.state.searchTerm} id="res-search-input" placeholder='Restaurant name' />
-          <input type="submit" id="res-search-input-right" className="submit-button" value="Find a Table" />
+          <input
+            type='text'
+            onChange={this.handleInput('searchTerm')}
+            value={this.state.searchTerm}
+            id="res-search-input"
+            placeholder='Restaurant name' />
+          <input
+            type="submit"
+            id="res-search-input-right"
+            className="submit-button"
+            value="Find a Table" />
         </form>
       </div >
     );
@@ -81,4 +92,4 @@ class SearchResForm extends Component {
 
 //
 
-export default SearchResForm;
+export default withRouter(SearchResForm);

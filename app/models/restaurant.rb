@@ -38,7 +38,7 @@ class Restaurant < ApplicationRecord
     matches = []
 
     Restaurant.all.each do |rest|
-      if rest.name.include?(str)
+      if rest.name.downcase.include?(str.downcase)
         matches << rest
       end
     end
