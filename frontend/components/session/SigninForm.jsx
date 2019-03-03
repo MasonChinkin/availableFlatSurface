@@ -31,7 +31,13 @@ class SigninForm extends Component {
     e.preventDefault();
     this.props.clearSessionErrors();
     this.props.signin(this.state)
-      .then(this.props.history.goBack());
+      .then(returnIfSuccessful())
+
+    returnIfSuccessful = () => {
+      if (this.props.session.id) {
+        this.props.history.goBack();
+      }
+    }
   }
 
   componentWillUnmount() {

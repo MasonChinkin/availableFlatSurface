@@ -2,8 +2,9 @@ import { connect } from 'react-redux';
 import { signin, clearSessionErrors } from '../../actions/sessionActions';
 import SigninForm from './SigninForm';
 
-const mST = ({ errors }) => ({
+const mST = ({ errors, session }) => ({
   errors: errors.sessionErrors,
+  session
 })
 
 const mDP = dispatch => ({
