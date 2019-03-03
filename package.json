@@ -4,6 +4,7 @@
   "dependencies": {
     "css-loader": "^2.1.0",
     "react-calendar": "^2.18.1",
+    "react-transition-group": "^2.6.0",
     "style-loader": "^0.23.1"
   },
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",

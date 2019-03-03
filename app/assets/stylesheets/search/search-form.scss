@@ -90,8 +90,17 @@ select:not([multiple]) {
 }
 
 .search-calendar {
-  display: block;
-  position: absolute;
+  display: table;
+  position: relative;
+  opacity: 0;
+  transition: all 0.4s;
+  top: -10px;
+  left: -95px;
+}
+
+.search-calendar-active {
+  opacity: 1;
+  top: 12px;
 }
 
 #search-form-date {

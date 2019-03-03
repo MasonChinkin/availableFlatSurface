@@ -8,7 +8,8 @@ class SearchForm extends Component {
     super(props);
     this.state = {
       searchTerm: '',
-      resDateTime: new Date()
+      resDateTime: new Date(),
+      calendarClass: 'search-calendar'
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -76,8 +77,12 @@ class SearchForm extends Component {
 
   componentDidUpdate() {
     if (this.props.searchCalendar) {
+      setTimeout(() => this.setState({ calendarClass: 'search-calendar search-calendar-active' }), 1);
+      // ^^^ wut, wat, why must I use setTimeout to get the transition?
       addEventListener('click', this.flipCalendar);
     } else {
+      setTimeout(() => this.setState({ calendarClass: 'search-calendar' }), 1);
+      // ^^^ wut, wat, why must I use setTimeout to get the transition?
       removeEventListener('click', this.flipCalendar)
     }
   }
@@ -85,7 +90,7 @@ class SearchForm extends Component {
   render() {
     const calendarDropDown = this.props.searchCalendar ?
       <Calendar
-        className="search-calendar"
+        className={this.state.calendarClass}
         value={this.state.resDateTime}
         onClickDay={this.handleDayPick}
       /> :
