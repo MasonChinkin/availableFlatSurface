@@ -8,8 +8,20 @@ $font-size: 15px;
   justify-content: center;
 }
 
-.restaurant-index-search-form>form {
-  background: rgb(34, 38, 48);
+.root-search-form {
+  background: grey;
+  height: 415px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &>h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+    margin: 0 0 24px;
+  }
 }
 
 // below necessary to remove select border radius

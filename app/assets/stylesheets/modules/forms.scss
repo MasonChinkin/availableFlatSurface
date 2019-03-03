@@ -34,6 +34,15 @@
   transform: translate(-50%, -50%);
   border: 1px solid $input-border;
 
+  &>h1 {
+    font-size: 1.5rem;
+    line-height: 1.165;
+    font-weight: $form-font-weight;
+    border-bottom: $input-border 1px solid;
+    margin-bottom: 1rem;
+    padding-bottom: 5px;
+  }
+
   & .submit-button {
     font-size: 1.2rem;
   }
@@ -52,15 +61,6 @@
       border-radius: 0;
     }
   }
-}
-
-[class*="-form"]>h1 {
-  font-size: 1.5rem;
-  line-height: 1.165;
-  font-weight: $form-font-weight;
-  border-bottom: $input-border 1px solid;
-  margin-bottom: 1rem;
-  padding-bottom: 5px;
 }
 
 .submit-button {

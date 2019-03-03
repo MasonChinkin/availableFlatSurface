@@ -1,15 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import DropDown from './DropDown';
 
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.dropDown = this.dropDown.bind(this);
+    this.rootPage = this.rootPage.bind(this)
   }
 
   fname(name) {
     return name.split(' ')[0];
+  }
+
+  rootPage() {
+    this.props.history.push('/')
   }
 
   dropDown() {
@@ -45,7 +50,7 @@ class NavBar extends React.Component {
     return (
       <nav>
         <ul className="left-nav">
-          <li className="nav-logo">
+          <li onClick={this.rootPage} className="nav-logo">
             <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Venn0110.svg" alt="table symbol" />
             AvailableFlatSurface
           </li>
@@ -62,4 +67,4 @@ class NavBar extends React.Component {
 }
 
 
-export default NavBar;
+export default withRouter(NavBar);

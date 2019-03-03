@@ -57,13 +57,24 @@ class SearchResForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    console.dir(this.props.history)
     this.props.requestSearchedRestaurants(this.state)
       .then(this.props.history.push('/search'))
   }
 
   render() {
+    let searchFormClass, rootTitle;
+
+    if (this.props.history.location.pathname === '/') {
+      searchFormClass = 'root-search-form'
+      rootTitle = <h1>Find your table for any occasion</h1>
+    } else {
+      searchFormClass = 'restaurant-index-search-form'
+    }
+
     return (
-      <div className="restaurant-index-search-form">
+      <div className={searchFormClass}>
+        {rootTitle}
         <form onSubmit={this.handleSubmit}>
           <select id="res-search-input-left" defaultValue='2 people'>
             {this.numPeople()}

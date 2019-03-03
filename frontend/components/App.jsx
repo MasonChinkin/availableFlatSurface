@@ -5,18 +5,27 @@ import SigninFormContainer from './session/SigninFormContainer';
 import { AuthedRoute, NotAuthedRoute } from '../utils/routesUtil';
 import NavBarContainer from './nav/NavBarContainer';
 import Footer from './footer/Footer';
-import BackgroundImage from './splash/ResForm/BackgroundImage';
 import RestaurantSearchContainer from './restaurants/search/RestaurantSearchContainer';
+import SearchResFormContainer from './restaurants/search/SearchResForm/SearchResFormContainer';
 
 const App = () => (
   <>
+    {/* Nav bar */}
     <Route path={`/`} component={NavBarContainer} />
-    <Route exact path={`/`} component={BackgroundImage} />
-    <Route exact path={`/signup`} component={BackgroundImage} />
-    <Route exact path={`/signin`} component={BackgroundImage} />
+
+    {/* search form */}
+    <Route exact path={`/`} component={SearchResFormContainer} />
+    <Route exact path={`/signup`} component={SearchResFormContainer} />
+    <Route exact path={`/signin`} component={SearchResFormContainer} />
+
+    {/* Index Page */}
+    <Route exact path={`/search`} component={RestaurantSearchContainer} />
+
+    {/* session forms */}
     <NotAuthedRoute path={`/signup`} component={SignUpFormContainer} />
     <NotAuthedRoute path={`/signin`} component={SigninFormContainer} />
-    <Route path={`/search`} component={RestaurantSearchContainer} />
+
+    {/* Footer */}
     <Route path={`/`} component={Footer} />
   </>
 )
