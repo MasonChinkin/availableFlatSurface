@@ -75,15 +75,20 @@ class SearchForm extends Component {
     this.setState({ resDateTime: date });
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps, prevState) {
     if (this.props.searchCalendar) {
-      setTimeout(() => this.setState({ calendarClass: 'search-calendar search-calendar-active' }), 1);
-      // ^^^ wut, wat, why must I use setTimeout to get the transition?
       addEventListener('click', this.flipCalendar);
     } else {
-      setTimeout(() => this.setState({ calendarClass: 'search-calendar' }), 1);
-      // ^^^ wut, wat, why must I use setTimeout to get the transition?
       removeEventListener('click', this.flipCalendar)
+    }
+
+    // below structure necessary to avoid lag inducing processing
+    if (this.props.searchCalendar && prevState.calendarClass === 'search-calendar') {
+      setTimeout(() => this.setState({ calendarClass: 'search-calendar search-calendar-active' }), 1);
+    }
+
+    if (!this.props.searchCalendar && prevState.calendarClass === 'search-calendar search-calendar-active') {
+      setTimeout(() => this.setState({ calendarClass: 'search-calendar' }), 1);
     }
   }
 
