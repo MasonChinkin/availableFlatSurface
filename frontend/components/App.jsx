@@ -5,7 +5,7 @@ import SigninFormContainer from './session/SigninFormContainer';
 import { AuthedRoute, NotAuthedRoute } from '../utils/routesUtil';
 import NavBarContainer from './nav/NavBarContainer';
 import Footer from './footer/Footer';
-import RestaurantSearchContainer from './restaurants/search/RestaurantSearchContainer';
+import RestaurantListContainer from './restaurants/search/RestaurantListContainer';
 import SearchFormContainer from './restaurants/search/SearchForm/SearchFormContainer';
 
 const App = () => (
@@ -19,7 +19,7 @@ const App = () => (
     <Route exact path={`/signin`} component={SearchFormContainer} />
 
     {/* Index Page */}
-    <Route exact path={`/search`} component={RestaurantSearchContainer} />
+    <Route exact path={`/search`} component={RestaurantListContainer} />
 
     {/* session forms */}
     <NotAuthedRoute path={`/signup`} component={SignUpFormContainer} />

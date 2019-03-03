@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ResButtons from './ResButtons';
 
-class RestaurantSearchItem extends Component {
+class RestaurantListItem extends Component {
 
   costSymbol(cost) {
     const darkDollar = key => (
@@ -69,4 +69,4 @@ class RestaurantSearchItem extends Component {
   }
 }
 
-export default RestaurantSearchItem;
+export default RestaurantListItem;

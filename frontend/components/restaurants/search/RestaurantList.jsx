@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import RestaurantSearchItem from './RestaurantSearchItem/RestaurantSearchItem';
+import RestaurantListItem from './RestaurantListItem/RestaurantListItem';
 import SearchFormContainer from './SearchForm/SearchFormContainer';
 
-class RestaurantSearch extends Component {
+class RestaurantList extends Component {
   render() {
     const restaurants = this.props.restaurants.map(rest => {
-      return <RestaurantSearchItem key={rest.id} restaurant={rest} />
+      return <RestaurantListItem key={rest.id} restaurant={rest} />
     });
 
     return (
@@ -19,4 +19,4 @@ class RestaurantSearch extends Component {
   }
 }
 
-export default RestaurantSearch;
+export default RestaurantList;
