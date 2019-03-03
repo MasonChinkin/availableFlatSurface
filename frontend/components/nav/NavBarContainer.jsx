@@ -5,7 +5,7 @@ import { flipWindowListener } from '../../actions/uiActions';
 
 const mSP = state => ({
   currentUser: state.session.currentUser,
-  dropped: state.ui.dropped
+  dropDown: state.ui.dropDown
 })
 
 const mDP = dispatch => ({

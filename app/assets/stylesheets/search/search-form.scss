@@ -83,3 +83,26 @@ select:not([multiple]) {
   font-weight: 400;
   width: 145px;
 }
+
+// below necessary to remove select border radius
+input[type="button"] {
+  background-color: white;
+  background-position: right 50%;
+  background-repeat: no-repeat;
+  background-image: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1"><path d="M4 8L0 4h8z"/></svg>');
+  border-width: 0px;
+  cursor: pointer;
+}
+
+.search-form-date {
+  position: relative;
+  top: 3px;
+  // above aligns with form
+}
+
+.search-calendar {
+  display: block;
+  position: absolute;
+  top: 115px;
+  left: 130px;
+}

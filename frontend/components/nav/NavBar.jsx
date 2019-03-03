@@ -18,12 +18,12 @@ class NavBar extends React.Component {
   }
 
   dropDown() {
-    this.props.flipWindowListener(!this.props.dropped);
+    this.props.flipWindowListener(!this.props.dropDown);
     event.stopPropagation(); // avoid double event on click
   }
 
   componentDidUpdate() {
-    if (this.props.dropped) {
+    if (this.props.dropDown) {
       window.addEventListener('click', this.dropDown);
     } else {
       window.removeEventListener('click', this.dropDown);
@@ -32,7 +32,7 @@ class NavBar extends React.Component {
 
   render() {
     const path = this.props.history.location.pathname;
-    const component = this.props.dropped ? (<DropDown signout={this.props.signout} dropped={this.props.dropped} />) : "";
+    const component = this.props.dropDown ? (<DropDown signout={this.props.signout} dropDown={this.props.dropDown} />) : "";
 
     const signupPath = (path === '/') ? '/signup' : `${path}/signup`;
     const signinPath = (path === '/') ? '/signin' : `${path}/signin`;

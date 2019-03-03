@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom'
-// import Calendar from 'react-calendar';
+import { withRouter } from 'react-router-dom';
+import Calendar from 'react-calendar';
 
 class SearchForm extends Component {
 
   constructor(props) {
     super(props);
     this.state = {
-      searchTerm: ''
+      searchTerm: '',
+      resTime: new Date()
     };
 
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.flipCalendar = this.flipCalendar.bind(this)
   }
 
   numPeople() {
@@ -49,6 +51,11 @@ class SearchForm extends Component {
     return resTimes;
   }
 
+  flipCalendar() {
+    this.props.flipSearchCalendar(!this.props.searchCalendar);
+    event.stopPropagation();
+  }
+
   handleInput(field) {
     return (e) => {
       this.setState({ [field]: e.currentTarget.value });
@@ -61,7 +68,21 @@ class SearchForm extends Component {
       .then(this.props.history.push('/search'))
   }
 
+  // componentDidUpdate() {
+  //   if (this.props.calendarDropDown) {
+  //     console.log('true')
+  //     window.addEventListener('click', this.flipCalendar);
+  //   } else {
+  //     window.removeEventListener('click', this.flipCalendar);
+  //   }
+  // }
+
   render() {
+    const calendarDropDown = this.props.searchCalendar ?
+      <Calendar
+        className="search-calendar"
+      /> :
+      undefined;
 
     if (this.props.history.location.pathname === '/search') {
       return (
@@ -70,8 +91,12 @@ class SearchForm extends Component {
             <select id="res-search-input-left" defaultValue='2 people'>
               {this.numPeople()}
             </select>
-            {/* <Calendar /> */}
-            <select id="res-search-input"></select>
+            <input
+              type='button'
+              className="search-form-date"
+              onClick={this.flipCalendar}
+              id="res-search-input" />
+            {calendarDropDown}
             <select id="res-search-input" defaultValue='7:00 PM'>
               {this.times()}
             </select>

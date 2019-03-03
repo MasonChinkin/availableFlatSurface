@@ -22,6 +22,6 @@ export const requestSearchedRestaurants = searchTerm => dispatch => {
 }
 
 export const requestRestaurant = id => dispatch => {
-  return RestaurantUtils.fetchRestaurants(id)
+  return RestaurantUtils.fetchRestaurant(id)
     .then(restaurant => dispatch(receiveRestaurant(restaurant)));
 }
