@@ -8,14 +8,14 @@ const receiveAllRestaurants = restaurants => {
   return {
     type: RECEIVE_ALL_RESTAURANTS,
     restaurants
-  }
+  };
 };
 
 const receiveSearchedRestaurants = restaurants => {
   return {
     type: RECEIVE_SEARCHED_RESTAURANTS,
     restaurants
-  }
+  };
 };
 
 const receiveRestaurant = restaurant => ({
@@ -24,18 +24,16 @@ const receiveRestaurant = restaurant => ({
 });
 
 export const requestAllRestaurants = () => dispatch => {
-
-  return RestaurantUtils.searchRestaurants()
+  return RestaurantUtils.fetchAllRestaurants()
     .then(restaurants => dispatch(receiveAllRestaurants(restaurants)));
-}
+};
 
 export const requestSearchedRestaurants = searchTerm => dispatch => {
-
   return RestaurantUtils.searchRestaurants(searchTerm)
     .then(restaurants => dispatch(receiveSearchedRestaurants(restaurants)));
-}
+};
 
 export const requestRestaurant = id => dispatch => {
   return RestaurantUtils.fetchRestaurant(id)
     .then(restaurant => dispatch(receiveRestaurant(restaurant)));
-}
+};

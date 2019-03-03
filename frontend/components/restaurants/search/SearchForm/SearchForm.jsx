@@ -65,13 +65,9 @@ class SearchForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    if (this.state.searchTerm === '') {
-      this.props.requestAllRestaurants(this.state)
-        .then(this.props.history.push('/search'))
-    } else {
-      this.props.requestSearchedRestaurants(this.state)
-        .then(this.props.history.push('/search'))
-    }
+
+    this.props.requestSearchedRestaurants(this.state)
+      .then(this.props.history.push('/search'))
   }
 
   handleDayPick(date) {

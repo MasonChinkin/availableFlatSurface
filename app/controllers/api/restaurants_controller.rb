@@ -1,6 +1,11 @@
 class Api::RestaurantsController < ApplicationController
   def index
-    @restaurants = Restaurant.find_by_name(params[:searchTerm][:searchTerm])
+    search = params[:searchTerm][:searchTerm]
+    if search.length == 0
+      @restaurants = Restaurant.all
+    else
+      @restaurants = Restaurant.find_by_name(params[:searchTerm][:searchTerm])
+    end
     render :index
   end
 
