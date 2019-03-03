@@ -57,7 +57,6 @@ class SearchForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    console.dir(this.props.history)
     this.props.requestSearchedRestaurants(this.state)
       .then(this.props.history.push('/search'))
   }
@@ -65,11 +64,11 @@ class SearchForm extends Component {
   render() {
     let searchFormClass, rootTitle;
 
-    if (this.props.history.location.pathname === '/') {
+    if (this.props.history.location.pathname === '/search') {
+      searchFormClass = 'restaurant-index-search-form'
+    } else {
       searchFormClass = 'root-search-form'
       rootTitle = <h1>Find your table for any occasion</h1>
-    } else {
-      searchFormClass = 'restaurant-index-search-form'
     }
 
     return (

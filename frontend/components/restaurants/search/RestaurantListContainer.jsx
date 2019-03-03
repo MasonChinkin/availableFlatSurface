@@ -5,6 +5,10 @@ const mSP = ({ entities }) => ({
   restaurants: Object.values(entities.restaurants)
 });
 
-const RestaurantListContainer = connect(mSP)(RestaurantList);
+const mDP = dispatch => ({
+  requestSearchedRestaurants: restaurants => dispatch(requestSearchedRestaurants(restaurants))
+});
+
+const RestaurantListContainer = connect(mSP, mDP)(RestaurantList);
 
 export default RestaurantListContainer;

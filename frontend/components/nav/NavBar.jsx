@@ -31,7 +31,11 @@ class NavBar extends React.Component {
   }
 
   render() {
+    const path = this.props.history.location.pathname;
     const component = this.props.dropped ? (<DropDown signout={this.props.signout} dropped={this.props.dropped} />) : "";
+
+    const signupPath = (path === '/') ? '/signup' : `${path}/signup`;
+    const signinPath = (path === '/') ? '/signin' : `${path}/signin`;
 
     const sessionButtons = this.props.currentUser ? (
       <>
@@ -42,8 +46,8 @@ class NavBar extends React.Component {
       </>
     ) : (
         <>
-          <Link className="signup-button" to={`/signup`}>Sign up</Link>
-          <Link className="signin-button" to={`/signin`}>Sign in</Link>
+          <Link className="signup-button" to={signupPath}>Sign up</Link>
+          <Link className="signin-button" to={signinPath}>Sign in</Link>
         </>
       );
 

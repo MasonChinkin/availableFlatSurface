@@ -19,11 +19,13 @@ const App = () => (
     <Route exact path={`/signin`} component={SearchFormContainer} />
 
     {/* Index Page */}
-    <Route exact path={`/search`} component={RestaurantListContainer} />
+    <Route path={`/search`} component={RestaurantListContainer} />
 
     {/* session forms */}
     <NotAuthedRoute path={`/signup`} component={SignUpFormContainer} />
     <NotAuthedRoute path={`/signin`} component={SigninFormContainer} />
+    <NotAuthedRoute path={`/search/signup`} component={SignUpFormContainer} />
+    <NotAuthedRoute path={`/search/signin`} component={SigninFormContainer} />
 
     {/* Footer */}
     <Route path={`/`} component={Footer} />

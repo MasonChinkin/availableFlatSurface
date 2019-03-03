@@ -10,7 +10,7 @@ class DropDown extends React.Component {
         <Link to={`/`}>My Profile</Link>
         <Link to={`/`}>Dining History</Link>
         <Link to={`/`}>Saved Restaurants</Link>
-        <Link onClick={this.props.signout} to={`/`}>Sign out</Link>
+        <a onClick={this.props.signout}>Sign out</a>
       </ul>
     )
   }

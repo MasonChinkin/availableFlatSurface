@@ -30,7 +30,8 @@ class SigninForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.clearSessionErrors();
-    this.props.signin(this.state);
+    this.props.signin(this.state)
+      .then(this.props.history.goBack());
   }
 
   componentWillUnmount() {
@@ -40,7 +41,7 @@ class SigninForm extends Component {
   demoSignin(e) {
     let email = "captain.marvel@gmail.com".split('');
     let password = "password".split('');
-    let speed = 70;
+    let speed = 60;
 
     // stop demo from triggering sign in
     e.preventDefault();
