@@ -22,13 +22,14 @@ class SignupForm extends Component {
   }
 
   handleModalClick() {
-    if (event.target.className === "modal-background") this.props.history.push('/');
+    if (event.target.className === "modal-background") this.props.history.goBack();
   }
 
   handleSubmit(e) {
     e.preventDefault();
     // this.props.clearSessionErrors();
-    this.props.signup(this.state);
+    this.props.signup(this.state)
+      .then(this.props.history.goBack());
   }
 
   componentWillUnmount() {

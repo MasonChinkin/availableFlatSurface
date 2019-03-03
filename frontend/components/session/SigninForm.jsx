@@ -24,20 +24,14 @@ class SigninForm extends Component {
 
   handleModalClick() {
     // must check target because for some reason currentTarget is document, must investigate
-    if (event.target.className === "modal-background") this.props.history.push('/');
+    if (event.target.className === "modal-background") this.props.history.goBack();
   }
 
   handleSubmit(e) {
     e.preventDefault();
     this.props.clearSessionErrors();
     this.props.signin(this.state)
-      .then(returnIfSuccessful())
-
-    returnIfSuccessful = () => {
-      if (this.props.session.id) {
-        this.props.history.goBack();
-      }
-    }
+      .then(this.props.history.goBack());
   }
 
   componentWillUnmount() {

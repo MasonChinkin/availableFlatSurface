@@ -6,14 +6,16 @@ const mapStateToProps = state => ({
   loggedIn: Boolean(state.session.currentUser),
 });
 
-const NotAuthed = ({ component: Component, path, loggedIn }) => (
-  <Route
-    path={path}
-    render={props => (
-      loggedIn ? <Redirect to="/" /> : <Component {...props} />
-    )}
-  />
-);
+const NotAuthed = ({ component: Component, path, loggedIn }) => {
+  return (
+    <Route
+      path={path}
+      render={props => (
+        loggedIn ? <Redirect to="/" /> : <Component {...props} />
+      )}
+    />
+  )
+};
 
 const Authed = ({ component: Component, path, loggedIn }) => (
   <Route

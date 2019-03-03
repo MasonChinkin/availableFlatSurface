@@ -71,7 +71,15 @@ class SearchForm extends Component {
   }
 
   handleDayPick(date) {
-    this.setState({ resDateTime: date })
+    this.setState({ resDateTime: date });
+  }
+
+  componentDidUpdate() {
+    if (this.props.searchCalendar) {
+      addEventListener('click', this.flipCalendar);
+    } else {
+      removeEventListener('click', this.flipCalendar)
+    }
   }
 
   render() {
