@@ -6,7 +6,7 @@ import { AuthedRoute, NotAuthedRoute } from '../utils/routesUtil';
 import NavBarContainer from './nav/NavBarContainer';
 import Footer from './footer/Footer';
 import RestaurantSearchContainer from './restaurants/search/RestaurantSearchContainer';
-import SearchResFormContainer from './restaurants/search/SearchResForm/SearchResFormContainer';
+import SearchFormContainer from './restaurants/search/SearchForm/SearchFormContainer';
 
 const App = () => (
   <>
@@ -14,9 +14,9 @@ const App = () => (
     <Route path={`/`} component={NavBarContainer} />
 
     {/* search form */}
-    <Route exact path={`/`} component={SearchResFormContainer} />
-    <Route exact path={`/signup`} component={SearchResFormContainer} />
-    <Route exact path={`/signin`} component={SearchResFormContainer} />
+    <Route exact path={`/`} component={SearchFormContainer} />
+    <Route exact path={`/signup`} component={SearchFormContainer} />
+    <Route exact path={`/signin`} component={SearchFormContainer} />
 
     {/* Index Page */}
     <Route exact path={`/search`} component={RestaurantSearchContainer} />

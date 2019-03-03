@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import RestaurantSearchItem from './RestaurantSearchItem/RestaurantSearchItem';
-import SearchResFormContainer from './SearchResForm/SearchResFormContainer';
+import SearchFormContainer from './SearchForm/SearchFormContainer';
 
 class RestaurantSearch extends Component {
   render() {
@@ -10,7 +10,7 @@ class RestaurantSearch extends Component {
 
     return (
       <>
-        <SearchResFormContainer />
+        <SearchFormContainer />
         <main className="search-content">
           {restaurants}
         </main>

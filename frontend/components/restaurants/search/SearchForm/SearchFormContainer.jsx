@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
-import SearchResForm from './SearchResForm';
+import SearchForm from './SearchForm';
 import { requestSearchedRestaurants } from '../../../../actions/restaurantActions';
 
 const mDP = dispatch => ({
   requestSearchedRestaurants: restaurants => dispatch(requestSearchedRestaurants(restaurants))
 });
 
-const SearchResFormContainer = connect(null, mDP)(SearchResForm);
+const SearchFormContainer = connect(null, mDP)(SearchForm);
 
-export default SearchResFormContainer;
+export default SearchFormContainer;

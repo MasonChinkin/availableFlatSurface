@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom'
 // import Calendar from 'react-calendar';
 
-class SearchResForm extends Component {
+class SearchForm extends Component {
 
   constructor(props) {
     super(props);
@@ -103,4 +103,4 @@ class SearchResForm extends Component {
 
 //
 
-export default withRouter(SearchResForm);
+export default withRouter(SearchForm);
