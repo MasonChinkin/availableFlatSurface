@@ -124,13 +124,13 @@ class SearchForm extends Component {
             <select id="res-search-input-left" defaultValue='2 people'>
               {this.numPeople()}
             </select>
-            <input
+            <div
               type='button'
-              className="search-form-date"
               onClick={this.flipCalendar}
-              id="res-search-input"
-              value={this.state.resDateTime.toLocaleDateString('en-US', localeDateOptions)} />
-            {calendarDropDown}
+              id="search-form-date">
+              {this.state.resDateTime.toLocaleDateString('en-US', localeDateOptions)}
+              {calendarDropDown}
+            </div>
             <select id="res-search-input-right" defaultValue='7:00 PM'>
               {this.times()}
             </select>

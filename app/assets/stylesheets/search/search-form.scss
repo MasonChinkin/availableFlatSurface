@@ -99,7 +99,21 @@ input[type="button"] {
   position: absolute;
 }
 
-.search-form-date {
+#search-form-date {
+  display: inline-block;
+  background-color: white;
+  background-position: right 50%;
+  background-repeat: no-repeat;
+  background-image: url('data:image/svg+xml;utf8,<?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" version="1"><path d="M4 8L0 4h8z"/></svg>');
+  border-width: 0px;
+  cursor: pointer;
+  border-radius: 0px;
+  border-right: 1px solid $input-border;
+  font-size: $font-size;
+  width: 180px;
   font-weight: 400;
   text-align: left;
+  padding: 1rem;
+  height: 50px;
+  vertical-align: top;
 }
