@@ -47,7 +47,7 @@ class RestaurantListItem extends Component {
 
     return (
       <div className="restaurant-profile-photo-wrapper">
-        <img src="https://s3-media4.fl.yelpcdn.com/bphoto/sYOTILQrRDeiycLkc1hIzw/o.jpg" alt="restaurant photo" />
+        <img src={`https://www.placecage.com/200/3${Math.ceil(Math.random() * 99)}`} alt="restaurant photo" />
         <div className="search-item">
           <h1>{this.props.restaurant.name}</h1>
           <div className="restaurant-item-top">

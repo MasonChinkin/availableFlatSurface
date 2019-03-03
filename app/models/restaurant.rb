@@ -24,7 +24,7 @@
 
 class Restaurant < ApplicationRecord
   validates :name, :description, :address, :cost, :email, :user_id, presence: true
-  validates :cost, inclusion: {in: [1, 2, 3, 4]}
+  validates :cost, inclusion: {in: [0, 1, 2, 3, 4]}
   validates :rating, inclusion: {in: [0, 1, 2, 3, 4, 5]}
 
   has_many_attached :photos

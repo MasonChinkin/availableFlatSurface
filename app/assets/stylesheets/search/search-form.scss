@@ -65,3 +65,21 @@ select:not([multiple]) {
   font-weight: 400;
   width: 145px;
 }
+
+#res-search-input-text-island {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 5px;
+  border-right: 1px solid $input-border;
+  font-size: $font-size;
+  width: 280px;
+  margin: 0 30px;
+}
+
+#res-search-input-island-button {
+  border-radius: 5px;
+  border-right: 0px solid $input-border;
+  font-size: $font-size;
+  font-weight: 400;
+  width: 145px;
+}
