@@ -34,9 +34,10 @@ class ResButtons extends Component {
     const buttons = this.getResTimes().map((time, i) => {
       let hour = time[0];
       let min = time[1];
-      let hours = (hour < 13) ? `${hour}` : `${hour - 12}`;
       let minutes = (min < 10) ? `0${min}` : `${min}`;
       minutes = (hour < 12) ? `${minutes} AM` : `${minutes} PM`;
+      let hours = (hour > 12) ? `${hour - 12}` : `${hour}`;
+      hours = (hours === "0") ? `12` : `${hours}`;
 
       let buttonTime = `${hours}:${minutes}`;
 

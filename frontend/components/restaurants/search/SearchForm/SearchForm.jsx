@@ -8,11 +8,12 @@ class SearchForm extends Component {
     super(props);
     this.state = {
       searchTerm: '',
-      resTime: new Date()
+      resDateTime: new Date()
     };
 
-    this.handleSubmit = this.handleSubmit.bind(this)
-    this.flipCalendar = this.flipCalendar.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.flipCalendar = this.flipCalendar.bind(this);
+    this.handleDayPick = this.handleDayPick.bind(this);
   }
 
   numPeople() {
@@ -68,21 +69,20 @@ class SearchForm extends Component {
       .then(this.props.history.push('/search'))
   }
 
-  // componentDidUpdate() {
-  //   if (this.props.calendarDropDown) {
-  //     console.log('true')
-  //     window.addEventListener('click', this.flipCalendar);
-  //   } else {
-  //     window.removeEventListener('click', this.flipCalendar);
-  //   }
-  // }
+  handleDayPick(date) {
+    this.setState({ resDateTime: date })
+  }
 
   render() {
     const calendarDropDown = this.props.searchCalendar ?
       <Calendar
         className="search-calendar"
+        value={this.state.resDateTime}
+        onClickDay={this.handleDayPick}
       /> :
       undefined;
+
+    const localeDateOptions = { day: 'numeric', month: 'short', year: 'numeric' }
 
     if (this.props.history.location.pathname === '/search') {
       return (
@@ -95,7 +95,8 @@ class SearchForm extends Component {
               type='button'
               className="search-form-date"
               onClick={this.flipCalendar}
-              id="res-search-input" />
+              id="res-search-input"
+              value={this.state.resDateTime.toLocaleDateString('en-US', localeDateOptions)} />
             {calendarDropDown}
             <select id="res-search-input" defaultValue='7:00 PM'>
               {this.times()}
@@ -122,8 +123,13 @@ class SearchForm extends Component {
             <select id="res-search-input-left" defaultValue='2 people'>
               {this.numPeople()}
             </select>
-            {/* <Calendar /> */}
-            <select id="res-search-input"></select>
+            <input
+              type='button'
+              className="search-form-date"
+              onClick={this.flipCalendar}
+              id="res-search-input"
+              value={this.state.resDateTime.toLocaleDateString('en-US', localeDateOptions)} />
+            {calendarDropDown}
             <select id="res-search-input-right" defaultValue='7:00 PM'>
               {this.times()}
             </select>

@@ -94,15 +94,12 @@ input[type="button"] {
   cursor: pointer;
 }
 
-.search-form-date {
-  position: relative;
-  top: 3px;
-  // above aligns with form
-}
-
 .search-calendar {
   display: block;
   position: absolute;
-  top: 115px;
-  left: 130px;
+}
+
+.search-form-date {
+  font-weight: 400;
+  text-align: left;
 }
