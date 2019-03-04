@@ -1,12 +1,10 @@
 import {
   combineReducers
 } from 'redux';
-import restaurantSearchReducer from './restaurants/restaurantSearchReducer';
-import restaurantShowReducer from './restaurants/restaurantShowReducer';
+import restaurantReducer from './restaurants/restaurantReducer';
 
 const entitiesReducer = combineReducers({
-  restaurants: restaurantSearchReducer,
-  restaurant: restaurantShowReducer
+  restaurants: restaurantReducer
 });
 
 export default entitiesReducer;

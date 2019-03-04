@@ -3,10 +3,6 @@ import VisualSummary from './VisualSummary';
 import RestaurantSearchFormContainer from './RestaurantShowFormContainer';
 
 class RestaurantShow extends Component {
-  constructor(props) {
-    super(props);
-
-  }
 
   sidebarDataArr(rest) {
     let pojo = {
@@ -21,7 +17,7 @@ class RestaurantShow extends Component {
       'Website': [rest.website, 'far fa-share-square'],
     }
 
-    return Object.entries(pojo)
+    return Object.entries(pojo);
   }
 
   componentDidMount() {
@@ -29,6 +25,8 @@ class RestaurantShow extends Component {
   }
 
   render() {
+    if (!this.props.restaurant) return (<div>loading...</div>)
+
     const rest = this.props.restaurant;
     const sidebarDataArr = this.sidebarDataArr(rest);
     let tabArr = ['Overview', 'Photos', 'Menu', 'Reviews', 'Twitter'];
@@ -54,45 +52,41 @@ class RestaurantShow extends Component {
       }
     })
 
-    if (!rest) {
-      return (<h1>loading...</h1>)
-    } else {
-      return (
-        <div className="restaurant-show-page">
-          <header>
-            <button className="save-restaurant-button">
-              <i className='far fa-bookmark' />Save this Restaurant
+    return (
+      <div className="restaurant-show-page">
+        <header>
+          <button className="save-restaurant-button">
+            <i className='far fa-bookmark' />Save this Restaurant
             </button>
-          </header>
-          <main>
-            <section className="restaurant-show-main">
-              <ul>
-                {mainTabs}
-              </ul>
-              <div className="restaurant-show-main-content">
-                <h1>{rest.name}</h1>
-                <VisualSummary restaurant={rest} />
-                <div className="restaurant-show-main-content-desc">{rest.description}</div>
-                <div className="restaurant-photos">
-                  <h2>(WIP) Photos</h2>
-                  <div className="restaurant-photos-container">Photos</div>
-                </div>
-                <div className="restaurant-reviews">
-                  <h2>(WIP) Reviews</h2>
-                  <div className="restaurant-reviews-container">Reviews</div>
-                </div>
+        </header>
+        <main>
+          <section className="restaurant-show-main">
+            <ul>
+              {mainTabs}
+            </ul>
+            <div className="restaurant-show-main-content">
+              <h1>{rest.name}</h1>
+              <VisualSummary restaurant={rest} />
+              <div className="restaurant-show-main-content-desc">{rest.description}</div>
+              <div className="restaurant-photos">
+                <h2>(WIP) Photos</h2>
+                <div className="restaurant-photos-container">Photos</div>
               </div>
-            </section>
-            <section className="restaurant-show-sidebar">
-              <RestaurantSearchFormContainer />
-              <ul className="restaurant-details">
-                {sidebarDetails}
-              </ul>
-            </section>
-          </main>
-        </div>
-      );
-    }
+              <div className="restaurant-reviews">
+                <h2>(WIP) Reviews</h2>
+                <div className="restaurant-reviews-container">Reviews</div>
+              </div>
+            </div>
+          </section>
+          <section className="restaurant-show-sidebar">
+            <RestaurantSearchFormContainer />
+            <ul className="restaurant-details">
+              {sidebarDetails}
+            </ul>
+          </section>
+        </main>
+      </div>
+    );
   }
 }
 
