@@ -4,7 +4,7 @@ class VisualSummary extends Component {
 
   ratingSymbol(rating) {
     const filledStar = key => (
-      <i key={key} className='fa fa-star' style={{ color: 'rgb(250, 160, 10)' }}></i>
+      <i key={key} className='fa fa-star' style={{ color: 'rgb(210, 40, 60)' }}></i>
     )
 
     const emptyStar = key => (
