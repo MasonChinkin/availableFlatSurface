@@ -77,6 +77,10 @@ class RestaurantShow extends Component {
                   <h2>(WIP) Photos</h2>
                   <div className="restaurant-photos-container">Photos</div>
                 </div>
+                <div className="restaurant-reviews">
+                  <h2>(WIP) Reviews</h2>
+                  <div className="restaurant-reviews-container">Reviews</div>
+                </div>
               </div>
             </section>
             <section className="restaurant-show-sidebar">
