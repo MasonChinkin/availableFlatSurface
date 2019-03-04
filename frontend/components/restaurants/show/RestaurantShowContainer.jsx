@@ -4,7 +4,7 @@ import RestaurantShow from './RestaurantShow';
 
 const mSP = ({ entities }) => ({
   // restaurants only contains one restaurant
-  restaurant: entities.restaurants
+  restaurant: entities.restaurant
 });
 
 const mDP = dispatch => ({
