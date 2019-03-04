@@ -7,6 +7,7 @@ import NavBarContainer from './nav/NavBarContainer';
 import Footer from './footer/Footer';
 import RestaurantListContainer from './restaurants/search/RestaurantListContainer';
 import SearchFormContainer from './restaurants/search/SearchForm/SearchFormContainer';
+import RestaurantShowContainer from './restaurants/show/RestaurantShowContainer';
 
 const App = () => (
   <>
@@ -21,11 +22,12 @@ const App = () => (
     {/* Index Page */}
     <Route path={`/search`} component={RestaurantListContainer} />
 
-    {/* session forms */}
-    <NotAuthedRoute path={`/signup`} component={SignUpFormContainer} />
-    <NotAuthedRoute path={`/signin`} component={SigninFormContainer} />
-    <NotAuthedRoute path={`/search/signup`} component={SignUpFormContainer} />
-    <NotAuthedRoute path={`/search/signin`} component={SigninFormContainer} />
+    {/* session forms (':params*' is catch all for anything in front of signin/up ) */}
+    <NotAuthedRoute path={`/:params*/signup`} component={SignUpFormContainer} />
+    <NotAuthedRoute path={`/:params*/signin`} component={SigninFormContainer} />
+
+    {/* restaurant show page */}
+    <Route path={`/restaurants/:id`} component={RestaurantShowContainer} />
 
     {/* Footer */}
     <Route path={`/`} component={Footer} />

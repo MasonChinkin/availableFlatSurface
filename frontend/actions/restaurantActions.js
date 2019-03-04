@@ -2,7 +2,7 @@ import * as RestaurantUtils from '../utils/restaurantUtils';
 
 export const RECEIVE_ALL_RESTAURANTS = 'RECEIVE_ALL_RESTAURANTS';
 export const RECEIVE_SEARCHED_RESTAURANTS = 'RECEIVE_SEARCHED_RESTAURANTS';
-export const RECEIVE_RESTAURANT = 'RECEIVE_RESTAURANTS';
+export const RECEIVE_RESTAURANT = 'RECEIVE_RESTAURANT';
 
 const receiveAllRestaurants = restaurants => {
   return {

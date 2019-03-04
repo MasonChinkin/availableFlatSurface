@@ -1,0 +1,23 @@
+@import '../_/constants';
+
+.restaurant-show-page>header {
+  background-image: url(https://resizer.otstatic.com/v2/photos/medium/23365002.jpg);
+  height: 218px;
+  background-size: cover;
+}
+
+.save-restaurant-button {
+  float: right;
+  position: relative;
+  right: 40px;
+  top: 30px;
+  width: 15rem;
+  font-size: 14px;
+  padding: 16px 20px;
+  border-radius: 2px;
+  border: 1px solid $input-border;
+
+  &>i {
+    margin-right: 6px;
+  }
+}

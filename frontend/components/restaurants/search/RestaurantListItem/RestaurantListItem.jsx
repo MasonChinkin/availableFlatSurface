@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ResButtons from './ResButtons';
+import { Link } from 'react-router-dom';
 
 class RestaurantListItem extends Component {
 
@@ -49,7 +50,7 @@ class RestaurantListItem extends Component {
       <div className="restaurant-profile-photo-wrapper">
         <img src={`https://www.placecage.com/200/311`} alt="restaurant photo" />
         <div className="search-item">
-          <h1>{this.props.restaurant.name}</h1>
+          <Link className="restaurant-item-link" to={`/restaurants/${this.props.restaurant.id}`}>{this.props.restaurant.name}</Link>
           <div className="restaurant-item-top">
             <div className="restaurant-item-rating">{ratingSymbol}</div>
             <div className="restaurant-item-cost">{costSymbol}</div>
@@ -59,7 +60,7 @@ class RestaurantListItem extends Component {
             <div className="restaurant-item-neighborhood">{this.props.restaurant.neighborhood}</div>
           </div>
           <div className="restaurant-item-bottom">
-            <div className="restaurant-item-bookings"><i className="fa fa-line-chart" />Booked {numBookings} today</div>
+            <div className="restaurant-item-bookings"><i className="fa fa-line-chart" />Booked {numBookings} times today</div>
             <div className="restaurant-item-tables-left"><i className='far fa-clock' />Hurry, we only have {numTables} left!</div>
           </div>
           <ResButtons />

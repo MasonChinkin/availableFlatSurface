@@ -1,0 +1,28 @@
+@import '../_/constants';
+
+.restaurant-show-sidebar {
+  width: 320px;
+  color: $not-quite-black;
+}
+
+.restaurant-details>li {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 2rem;
+  margin-left: 20px;
+  font-size: 14px;
+
+  & i {
+    margin-right: 8px;
+    font-size: 16px;
+  }
+
+  & label {
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  & p {
+    font-weight: 400;
+  }
+}

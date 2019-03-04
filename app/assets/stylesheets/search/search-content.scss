@@ -10,7 +10,7 @@
 .restaurant-profile-photo-wrapper {
   display: flex;
   justify-content: flex-start;
-  width: 75%;
+  width: 65%;
   height: 217px;
   border-bottom: 1px solid $input-border;
   padding: .875rem 0;
@@ -44,18 +44,18 @@
     justify-content: space-between
   }
 
-  &>h1 {
-    font-size: 18px;
-    color: rgb(30, 100, 140);
-    font-weight: 700;
-  }
-
   & .fa-clock,
   .fa-line-chart {
     color: rgb(207, 30, 50);
     margin-right: 3px;
     font-size: 12px;
   }
+}
+
+.restaurant-item-link {
+  font-size: 18px;
+  color: rgb(30, 100, 140);
+  font-weight: 700;
 }
 
 .res-submit-button {
