@@ -29,7 +29,7 @@ class SignupForm extends Component {
     e.preventDefault();
     // this.props.clearSessionErrors();
     this.props.signup(this.state)
-      .then(this.props.history.goBack());
+      .then(() => this.props.history.goBack());
   }
 
   componentWillUnmount() {

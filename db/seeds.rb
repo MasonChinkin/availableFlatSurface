@@ -18,7 +18,7 @@ Restaurant.create!(
   address: "825 Battery Street, San Francisco, USA, 94111",
   description: "The first restaurant to bless this glorious website.",
   user: u,
-  cuisine: "Jamaican-Chinese fusion",
+  cuisine: "Jewish-Chinese fusion",
   rating: "#{rand(5).ceil}",
   email: "firstever@gmail.com",
   phone: "555-555-5555",

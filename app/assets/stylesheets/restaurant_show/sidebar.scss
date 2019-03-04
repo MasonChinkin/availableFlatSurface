@@ -3,13 +3,15 @@
 .restaurant-show-sidebar {
   width: 320px;
   color: $not-quite-black;
+  margin-left: 20px;
+  position: relative;
+  top: -46px;
 }
 
 .restaurant-details>li {
   display: flex;
   justify-content: flex-start;
   margin-top: 2rem;
-  margin-left: 20px;
   font-size: 14px;
 
   & i {
