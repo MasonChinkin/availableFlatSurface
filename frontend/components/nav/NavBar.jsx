@@ -52,7 +52,7 @@ class NavBar extends React.Component {
       );
 
     return (
-      <nav>
+      <nav id="top">
         <ul className="left-nav">
           <li onClick={this.rootPage} className="nav-logo">
             <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Venn0110.svg" alt="table symbol" />

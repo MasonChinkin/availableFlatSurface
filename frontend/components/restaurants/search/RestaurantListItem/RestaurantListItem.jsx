@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ResButtons from './ResButtons';
-import { Link } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 
 class RestaurantListItem extends Component {
 
@@ -51,7 +51,7 @@ class RestaurantListItem extends Component {
       <div className="restaurant-profile-photo-wrapper">
         <img src={rest.profilePhotoURL} alt="restaurant photo" />
         <div className="search-item">
-          <Link className="restaurant-item-link" to={`/restaurants/${rest.id}`}>{rest.name}</Link>
+          <Link className="restaurant-item-link" smooth to={`/restaurants/${rest.id}#top`}>{rest.name}</Link>
           <div className="restaurant-item-top">
             <div className="restaurant-item-rating">{ratingSymbol}</div>
             <div className="restaurant-item-cost">{costSymbol}</div>
