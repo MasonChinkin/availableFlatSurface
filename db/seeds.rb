@@ -41,12 +41,16 @@ def seed(r, u)
     end
     
     if [1,2,3,4].sample == 1
-      month = (4..12).to_a.sample
-      day = (1..30).to_a.sample
-      hour = (12...22).to_a.sample
-      minute = [0,15,30,45].sample
+      t = Time.now()
+      month = (4..12).to_a.sample * (60 * 60 * 24 * 30)
+      day = (1..30).to_a.sample * (60 * 60 * 24)
+      hour = (12...22).to_a.sample * (60 * 60)
+      minute = [0,15,30,45].sample * (60)
+
+      t = t + month + day + hour + minute
+
       Reservation.create!(
-        reservation: "#{DateTime.new(2019,month,day,hour,minute)}",
+        reservation: t,
         num_people: "#{(2..10).to_a.sample}",
         restaurant_id: "#{r.id}",
         user_id: "#{u.id}"

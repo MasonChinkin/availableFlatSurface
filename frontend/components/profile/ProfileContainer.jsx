@@ -6,8 +6,9 @@ const mSP = ({ entities }, ownProps) => {
   return {
     user: entities.user[ownProps.match.params.id],
     reservations: entities.reservations,
-    savedRestaurants: entities.savedRestaurants
-  }
+    savedRestaurants: entities.savedRestaurants,
+    reservedRestaurants: entities.reservedRestaurants
+  };
 };
 
 const mDP = dispatch => ({

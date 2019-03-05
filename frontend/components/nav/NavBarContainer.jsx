@@ -13,6 +13,6 @@ const mDP = dispatch => ({
   flipWindowListener: bool => dispatch(flipWindowListener(bool))
 })
 
-const NavBarContainer = connect(mSP, mDP)(NavBar)
+const NavBarContainer = connect(mSP, mDP)(NavBar);
 
 export default NavBarContainer;

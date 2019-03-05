@@ -10,6 +10,11 @@
     font-size: 2rem;
     margin-bottom: 2rem;
   }
+
+  &>div {
+    display: flex;
+    justify-content: flex-start;
+  }
 }
 
 .profile-side-bar {
@@ -36,6 +41,25 @@
   }
 }
 
-.profile-active {
-  color: rgb(50, 50, 50)
+.profile-reservation-item {
+  display: flex;
+  justify-content: flex-start;
+  background: white;
+  height: 175px;
+  padding: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, .08);
+  margin-bottom: 10px;
+
+  &>img {
+    height: 80px;
+    width: 80px;
+  }
+
+  & h2 {
+    color: $not-quite-black;
+  }
+
+  & h3 {
+    color: rgb(150, 150, 150);
+  }
 }

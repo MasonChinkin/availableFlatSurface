@@ -11,7 +11,7 @@ class Profile extends Component {
   render() {
     if (this.props.user === undefined) return null;
 
-    let mainContent = (this.props.history.location.pathName === `/profile/${this.props.user.id}/saved-restaurants`) ?
+    let mainContent = (this.props.history.location.hash.length) ?
       <ProfileReservations reservations={this.props.reservations} restaurants={this.props.reservedRestaurants} /> :
       <ProfileSavedRestaurants restaurants={this.props.savedRestaurants} />
 

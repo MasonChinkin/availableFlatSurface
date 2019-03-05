@@ -16,7 +16,8 @@ end
 json.reservations do
   @user.reservations.each do |res|
     json.set! res.id do
-      json.extract! res, :id, :reservation, :num_people, :notes, :canceled, :canceled_at, :restaurant_id, :user_id
+      json.extract! res, :id, :num_people, :notes, :canceled, :canceled_at, :restaurant_id, :user_id
+      json.reservation (res.reservation.to_f * 1000)
     end
   end
 end
