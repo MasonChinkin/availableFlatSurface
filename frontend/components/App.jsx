@@ -2,7 +2,7 @@ import React from 'react';
 import SignUpFormContainer from './session/SignupFormContainer';
 import { Route } from 'react-router-dom'
 import SigninFormContainer from './session/SigninFormContainer';
-import { AuthedRoute, NotAuthedRoute } from '../utils/routesUtil';
+import { AuthedRoute, NotAuthedRoute } from '../utils/routesUtils';
 import NavBarContainer from './nav/NavBarContainer';
 import Footer from './footer/Footer';
 import RestaurantListContainer from './restaurants/search/RestaurantListContainer';

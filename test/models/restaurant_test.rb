@@ -20,6 +20,7 @@
 #  email           :string           not null
 #  cuisine         :string
 #  rating          :integer
+#  hours           :string
 #
 
 require 'test_helper'

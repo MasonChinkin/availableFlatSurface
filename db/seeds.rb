@@ -6,8 +6,9 @@ Restaurant.destroy_all
 
 require 'open-uri'
 require 'cgi'
+require 'date'
 
-def seed_aws(r)
+def seed(r, u)
   dir = "https://s3-us-west-1.amazonaws.com/availableflatsurface-seed/img/#{CGI::escape(r.name)}"
   new_dir = dir.split('%27').join('%E2%80%99')
   new_dir = new_dir.split('%C3%AD').join('i%CC%81')
@@ -31,6 +32,26 @@ def seed_aws(r)
       io: open("#{new_dir}/wallpaper.jpg"),
       filename: "wallpaper.jpg"
     )
+
+    if [1,2,3,4].sample == 1
+      SavedRestaurant.create!(
+        restaurant_id: "#{r.id}",
+        user_id: "#{u.id}"
+      )
+    end
+    
+    if [1,2,3,4].sample == 1
+      month = (4..12).to_a.sample
+      day = (1..30).to_a.sample
+      hour = (12...22).to_a.sample
+      minute = [0,15,30,45].sample
+      Reservation.create!(
+        reservation: "#{DateTime.new(2019,month,day,hour,minute)}",
+        num_people: "#{(2..10).to_a.sample}",
+        restaurant_id: "#{r.id}",
+        user_id: "#{u.id}"
+      )
+    end
 end
 
 # Demo user
@@ -59,7 +80,7 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed_aws(r)
+seed(r, u)
 
 r = Restaurant.create!(
   name: "Schroeder's",
@@ -74,7 +95,7 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed_aws(r)
+seed(r, u)
 
 r = Restaurant.create!(
   name: "Aliment",
@@ -89,7 +110,7 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed_aws(r)
+seed(r, u)
 
 r = Restaurant.create!(
   name: "Brenda’s Soul Food Kitchen",
@@ -107,7 +128,7 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed_aws(r)
+seed(r, u)
 
 r = Restaurant.create!(
   name: "Tony’s Pizza Napoletana",
@@ -126,7 +147,7 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed_aws(r)
+seed(r, u)
 
 r = Restaurant.create!(
   name: "Mensho Tokyo SF",
@@ -145,7 +166,7 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed_aws(r)
+seed(r, u)
 
 r = Restaurant.create!(
   name: "Yank Sing",
@@ -164,7 +185,7 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed_aws(r)
+seed(r, u)
 
 r = Restaurant.create!(
   name: "Azalina’s",
@@ -181,7 +202,7 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed_aws(r)
+seed(r, u)
 
 r = Restaurant.create!(
   name: "Ace Wasabi Rock-N-Roll Sushi",
@@ -199,7 +220,7 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed_aws(r)
+seed(r, u)
 
 r = Restaurant.create!(
   name: "Taquería El Farolito",
@@ -216,7 +237,7 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed_aws(r)
+seed(r, u)
 
 r = Restaurant.create!(
   name: "Kitchen Story",
@@ -235,7 +256,7 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed_aws(r)
+seed(r, u)
 
 r = Restaurant.create!(
   name: "Marnee Thai",
@@ -251,7 +272,7 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed_aws(r)
+seed(r, u)
 
 r = Restaurant.create!(
   name: "San Tung",
@@ -268,7 +289,7 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed_aws(r)
+seed(r, u)
 
 r = Restaurant.create!(
   name: "Cassava",
@@ -285,7 +306,7 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed_aws(r)
+seed(r, u)
 
 r = Restaurant.create!(
   name: "Purple Kow",
@@ -303,7 +324,7 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed_aws(r)
+seed(r, u)
 
 r = Restaurant.create!(
   name: "Shabu Club",
@@ -319,7 +340,7 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed_aws(r)
+seed(r, u)
 
 r = Restaurant.create!(
   name: "The Pot’s",
@@ -335,7 +356,7 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed_aws(r)
+seed(r, u)
 
 r = Restaurant.create!(
   name: "Emmy’s Spaghetti Shack",
@@ -352,4 +373,4 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed_aws(r)
+seed(r, u)

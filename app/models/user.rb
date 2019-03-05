@@ -22,6 +22,8 @@ class User < ApplicationRecord
   before_validation :ensure_vip
 
   has_many :restaurants
+  has_many :saved_restaurants
+  has_many :reservations
 
   attr_reader :password
 

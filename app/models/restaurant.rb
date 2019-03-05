@@ -20,6 +20,7 @@
 #  email           :string           not null
 #  cuisine         :string
 #  rating          :integer
+#  hours           :string
 #
 
 class Restaurant < ApplicationRecord
@@ -31,7 +32,8 @@ class Restaurant < ApplicationRecord
   has_one_attached :profile_photo
   has_one_attached :wallpaper
 
-  belongs_to :user
+  belongs_to :user # restaurant creator, not yet implemented
+  has_many :saved_restaurants
 
   def self.find_by_name(str)
     return Restaurant.all if str.nil?

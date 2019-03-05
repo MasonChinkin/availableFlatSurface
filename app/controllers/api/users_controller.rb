@@ -10,6 +10,16 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+
+    if @user
+      render :show
+    else
+      render ["uh-oh, you should not be here"], status: 403
+    end
+  end
+
   # bonus feature: edit user account
   # def edit
   # end
