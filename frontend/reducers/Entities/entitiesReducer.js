@@ -5,14 +5,16 @@ import restaurantReducer from './restaurants/restaurantReducer';
 import {
   userReducer,
   savedRestaurantsReducer,
-  reservationsReducer
+  reservationsReducer,
+  reservedRestaurantReducer
 } from './user/userReducers';
 
 const entitiesReducer = combineReducers({
-  restaurants: restaurantReducer,
+  searchedRestaurants: restaurantReducer,
   user: userReducer,
   savedRestaurants: savedRestaurantsReducer,
-  reservations: reservationsReducer
+  reservations: reservationsReducer,
+  reservedRestaurants: reservedRestaurantReducer
 });
 
 export default entitiesReducer;

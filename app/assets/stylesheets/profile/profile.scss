@@ -1,0 +1,41 @@
+@import '../_/constants';
+
+.profile-page {
+  font-family: $font-main;
+  padding: 2rem 0 4rem 4rem;
+  background: rgb(235, 235, 235);
+
+  &>h1 {
+    font-weight: 400;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+.profile-side-bar {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+
+  & li {
+    padding-bottom: 1.5rem;
+  }
+
+  &>ul>li {
+    padding-left: 20px;
+  }
+
+  & a {
+    font-weight: 300;
+    font-size: 16px;
+    color: rgb(150, 150, 150);
+
+    &:hover {
+      color: rgb(220, 40, 60);
+    }
+  }
+}
+
+.profile-active {
+  color: rgb(50, 50, 50)
+}

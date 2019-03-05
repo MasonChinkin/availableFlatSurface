@@ -32,7 +32,7 @@ class NavBar extends React.Component {
 
   render() {
     const path = this.props.history.location.pathname;
-    const component = this.props.dropDown ? (<DropDown signout={this.props.signout} dropDown={this.props.dropDown} />) : "";
+    const component = this.props.dropDown ? (<DropDown signout={this.props.signout} dropDown={this.props.dropDown} currentUser={currentUser} />) : "";
 
     const signupPath = (path === '/') ? '/signup' : `${path}/signup`;
     const signinPath = (path === '/') ? '/signin' : `${path}/signin`;

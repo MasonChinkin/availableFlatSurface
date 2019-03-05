@@ -21,9 +21,16 @@ class User < ApplicationRecord
   before_validation :ensure_session_token
   before_validation :ensure_vip
 
-  has_many :restaurants
-  has_many :saved_restaurants
   has_many :reservations
+  has_many :saved_restaurants
+
+  has_many :saved_restaurants_data, # data because I have the joins table a poorly thought out name
+    through: :saved_restaurants,
+    source: :restaurant
+
+  has_many :reserved_restaurants_data,
+    through: :reservations,
+    source: :restaurant
 
   attr_reader :password
 

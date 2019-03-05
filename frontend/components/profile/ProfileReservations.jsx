@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
-import ProfileSidebar from './ProfileSidebar';
 
 class ProfileReservations extends Component {
   render() {
+    if (this.props.restaurants === undefined) return null;
     return (
-      <main>
-        <ProfileSidebar />
-        <section className="reservations">
-          <div>
-            <h2>Upcoming Reservations</h2>
-            {upcomingRes}
-          </div>
-          <div>
-            <h2>Past Reservations</h2>
-            {pastRes}
-          </div>
-        </section>
-      </main>
+      <section className="reservations">
+        <div>
+          <h2>Upcoming Reservations</h2>
+          {upcomingRes}
+        </div>
+        <div>
+          <h2>Past Reservations</h2>
+          {pastRes}
+        </div>
+      </section>
     );
   }
 }

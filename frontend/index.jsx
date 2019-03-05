@@ -19,8 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
   let store = configureStore(preloadedState);
 
   window.getState = store.getState();
-  window.store = store;
-  window.requestUser = requestUser;
 
   ReactDOM.render(
     <Root store={store} />,

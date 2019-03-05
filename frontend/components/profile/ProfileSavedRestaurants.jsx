@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 
 class ProfileSavedRestaurants extends Component {
   render() {
+    if (this.props.restaurants === undefined) return null;
     return (
-      <div>
+      <section className="saved-restaurants">
 
-      </div>
+      </section>
     );
   }
 }

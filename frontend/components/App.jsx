@@ -8,6 +8,7 @@ import Footer from './footer/Footer';
 import RestaurantListContainer from './restaurants/search/RestaurantListContainer';
 import SearchFormContainer from './restaurants/search/SearchForm/SearchFormContainer';
 import RestaurantShowContainer from './restaurants/show/RestaurantShowContainer';
+import ProfileContainer from './profile/ProfileContainer';
 
 const App = () => (
   <>
@@ -25,6 +26,9 @@ const App = () => (
     {/* session forms (':params*' is catch all for anything in front of signin/up ) */}
     <NotAuthedRoute path={`/:params*/signup`} component={SignUpFormContainer} />
     <NotAuthedRoute path={`/:params*/signin`} component={SigninFormContainer} />
+
+    {/* Profile Page */}
+    <AuthedRoute path={`/profile/:id`} component={ProfileContainer} />
 
     {/* restaurant show page */}
     <Route path={`/restaurants/:id`} component={RestaurantShowContainer} />
