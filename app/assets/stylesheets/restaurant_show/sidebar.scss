@@ -21,10 +21,14 @@
 
   & label {
     font-weight: 600;
-    margin-bottom: 1rem;
   }
 
   & p {
     font-weight: 400;
+    margin-top: 5px;
+  }
+
+  & a {
+    color: rgb(220, 40, 60);
   }
 }

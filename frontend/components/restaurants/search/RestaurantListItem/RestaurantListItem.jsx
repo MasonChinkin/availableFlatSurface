@@ -39,25 +39,26 @@ class RestaurantListItem extends Component {
   }
 
   render() {
+    const rest = this.props.restaurant;
 
     const numTables = Math.ceil(Math.random() * 10);
     const numBookings = Math.ceil(Math.random() * 40);
 
-    let costSymbol = this.costSymbol(this.props.restaurant.cost)
-    let ratingSymbol = this.ratingSymbol(this.props.restaurant.rating)
+    let costSymbol = this.costSymbol(rest.cost)
+    let ratingSymbol = this.ratingSymbol(rest.rating)
 
     return (
       <div className="restaurant-profile-photo-wrapper">
-        <img src={`https://www.placecage.com/200/311`} alt="restaurant photo" />
+        <img src={rest.profilePhotoURL} alt="restaurant photo" />
         <div className="search-item">
-          <Link className="restaurant-item-link" to={`/restaurants/${this.props.restaurant.id}`}>{this.props.restaurant.name}</Link>
+          <Link className="restaurant-item-link" to={`/restaurants/${rest.id}`}>{rest.name}</Link>
           <div className="restaurant-item-top">
             <div className="restaurant-item-rating">{ratingSymbol}</div>
             <div className="restaurant-item-cost">{costSymbol}</div>
           </div>
           <div className="restaurant-item-middle">
-            <div className="restaurant-item-cuisine">{this.props.restaurant.cuisine}</div>
-            <div className="restaurant-item-neighborhood">{this.props.restaurant.neighborhood}</div>
+            <div className="restaurant-item-cuisine">{rest.cuisine}</div>
+            <div className="restaurant-item-neighborhood">{rest.neighborhood}</div>
           </div>
           <div className="restaurant-item-bottom">
             <div className="restaurant-item-bookings"><i className="fa fa-line-chart" />Booked {numBookings} times today</div>

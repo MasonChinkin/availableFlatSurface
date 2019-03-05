@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import VisualSummary from './VisualSummary';
 import RestaurantSearchFormContainer from './RestaurantShowFormContainer';
+import RestaurantShowPhotos from './RestaurantShowPhotos';
 
 class RestaurantShow extends Component {
-
   sidebarDataArr(rest) {
-    let pojo = {
+    let details = {
       'Cross Street': [rest.crossStreet, 'fas fa-car-alt'],
       'Neighborhood': [rest.neighborhood, 'far fa-building'],
       'Hours': [rest.hours, 'far fa-clock'],
@@ -17,7 +17,7 @@ class RestaurantShow extends Component {
       'Website': [rest.website, 'far fa-share-square'],
     }
 
-    return Object.entries(pojo);
+    return Object.entries(details);
   }
 
   componentDidMount() {
@@ -25,7 +25,7 @@ class RestaurantShow extends Component {
   }
 
   render() {
-    if (!this.props.restaurant) return (<div>loading...</div>)
+    if (!this.props.restaurant) return null;
 
     const rest = this.props.restaurant;
     const sidebarDataArr = this.sidebarDataArr(rest);
@@ -40,6 +40,8 @@ class RestaurantShow extends Component {
         let label = detail[0];
         let val = detail[1][0] || 'N/A';
         let icon = detail[1][1];
+
+        val = (label === 'Website') ? <a href={val}>{val}</a> : val
         return (
           <li key={i}>
             <i className={icon} />
@@ -54,7 +56,7 @@ class RestaurantShow extends Component {
 
     return (
       <div className="restaurant-show-page">
-        <header>
+        <header style={{ backgroundImage: `url(${this.props.restaurant.wallpaperURL})` }}>
           <button className="save-restaurant-button">
             <i className='far fa-bookmark' />Save this Restaurant
             </button>
@@ -69,8 +71,8 @@ class RestaurantShow extends Component {
               <VisualSummary restaurant={rest} />
               <div className="restaurant-show-main-content-desc">{rest.description}</div>
               <div className="restaurant-photos">
-                <h2>(WIP) Photos</h2>
-                <div className="restaurant-photos-container">Photos</div>
+                <h2>Photos</h2>
+                <RestaurantShowPhotos restaurant={rest} />
               </div>
               <div className="restaurant-reviews">
                 <h2>(WIP) Reviews</h2>

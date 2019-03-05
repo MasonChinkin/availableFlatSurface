@@ -1,11 +1,37 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
+User.destroy_all
+Restaurant.destroy_all
 
 require 'open-uri'
 require 'cgi'
 
-User.destroy_all
+def seed_aws(r)
+  dir = "https://s3-us-west-1.amazonaws.com/availableflatsurface-seed/img/#{CGI::escape(r.name)}"
+  new_dir = dir.split('%27').join('%E2%80%99')
+  new_dir = new_dir.split('%C3%AD').join('i%CC%81')
+
+  5.times do |i|
+    p "#{new_dir}/#{i}.jpg"
+    r.photos.attach(
+      io: open("#{new_dir}/#{i}.jpg"),
+      filename: "#{i}.jpg"
+    )
+  end
+
+  p "#{new_dir}/profile.jpg"
+  r.profile_photo.attach(
+      io: open("#{new_dir}/profile.jpg"),
+      filename: "profile.jpg"
+    )
+
+  p "#{new_dir}/wallpaper.jpg"
+  r.wallpaper.attach(
+      io: open("#{new_dir}/wallpaper.jpg"),
+      filename: "wallpaper.jpg"
+    )
+end
 
 # Demo user
 u = User.create!(
@@ -13,8 +39,6 @@ u = User.create!(
   password: "password",
   email: "captain.marvel@gmail.com"
 )
-
-Restaurant.destroy_all
 
 r = Restaurant.create!(
   name: "The First Ever Restaurant!",
@@ -35,20 +59,7 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-5.times do |i|
-  r.photos.attach(
-    io: open("https://s3-us-west-1.amazonaws.com/availableflatsurface-seed/img/#{CGI::escape(r.name)}/#{i}.jpg"),
-    filename: "#{i}.jpg"
-  )
-end
-r.profile_photo.attach(
-    io: open("https://s3-us-west-1.amazonaws.com/availableflatsurface-seed/img/#{CGI::escape(r.name)}/profile.jpg"),
-    filename: "profile.jpg"
-  )
-r.wallpaper.attach(
-    io: open("https://s3-us-west-1.amazonaws.com/availableflatsurface-seed/img/#{CGI::escape(r.name)}/wallpaper.jpg"),
-    filename: "wallpaper.jpg"
-  )
+seed_aws(r)
 
 r = Restaurant.create!(
   name: "Schroeder's",
@@ -63,6 +74,8 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
+seed_aws(r)
+
 r = Restaurant.create!(
   name: "Aliment",
   address: "786 Bush Street San Francisco, CA 94108",
@@ -75,6 +88,8 @@ r = Restaurant.create!(
   website: "http://www.alimentsf.com/home.html",
   hours: "24/7"
 )
+
+seed_aws(r)
 
 r = Restaurant.create!(
   name: "Brenda’s Soul Food Kitchen",
@@ -91,6 +106,8 @@ r = Restaurant.create!(
   neighborhood: "Tenderloin",
   hours: "24/7"
 )
+
+seed_aws(r)
 
 r = Restaurant.create!(
   name: "Tony’s Pizza Napoletana",
@@ -109,6 +126,8 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
+seed_aws(r)
+
 r = Restaurant.create!(
   name: "Mensho Tokyo SF",
   address: "672 Geary St, San Francisco, CA 94102",
@@ -125,6 +144,8 @@ r = Restaurant.create!(
   parking_details: "occasional street parking",
   hours: "24/7"
 )
+
+seed_aws(r)
 
 r = Restaurant.create!(
   name: "Yank Sing",
@@ -143,6 +164,8 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
+seed_aws(r)
+
 r = Restaurant.create!(
   name: "Azalina’s",
   address: "1355 Market St, San Francisco, CA 94103",
@@ -157,6 +180,8 @@ r = Restaurant.create!(
   neighborhood: "SoMa",
   hours: "24/7"
 )
+
+seed_aws(r)
 
 r = Restaurant.create!(
   name: "Ace Wasabi Rock-N-Roll Sushi",
@@ -174,6 +199,8 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
+seed_aws(r)
+
 r = Restaurant.create!(
   name: "Taquería El Farolito",
   address: "2779 Mission St, San Francisco, CA 94110",
@@ -188,6 +215,8 @@ r = Restaurant.create!(
   neighborhood: "Mission",
   hours: "24/7"
 )
+
+seed_aws(r)
 
 r = Restaurant.create!(
   name: "Kitchen Story",
@@ -206,6 +235,8 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
+seed_aws(r)
+
 r = Restaurant.create!(
   name: "Marnee Thai",
   address: "1243 9th Ave, San Francisco, CA 94122",
@@ -219,6 +250,8 @@ r = Restaurant.create!(
   neighborhood: "Inner Sunset",
   hours: "24/7"
 )
+
+seed_aws(r)
 
 r = Restaurant.create!(
   name: "San Tung",
@@ -235,6 +268,8 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
+seed_aws(r)
+
 r = Restaurant.create!(
   name: "Cassava",
   address: "3519 Balboa St, San Francisco, CA 94121",
@@ -249,6 +284,8 @@ r = Restaurant.create!(
   neighborhood: "Outer Richmond",
   hours: "24/7"
 )
+
+seed_aws(r)
 
 r = Restaurant.create!(
   name: "Purple Kow",
@@ -266,6 +303,8 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
+seed_aws(r)
+
 r = Restaurant.create!(
   name: "Shabu Club",
   address: "951 Clement St, San Francisco, CA 94118",
@@ -279,6 +318,8 @@ r = Restaurant.create!(
   neighborhood: "Inner Richmond",
   hours: "24/7"
 )
+
+seed_aws(r)
 
 r = Restaurant.create!(
   name: "The Pot’s",
@@ -294,6 +335,8 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
+seed_aws(r)
+
 r = Restaurant.create!(
   name: "Emmy’s Spaghetti Shack",
   address: "3230 Mission St, San Francisco, CA 94110",
@@ -308,3 +351,5 @@ r = Restaurant.create!(
   neighborhood: "Bernal Heights",
   hours: "24/7"
 )
+
+seed_aws(r)

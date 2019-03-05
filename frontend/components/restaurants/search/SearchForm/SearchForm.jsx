@@ -9,7 +9,8 @@ class SearchForm extends Component {
     this.state = {
       searchTerm: '',
       resDateTime: new Date(),
-      calendarClass: 'search-calendar'
+      calendarClass: 'search-calendar',
+      backgroundImage: "url(https://resizer.otstatic.com/v2/photos/wide-huge/25161501.jpg)"
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -136,7 +137,7 @@ class SearchForm extends Component {
       )
     } else {
       return (
-        <div className='root-search-form'>
+        <div className='root-search-form' style={{ backgroundImage: this.state.backgroundImage }}>
           <h1>Find your table for any occasion</h1>
           <form onSubmit={this.handleSubmit}>
             <select id="res-search-input-left" defaultValue='2 people'>

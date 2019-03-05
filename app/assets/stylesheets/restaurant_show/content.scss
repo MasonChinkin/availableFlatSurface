@@ -85,10 +85,18 @@
   }
 }
 
-.restaurant-photos-container {
-  background: lightgrey;
-  height: 245px;
+.show-photos {
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
   margin: 10px 0;
+
+  & img {
+    height: 195px;
+    width: 195px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+  }
 }
 
 .restaurant-reviews-container {

@@ -2,9 +2,9 @@ class Api::RestaurantsController < ApplicationController
   def index
     search = params[:searchTerm][:searchTerm]
     if search.length == 0
-      @restaurants = Restaurant.all
+      @restaurants = Restaurant.with_attached_profile_photo.all
     else
-      @restaurants = Restaurant.find_by_name(params[:searchTerm][:searchTerm])
+      @restaurants = Restaurant.with_attached_profile_photo.find_by_name(params[:searchTerm][:searchTerm])
     end
     render :index
   end
