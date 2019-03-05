@@ -10,7 +10,7 @@ class SearchForm extends Component {
       searchTerm: '',
       resDateTime: new Date(),
       calendarClass: 'search-calendar',
-      backgroundImage: "url(https://resizer.otstatic.com/v2/photos/wide-huge/25161501.jpg)"
+      backgroundImage: "url(https://s3-us-west-1.amazonaws.com/availableflatsurface-seed/one-off-use/splash.png)"
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
