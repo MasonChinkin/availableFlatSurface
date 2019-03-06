@@ -93,6 +93,7 @@ nav>ul>* {
   border-bottom-right-radius: 5px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, .1);
   padding: 4px 0;
+  z-index: 1;
 
   & a {
     display: block;
@@ -109,4 +110,8 @@ nav>ul>* {
 .drop-down-active {
   opacity: 1;
   top: 48px;
+}
+
+.calendar-button>i {
+  color: grey;
 }
