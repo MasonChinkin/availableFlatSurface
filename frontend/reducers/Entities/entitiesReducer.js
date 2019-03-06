@@ -12,9 +12,6 @@ import {
   reviewsReducer,
   reviewersReducer
 } from './restaurants/restaurantReducer';
-import {
-  newReservationReducer
-} from './reservations/reservationsReducer';
 
 const entitiesReducer = combineReducers({
   // Restaurant index and show page
@@ -28,10 +25,7 @@ const entitiesReducer = combineReducers({
   user: userReducer,
   savedRestaurants: savedRestaurantsReducer,
   reservations: userReservationsReducer,
-  reservedRestaurants: reservedRestaurantReducer,
-
-  // Identify new reservation
-  newReservation: newReservationReducer
+  reservedRestaurants: reservedRestaurantReducer
 });
 
 export default entitiesReducer;

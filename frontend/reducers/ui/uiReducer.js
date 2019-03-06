@@ -6,7 +6,8 @@ import {
   merge
 } from 'lodash'
 import {
-  RECEIVE_RESERVATION_FORM_CHANGE
+  RECEIVE_RESERVATION_FORM_CHANGE,
+  RECEIVE_RESERVATION
 } from "../../actions/reservationActions";
 
 const defaultUIState = {
@@ -30,6 +31,10 @@ const uiReducer = (oldState = defaultUIState, action) => {
       return merge({}, oldState, {
         reservationForm: action.reservationData
       });
+    case RECEIVE_RESERVATION:
+      return merge({}, oldState, {
+        newReservation: action.reservation.id
+      })
     default:
       return oldState;
   }

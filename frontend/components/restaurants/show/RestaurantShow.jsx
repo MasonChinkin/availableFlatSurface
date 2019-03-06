@@ -89,7 +89,7 @@ class RestaurantShow extends Component {
             </div>
           </section>
           <section className="restaurant-show-sidebar">
-            <RestaurantSearchFormContainer bookedTimesToday={rest.bookedTimesToday} />
+            <RestaurantSearchFormContainer bookedTimesToday={rest.bookedTimesToday} restaurantId={rest.id} />
             <ul className="restaurant-details">
               {sidebarDetails}
             </ul>

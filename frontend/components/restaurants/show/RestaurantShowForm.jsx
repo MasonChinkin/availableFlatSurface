@@ -8,12 +8,15 @@ class RestaurantShowForm extends Component {
     this.state = {
       searchTerm: '',
       resDateTime: new Date(),
+      numPeople: 2,
       calendarClass: 'search-calendar'
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.flipCalendar = this.flipCalendar.bind(this);
     this.handleDayPick = this.handleDayPick.bind(this);
+    this.handleNumPeoplePick = this.handleNumPeoplePick.bind(this);
+    this.handleTimeChange = this.handleTimeChange.bind(this);
   }
 
   numPeople() {
@@ -66,10 +69,34 @@ class RestaurantShowForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
+    let reservation = {
+      reservation: this.state.resDateTime.getTime(),
+      num_people: this.state.numPeople,
+      user_id: this.props.userId,
+      restaurant_id: this.props.restaurantId
+    }
+
+    debugger
+
+    this.props.makeReservation(reservation);
   }
 
   handleDayPick(date) {
     this.setState({ resDateTime: date });
+  }
+
+  handleNumPeoplePick(e) {
+    this.setState({ numPeople: parseInt(e.currentTarget.value) });
+  }
+
+  handleTimeChange(e) {
+    let selected = e.currentTarget.value
+    let newDateTime = new Date(this.state.resDateTime)
+    let newHours = parseInt(selected.split(':')[0]) + 12
+    let newMinutes = parseInt(selected.split(':')[1])
+    newDateTime.setHours(newHours)
+    newDateTime.setMinutes(newMinutes)
+    this.setState({ resDateTime: newDateTime });
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -98,7 +125,6 @@ class RestaurantShowForm extends Component {
       /> :
       undefined;
 
-    const numBookings = Math.ceil(Math.random() * 40);
     const localeDateOptions = { day: 'numeric', month: 'short', year: 'numeric' }
 
     return (
@@ -106,7 +132,7 @@ class RestaurantShowForm extends Component {
         <h1>Make a reservation</h1>
         <form onSubmit={this.handleSubmit}>
           <h2>Party Size</h2>
-          <select className="show-party" id="show-res-input" defaultValue='2 people'>
+          <select className="show-party" onClick={this.handleNumPeoplePick} id="show-res-input" defaultValue='2 people'>
             {this.numPeople()}
           </select>
           <div className="show-date-time">
@@ -122,7 +148,7 @@ class RestaurantShowForm extends Component {
             </div>
             <div>
               <h2>Time</h2>
-              <select id="show-res-input" defaultValue='2 people'>
+              <select id="show-res-input" onChange={this.handleTimeChange} defaultValue='12:00 PM'>
                 {this.times()}
               </select>
             </div>
@@ -131,7 +157,7 @@ class RestaurantShowForm extends Component {
             type="submit"
             id="submit-button"
             className="submit-button"
-            value="Find a Table" />
+            value="Make a Reservation" />
         </form>
         <h3 className="show-booked"><i className="fa fa-line-chart" />Booked {this.props.bookedTimesToday} times today</h3>
       </div>

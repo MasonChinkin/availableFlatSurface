@@ -2,8 +2,10 @@ class Api::ReservationsController < ApplicationController
   def create
     @reservation = Reservation.new(res_params)
 
+    # debugger
+
     if @reservation.save
-      render json: ["Reservation made!"]
+      render :show # simply return id to front end
     else
       render json: @user.errors.full_messages, status: 422
     end

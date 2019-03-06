@@ -10,8 +10,9 @@ class ResButtons extends Component {
 
   handleReservation(e) {
     e.preventDefault();
+
     let reservation = {
-      reservation: this.props.searchedDateTime,
+      reservation: this.props.searchedDateTime.getTime(),
       num_people: this.props.numPeople,
       user_id: this.props.userId,
       restaurant_id: this.props.restaurantId // threaded in from above
