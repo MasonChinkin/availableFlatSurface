@@ -60,7 +60,7 @@ class RestaurantListItem extends Component {
             <div className="restaurant-item-bookings"><i className="fa fa-line-chart" />Booked {rest.bookedTimesToday} times today</div>
             <div className="restaurant-item-tables-left"><i className='far fa-clock' />Hurry, we only have {rest.tablesLeft} timeslots left!</div>
           </div>
-          <ResButtonsContainer />
+          <ResButtonsContainer restaurantId={rest.id} />
         </div>
       </div>
     );

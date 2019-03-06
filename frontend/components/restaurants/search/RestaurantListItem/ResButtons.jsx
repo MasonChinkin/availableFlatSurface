@@ -2,6 +2,24 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
 class ResButtons extends Component {
+
+  constructor(props) {
+    super(props);
+    this.handleReservation = this.handleReservation.bind(this)
+  }
+
+  handleReservation(e) {
+    e.preventDefault();
+    let reservation = {
+      reservation: this.props.searchedDateTime,
+      num_people: this.props.numPeople,
+      user_id: this.props.userId,
+      restaurant_id: this.props.restaurantId // threaded in from above
+    };
+
+    this.props.makeReservation(reservation);
+  }
+
   getResTimes() {
     const time = this.props.searchedDateTime;
 
@@ -33,7 +51,10 @@ class ResButtons extends Component {
 
       let buttonTime = `${hours}:${minutes}`;
 
-      return <Link key={i} className="submit-button res-submit-button" to="/">{buttonTime}</Link>
+      return <Link onClick={this.handleReservation}
+        key={i}
+        className="submit-button res-submit-button"
+        to={`/profile/${this.props.userId}/reservations#top`}>{buttonTime}</Link>
     })
 
     return (

@@ -26,8 +26,13 @@ export const clearReservationErrors = () => ({
 
 export const makeReservation = reservation => dispatch => {
   return ReservationUtils.postReservation(reservation)
-    .then(
-      reservation => dispatch(receiveReservation(reservation)),
-      errors => dispatch(receiveReservationErrors(errors.responseJSON))
-    );
+    .then(reservation => dispatch(receiveReservation(reservation)));
 };
+
+// export const makeReservation = reservation => dispatch => {
+//   return ReservationUtils.postReservation(reservation)
+//     .then(
+//       reservation => dispatch(receiveReservation(reservation)),
+//       errors => dispatch(receiveReservationErrors(errors.responseJSON))
+//     );
+// };

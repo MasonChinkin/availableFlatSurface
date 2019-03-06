@@ -7,10 +7,15 @@ class SearchForm extends Component {
   constructor(props) {
     super(props);
 
+    let date = new Date();
+    let hours = date.getHours();
+    date.setHours(hours + 1);
+    date.setMinutes(0);
+
     this.state = {
       searchTerm: '',
       numPeople: (this.props.reservationForm === null) ? 2 : this.props.reservationForm.numPeople,
-      resDateTime: (this.props.reservationForm === null) ? new Date() : this.props.reservationForm.resDateTime,
+      resDateTime: (this.props.reservationForm === null) ? date : this.props.reservationForm.resDateTime,
       calendarClass: 'search-calendar'
     };
 
@@ -181,7 +186,7 @@ class SearchForm extends Component {
         }}>
           <h1>Find your table for any occasion</h1>
           <form onSubmit={this.handleSubmit}>
-            <select id="res-search-input-left" onChange={this.handleNumPeople} defaultValue='2 people'>
+            <select id="res-search-input-left" onChange={this.handleNumPeople} defaultValue={numPeopleString}>
               {this.numPeople()}
             </select>
             <div

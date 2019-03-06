@@ -3,7 +3,7 @@ class Api::ReservationsController < ApplicationController
     @reservation = Reservation.new(res_params)
 
     if @reservation.save
-      render ["Reservation made!"]
+      render json: ["Reservation made!"]
     else
       render json: @user.errors.full_messages, status: 422
     end
