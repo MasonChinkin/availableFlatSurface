@@ -22,7 +22,7 @@ export const savedRestaurantsReducer = (oldState = {}, action) => {
   }
 };
 
-export const reservationsReducer = (oldState = {}, action) => {
+export const userReservationsReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_USER_DETAILS:

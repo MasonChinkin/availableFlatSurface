@@ -6,16 +6,23 @@ class SearchForm extends Component {
 
   constructor(props) {
     super(props);
+
+    let date = new Date()
+    let hours = date.getHours();
+    date.setHours(hours + 1);
+    date.setMinutes(0);
+
     this.state = {
       searchTerm: '',
-      resDateTime: new Date(),
-      calendarClass: 'search-calendar',
-      backgroundImage: "url(https://s3-us-west-1.amazonaws.com/availableflatsurface-seed/one-off-use/splash.png)"
+      numPeople: 2,
+      resDateTime: date,
+      calendarClass: 'search-calendar'
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.flipCalendar = this.flipCalendar.bind(this);
     this.handleDayPick = this.handleDayPick.bind(this);
+    this.handleNumPeople = this.handleNumPeople.bind(this);
   }
 
   numPeople() {
@@ -25,24 +32,20 @@ class SearchForm extends Component {
       let val = `${i} people`
       options.push(<option key={i} value={val}>{val}</option>);
     }
-    options.push(<option key={21} value="Large Party">Large Party</option>);
 
     return options;
   }
 
   times() {
-    const time = new Date();
-    time.setMinutes(0);
-    time.setHours(12);
-
     const resTimes = [];
     for (let i = 0; i < 24; i++) {
-      let minutes = time.getMinutes();
-      minutes += (i === 0) ? 0 : 30;
-      time.setMinutes(minutes);
+      let newDateTime = new Date(this.state.resDateTime);
+      let minutes = newDateTime.getMinutes();
+      minutes += (i === 0) ? 0 : i * 30;
+      newDateTime.setMinutes(minutes);
 
-      let hour = (time.getHours())
-      let min = time.getMinutes();
+      let hour = (newDateTime.getHours())
+      let min = newDateTime.getMinutes();
       min = (min < 10) ? `0${min} PM` : `${min} PM`;
       hour = (hour < 13) ? `${hour}` : `${hour - 12}`;
 
@@ -74,6 +77,15 @@ class SearchForm extends Component {
 
   handleDayPick(date) {
     this.setState({ resDateTime: date });
+    this.props.reservationFormChange({
+      numPeople: this.state.numPeople,
+      resDateTime: this.state.resDateTime
+    })
+  }
+
+  handleNumPeople(e) {
+    console.log(e)
+    this.setState({ numPeople: e.currentTarget.value });
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -137,7 +149,9 @@ class SearchForm extends Component {
       )
     } else {
       return (
-        <div className='root-search-form' style={{ backgroundImage: this.state.backgroundImage }}>
+        <div className='root-search-form' style={{
+          backgroundImage: "url(https://s3-us-west-1.amazonaws.com/availableflatsurface-seed/one-off-use/splash.png)"
+        }}>
           <h1>Find your table for any occasion</h1>
           <form onSubmit={this.handleSubmit}>
             <select id="res-search-input-left" defaultValue='2 people'>

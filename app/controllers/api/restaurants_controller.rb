@@ -10,7 +10,7 @@ class Api::RestaurantsController < ApplicationController
   end
 
   def show
-    @restaurant = Restaurant.find(params[:id])
+    @restaurant = Restaurant.with_attached_photos.with_attached_wallpaper.with_attached_profile_photo.find(params[:id])
     render :show
   end
 end

@@ -4,7 +4,7 @@ import {
 import {
   userReducer,
   savedRestaurantsReducer,
-  reservationsReducer,
+  userReservationsReducer,
   reservedRestaurantReducer
 } from './user/userReducers';
 import {
@@ -12,15 +12,26 @@ import {
   reviewsReducer,
   reviewersReducer
 } from './restaurants/restaurantReducer';
+import {
+  newReservationReducer
+} from './reservations/reservationsReducer';
 
 const entitiesReducer = combineReducers({
+  // Restaurant index and show page
   restaurants: restaurantReducer,
+
+  // Restaurant show page
   reviews: reviewsReducer,
   reviewers: reviewersReducer,
+
+  // User show page
   user: userReducer,
   savedRestaurants: savedRestaurantsReducer,
-  reservations: reservationsReducer,
-  reservedRestaurants: reservedRestaurantReducer
+  reservations: userReservationsReducer,
+  reservedRestaurants: reservedRestaurantReducer,
+
+  // Identify new reservation
+  newReservation: newReservationReducer
 });
 
 export default entitiesReducer;
