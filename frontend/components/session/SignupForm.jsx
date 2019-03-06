@@ -80,15 +80,17 @@ class SignupForm extends Component {
               <h2>Don't want to complete the form? (not implemented)</h2>
               <ul>
                 <li className="facebook-button">
-                  <img src="https://68ef2f69c7787d4078ac-7864ae55ba174c40683f10ab811d9167.ssl.cf1.rackcdn.com/facebook-icon_64x64.png"
-                    alt="facebook logo" />
-                  Continue with Facebook
-              </li>
+                  <a href="https://www.linkedin.com/in/mason-chinkin/" target="_blank">
+                    <i className="fab fa-linkedin" />
+                    My LinkedIn
+                  </a>
+                </li>
                 <li className="google-button">
-                  <img src="https://68ef2f69c7787d4078ac-7864ae55ba174c40683f10ab811d9167.ssl.cf1.rackcdn.com/google-plus-icon_64x64.png"
-                    alt="facebook logo" />
-                  Continue with Google
-              </li>
+                  <a href="https://github.com/MasonChinkin" target="_blank">
+                    <i className="fab fa-github" />
+                    My Github
+                  </a>
+                </li>
               </ul>
               <p>Selecting "Create Account" you are agreeing to the terms and conditions
               of the <Link className="form-footer-link" to={`user-agreement-privacy`}>AvailableFlatSurface User
