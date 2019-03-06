@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ResButtons from './ResButtons';
 import { HashLink as Link } from 'react-router-hash-link';
+import ResButtonsContainer from './ResButtonsContainer';
 
 class RestaurantListItem extends Component {
 
@@ -60,7 +60,7 @@ class RestaurantListItem extends Component {
             <div className="restaurant-item-bookings"><i className="fa fa-line-chart" />Booked {rest.bookedTimesToday} times today</div>
             <div className="restaurant-item-tables-left"><i className='far fa-clock' />Hurry, we only have {rest.tablesLeft} timeslots left!</div>
           </div>
-          <ResButtons />
+          <ResButtonsContainer />
         </div>
       </div>
     );
