@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
+import ProfileSavedRestaurantsItem from './ProfileSavedRestaurantsItem';
 
 class ProfileSavedRestaurants extends Component {
   render() {
-    if (this.props.restaurants === undefined) return null;
+    let rests = Object.values(this.props.restaurants);
+    if (rests === undefined) return null;
+
+    let savedRestaurants = rests.map(rest => {
+      return <ProfileSavedRestaurantsItem key={rest.id} restaurant={rest} />
+    });
+
     return (
       <section className="saved-restaurants">
-
+        {savedRestaurants}
       </section>
     );
   }

@@ -33,14 +33,14 @@ def seed(r, u)
       filename: "wallpaper.jpg"
     )
 
-    if [1,2,3,4].sample == 1
+    if [1,2,3].sample == 1
       SavedRestaurant.create!(
         restaurant_id: "#{r.id}",
         user_id: "#{u.id}"
       )
     end
     
-    if [1,2,3,4].sample == 1
+    if [1,2,3].sample == 1
       t = Time.now()
       month = (4..12).to_a.sample * (60 * 60 * 24 * 30)
       day = (1..30).to_a.sample * (60 * 60 * 24)

@@ -22,9 +22,9 @@ class ProfileReservations extends Component {
 
     return (
       <section className="reservations">
-        <h2>Upcoming Reservations</h2>
+        <h2 id="upcoming-reservations">Upcoming Reservations</h2>
         {upcoming}
-        <h2>Past Reservations</h2>
+        <h2 id="past-reservations">Past Reservations</h2>
         {past}
       </section>
     );

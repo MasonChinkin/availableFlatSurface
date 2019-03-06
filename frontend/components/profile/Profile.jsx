@@ -24,8 +24,8 @@ class Profile extends Component {
           <ul className="profile-side-bar">
             <li><NavLink activeClassName="profile-active" smooth to={`/profile/${id}/reservations#reservations`}>Reservations</NavLink></li>
             <ul>
-              <li><NavLink activeClassName="profile-active" smooth to={`/profile/${id}/reservations#upcoming`}>Upcoming Reservations</NavLink></li>
-              <li><NavLink activeClassName="profile-active" smooth to={`/profile/${id}/reservations#past`}>Past Reservations</NavLink></li>
+              <li><NavLink activeClassName="profile-active" smooth to={`/profile/${id}/reservations#upcoming-reservations`}>Upcoming Reservations</NavLink></li>
+              <li><NavLink activeClassName="profile-active" smooth to={`/profile/${id}/reservations#past-reservations`}>Past Reservations</NavLink></li>
             </ul>
             <li><NavLink activeClassName="profile-active" to={`/profile/${id}/saved-restaurants`}>Saved Restaurants</NavLink></li>
           </ul>

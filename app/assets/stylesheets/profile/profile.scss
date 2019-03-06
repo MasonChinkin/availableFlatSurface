@@ -44,7 +44,7 @@
 .reservations>h2 {
   background: white;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 22px;
   width: 400px;
   padding: 1.5rem 1rem;
   margin-bottom: 6px;
@@ -59,6 +59,7 @@
   padding: 1.5rem 1rem;
   border-bottom: 1px solid rgba(0, 0, 0, .08);
   margin-bottom: 6px;
+  font-weight: 375;
 
   &>img {
     height: 80px;
@@ -73,5 +74,42 @@
 
   & h3 {
     color: rgb(150, 150, 150);
+  }
+}
+
+.profile-saved_restaurant-item {
+  display: flex;
+  justify-content: flex-start;
+  width: 400px;
+  background: white;
+  height: auto;
+  padding: 1.5rem 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, .08);
+  margin-bottom: 6px;
+  font-weight: 375;
+
+  &>img {
+    height: 80px;
+    width: 80px;
+    margin-right: 20px;
+  }
+
+  &>div>* {
+    margin-bottom: 8px;
+  }
+
+  & & h2 {
+    color: $not-quite-black;
+    display: flex;
+    align-items: center;
+  }
+
+  & h3 {
+    color: rgb(150, 150, 150);
+    font-size: 14px;
+  }
+
+  & i {
+    margin-right: 5px;
   }
 }

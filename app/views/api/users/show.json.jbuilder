@@ -7,7 +7,7 @@ end
 json.saved_restaurants do
   @user.saved_restaurants_data.each do |rest|
     json.set! rest.id do
-      json.extract! rest, :id, :name, :cuisine, :neighborhood
+      json.extract! rest, :id, :name, :cuisine, :neighborhood, :rating
       json.profilePhotoURL url_for(rest.profile_photo)
     end
   end
