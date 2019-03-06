@@ -5,7 +5,8 @@ import { flipSearchCalendar } from '../../../../actions/uiActions';
 import { receiveReservationFormChange } from '../../../../actions/reservationActions';
 
 const mSP = ({ ui }) => ({
-  searchCalendar: ui.searchCalendar
+  searchCalendar: ui.searchCalendar,
+  reservationForm: ui.reservationForm
 })
 
 const mDP = dispatch => ({

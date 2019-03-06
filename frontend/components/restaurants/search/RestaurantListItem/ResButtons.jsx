@@ -3,25 +3,17 @@ import { Link } from 'react-router-dom';
 
 class ResButtons extends Component {
   getResTimes() {
-    const time = new Date();
-    let minutes = time.getMinutes();
-
-    minutes += 30;
-    time.setMinutes(minutes);
-    time.setMinutes(0);
-
-    let hours = time.getHours();
-    hours += (hours < 7) ? 0 : 2;
-    time.setHours(hours);
+    const time = this.props.searchedDateTime;
 
     const resTimes = [];
     for (let i = 0; i < 5; i++) {
+      let newTime = new Date(time);
       let minutes = time.getMinutes();
-      minutes += (i === 0) ? 0 : 15;
-      time.setMinutes(minutes);
+      minutes += (i === 0) ? 0 : i * 15;
+      newTime.setMinutes(minutes);
 
-      let buttonHours = (time.getHours())
-      let buttonMinutes = time.getMinutes();
+      let buttonHours = newTime.getHours()
+      let buttonMinutes = newTime.getMinutes();
 
       resTimes.push([buttonHours, buttonMinutes]);
     }

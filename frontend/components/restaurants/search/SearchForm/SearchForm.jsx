@@ -7,15 +7,10 @@ class SearchForm extends Component {
   constructor(props) {
     super(props);
 
-    let date = new Date()
-    let hours = date.getHours();
-    date.setHours(hours + 1);
-    date.setMinutes(0);
-
     this.state = {
       searchTerm: '',
-      numPeople: 2,
-      resDateTime: date,
+      numPeople: (this.props.reservationForm === null) ? 2 : this.props.reservationForm.numPeople,
+      resDateTime: (this.props.reservationForm === null) ? new Date() : this.props.reservationForm.resDateTime,
       calendarClass: 'search-calendar'
     };
 
@@ -23,13 +18,14 @@ class SearchForm extends Component {
     this.flipCalendar = this.flipCalendar.bind(this);
     this.handleDayPick = this.handleDayPick.bind(this);
     this.handleNumPeople = this.handleNumPeople.bind(this);
+    this.handleTimeChange = this.handleTimeChange.bind(this);
   }
 
   numPeople() {
     let options = [];
 
     for (let i = 1; i < 21; i++) {
-      let val = `${i} people`
+      let val = (i === 1) ? `${i} person` : `${i} people`;
       options.push(<option key={i} value={val}>{val}</option>);
     }
 
@@ -39,7 +35,9 @@ class SearchForm extends Component {
   times() {
     const resTimes = [];
     for (let i = 0; i < 24; i++) {
-      let newDateTime = new Date(this.state.resDateTime);
+      let newDateTime = new Date();
+      newDateTime.setHours(12)
+      newDateTime.setMinutes(0);
       let minutes = newDateTime.getMinutes();
       minutes += (i === 0) ? 0 : i * 30;
       newDateTime.setMinutes(minutes);
@@ -71,6 +69,11 @@ class SearchForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
+    this.props.reservationFormChange({
+      numPeople: this.state.numPeople,
+      resDateTime: this.state.resDateTime
+    })
+
     this.props.requestSearchedRestaurants(this.state)
       .then(this.props.history.push('/search'))
   }
@@ -84,8 +87,17 @@ class SearchForm extends Component {
   }
 
   handleNumPeople(e) {
-    console.log(e)
-    this.setState({ numPeople: e.currentTarget.value });
+    this.setState({ numPeople: parseInt(e.currentTarget.value) });
+  }
+
+  handleTimeChange(e) {
+    let selected = e.currentTarget.value
+    let newDateTime = new Date(this.state.resDateTime)
+    let newHours = parseInt(selected.split(':')[0]) + 12
+    let newMinutes = parseInt(selected.split(':')[1])
+    newDateTime.setHours(newHours)
+    newDateTime.setMinutes(newMinutes)
+    this.setState({ resDateTime: newDateTime });
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -106,21 +118,36 @@ class SearchForm extends Component {
   }
 
   render() {
+    const localeDateOptions = { day: 'numeric', month: 'short', year: 'numeric' }
+    const times = this.times()
+    let defaultTime;
+
+    if (this.props.reservationForm === null) {
+      defaultTime = times[0]
+    } else {
+      const searchTime = this.props.reservationForm.resDateTime
+      const defaultHours = (searchTime.getHours() === 12) ? '12' : `${searchTime.getHours() - 12}`
+      const min = searchTime.getMinutes()
+      const defaultMinutes = (min < 10) ? `0${min} PM` : `${min} PM`
+      defaultTime = `${defaultHours}:${defaultMinutes}`
+    }
+
+    let numPeople = this.state.numPeople
+    let numPeopleString = (numPeople === 1) ? `${numPeople} person` : `${numPeople} people`
+
     const calendarDropDown = this.props.searchCalendar ?
       <Calendar
         className={this.state.calendarClass}
-        value={this.state.resDateTime}
+        activeStartDate={this.state.resDateTime}
         onClickDay={this.handleDayPick}
       /> :
       undefined;
-
-    const localeDateOptions = { day: 'numeric', month: 'short', year: 'numeric' }
 
     if (this.props.history.location.pathname === '/search') {
       return (
         <div className='restaurant-index-search-form'>
           <form onSubmit={this.handleSubmit}>
-            <select id="res-search-input-left" defaultValue='2 people'>
+            <select id="res-search-input-left" onChange={this.handleNumPeople} defaultValue={numPeopleString}>
               {this.numPeople()}
             </select>
             <div
@@ -130,8 +157,8 @@ class SearchForm extends Component {
               {this.state.resDateTime.toLocaleDateString('en-US', localeDateOptions)}
               {calendarDropDown}
             </div>
-            <select id="res-search-input" defaultValue='7:00 PM'>
-              {this.times()}
+            <select id="res-search-input" onChange={this.handleTimeChange} defaultValue={defaultTime}>
+              {times}
             </select>
             <input
               type='text'
@@ -154,7 +181,7 @@ class SearchForm extends Component {
         }}>
           <h1>Find your table for any occasion</h1>
           <form onSubmit={this.handleSubmit}>
-            <select id="res-search-input-left" defaultValue='2 people'>
+            <select id="res-search-input-left" onChange={this.handleNumPeople} defaultValue='2 people'>
               {this.numPeople()}
             </select>
             <div
@@ -164,7 +191,7 @@ class SearchForm extends Component {
               {this.state.resDateTime.toLocaleDateString('en-US', localeDateOptions)}
               {calendarDropDown}
             </div>
-            <select id="res-search-input-right" defaultValue='7:00 PM'>
+            <select id="res-search-input-right" onChange={this.handleTimeChange} defaultValue={times[0]}>
               {this.times()}
             </select>
             <input
