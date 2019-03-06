@@ -26,7 +26,7 @@
 class Restaurant < ApplicationRecord
   validates :name, :description, :address, :cost, :email, :user_id, presence: true
   validates :cost, inclusion: {in: [1, 2, 3, 4]}
-  validates :rating, inclusion: {in: [0, 1, 2, 3, 4, 5]}
+  validates :rating, inclusion: {in: [1, 2, 3, 4, 5]}
 
   has_many_attached :photos
   has_one_attached :profile_photo
@@ -34,6 +34,11 @@ class Restaurant < ApplicationRecord
 
   belongs_to :user # restaurant creator, not yet implemented
   has_many :saved_restaurants
+
+  has_many :reviews
+  has_many :reviewers,
+    through: :reviews,
+    source: :user
 
   def self.find_by_name(str)
     return Restaurant.all if str.nil?

@@ -8,7 +8,7 @@ require 'open-uri'
 require 'cgi'
 require 'date'
 
-def seed(r, u)
+def seed_pics_res_and_saves(r, u)
   dir = "https://s3-us-west-1.amazonaws.com/availableflatsurface-seed/img/#{CGI::escape(r.name)}"
   new_dir = dir.split('%27').join('%E2%80%99')
   new_dir = new_dir.split('%C3%AD').join('i%CC%81')
@@ -75,11 +75,64 @@ def seed(r, u)
     end
 end
 
+def seed_reviews(r, r1, r2, r3, r4)
+  reviews_arr = [
+    "I'm happy I gave this place a try. I truly enjoyed the delicious food and good beer. The staff is pretty friendly and I met some very friendly customers at this bar. ",
+    "Best Grilled Romaine Caesar! Smoked chicken with Brie sandwich was delicious as well. High quality food in a casual, friendly setting.",
+    "Ok. Great spot to stop for happy hour. Very chill. Sat at the bar and had a terrific grilled Caesar salad and yummy French fries. Huge portions! Very casual and good service.",
+    "Rotating taps, flights of beer, exceptional service and food. New favorite spot.",
+    "Great food and decent pricing",
+    "This is our favorite neighborhood spot. We love the food, drinks, staff, and homey vibe!",
+    "Great locals spot. Good brews and chill and casual environment. Don't expect anything super fancy but it's good beer, good food, good people",
+    "Really good. One of the best gastropubs in the city. I haven't had a bad dish here, period."
+  ]
+
+  reviewers = [r1,r2,r3,r4]
+
+  reviewers.each do |reviewer|
+    Review.create!(
+      overall_rating: "#{[3,4,5].sample}",
+      food_rating: "#{[3,4,5].sample}",
+      service_rating: "#{[3,4,5].sample}",
+      ambience_rating: "#{[3,4,5].sample}",
+      body: "#{reviews_arr.shuffle.pop}",
+      restaurant_id: "#{r.id}",
+      user_id: "#{reviewer.id}"
+    )
+  end
+
+
+end
+
 # Demo user
 u = User.create!(
   name: "Carol Danvers",
   password: "password",
   email: "captain.marvel@gmail.com"
+)
+
+r1 = User.create!(
+  name: "Rick Vanwinkle",
+  password: "password",
+  email: "captain.marvel1@gmail.com"
+)
+
+r2 = User.create!(
+  name: "Sarah Vanwinkle",
+  password: "password",
+  email: "captain.marvel2@gmail.com"
+)
+
+r3 = User.create!(
+  name: "Andrew Vanwinkle",
+  password: "password",
+  email: "captain.marvel3@gmail.com"
+)
+
+r4 = User.create!(
+  name: "Ashley Vanwinkle",
+  password: "password",
+  email: "captain.marvel4@gmail.com"
 )
 
 r = Restaurant.create!(
@@ -101,7 +154,8 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed(r, u)
+seed_pics_res_and_saves(r, u)
+seed_reviews(r, r1, r2, r3, r4)
 
 r = Restaurant.create!(
   name: "Schroeder's",
@@ -116,7 +170,8 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed(r, u)
+seed_pics_res_and_saves(r, u)
+seed_reviews(r, r1, r2, r3, r4)
 
 r = Restaurant.create!(
   name: "Aliment",
@@ -131,7 +186,8 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed(r, u)
+seed_pics_res_and_saves(r, u)
+seed_reviews(r, r1, r2, r3, r4)
 
 r = Restaurant.create!(
   name: "Brenda’s Soul Food Kitchen",
@@ -149,7 +205,8 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed(r, u)
+seed_pics_res_and_saves(r, u)
+seed_reviews(r, r1, r2, r3, r4)
 
 r = Restaurant.create!(
   name: "Tony’s Pizza Napoletana",
@@ -168,7 +225,8 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed(r, u)
+seed_pics_res_and_saves(r, u)
+seed_reviews(r, r1, r2, r3, r4)
 
 r = Restaurant.create!(
   name: "Mensho Tokyo SF",
@@ -187,7 +245,8 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed(r, u)
+seed_pics_res_and_saves(r, u)
+seed_reviews(r, r1, r2, r3, r4)
 
 r = Restaurant.create!(
   name: "Yank Sing",
@@ -206,7 +265,8 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed(r, u)
+seed_pics_res_and_saves(r, u)
+seed_reviews(r, r1, r2, r3, r4)
 
 r = Restaurant.create!(
   name: "Azalina’s",
@@ -223,7 +283,8 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed(r, u)
+seed_pics_res_and_saves(r, u)
+seed_reviews(r, r1, r2, r3, r4)
 
 r = Restaurant.create!(
   name: "Ace Wasabi Rock-N-Roll Sushi",
@@ -241,7 +302,8 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed(r, u)
+seed_pics_res_and_saves(r, u)
+seed_reviews(r, r1, r2, r3, r4)
 
 r = Restaurant.create!(
   name: "Taquería El Farolito",
@@ -258,7 +320,8 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed(r, u)
+seed_pics_res_and_saves(r, u)
+seed_reviews(r, r1, r2, r3, r4)
 
 r = Restaurant.create!(
   name: "Kitchen Story",
@@ -277,7 +340,8 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed(r, u)
+seed_pics_res_and_saves(r, u)
+seed_reviews(r, r1, r2, r3, r4)
 
 r = Restaurant.create!(
   name: "Marnee Thai",
@@ -293,7 +357,8 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed(r, u)
+seed_pics_res_and_saves(r, u)
+seed_reviews(r, r1, r2, r3, r4)
 
 r = Restaurant.create!(
   name: "San Tung",
@@ -310,7 +375,8 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed(r, u)
+seed_pics_res_and_saves(r, u)
+seed_reviews(r, r1, r2, r3, r4)
 
 r = Restaurant.create!(
   name: "Cassava",
@@ -327,7 +393,8 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed(r, u)
+seed_pics_res_and_saves(r, u)
+seed_reviews(r, r1, r2, r3, r4)
 
 r = Restaurant.create!(
   name: "Purple Kow",
@@ -345,7 +412,8 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed(r, u)
+seed_pics_res_and_saves(r, u)
+seed_reviews(r, r1, r2, r3, r4)
 
 r = Restaurant.create!(
   name: "Shabu Club",
@@ -361,7 +429,8 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed(r, u)
+seed_pics_res_and_saves(r, u)
+seed_reviews(r, r1, r2, r3, r4)
 
 r = Restaurant.create!(
   name: "The Pot’s",
@@ -377,7 +446,8 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed(r, u)
+seed_pics_res_and_saves(r, u)
+seed_reviews(r, r1, r2, r3, r4)
 
 r = Restaurant.create!(
   name: "Emmy’s Spaghetti Shack",
@@ -394,4 +464,5 @@ r = Restaurant.create!(
   hours: "24/7"
 )
 
-seed(r, u)
+seed_pics_res_and_saves(r, u)
+seed_reviews(r, r1, r2, r3, r4)

@@ -3,7 +3,6 @@
 # Table name: reservations
 #
 #  id            :bigint(8)        not null, primary key
-#  reservation   :datetime         not null
 #  num_people    :integer          not null
 #  notes         :text
 #  canceled      :boolean
@@ -12,6 +11,7 @@
 #  user_id       :integer          not null
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  reservation   :float            not null
 #
 
 require 'test_helper'

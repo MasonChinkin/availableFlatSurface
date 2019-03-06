@@ -39,7 +39,7 @@ class NavBar extends React.Component {
 
     const sessionButtons = this.props.currentUser ? (
       <>
-        <li className="calendar-button"><i className='far fa-calendar-alt'></i></li>
+        <Link className="calendar-button" to={`/profile/${currentUser.id}/reservations#reservations`}><i className='far fa-calendar-alt' /></Link>
         <li onClick={this.dropDown} className="profile-button">Hi, {this.fname(this.props.currentUser.name)} <i className="material-icons">keyboard_arrow_down</i>
           {component}
         </li>
