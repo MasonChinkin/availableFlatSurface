@@ -51,6 +51,7 @@
     border: 1px solid $input-border;
     margin-bottom: 0.5rem;
     height: 54px;
+    border-radius: 4px;
 
     &:hover {
       border: 1px solid $input-border-hover;
@@ -88,9 +89,16 @@
   justify-content: flex-start;
 }
 
-.form-footer>ul>li>img {
-  height: 32px;
-  width: auto;
+.form-footer>ul>li>a {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.form-footer>ul>li i {
+  font-size: 2rem;
+  margin-right: 2.5rem;
 }
 
 .form-footer>ul>li {
@@ -100,7 +108,7 @@
   align-items: center;
   border: $input-border 1px solid;
   border-radius: 3px;
-  padding: 0.6rem 0.3rem;
+  padding: 0.6rem 0.8rem;
   font-size: 14px;
 }
 

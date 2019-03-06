@@ -54,7 +54,7 @@
     border-bottom: 1px solid $input-border
   }
 
-  & h2 {
+  &>div>h2 {
     font-size: 32px;
     font-weight: 400;
     padding: 20px 0;
@@ -103,4 +103,75 @@
   background: lightgrey;
   height: 245px;
   margin: 10px 0;
+}
+
+.review-item {
+  height: aut0;
+  width: 608px;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: flex-start;
+  border-bottom: 1px solid $input-border;
+}
+
+.review-item-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 1rem;
+  width: 6rem;
+  flex: none;
+  position: relative;
+
+  &>* {
+    margin-bottom: 5px;
+    text-align: center;
+  }
+
+  &>h3 {
+    color: rgb(150, 150, 150);
+    font-size: 12px;
+  }
+}
+
+.user-letter-circle {
+  color: white;
+  background: rgb(100, 125, 225);
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.review-item-right-top {
+  display: flex;
+  justify-content: flex-start;
+
+  &>h2 {
+    margin-left: 15px;
+  }
+}
+
+.review-item-right-middle {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 10px;
+  font-size: 14px;
+
+  &>h2 {
+    margin-right: 6px;
+  }
+
+  &>h3 {
+    color: rgb(207, 53, 32);
+    margin-right: 12px;
+  }
+}
+
+.review-item-body {
+  line-height: 1.5;
+  margin-top: 1rem;
 }

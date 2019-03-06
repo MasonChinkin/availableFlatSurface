@@ -31,6 +31,7 @@ class NavBar extends React.Component {
   }
 
   render() {
+    if (this.props === undefined) return null;
     const path = this.props.history.location.pathname;
     const component = this.props.dropDown ? (<DropDown signout={this.props.signout} dropDown={this.props.dropDown} currentUser={currentUser} />) : "";
 
@@ -58,9 +59,11 @@ class NavBar extends React.Component {
             <img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Venn0110.svg" alt="table symbol" />
             AvailableFlatSurface
           </li>
-          <li className="nav-place-button">
+          <li className="nav-place">
             <i className="material-icons place">place</i>
-            <i className="material-icons keyboard-arrow">keyboard_arrow_down</i>
+            <h2>Bay Area</h2>
+            {/* commented until drop down implemented */}
+            {/* <i className="material-icons keyboard-arrow">keyboard_arrow_down</i> */}
           </li>
         </ul>
         <ul className="right-nav">

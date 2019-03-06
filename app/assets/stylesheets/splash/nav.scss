@@ -44,13 +44,21 @@ nav>ul>* {
   }
 }
 
-.nav-place-button {
+.nav-place {
   height: 100%;
-  width: 75px;
+  width: auto;
   display: flex;
   justify-content: space-evenly;
+  pointer-events: none;
+  padding: 0 .5rem;
   border-left: rgb(230, 230, 230) solid 1px;
   border-right: rgb(230, 230, 230) solid 1px;
+
+  &>h2 {
+    font-weight: 500;
+    font-size: 18px;
+    margin: 0 .5rem;
+  }
 }
 
 .place {

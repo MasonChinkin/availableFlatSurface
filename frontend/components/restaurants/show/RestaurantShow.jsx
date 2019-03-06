@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import VisualSummary from './VisualSummary';
 import RestaurantSearchFormContainer from './RestaurantShowFormContainer';
 import RestaurantShowPhotos from './RestaurantShowPhotos';
+import RestaurantReviewItem from './RestaurantShowReviewItem';
 
 class RestaurantShow extends Component {
   sidebarDataArr(rest) {
@@ -54,6 +55,12 @@ class RestaurantShow extends Component {
       }
     })
 
+    const reviews = this.props.reviews.map(rev => {
+      return <RestaurantReviewItem key={rev.id}
+        review={rev}
+        reviewer={this.props.reviewers[rev.userId]} />
+    })
+
     return (
       <div className="restaurant-show-page">
         <header style={{ backgroundImage: `url(${this.props.restaurant.wallpaperURL})` }}>
@@ -75,8 +82,8 @@ class RestaurantShow extends Component {
                 <RestaurantShowPhotos restaurant={rest} />
               </div>
               <div className="restaurant-reviews">
-                <h2>(WIP) Reviews</h2>
-                <div className="restaurant-reviews-container">Reviews</div>
+                <h2>Reviews</h2>
+                {reviews}
               </div>
             </div>
           </section>

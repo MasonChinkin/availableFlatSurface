@@ -7,7 +7,7 @@ import {
   merge
 } from 'lodash';
 
-const restaurantReducer = (oldState = {}, action) => {
+export const restaurantReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_SEARCHED_RESTAURANTS:
@@ -15,12 +15,31 @@ const restaurantReducer = (oldState = {}, action) => {
     case RECEIVE_ALL_RESTAURANTS:
       return action.restaurants;
     case RECEIVE_RESTAURANT:
+      let restaurant = Object.entries(action.restaurant.restaurant);
       return merge({}, oldState, {
-        [action.restaurant.id]: action.restaurant
-      })
+        [restaurant[0][0]]: restaurant[0][1]
+      });
     default:
       return oldState;
   }
 };
 
-export default restaurantReducer;
+export const reviewsReducer = (oldState = {}, action) => {
+  Object.freeze(oldState);
+  switch (action.type) {
+    case RECEIVE_RESTAURANT:
+      return action.restaurant.reviews;
+    default:
+      return oldState;
+  }
+};
+
+export const reviewersReducer = (oldState = {}, action) => {
+  Object.freeze(oldState);
+  switch (action.type) {
+    case RECEIVE_RESTAURANT:
+      return action.restaurant.reviewers;
+    default:
+      return oldState;
+  }
+};
