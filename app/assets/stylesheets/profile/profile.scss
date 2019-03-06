@@ -33,7 +33,7 @@
   & a {
     font-weight: 300;
     font-size: 16px;
-    color: rgb(150, 150, 150);
+    color: rgb(112, 112, 112);
 
     &:hover {
       color: rgb(220, 40, 60);
@@ -41,22 +41,34 @@
   }
 }
 
+.reservations>h2 {
+  background: white;
+  font-weight: 400;
+  font-size: 18px;
+  width: 400px;
+  padding: 1.5rem 1rem;
+  margin-bottom: 6px;
+}
+
 .profile-reservation-item {
   display: flex;
   justify-content: flex-start;
+  width: 400px;
   background: white;
-  height: 175px;
-  padding: 1rem;
+  height: auto;
+  padding: 1.5rem 1rem;
   border-bottom: 1px solid rgba(0, 0, 0, .08);
-  margin-bottom: 10px;
+  margin-bottom: 6px;
 
   &>img {
     height: 80px;
     width: 80px;
+    margin-right: 20px;
   }
 
   & h2 {
     color: $not-quite-black;
+    margin-bottom: 10px;
   }
 
   & h3 {
