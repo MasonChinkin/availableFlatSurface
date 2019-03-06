@@ -151,7 +151,9 @@ r = Restaurant.create!(
   cross_street: "Broadway",
   parking_details: "don't drive here",
   cost: "#{[1,2,3,4].sample}",
-  hours: "24/7"
+  hours: "24/7",
+  booked_times_today: "#{(5..50).to_a.sample}",
+  tables_left: "#{(1..10).to_a.sample}"
 )
 
 seed_pics_res_and_saves(r, u)
@@ -167,7 +169,9 @@ r = Restaurant.create!(
   user: u,
   email: "firstever@gmail.com",
   website: "http://www.schroederssf.com/",
-  hours: "24/7"
+  hours: "24/7",
+  booked_times_today: "#{(5..50).to_a.sample}",
+  tables_left: "#{(1..10).to_a.sample}"
 )
 
 seed_pics_res_and_saves(r, u)
@@ -183,7 +187,9 @@ r = Restaurant.create!(
   user: u,
   email: "firstever@gmail.com",
   website: "http://www.alimentsf.com/home.html",
-  hours: "24/7"
+  hours: "24/7",
+  booked_times_today: "#{(5..50).to_a.sample}",
+  tables_left: "#{(1..10).to_a.sample}"
 )
 
 seed_pics_res_and_saves(r, u)
@@ -202,7 +208,9 @@ r = Restaurant.create!(
   payment_options: "All credit cards, cash, debit",
   dress_code: "casual",
   neighborhood: "Tenderloin",
-  hours: "24/7"
+  hours: "24/7",
+  booked_times_today: "#{(5..50).to_a.sample}",
+  tables_left: "#{(1..10).to_a.sample}"
 )
 
 seed_pics_res_and_saves(r, u)
@@ -222,7 +230,9 @@ r = Restaurant.create!(
   dress_code: "casual",
   neighborhood: "North Beach",
   cross_street: "Union",
-  hours: "24/7"
+  hours: "24/7",
+  booked_times_today: "#{(5..50).to_a.sample}",
+  tables_left: "#{(1..10).to_a.sample}"
 )
 
 seed_pics_res_and_saves(r, u)
@@ -242,7 +252,9 @@ r = Restaurant.create!(
   neighborhood: "Nob Hill",
   cross_street: "Leavenworth",
   parking_details: "occasional street parking",
-  hours: "24/7"
+  hours: "24/7",
+  booked_times_today: "#{(5..50).to_a.sample}",
+  tables_left: "#{(1..10).to_a.sample}"
 )
 
 seed_pics_res_and_saves(r, u)
@@ -262,7 +274,9 @@ r = Restaurant.create!(
   payment_options: "Visa",
   dress_code: "casual",
   neighborhood: "SoMa",
-  hours: "24/7"
+  hours: "24/7",
+  booked_times_today: "#{(5..50).to_a.sample}",
+  tables_left: "#{(1..10).to_a.sample}"
 )
 
 seed_pics_res_and_saves(r, u)
@@ -280,7 +294,9 @@ r = Restaurant.create!(
   phone: "(415) 660-2020",
   website: "azalinaa.com",
   neighborhood: "SoMa",
-  hours: "24/7"
+  hours: "24/7",
+  booked_times_today: "#{(5..50).to_a.sample}",
+  tables_left: "#{(1..10).to_a.sample}"
 )
 
 seed_pics_res_and_saves(r, u)
@@ -299,7 +315,9 @@ r = Restaurant.create!(
   website: "aceasabisf.com",
   payment_options: "Credit, debit, cash",
   neighborhood: "Marina",
-  hours: "24/7"
+  hours: "24/7",
+  booked_times_today: "#{(5..50).to_a.sample}",
+  tables_left: "#{(1..10).to_a.sample}"
 )
 
 seed_pics_res_and_saves(r, u)
@@ -317,7 +335,9 @@ r = Restaurant.create!(
   phone: "(415) 824-7877",
   website: "elfarolitosf.com",
   neighborhood: "Mission",
-  hours: "24/7"
+  hours: "24/7",
+  booked_times_today: "#{(5..50).to_a.sample}",
+  tables_left: "#{(1..10).to_a.sample}"
 )
 
 seed_pics_res_and_saves(r, u)
@@ -337,7 +357,9 @@ r = Restaurant.create!(
   dress_code: "casual",
   neighborhood: "Mission",
   cross_street: "Sanchez",
-  hours: "24/7"
+  hours: "24/7",
+  booked_times_today: "#{(5..50).to_a.sample}",
+  tables_left: "#{(1..10).to_a.sample}"
 )
 
 seed_pics_res_and_saves(r, u)
@@ -354,7 +376,9 @@ r = Restaurant.create!(
   email: "email9@gmail.com",
   phone: "(415) 731-9999",
   neighborhood: "Inner Sunset",
-  hours: "24/7"
+  hours: "24/7",
+  booked_times_today: "#{(5..50).to_a.sample}",
+  tables_left: "#{(1..10).to_a.sample}"
 )
 
 seed_pics_res_and_saves(r, u)
@@ -372,7 +396,9 @@ r = Restaurant.create!(
   phone: "(415) 242-0828",
   website: "santung.net",
   neighborhood: "Inner Sunset",
-  hours: "24/7"
+  hours: "24/7",
+  booked_times_today: "#{(5..50).to_a.sample}",
+  tables_left: "#{(1..10).to_a.sample}"
 )
 
 seed_pics_res_and_saves(r, u)
@@ -390,7 +416,9 @@ r = Restaurant.create!(
   phone: "(415) 640-8990",
   website: "cassavasf.com",
   neighborhood: "Outer Richmond",
-  hours: "24/7"
+  hours: "24/7",
+  booked_times_today: "#{(5..50).to_a.sample}",
+  tables_left: "#{(1..10).to_a.sample}"
 )
 
 seed_pics_res_and_saves(r, u)
@@ -409,7 +437,9 @@ r = Restaurant.create!(
   website: "purplekow.com",
   neighborhood: "Outer Richmond",
   parking_details: "street parking",
-  hours: "24/7"
+  hours: "24/7",
+  booked_times_today: "#{(5..50).to_a.sample}",
+  tables_left: "#{(1..10).to_a.sample}"
 )
 
 seed_pics_res_and_saves(r, u)
@@ -426,7 +456,9 @@ r = Restaurant.create!(
   email: "email13@gmail.com",
   phone: "(415) 742-5265",
   neighborhood: "Inner Richmond",
-  hours: "24/7"
+  hours: "24/7",
+  booked_times_today: "#{(5..50).to_a.sample}",
+  tables_left: "#{(1..10).to_a.sample}"
 )
 
 seed_pics_res_and_saves(r, u)
@@ -443,7 +475,9 @@ r = Restaurant.create!(
   email: "email14@gmail.com",
   phone: "(415) 682-7889",
   neighborhood: "Outer Sunset",
-  hours: "24/7"
+  hours: "24/7",
+  booked_times_today: "#{(5..50).to_a.sample}",
+  tables_left: "#{(1..10).to_a.sample}"
 )
 
 seed_pics_res_and_saves(r, u)
@@ -461,7 +495,9 @@ r = Restaurant.create!(
   phone: "(415) 206-2086",
   dress_code: "casual",
   neighborhood: "Bernal Heights",
-  hours: "24/7"
+  hours: "24/7",
+  booked_times_today: "#{(5..50).to_a.sample}",
+  tables_left: "#{(1..10).to_a.sample}"
 )
 
 seed_pics_res_and_saves(r, u)

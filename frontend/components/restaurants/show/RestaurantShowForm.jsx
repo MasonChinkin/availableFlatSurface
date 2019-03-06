@@ -133,7 +133,7 @@ class RestaurantShowForm extends Component {
             className="submit-button"
             value="Find a Table" />
         </form>
-        <h3 className="show-booked"><i className="fa fa-line-chart" />Booked {numBookings} times today</h3>
+        <h3 className="show-booked"><i className="fa fa-line-chart" />Booked {this.props.bookedTimesToday} times today</h3>
       </div>
     );
   }

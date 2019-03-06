@@ -57,8 +57,8 @@ class RestaurantListItem extends Component {
             <div className="restaurant-item-neighborhood">{rest.neighborhood}</div>
           </div>
           <div className="restaurant-item-bottom">
-            <div className="restaurant-item-bookings"><i className="fa fa-line-chart" />Booked {numBookings} times today</div>
-            <div className="restaurant-item-tables-left"><i className='far fa-clock' />Hurry, we only have {numTables} left!</div>
+            <div className="restaurant-item-bookings"><i className="fa fa-line-chart" />Booked {rest.bookedTimesToday} times today</div>
+            <div className="restaurant-item-tables-left"><i className='far fa-clock' />Hurry, we only have {rest.tablesLeft} left!</div>
           </div>
           <ResButtons />
         </div>

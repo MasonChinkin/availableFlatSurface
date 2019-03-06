@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
 class ProfileSavedRestaurantsItem extends Component {
 
@@ -27,9 +28,9 @@ class ProfileSavedRestaurantsItem extends Component {
 
     return (
       <div className="profile-saved_restaurant-item">
-        <img src={rest.profilePhotoURL} alt="restaurant photo" />
+        <Link to={`/restaurants/${rest.id}`}><img src={rest.profilePhotoURL} alt="restaurant photo" /></Link>
         <div>
-          <h2>{rest.name}</h2>
+          <Link to={`/restaurants/${rest.id}`}><h2>{rest.name}</h2></Link>
           <h3><i className='fas fa-bookmark' />Remove from saved restaurants</h3>
           <h2>{rating}</h2>
           <h3>{rest.cuisine} | {rest.neighborhood}</h3>

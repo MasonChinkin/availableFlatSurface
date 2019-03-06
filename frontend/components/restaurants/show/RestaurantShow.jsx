@@ -3,6 +3,7 @@ import VisualSummary from './VisualSummary';
 import RestaurantSearchFormContainer from './RestaurantShowFormContainer';
 import RestaurantShowPhotos from './RestaurantShowPhotos';
 import RestaurantReviewItem from './RestaurantShowReviewItem';
+import { NavHashLink as NavLink } from 'react-router-hash-link';
 
 class RestaurantShow extends Component {
   sidebarDataArr(rest) {
@@ -30,10 +31,10 @@ class RestaurantShow extends Component {
 
     const rest = this.props.restaurant;
     const sidebarDataArr = this.sidebarDataArr(rest);
-    let tabArr = ['Overview', 'Photos', 'Menu', 'Reviews', 'Twitter'];
+    let tabArr = ['Overview', 'Photos', 'Reviews'];
 
     const mainTabs = tabArr.map((tab, i) => {
-      return <li key={i}>{tab}</li>
+      return <li key={i}><NavLink smooth to={`/restaurants/${rest.id}#${tab}`}>{tab}</NavLink></li>
     })
 
     const sidebarDetails = sidebarDataArr.map((detail, i) => {
@@ -65,7 +66,7 @@ class RestaurantShow extends Component {
       <div className="restaurant-show-page">
         <header style={{ backgroundImage: `url(${this.props.restaurant.wallpaperURL})` }}>
           <button className="save-restaurant-button">
-            <i className='far fa-bookmark' />Save this Restaurant
+            <i id="Overview" className='far fa-bookmark' />Save this Restaurant
             </button>
         </header>
         <main>
@@ -77,18 +78,18 @@ class RestaurantShow extends Component {
               <h1>{rest.name}</h1>
               <VisualSummary restaurant={rest} />
               <div className="restaurant-show-main-content-desc">{rest.description}</div>
-              <div className="restaurant-photos">
+              <div id="Photos" className="restaurant-photos">
                 <h2>Photos</h2>
                 <RestaurantShowPhotos restaurant={rest} />
               </div>
-              <div className="restaurant-reviews">
+              <div id="Reviews" className="restaurant-reviews">
                 <h2>Reviews</h2>
                 {reviews}
               </div>
             </div>
           </section>
           <section className="restaurant-show-sidebar">
-            <RestaurantSearchFormContainer />
+            <RestaurantSearchFormContainer bookedTimesToday={rest.bookedTimesToday} />
             <ul className="restaurant-details">
               {sidebarDetails}
             </ul>

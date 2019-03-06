@@ -17,7 +17,7 @@ class DropDown extends React.Component {
     let id = this.props.currentUser.id;
     return (
       <ul className={this.state.class} >
-        <Link to={`/profile/${id}/reservations#reservations`}>My Profile</Link>
+        <Link to={`/profile/${id}/reservations#top`}>My Profile</Link>
         <Link to={`/profile/${id}/reservations#past`}>Dining History</Link>
         <Link to={`/profile/${id}/saved-restaurants`}>Saved Restaurants</Link>
         <a onClick={this.props.signout}>Sign out</a>

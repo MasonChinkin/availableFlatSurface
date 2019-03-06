@@ -20,7 +20,12 @@
 .profile-side-bar {
   display: flex;
   flex-direction: column;
+  height: 200px;
   width: 200px;
+  margin-right: 10px;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 2rem;
 
   & li {
     padding-bottom: 1.5rem;
@@ -31,9 +36,9 @@
   }
 
   & a {
-    font-weight: 300;
+    font-weight: 400;
     font-size: 16px;
-    color: rgb(112, 112, 112);
+    color: rgb(110, 110, 110);
 
     &:hover {
       color: rgb(220, 40, 60);
@@ -61,10 +66,11 @@
   margin-bottom: 6px;
   font-weight: 375;
 
-  &>img {
+  & img {
     height: 80px;
     width: 80px;
     margin-right: 20px;
+    border-radius: 8px;
   }
 
   & h2 {
@@ -88,17 +94,18 @@
   margin-bottom: 6px;
   font-weight: 375;
 
-  &>img {
+  & img {
     height: 80px;
     width: 80px;
     margin-right: 20px;
+    border-radius: 8px;
   }
 
   &>div>* {
     margin-bottom: 8px;
   }
 
-  & & h2 {
+  & h2 {
     color: $not-quite-black;
     display: flex;
     align-items: center;
