@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import RestaurantList from './RestaurantList';
 
 const mSP = ({ entities }) => ({
-  restaurants: Object.values(entities.searchedRestaurants)
+  restaurants: Object.values(entities.restaurants)
 });
 
 const mDP = dispatch => ({

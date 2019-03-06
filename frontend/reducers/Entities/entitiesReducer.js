@@ -10,7 +10,7 @@ import {
 } from './user/userReducers';
 
 const entitiesReducer = combineReducers({
-  searchedRestaurants: restaurantReducer,
+  restaurants: restaurantReducer,
   user: userReducer,
   savedRestaurants: savedRestaurantsReducer,
   reservations: reservationsReducer,

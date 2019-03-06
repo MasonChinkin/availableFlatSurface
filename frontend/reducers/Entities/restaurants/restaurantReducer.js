@@ -5,7 +5,7 @@ import {
 } from "../../../actions/restaurantActions";
 import {
   merge
-} from 'lodash'
+} from 'lodash';
 
 const restaurantReducer = (oldState = {}, action) => {
   Object.freeze(oldState);

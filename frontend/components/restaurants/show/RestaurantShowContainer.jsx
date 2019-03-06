@@ -2,8 +2,8 @@ import { connect } from 'react-redux';
 import { requestRestaurant } from '../../../actions/restaurantActions';
 import RestaurantShow from './RestaurantShow';
 
-const mSP = ({ entities }, ownProps) => ({
-  restaurant: entities.restaurants[ownProps.match.params.id]
+const mSP = (state, ownProps) => ({
+  restaurant: state.entities.restaurants[ownProps.match.params.id]
 });
 
 const mDP = dispatch => ({
