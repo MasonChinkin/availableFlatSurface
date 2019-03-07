@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import VisualSummary from './VisualSummary';
-import RestaurantSearchFormContainer from './RestaurantShowFormContainer';
+import RestaurantShowFormContainer from './RestaurantShowForm/RestaurantShowFormContainer';
 import RestaurantShowPhotos from './RestaurantShowPhotos';
 import RestaurantReviewItem from './RestaurantShowReviewItem';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
@@ -89,7 +89,7 @@ class RestaurantShow extends Component {
             </div>
           </section>
           <section className="restaurant-show-sidebar">
-            <RestaurantSearchFormContainer bookedTimesToday={rest.bookedTimesToday} restaurantId={rest.id} />
+            <RestaurantShowFormContainer bookedTimesToday={rest.bookedTimesToday} restaurantId={rest.id} />
             <ul className="restaurant-details">
               {sidebarDetails}
             </ul>

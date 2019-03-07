@@ -1,14 +1,16 @@
 import * as SessionUtils from "../utils/sessionUtils";
 
-export const RECEIVE_USER = 'RECEIVE_USER';
+export const SIGNIN_USER = 'SIGNIN_USER';
 export const LOGOUT_USER = 'LOGOUT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const CLEAR_SESSION_ERRORS = 'CLEAR_SESSION_ERRORS';
 
-const receiveUser = user => ({
-  type: RECEIVE_USER,
-  user
-});
+const receiveUser = user => {
+  return {
+    type: SIGNIN_USER,
+    user
+  }
+};
 
 const signoutUser = () => ({
   type: LOGOUT_USER

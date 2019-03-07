@@ -4,7 +4,7 @@ class Api::UsersController < ApplicationController
     @user.name = params[:user][:fname] + " " + params[:user][:lname]
     if @user.save
       sign_in(@user)
-      render "api/users/show"
+      render "api/sessions/show"
     else
       render json: @user.errors.full_messages, status: 422
     end

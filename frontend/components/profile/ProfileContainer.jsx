@@ -3,9 +3,8 @@ import Profile from './Profile';
 import { requestUser } from '../../actions/userActions';
 
 const mSP = ({ entities }, ownProps) => {
-  // debugger
   return {
-    user: entities.user[ownProps.match.params.id],
+    user: entities.users[ownProps.match.params.id],
     reservations: entities.reservations,
     savedRestaurants: entities.savedRestaurants,
     reservedRestaurants: entities.reservedRestaurants,

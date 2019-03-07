@@ -6,7 +6,7 @@ class ProfileReservations extends Component {
     let res = Object.values(this.props.reservations);
     let rests = this.props.restaurants;
     if (rests === undefined) return null;
-    console.log("Profile Reservations Restaurants", rests);
+
     // yes...this is iterating twice over everything.
     let upcoming = res.map(res => {
       if (new Date(res.reservation) > new Date()) {

@@ -31,8 +31,8 @@ class NavBar extends React.Component {
   }
 
   render() {
-    const { path, currentUser, dropDown, signout } = this.props;
-    // name = (currentUser === null) ? '' : this.fname(currentUser.name);
+    const { path, currentUser, dropDown } = this.props;
+    // let name = (currentUser === null) ? '' : this.fname(currentUser.name);
 
     const component = dropDown ? <DropDownContainer /> : "";
 

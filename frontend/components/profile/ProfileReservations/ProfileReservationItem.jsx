@@ -8,7 +8,6 @@ class ProfileReservationItem extends Component {
     let resDate = new Date(res.reservation);
     let date = (resDate.getMonth()) + '/' + resDate.getDate() + '/' + resDate.getFullYear();
 
-    // console.log('ProfResItem', this.props)
     return (
       <div className="profile-reservation-item">
         <Link to={`/restaurants/${rest.id}#top`}><img src={rest.profilePhotoURL} alt="restaurant photo" /></Link>

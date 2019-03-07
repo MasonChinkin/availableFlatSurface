@@ -19,6 +19,12 @@ export const restaurantReducer = (oldState = {}, action) => {
       return merge({}, oldState, {
         [restaurant[0][0]]: restaurant[0][1]
       });
+    case RECEIVE_PROFILE:
+      return (action.user.reservedRestaurants === undefined) ? {} :
+        Object.assign({}, oldState, action.user.reservedRestaurants);
+    case RECEIVE_PROFILE:
+      return (action.user.savedRestaurants === undefined) ? {} :
+        Object.assign({}, oldState, action.user.savedRestaurants);
     default:
       return oldState;
   }

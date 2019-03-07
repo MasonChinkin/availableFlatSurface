@@ -2,11 +2,9 @@ import {
   combineReducers
 } from 'redux';
 import {
-  userReducer,
-  savedRestaurantsReducer,
   userReservationsReducer,
-  reservedRestaurantReducer
-} from './user/userReducers';
+  usersReducer
+} from './users/usersReducers';
 import {
   restaurantReducer,
   reviewsReducer,
@@ -22,10 +20,8 @@ const entitiesReducer = combineReducers({
   reviewers: reviewersReducer,
 
   // User show page
-  user: userReducer,
-  savedRestaurants: savedRestaurantsReducer,
+  users: usersReducer,
   reservations: userReservationsReducer,
-  reservedRestaurants: reservedRestaurantReducer
 });
 
 export default entitiesReducer;

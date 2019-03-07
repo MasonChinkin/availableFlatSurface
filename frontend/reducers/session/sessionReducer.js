@@ -1,5 +1,5 @@
 import {
-  RECEIVE_USER,
+  SIGNIN_USER,
   LOGOUT_USER
 } from "../../actions/sessionActions";
 
@@ -10,11 +10,10 @@ const _nullUser = {
 const sessionReducer = (oldState = _nullUser, action) => {
   Object.freeze(oldState);
   switch (action.type) {
-    case RECEIVE_USER:
-      debugger
+    case SIGNIN_USER:
       return {
         currentUser: {
-          id: action.user.id,
+          id: action.user.id
         }
       };
     case LOGOUT_USER:
