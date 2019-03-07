@@ -13,9 +13,13 @@ import {
 import {
   reservationsReducer
 } from './reservations/reservationsReducer';
+import {
+  savedRestaurantsJoinReducer
+} from './savedRestaurantsJoin/savedRestaurantsJoin';
 
 const entitiesReducer = combineReducers({
   restaurants: restaurantReducer,
+  savedRestaurantsJoin: savedRestaurantsJoinReducer,
   reviews: reviewsReducer,
   users: usersReducer,
   reservations: reservationsReducer,

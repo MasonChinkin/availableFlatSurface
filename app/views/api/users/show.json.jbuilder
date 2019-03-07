@@ -13,6 +13,10 @@ json.saved_restaurants do
   end
 end
 
+json.saved_restaurants_join do
+  json.array! @user.saved_restaurants
+end
+
 json.reservations do
   @user.reservations.each do |res|
     json.set! res.id do
