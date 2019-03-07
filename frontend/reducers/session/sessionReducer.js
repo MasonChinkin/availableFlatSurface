@@ -4,7 +4,9 @@ import {
 } from "../../actions/sessionActions";
 
 const _nullUser = {
-  currentUser: null
+  currentUser: {
+    id: null
+  }
 };
 
 const sessionReducer = (oldState = _nullUser, action) => {

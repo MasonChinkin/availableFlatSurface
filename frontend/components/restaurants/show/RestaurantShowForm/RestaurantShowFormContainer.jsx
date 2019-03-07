@@ -3,11 +3,15 @@ import { flipSearchCalendar } from '../../../../actions/uiActions';
 import RestaurantShowForm from './RestaurantShowForm';
 import { makeReservation } from '../../../../actions/reservationActions';
 
-const mSP = ({ entities, ui, session }) => ({
-  searchCalendar: ui.searchCalendar,
-  restaurant: entities.restaurants,
-  userId: session.currentUser.id
-});
+const mSP = ({ entities, ui, session }) => {
+  let currId = (session.currentUser === null) ? null : session.currentUser.id
+
+  return {
+    searchCalendar: ui.searchCalendar,
+    restaurant: entities.restaurants,
+    currId: currId
+  };
+};
 
 const mDP = dispatch => ({
   flipSearchCalendar: bool => dispatch(flipSearchCalendar(bool)),

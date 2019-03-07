@@ -43,7 +43,7 @@ class RestaurantShowForm extends Component {
     let reservation = {
       reservation: this.state.resDateTime.getTime(),
       num_people: this.state.numPeople,
-      user_id: this.props.userId,
+      user_id: this.props.currId,
       restaurant_id: this.props.restaurantId
     }
 
