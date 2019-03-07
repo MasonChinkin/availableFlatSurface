@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Calendar from 'react-calendar';
+import * as FormUtils from '../../../../utils/formUtils';
 
 class RestaurantShowForm extends Component {
 
@@ -17,42 +18,6 @@ class RestaurantShowForm extends Component {
     this.handleDayPick = this.handleDayPick.bind(this);
     this.handleNumPeoplePick = this.handleNumPeoplePick.bind(this);
     this.handleTimeChange = this.handleTimeChange.bind(this);
-  }
-
-  numPeople() {
-    let options = [];
-
-    for (let i = 1; i < 21; i++) {
-      let val = `${i} people`
-      options.push(<option key={i} value={val}>{val}</option>);
-    }
-    options.push(<option key={21} value="Large Party">Large Party</option>);
-
-    return options;
-  }
-
-  times() {
-    const time = new Date();
-    time.setMinutes(0);
-    time.setHours(12);
-
-    const resTimes = [];
-    for (let i = 0; i < 24; i++) {
-      let minutes = time.getMinutes();
-      minutes += (i === 0) ? 0 : 30;
-      time.setMinutes(minutes);
-
-      let hour = (time.getHours())
-      let min = time.getMinutes();
-      min = (min < 10) ? `0${min} PM` : `${min} PM`;
-      hour = (hour < 13) ? `${hour}` : `${hour - 12}`;
-
-      resTimes.push(
-        <option key={i} value={`${hour}:${min}`}>{`${hour}:${min}`}</option>
-      );
-    }
-
-    return resTimes;
   }
 
   flipCalendar() {
@@ -121,6 +86,8 @@ class RestaurantShowForm extends Component {
   }
 
   render() {
+    let times = FormUtils.times();
+    let numPeopleOptions = FormUtils.numPeople();
     const calendarDropDown = this.props.searchCalendar ?
       <Calendar
         className={this.state.calendarClass}
@@ -138,7 +105,7 @@ class RestaurantShowForm extends Component {
         <form onSubmit={this.handleSubmit}>
           <h2>Party Size</h2>
           <select className="show-party" onClick={this.handleNumPeoplePick} id="show-res-input" defaultValue='2 people'>
-            {this.numPeople()}
+            {numPeopleOptions}
           </select>
           <div className="show-date-time">
             <div>
@@ -154,7 +121,7 @@ class RestaurantShowForm extends Component {
             <div>
               <h2>Time</h2>
               <select id="show-res-input" onChange={this.handleTimeChange} defaultValue='12:00 PM'>
-                {this.times()}
+                {times}
               </select>
             </div>
           </div>

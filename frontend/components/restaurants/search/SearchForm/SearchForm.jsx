@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Calendar from 'react-calendar';
-import * as SearchFormUtils from '../../../../utils/searchFormUtils';
+import * as FormUtils from '../../../../utils/formUtils';
 
 class SearchForm extends Component {
 
@@ -97,8 +97,8 @@ class SearchForm extends Component {
 
   render() {
     const localeDateOptions = { day: 'numeric', month: 'short', year: 'numeric' }
-    const times = SearchFormUtils.times();
-    let numPeopleOptions = SearchFormUtils.numPeople();
+    const times = FormUtils.times();
+    let numPeopleOptions = FormUtils.numPeople();
     let defaultTime;
 
     if (this.props.reservationForm === null) {
