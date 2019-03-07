@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Calendar from 'react-calendar';
+import * as SearchFormUtils from '../../../../utils/searchFormUtils';
 
 class SearchForm extends Component {
 
@@ -24,40 +25,6 @@ class SearchForm extends Component {
     this.handleDayPick = this.handleDayPick.bind(this);
     this.handleNumPeople = this.handleNumPeople.bind(this);
     this.handleTimeChange = this.handleTimeChange.bind(this);
-  }
-
-  numPeople() {
-    let options = [];
-
-    for (let i = 1; i < 21; i++) {
-      let val = (i === 1) ? `${i} person` : `${i} people`;
-      options.push(<option key={i} value={val}>{val}</option>);
-    }
-
-    return options;
-  }
-
-  times() {
-    const resTimes = [];
-    for (let i = 0; i < 24; i++) {
-      let newDateTime = new Date();
-      newDateTime.setHours(12)
-      newDateTime.setMinutes(0);
-      let minutes = newDateTime.getMinutes();
-      minutes += (i === 0) ? 0 : i * 30;
-      newDateTime.setMinutes(minutes);
-
-      let hour = (newDateTime.getHours())
-      let min = newDateTime.getMinutes();
-      min = (min < 10) ? `0${min} PM` : `${min} PM`;
-      hour = (hour < 13) ? `${hour}` : `${hour - 12}`;
-
-      resTimes.push(
-        <option key={i} value={`${hour}:${min}`}>{`${hour}:${min}`}</option>
-      );
-    }
-
-    return resTimes;
   }
 
   flipCalendar() {
@@ -130,7 +97,8 @@ class SearchForm extends Component {
 
   render() {
     const localeDateOptions = { day: 'numeric', month: 'short', year: 'numeric' }
-    const times = this.times()
+    const times = SearchFormUtils.times();
+    let numPeopleOptions = SearchFormUtils.numPeople();
     let defaultTime;
 
     if (this.props.reservationForm === null) {
@@ -160,7 +128,7 @@ class SearchForm extends Component {
         <div className='restaurant-index-search-form'>
           <form onSubmit={this.handleSubmit}>
             <select id="res-search-input-left" onChange={this.handleNumPeople} defaultValue={numPeopleString}>
-              {this.numPeople()}
+              {numPeopleOptions}
             </select>
             <div
               type='button'
@@ -194,7 +162,7 @@ class SearchForm extends Component {
           <h1>Find your table for any occasion</h1>
           <form onSubmit={this.handleSubmit}>
             <select id="res-search-input-left" onChange={this.handleNumPeople} defaultValue={numPeopleString}>
-              {this.numPeople()}
+              {numPeopleOptions}
             </select>
             <div
               type='button'
@@ -204,7 +172,7 @@ class SearchForm extends Component {
               {calendarDropDown}
             </div>
             <select id="res-search-input-right" onChange={this.handleTimeChange} defaultValue={times[0]}>
-              {this.times()}
+              {times}
             </select>
             <input
               type='text'
