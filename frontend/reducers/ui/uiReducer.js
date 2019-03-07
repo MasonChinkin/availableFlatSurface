@@ -34,7 +34,7 @@ const uiReducer = (oldState = defaultUIState, action) => {
     case RECEIVE_RESERVATION:
       return merge({}, oldState, {
         newReservation: action.reservation.id
-      })
+      });
     default:
       return oldState;
   }

@@ -3,18 +3,18 @@ import ProfileReservationItem from './ProfileReservationItem';
 
 class ProfileReservations extends Component {
   render() {
-    let res = Object.values(this.props.reservations);
+    let reservations = Object.values(this.props.reservations);
     let rests = this.props.restaurants;
     if (rests === undefined) return null;
 
     // yes...this is iterating twice over everything.
-    let upcoming = res.map(res => {
+    let upcoming = reservations.map(res => {
       if (new Date(res.reservation) > new Date()) {
         return <ProfileReservationItem key={res.id} reservation={res} restaurant={rests[res.restaurantId]} />
       }
     })
 
-    let past = res.map(res => {
+    let past = reservations.map(res => {
       if (new Date(res.reservation) < new Date()) {
         return <ProfileReservationItem key={res.id} reservation={res} restaurant={rests[res.restaurantId]} />
       }

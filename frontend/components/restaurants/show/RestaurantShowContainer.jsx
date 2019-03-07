@@ -5,7 +5,7 @@ import RestaurantShow from './RestaurantShow';
 const mSP = ({ entities }, ownProps) => ({
   restaurant: entities.restaurants[ownProps.match.params.id],
   reviews: Object.values(entities.reviews),
-  reviewers: entities.reviewers
+  users: entities.users
 });
 
 const mDP = dispatch => ({

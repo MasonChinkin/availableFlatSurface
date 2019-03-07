@@ -6,6 +6,9 @@ import {
 import {
   merge
 } from 'lodash';
+import {
+  RECEIVE_PROFILE
+} from "../../../actions/userActions";
 
 export const restaurantReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -20,31 +23,9 @@ export const restaurantReducer = (oldState = {}, action) => {
         [restaurant[0][0]]: restaurant[0][1]
       });
     case RECEIVE_PROFILE:
-      return (action.user.reservedRestaurants === undefined) ? {} :
-        Object.assign({}, oldState, action.user.reservedRestaurants);
+      return Object.assign({}, oldState, action.user.reservedRestaurants);
     case RECEIVE_PROFILE:
-      return (action.user.savedRestaurants === undefined) ? {} :
-        Object.assign({}, oldState, action.user.savedRestaurants);
-    default:
-      return oldState;
-  }
-};
-
-export const reviewsReducer = (oldState = {}, action) => {
-  Object.freeze(oldState);
-  switch (action.type) {
-    case RECEIVE_RESTAURANT:
-      return action.restaurant.reviews;
-    default:
-      return oldState;
-  }
-};
-
-export const reviewersReducer = (oldState = {}, action) => {
-  Object.freeze(oldState);
-  switch (action.type) {
-    case RECEIVE_RESTAURANT:
-      return action.restaurant.reviewers;
+      return Object.assign({}, oldState, action.user.savedRestaurants);
     default:
       return oldState;
   }

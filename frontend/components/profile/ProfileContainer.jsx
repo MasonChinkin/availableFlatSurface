@@ -2,15 +2,9 @@ import { connect } from 'react-redux';
 import Profile from './Profile';
 import { requestUser } from '../../actions/userActions';
 
-const mSP = ({ entities }, ownProps) => {
-  return {
-    user: entities.users[ownProps.match.params.id],
-    reservations: entities.reservations,
-    savedRestaurants: entities.savedRestaurants,
-    reservedRestaurants: entities.reservedRestaurants,
-    newReservation: entities.newReservation
-  };
-};
+const mSP = ({ entities }, ownProps) => ({
+  user: entities.users[ownProps.match.params.id],
+});
 
 const mDP = dispatch => ({
   requestUser: user => dispatch(requestUser(user))

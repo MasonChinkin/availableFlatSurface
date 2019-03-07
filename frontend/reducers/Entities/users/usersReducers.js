@@ -1,9 +1,9 @@
 import {
-  RECEIVE_PROFILE
-} from '../../../actions/userActions';
-import {
   SIGNIN_USER
 } from '../../../actions/sessionActions';
+import {
+  RECEIVE_RESTAURANT
+} from '../../../actions/restaurantActions';
 
 export const usersReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -12,26 +12,8 @@ export const usersReducer = (oldState = {}, action) => {
       return Object.assign({}, oldState, {
         [action.user.id]: action.user
       });
-    default:
-      return oldState;
-  }
-};
-
-export const savedRestaurantsReducer = (oldState = {}, action) => {
-  Object.freeze(oldState);
-  switch (action.type) {
-    case RECEIVE_PROFILE:
-      return (action.user.savedRestaurants === undefined) ? {} : (action.user.savedRestaurants)
-    default:
-      return oldState;
-  }
-};
-
-export const userReservationsReducer = (oldState = {}, action) => {
-  Object.freeze(oldState);
-  switch (action.type) {
-    case RECEIVE_PROFILE:
-      return (action.user.reservations === undefined) ? {} : (action.user.reservations);
+    case RECEIVE_RESTAURANT:
+      return action.restaurant.reviewers;
     default:
       return oldState;
   }

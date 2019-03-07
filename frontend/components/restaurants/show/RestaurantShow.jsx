@@ -28,13 +28,13 @@ class RestaurantShow extends Component {
 
   render() {
     if (!this.props.restaurant) return null;
+    let { restaurant, users, reviews } = this.props;
 
-    const rest = this.props.restaurant;
-    const sidebarDataArr = this.sidebarDataArr(rest);
+    const sidebarDataArr = this.sidebarDataArr(restaurant);
     let tabArr = ['Overview', 'Photos', 'Reviews'];
 
     const mainTabs = tabArr.map((tab, i) => {
-      return <li key={i}><NavLink smooth to={`/restaurants/${rest.id}#${tab}`}>{tab}</NavLink></li>
+      return <li key={i}><NavLink smooth to={`/restaurants/${restaurant.id}#${tab}`}>{tab}</NavLink></li>
     })
 
     const sidebarDetails = sidebarDataArr.map((detail, i) => {
@@ -56,15 +56,15 @@ class RestaurantShow extends Component {
       }
     })
 
-    const reviews = this.props.reviews.map(rev => {
+    const reviewList = reviews.map(rev => {
       return <RestaurantReviewItem key={rev.id}
         review={rev}
-        reviewer={this.props.reviewers[rev.userId]} />
+        reviewer={users[rev.userId]} />
     })
 
     return (
       <div className="restaurant-show-page">
-        <header style={{ backgroundImage: `url(${this.props.restaurant.wallpaperURL})` }}>
+        <header style={{ backgroundImage: `url(${restaurant.wallpaperURL})` }}>
           <button className="save-restaurant-button">
             <i id="Overview" className='far fa-bookmark' />Save this Restaurant
             </button>
@@ -75,21 +75,21 @@ class RestaurantShow extends Component {
               {mainTabs}
             </ul>
             <div className="restaurant-show-main-content">
-              <h1>{rest.name}</h1>
-              <VisualSummary restaurant={rest} />
-              <div className="restaurant-show-main-content-desc">{rest.description}</div>
+              <h1>{restaurant.name}</h1>
+              <VisualSummary restaurant={restaurant} />
+              <div className="restaurant-show-main-content-desc">{restaurant.description}</div>
               <div id="Photos" className="restaurant-photos">
                 <h2>Photos</h2>
-                <RestaurantShowPhotos restaurant={rest} />
+                <RestaurantShowPhotos restaurant={restaurant} />
               </div>
               <div id="Reviews" className="restaurant-reviews">
                 <h2>Reviews</h2>
-                {reviews}
+                {reviewList}
               </div>
             </div>
           </section>
           <section className="restaurant-show-sidebar">
-            <RestaurantShowFormContainer bookedTimesToday={rest.bookedTimesToday} restaurantId={rest.id} />
+            <RestaurantShowFormContainer bookedTimesToday={restaurant.bookedTimesToday} restaurantId={restaurant.id} />
             <ul className="restaurant-details">
               {sidebarDetails}
             </ul>

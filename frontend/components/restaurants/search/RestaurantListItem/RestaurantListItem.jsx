@@ -37,9 +37,6 @@ class RestaurantListItem extends Component {
   render() {
     const rest = this.props.restaurant;
 
-    const numTables = Math.ceil(Math.random() * 10);
-    const numBookings = Math.ceil(Math.random() * 40);
-
     let costSymbol = this.costSymbol(rest.cost)
     let ratingSymbol = this.ratingSymbol(rest.rating)
 
