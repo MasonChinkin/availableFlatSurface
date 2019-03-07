@@ -61,8 +61,14 @@ class SearchForm extends Component {
   }
 
   flipCalendar() {
-    this.props.flipSearchCalendar(!this.props.searchCalendar);
-    event.stopPropagation();
+    if (event.target.className.includes('react-calendar__navigation') ||
+      event.target.className.includes('months') ||
+      event.target.className.includes('years')) {
+      event.stopPropagation();
+    } else {
+      this.props.flipSearchCalendar(!this.props.searchCalendar);
+      event.stopPropagation();
+    }
   }
 
   handleInput(field) {
