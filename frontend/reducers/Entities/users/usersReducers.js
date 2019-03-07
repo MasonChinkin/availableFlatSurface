@@ -13,7 +13,7 @@ export const usersReducer = (oldState = {}, action) => {
         [action.user.id]: action.user
       });
     case RECEIVE_RESTAURANT:
-      return action.restaurant.reviewers;
+      return Object.assign({}, oldState, action.restaurant.reviewers);
     default:
       return oldState;
   }

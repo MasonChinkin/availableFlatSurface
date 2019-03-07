@@ -6,7 +6,6 @@ import {
 } from './users/usersReducers';
 import {
   restaurantReducer,
-  reviewersReducer,
 } from './restaurants/restaurantReducer';
 import {
   reviewsReducer

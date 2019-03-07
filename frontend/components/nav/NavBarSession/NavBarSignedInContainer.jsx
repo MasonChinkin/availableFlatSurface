@@ -3,11 +3,15 @@ import NavBarSignedIn from './NavBarSignedIn';
 import { flipWindowListener } from '../../../actions/uiActions';
 import { signout } from '../../../actions/sessionActions';
 
-const mSP = (state, ownProps) => ({
-  currentUser: state.session.currentUser,
-  dropDown: state.ui.dropDown,
-  path: ownProps.history.location.pathName
-});
+const fname = (name) => name.split(' ')[0];
+
+const mSP = ({ entities, session, ui }, ownProps) => {
+  return {
+    fname: fname(entities.users[session.currentUser.id].name),
+    currId: session.currentUser.id,
+    dropDown: ui.dropDown,
+  }
+};
 
 const mDP = dispatch => ({
   signout: () => dispatch(signout()),
