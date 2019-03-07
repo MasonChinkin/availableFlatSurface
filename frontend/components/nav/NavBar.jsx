@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import DropDown from './DropDown';
+import DropDownContainer from './DropDownContainer';
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -31,13 +31,10 @@ class NavBar extends React.Component {
   }
 
   render() {
-    const { path, currentUser, dropDown } = this.props;
+    const { path, currentUser, dropDown, signout } = this.props;
+    // name = (currentUser === null) ? '' : this.fname(currentUser.name);
 
-
-    name = (currentUser === null) ? '' : this.fname(currentUser.name);
-
-
-    const component = dropDown ? (<DropDown signout={signout} dropDown={dropDown} currentUser={currentUser} />) : "";
+    const component = dropDown ? <DropDownContainer /> : "";
 
     const signupPath = (path === '/') ? '/signup' : `${path}/signup`;
     const signinPath = (path === '/') ? '/signin' : `${path}/signin`;
@@ -45,7 +42,7 @@ class NavBar extends React.Component {
     const sessionButtons = currentUser ? (
       <>
         <Link className="calendar-button" to={`/profile/${currentUser.id}/reservations#reservations`}><i className='far fa-calendar-alt' /></Link>
-        <li onClick={this.dropDown} className="profile-button">Hi, {name} <i className="material-icons">keyboard_arrow_down</i>
+        <li onClick={this.dropDown} className="profile-button">Hi, PLACEHOLDER:{currentUser.id} <i className="material-icons">keyboard_arrow_down</i>
           {component}
         </li>
       </>

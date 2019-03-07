@@ -1,9 +1,9 @@
 import * as UserUtils from '../utils/userUtils';
 
-export const RECEIVE_USER_DETAILS = 'RECEIVE_USER_DETAILS';
+export const RECEIVE_PROFILE = 'RECEIVE_PROFILE';
 
 const receiveUser = user => ({
-  type: RECEIVE_USER_DETAILS,
+  type: RECEIVE_PROFILE,
   user
 });
 

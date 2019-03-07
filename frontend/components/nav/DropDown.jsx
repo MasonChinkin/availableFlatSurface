@@ -14,13 +14,13 @@ class DropDown extends React.Component {
   }
 
   render() {
-    let id = this.props.currentUser.id;
+    let { currentUserId, signout } = this.props;
     return (
       <ul className={this.state.class} >
-        <Link to={`/profile/${id}/reservations#top`}>My Profile</Link>
-        <Link to={`/profile/${id}/reservations#past`}>Dining History</Link>
-        <Link to={`/profile/${id}/saved-restaurants`}>Saved Restaurants</Link>
-        <a onClick={this.props.signout}>Sign out</a>
+        <Link to={`/profile/${currentUserId}/reservations#top`}>My Profile</Link>
+        <Link to={`/profile/${currentUserId}/reservations#past`}>Dining History</Link>
+        <Link to={`/profile/${currentUserId}/saved-restaurants`}>Saved Restaurants</Link>
+        <a onClick={signout}>Sign out</a>
       </ul>
     )
   }

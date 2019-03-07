@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
-import ProfileReservations from './ProfileReservations';
-import ProfileSavedRestaurants from './ProfileSavedRestaurants';
+import ProfileReservations from './ProfileReservations/ProfileReservations';
+import ProfileSavedRestaurants from './ProfileSavedRestaurants/ProfileSavedRestaurants';
 
 class Profile extends Component {
   componentDidMount() {
@@ -9,7 +9,6 @@ class Profile extends Component {
   }
 
   render() {
-    console.warn('ProfileComponent', this.props)
     if (this.props.user === undefined) return null;
 
     let mainContent = (this.props.history.location.hash.length) ?
