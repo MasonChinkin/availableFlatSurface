@@ -1,16 +1,15 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import DropDownContainer from './DropDownContainer';
+import DropDownContainer from './DropDown/DropDownContainer';
+import { AuthedRoute, NotAuthedRoute } from '../../utils/routesUtils';
+import NavBarSignedInContainer from './NavBarSession/NavBarSignedInContainer';
+import NavBarSignedOutContainer from './NavBarSession/NavBarSignOutContainer';
 
 class NavBar extends React.Component {
   constructor(props) {
     super(props);
     this.dropDown = this.dropDown.bind(this);
     this.rootPage = this.rootPage.bind(this)
-  }
-
-  fname(name) {
-    return name.split(' ')[0];
   }
 
   rootPage() {
@@ -31,28 +30,6 @@ class NavBar extends React.Component {
   }
 
   render() {
-    const { path, currentUser, dropDown } = this.props;
-    // let name = (currentUser === null) ? '' : this.fname(currentUser.name);
-
-    const component = dropDown ? <DropDownContainer /> : "";
-
-    const signupPath = (path === '/') ? '/signup' : `${path}/signup`;
-    const signinPath = (path === '/') ? '/signin' : `${path}/signin`;
-
-    const sessionButtons = currentUser ? (
-      <>
-        <Link className="calendar-button" to={`/profile/${currentUser.id}/reservations#reservations`}><i className='far fa-calendar-alt' /></Link>
-        <li onClick={this.dropDown} className="profile-button">Hi, PLACEHOLDER:{currentUser.id} <i className="material-icons">keyboard_arrow_down</i>
-          {component}
-        </li>
-      </>
-    ) : (
-        <>
-          <Link className="signup-button" to={signupPath}>Sign up</Link>
-          <Link className="signin-button" to={signinPath}>Sign in</Link>
-        </>
-      );
-
     return (
       <nav id="top">
         <ul className="left-nav">
@@ -63,13 +40,10 @@ class NavBar extends React.Component {
           <li className="nav-place">
             <i className="material-icons place">place</i>
             <h2>Bay Area</h2>
-            {/* commented until drop down implemented */}
-            {/* <i className="material-icons keyboard-arrow">keyboard_arrow_down</i> */}
           </li>
         </ul>
-        <ul className="right-nav">
-          {sessionButtons}
-        </ul>
+        <AuthedRoute path={`/`} component={NavBarSignedInContainer} />
+        <NotAuthedRoute path={`/`} component={NavBarSignedOutContainer} />
       </nav>)
   }
 }
