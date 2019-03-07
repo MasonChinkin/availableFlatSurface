@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class ResButtons extends Component {
 
@@ -18,7 +18,8 @@ class ResButtons extends Component {
       restaurant_id: this.props.restaurantId // threaded in from above
     };
 
-    this.props.makeReservation(reservation);
+    this.props.makeReservation(reservation)
+      .then(this.props.history.push(`/profile/${this.props.userId}/reservations#top`))
   }
 
   getResTimes() {
@@ -55,7 +56,7 @@ class ResButtons extends Component {
       return <Link onClick={this.handleReservation}
         key={i}
         className="submit-button res-submit-button"
-        to={`/profile/${this.props.userId}/reservations#top`}>{buttonTime}</Link>
+        to={`/profile/${this.props.userId}/reservations`}>{buttonTime}</Link>
     })
 
     return (
@@ -66,4 +67,4 @@ class ResButtons extends Component {
   }
 }
 
-export default ResButtons;
+export default withRouter(ResButtons);

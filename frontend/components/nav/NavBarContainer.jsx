@@ -3,9 +3,10 @@ import { signout } from '../../actions/sessionActions';
 import NavBar from './NavBar';
 import { flipWindowListener } from '../../actions/uiActions';
 
-const mSP = state => ({
+const mSP = (state, ownProps) => ({
   currentUser: state.session.currentUser,
-  dropDown: state.ui.dropDown
+  dropDown: state.ui.dropDown,
+  path: ownProps.history.location.pathName
 })
 
 const mDP = dispatch => ({

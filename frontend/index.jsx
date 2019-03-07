@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let store = configureStore(preloadedState);
 
-  window.getState = store.getState();
+  window.getState = store.getState;
   window.store = store;
   // window.fetchRestaurant = fetchRestaurant
   // window.requestRestaurant = requestRestaurant;

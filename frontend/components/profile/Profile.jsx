@@ -9,6 +9,7 @@ class Profile extends Component {
   }
 
   render() {
+    console.warn('ProfileComponent', this.props)
     if (this.props.user === undefined) return null;
 
     let mainContent = (this.props.history.location.hash.length) ?

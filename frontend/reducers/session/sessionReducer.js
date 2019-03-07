@@ -4,7 +4,7 @@ import {
 } from "../../actions/sessionActions";
 
 const _nullUser = {
-  id: null
+  currentUser: null
 };
 
 const sessionReducer = (oldState = _nullUser, action) => {
@@ -13,8 +13,8 @@ const sessionReducer = (oldState = _nullUser, action) => {
     case RECEIVE_USER:
       return {
         currentUser: {
-          id: action.user.id,
-          name: action.user.name
+          id: Object.values(action.user.user)[0].id,
+          name: Object.values(action.user.user)[0].name
         }
       };
     case LOGOUT_USER:
