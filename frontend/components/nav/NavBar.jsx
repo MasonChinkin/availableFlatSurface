@@ -31,8 +31,13 @@ class NavBar extends React.Component {
   }
 
   render() {
-    if (this.props === undefined) return null;
     const path = this.props.history.location.pathname;
+
+    if (this.props.currentUser === undefined) {
+      name = '';
+    } else {
+      name = (this.props.currentUser.name === undefined) ? '' : this.fname(this.props.currentUser.name);
+    }
 
     const component = this.props.dropDown ? (<DropDown signout={this.props.signout} dropDown={this.props.dropDown} currentUser={this.props.currentUser} />) : "";
 
@@ -42,7 +47,7 @@ class NavBar extends React.Component {
     const sessionButtons = this.props.currentUser ? (
       <>
         <Link className="calendar-button" to={`/profile/${this.props.currentUser.id}/reservations#reservations`}><i className='far fa-calendar-alt' /></Link>
-        <li onClick={this.dropDown} className="profile-button">Hi, {this.fname(this.props.currentUser.name)} <i className="material-icons">keyboard_arrow_down</i>
+        <li onClick={this.dropDown} className="profile-button">Hi, {name} <i className="material-icons">keyboard_arrow_down</i>
           {component}
         </li>
       </>

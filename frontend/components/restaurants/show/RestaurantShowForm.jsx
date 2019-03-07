@@ -56,8 +56,14 @@ class RestaurantShowForm extends Component {
   }
 
   flipCalendar() {
-    this.props.flipSearchCalendar(!this.props.searchCalendar);
-    event.stopPropagation();
+    if (event.target.className.includes('react-calendar__navigation') ||
+      event.target.className.includes('months') ||
+      event.target.className.includes('years')) {
+      event.stopPropagation();
+    } else {
+      this.props.flipSearchCalendar(!this.props.searchCalendar);
+      event.stopPropagation();
+    }
   }
 
   handleInput(field) {
@@ -75,8 +81,6 @@ class RestaurantShowForm extends Component {
       user_id: this.props.userId,
       restaurant_id: this.props.restaurantId
     }
-
-    debugger
 
     this.props.makeReservation(reservation);
   }
@@ -122,6 +126,7 @@ class RestaurantShowForm extends Component {
         className={this.state.calendarClass}
         value={this.state.resDateTime}
         onClickDay={this.handleDayPick}
+        minDetail="month"
       /> :
       undefined;
 

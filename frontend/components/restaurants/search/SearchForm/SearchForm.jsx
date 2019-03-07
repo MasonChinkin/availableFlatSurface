@@ -145,6 +145,7 @@ class SearchForm extends Component {
         className={this.state.calendarClass}
         activeStartDate={this.state.resDateTime}
         onClickDay={this.handleDayPick}
+        minDetail="month"
       /> :
       undefined;
 

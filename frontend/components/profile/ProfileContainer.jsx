@@ -7,7 +7,8 @@ const mSP = ({ entities }, ownProps) => {
     user: entities.user[ownProps.match.params.id],
     reservations: entities.reservations,
     savedRestaurants: entities.savedRestaurants,
-    reservedRestaurants: entities.reservedRestaurants
+    reservedRestaurants: entities.reservedRestaurants,
+    newReservation: entities.newReservation
   };
 };
 

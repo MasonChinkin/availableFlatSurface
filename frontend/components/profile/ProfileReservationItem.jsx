@@ -10,9 +10,9 @@ class ProfileReservationItem extends Component {
 
     return (
       <div className="profile-reservation-item">
-        <Link to={`/restaurants/${rest.id}`}><img src={rest.profilePhotoURL} alt="restaurant photo" /></Link>
+        <Link to={`/restaurants/${rest.id}#top`}><img src={rest.profilePhotoURL} alt="restaurant photo" /></Link>
         <div>
-          <Link to={`/restaurants/${rest.id}`}><h2>{rest.name}</h2></Link>
+          <Link to={`/restaurants/${rest.id}#top`}><h2>{rest.name}</h2></Link>
           <h2>{date}</h2>
           <h3>Table for {res.numPeople} people</h3>
         </div>
