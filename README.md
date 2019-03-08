@@ -1,18 +1,67 @@
-# README
-
 # AvailableFlatSurface
 
-Hello! Thanks for checking out my App Academy full stack project.
+[Live Demo](https://available-flat-surface.herokuapp.com/ "AvailableFlatSurface")
 
-[AvailableFlatSurface](https://available-flat-surface.herokuapp.com/ "AvailableFlatSurface") is a clone of [AvailableFlatSurface](opentable.com "OpenTable") using a react/redux front end calling to a rails backend hosted on Heroku. 
+Hello! Thanks for checking out this project.
 
-There is a demo account with full seeded features, but the user can currently only make an account, search for restaurants, and make reservations. I will implement saving restaurants and a fully CRUD review system after graduating from App Academy in April.
+AvailableFlatSurface is a clone of [OpenTable](opentable.com "OpenTable") using a react/redux front end calling to a rails/PostgreSQL backend hosted on Heroku. 
 
-# Code Highlights
+I designed and built this app in 10 days and plan on implementing the remaining features once I graduate App Academy (early April)
 
-### Ratings and cost symbols
+## Features
 
-Early in the project, when I was thinking about how to implement OpenTable's heavy use of symbols in a clean dynamic way, I had one of those Beautiful Mind/Orchestral background music moments when React really made sense to me. Below are screenshots comparing my site to OpenTable, and my then my code.
+* Secure frontend to backend user authentication using BCrypt.
+* User can search restaurants and see restaurant details on their show pages.
+* User can make reservations and see them in their profile page
+* Secure AWS photo hosting with Rails Active Storage
+* Styled VERY closely to opentable.com (see examples below)
+
+* Planned- User can make/edit/delete reviews
+* Planned- User can save/unsave restaurants
+
+## Highlights
+
+### Making Reservations with redux
+
+One of the biggest functional challenges was gathering all necessary data to make a reservation upon clicking the time buttons on the search page. Hello redux! I tracked the party size and date of a reservation using the ui slice of state.
+
+```javascript
+
+// CONTAINER
+const mapStateToProps = ({ ui, session }, ownProps) => ({
+  searchedDateTime: ui.reservationForm.resDateTime || null,
+  numPeople: ui.reservationForm.numPeople,
+  userId: (session.currentUser === null) ? null : session.currentUser.id,
+});
+
+// COMPONENT
+handleReservation(e) {
+  e.preventDefault();
+
+  if (this.props.userId === null) return this.props.history.push(`/search/signin`);
+
+  let reservation = {
+    reservation: (this.props.searchedDateTime.getTime()) / 1000, // divide by 1000 for rails
+    num_people: this.props.numPeople,
+    user_id: this.props.userId,
+    restaurant_id: this.props.restaurantId // threaded in from above
+  };
+
+  this.props.makeReservation(reservation)
+    .then(this.props.history.push(`/profile/${this.props.userId}/reservations#new-reservation`));
+}
+
+// BUTTON RENDER
+<Link onClick={this.handleReservation}
+  key={i}
+  className="submit-button res-submit-button"
+  to={`/profile/${this.props.userId}/reservations`}>{buttonTime}
+</Link>
+```
+
+### Dynamic icons with react
+
+Early in the project, when I was thinking about how to implement OpenTable's heavy use of icons in a clean, dynamic way, I had one of those Beautiful Mind/orchestral background music moments when React really started to make sense to me. Below are screenshots comparing my site to OpenTable, and then my code.
 
 AvailableFlatSurface            |  OpenTable
 :-------------------------:|:-------------------------:
