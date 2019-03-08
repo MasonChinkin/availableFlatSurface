@@ -24,7 +24,6 @@ class ResButtons extends Component {
   }
 
   render() {
-
     const buttons = ResButtonsUtil.getResTimes(this.props.searchedDateTime).map((time, i) => {
       let hour = time[0];
       let min = time[1];

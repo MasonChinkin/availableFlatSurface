@@ -10,8 +10,14 @@ class SearchForm extends Component {
 
     let date = new Date();
     let hours = date.getHours();
-    date.setHours(hours + 1);
-    date.setMinutes(0);
+    if (hours >= 22) {
+      date.setHours(24);
+      date.setHours(12);
+      date.setMinutes(0);
+    } else {
+      date.setHours(19);
+      date.setMinutes(0);
+    }
 
     this.state = {
       searchTerm: '',

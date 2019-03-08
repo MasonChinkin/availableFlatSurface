@@ -1,4 +1,5 @@
 export const getResTimes = (time) => {
+
   const resTimes = [];
   for (let i = 0; i < 5; i++) {
     let newTime = new Date(time);
