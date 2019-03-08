@@ -14,7 +14,9 @@ There is a demo account with full seeded features, but the user can currently on
 
 Early in the project, when I was thinking about how to implement OpenTable's heavy use of symbols in a clean dynamic way, I had one of those Beautiful Mind/Orchestral background music moments when React really made sense to me. Below are screenshots comparing my site to OpenTable, and my then my code.
 
-![](/app/assets/images/readme/openTableShowDetails.png?raw=true) 
+AvailableFlatSurface            |  OpenTable
+:-------------------------:|:-------------------------:
+![](/app/assets/images/readme/myShowDetails.png?raw=true) | ![](/app/assets/images/readme/openTableShowDetails.png?raw=true)
 
 ```javascript
 sidebarDataArr(rest) {
