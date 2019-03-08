@@ -3,7 +3,7 @@
 nav {
   display: flex;
   justify-content: space-between;
-  height: 54px;
+  height: 60px;
   padding: 0 2rem;
   font-family: $font-main;
   background: white;
@@ -114,4 +114,9 @@ nav>ul>* {
 
 .calendar-button>i {
   color: grey;
+  font-size: 1.2rem;
+}
+
+.profile-button {
+  font-size: 1.3rem;
 }

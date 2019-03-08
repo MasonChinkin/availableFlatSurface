@@ -156,37 +156,39 @@ class SearchForm extends Component {
       )
     } else {
       return (
-        <div className='root-search-form' style={{
-          backgroundImage: "url(https://s3-us-west-1.amazonaws.com/availableflatsurface-seed/one-off-use/splash.png)"
-        }}>
-          <h1>Find your table for any occasion</h1>
-          <form onSubmit={this.handleSubmit}>
-            <select id="res-search-input-left" onChange={this.handleNumPeople} defaultValue={numPeopleString}>
-              {numPeopleOptions}
-            </select>
-            <div
-              type='button'
-              onClick={this.flipCalendar}
-              id="search-form-date">
-              {this.state.resDateTime.toLocaleDateString('en-US', localeDateOptions)}
-              {calendarDropDown}
-            </div>
-            <select id="res-search-input-right" onChange={this.handleTimeChange} defaultValue={times[0]}>
-              {times}
-            </select>
-            <input
-              type='text'
-              onChange={this.handleInput('searchTerm')}
-              value={this.state.searchTerm}
-              id="res-search-input-text-island"
-              placeholder='Restaurant name' />
-            <input
-              type="submit"
-              id="res-search-input-island-button"
-              className="submit-button"
-              value="Let's go" />
-          </form>
-        </div >
+        <main>
+          <div className='root-search-form' style={{
+            backgroundImage: "url(https://s3-us-west-1.amazonaws.com/availableflatsurface-seed/one-off-use/splash.png)"
+          }}>
+            <h1>Find your table for any occasion</h1>
+            <form onSubmit={this.handleSubmit}>
+              <select id="res-search-input-left" onChange={this.handleNumPeople} defaultValue={numPeopleString}>
+                {numPeopleOptions}
+              </select>
+              <div
+                type='button'
+                onClick={this.flipCalendar}
+                id="search-form-date">
+                {this.state.resDateTime.toLocaleDateString('en-US', localeDateOptions)}
+                {calendarDropDown}
+              </div>
+              <select id="res-search-input-right" onChange={this.handleTimeChange} defaultValue={times[0]}>
+                {times}
+              </select>
+              <input
+                type='text'
+                onChange={this.handleInput('searchTerm')}
+                value={this.state.searchTerm}
+                id="res-search-input-text-island"
+                placeholder='Restaurant name' />
+              <input
+                type="submit"
+                id="res-search-input-island-button"
+                className="submit-button"
+                value="Let's go" />
+            </form>
+          </div >
+        </main>
       )
     }
   }

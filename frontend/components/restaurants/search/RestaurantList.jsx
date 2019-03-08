@@ -3,6 +3,7 @@ import RestaurantListItem from './RestaurantListItem/RestaurantListItem';
 import SearchFormContainer from './SearchForm/SearchFormContainer';
 
 class RestaurantList extends Component {
+
   render() {
     let restaurants = this.props.restaurants.map(rest => {
       return <RestaurantListItem key={rest.id} restaurant={rest} />

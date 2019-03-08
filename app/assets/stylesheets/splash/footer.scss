@@ -1,9 +1,22 @@
 @import '../_/constants';
 
+html,
+body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+main {
+  min-height: 76%;
+}
+
 footer {
   background: rgb(38, 38, 38);
   font-family: $font-main;
-  height: auto;
+  height: 260px;
   padding: 20px 0;
 }
 
