@@ -10,7 +10,7 @@ const mSP = ({ ui, session }) => ({
 
 const mDP = dispatch => ({
   makeReservation: reservation => dispatch(makeReservation(reservation))
-})
+});
 
 const ResButtonsContainer = connect(mSP, mDP)(ResButtons);
 

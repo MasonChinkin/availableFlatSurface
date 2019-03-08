@@ -17,7 +17,7 @@
   padding: .875rem 0;
 }
 
-.restaurant-profile-photo-wrapper>img {
+.restaurant-profile-photo-wrapper img {
   height: 188px;
   width: auto;
   margin-right: 16px;
@@ -30,7 +30,6 @@
   justify-content: flex-start;
   font-family: $font-main;
   height: auto;
-  margin: .875rem 0;
 }
 
 .search-item {
@@ -73,4 +72,12 @@
 
 .restaurant-item-bottom {
   font-weight: 500;
+}
+
+.no-results {
+  margin: 0 auto;
+  padding: 3rem;
+  font-size: 24px;
+  font-weight: 400;
+  color: red;
 }

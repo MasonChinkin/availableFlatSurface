@@ -7,6 +7,7 @@ Restaurant.destroy_all
 require 'open-uri'
 require 'cgi'
 require 'date'
+require 'active_storage'
 
 def seed_pics_res_and_saves(r, u)
   dir = "https://s3-us-west-1.amazonaws.com/availableflatsurface-seed/img/#{CGI::escape(r.name)}"
@@ -42,7 +43,7 @@ def seed_pics_res_and_saves(r, u)
     
     # upcoming reservations
     if [1,2,3].sample == 1
-      t = Time.now()
+      t = Time.now.change({ hour: 0 })
       month = (4..12).to_a.sample * (60 * 60 * 24 * 30)
       day = (1..30).to_a.sample * (60 * 60 * 24)
       hour = (12...22).to_a.sample * (60 * 60)
@@ -60,7 +61,7 @@ def seed_pics_res_and_saves(r, u)
 
     # past reservations
     if [1,2,3,4].sample == 1
-      t = Time.now()
+      t = Time.now.change({ hour: 0 })
       month = (4..12).to_a.sample * (60 * 60 * 24 * 30)
       day = (1..30).to_a.sample * (60 * 60 * 24)
       hour = (12...22).to_a.sample * (60 * 60)
@@ -146,7 +147,7 @@ r = Restaurant.create!(
   rating: "#{[2,3,4,5].sample}",
   email: "firstever@gmail.com",
   phone: "555-555-5555",
-  website: "firstever.com",
+  website: "available-flat-surface.herokuapp.com",
   payment_options: "Visa",
   dress_code: "Formal",
   neighborhood: "FiDi",

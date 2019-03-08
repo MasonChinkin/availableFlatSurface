@@ -4,6 +4,7 @@ export const RECEIVE_RESERVATION = "RECEIVE_RESERVATION";
 export const RECEIVE_RESERVATION_FORM_CHANGE = "RECEIVE_RESERVATION_FORM_CHANGE";
 export const RECEIVE_RESERVATION_ERRORS = "RECEIVE_RESERVATION_ERRORS";
 export const CLEAR_RESERVATION_ERRORS = "CLEAR_RESERVATION_ERRORS";
+export const CLEAR_NEW_RESERVATION = "CLEAR_NEW_RESERVATION";
 
 const receiveReservation = reservation => ({
   type: RECEIVE_RESERVATION,
@@ -15,24 +16,20 @@ export const receiveReservationFormChange = reservationData => ({
   reservationData
 });
 
-const receiveReservationErrors = errors => ({
-  type: RECEIVE_RESERVATION_ERRORS,
-  errors
-});
+// const receiveReservationErrors = errors => ({
+//   type: RECEIVE_RESERVATION_ERRORS,
+//   errors
+// });
 
-export const clearReservationErrors = () => ({
-  type: CLEAR_RESERVATION_ERRORS
+// export const clearReservationErrors = () => ({
+//   type: CLEAR_RESERVATION_ERRORS
+// });
+
+export const clearNewReservation = () => ({
+  type: CLEAR_NEW_RESERVATION
 });
 
 export const makeReservation = reservation => dispatch => {
   return ReservationUtils.postReservation(reservation)
     .then(reservation => dispatch(receiveReservation(reservation)));
 };
-
-// export const makeReservation = reservation => dispatch => {
-//   return ReservationUtils.postReservation(reservation)
-//     .then(
-//       reservation => dispatch(receiveReservation(reservation)),
-//       errors => dispatch(receiveReservationErrors(errors.responseJSON))
-//     );
-// };

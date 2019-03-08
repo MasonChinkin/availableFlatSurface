@@ -13,7 +13,9 @@ export const numPeople = () => {
 
 export const times = () => {
   const resTimes = [];
-  for (let i = 0; i < 24; i++) {
+
+  // 22 to avoid midnight
+  for (let i = 0; i < 22; i++) {
     let newDateTime = new Date();
     newDateTime.setHours(12)
     newDateTime.setMinutes(0);
