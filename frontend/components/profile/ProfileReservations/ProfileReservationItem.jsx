@@ -3,6 +3,7 @@ import { NavHashLink as NavLink } from 'react-router-hash-link';
 
 class ProfileReservationItem extends Component {
   render() {
+    debugger
     if (this.props.restaurant.id === undefined) return null;
     let rest = this.props.restaurant;
     let res = this.props.reservation;
@@ -12,6 +13,7 @@ class ProfileReservationItem extends Component {
     let hours = (resDate.getHours() === 12) ? `${resDate.getHours()}` : `${resDate.getHours() - 12}`;
     let time = hours + ':' + minutes;
     let dateTime = (resDate > new Date()) ? date + ' ' + time : date;
+
 
     return (
       <div className="profile-reservation-item">
