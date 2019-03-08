@@ -10,7 +10,9 @@ I designed and built this app in 10 days and plan on implementing the remaining 
 
 ## Index
 
+* [Features](https://github.com/MasonChinkin/availableFlatSurface/blob/master/README.md#features)
 * [Highlights](https://github.com/MasonChinkin/availableFlatSurface/blob/master/README.md#highlights)
+  * [Making Reservations with redux](https://github.com/MasonChinkin/availableFlatSurface/blob/master/README.md#Making-Reservations-with-redux)
 
 ## Features
 
