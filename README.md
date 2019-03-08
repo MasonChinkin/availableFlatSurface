@@ -13,6 +13,8 @@ I designed and built this app in 10 days and plan on implementing the remaining 
 * [Features](https://github.com/MasonChinkin/availableFlatSurface/blob/master/README.md#features)
 * [Highlights](https://github.com/MasonChinkin/availableFlatSurface/blob/master/README.md#highlights)
   * [Making Reservations with redux](https://github.com/MasonChinkin/availableFlatSurface/blob/master/README.md#Making-Reservations-with-redux)
+  * [Dynamic icons with react](https://github.com/MasonChinkin/availableFlatSurface/blob/master/README.md#Dynamic-icons-with-react)
+  * [Styling: Attention to Detail!](https://github.com/MasonChinkin/availableFlatSurface/blob/master/README.md#styling-attention-to-detail)
 
 ## Features
 
@@ -111,6 +113,6 @@ const sidebarDetails = sidebarDataArr.map((detail, i) => {
     )
   }
 })
-  
-  
 ```
+
+### Styling: Attention to Detail!
