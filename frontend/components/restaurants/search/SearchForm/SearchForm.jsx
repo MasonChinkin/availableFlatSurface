@@ -53,7 +53,7 @@ class SearchForm extends Component {
     })
 
     this.props.requestSearchedRestaurants(this.state)
-      .then(this.props.history.push('/search'));
+      .then(this.props.history.push('/search#top'));
   }
 
   handleDayPick(date) {

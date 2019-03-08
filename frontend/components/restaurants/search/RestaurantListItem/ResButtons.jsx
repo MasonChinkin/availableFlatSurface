@@ -30,7 +30,6 @@ class ResButtons extends Component {
       let hour = time[0];
       let min = time[1];
       let minutes = (min < 10) ? `0${min} PM` : `${min} PM`;
-      // minutes = (hour < 12) ? `${minutes} AM` : `${minutes} PM`;
       let hours = (hour > 12) ? `${hour - 12}` : `${hour}`;
       hours = (hours === "0") ? `12` : `${hours}`;
 
