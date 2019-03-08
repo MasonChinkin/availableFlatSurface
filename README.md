@@ -8,6 +8,10 @@ AvailableFlatSurface is a clone of [OpenTable](opentable.com "OpenTable") using 
 
 I designed and built this app in 10 days and plan on implementing the remaining features once I graduate App Academy (early April)
 
+## Index
+
+* [Highlights](https://github.com/MasonChinkin/availableFlatSurface/blob/master/README.md#highlights)
+
 ## Features
 
 * Secure frontend to backend user authentication using BCrypt.
@@ -25,7 +29,7 @@ I designed and built this app in 10 days and plan on implementing the remaining 
 
 One of the biggest functional challenges was gathering all necessary data to make a reservation upon clicking the time buttons on the search page. Hello redux! I tracked the party size and date of a reservation using the ui slice of state.
 
-[](/app/assets/images/readme/resbutton.png?raw=true)
+![](/app/assets/images/readme/resbutton.png?raw=true)
 
 ```javascript
 
