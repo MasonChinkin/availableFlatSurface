@@ -10,14 +10,8 @@ class SearchForm extends Component {
 
     let date = new Date();
     let hours = date.getHours();
-    if (hours >= 22) {
-      date.setHours(24);
-      date.setHours(12);
-      date.setMinutes(0);
-    } else {
-      date.setHours(19);
-      date.setMinutes(0);
-    }
+    date.setHours(hours + 1);
+    date.setMinutes(0);
 
     this.state = {
       searchTerm: '',
@@ -63,11 +57,13 @@ class SearchForm extends Component {
   }
 
   handleDayPick(date) {
-    this.setState({ resDateTime: date });
+    let hours = this.state.resDateTime.getHours();
+    let hoursChanged = date.setHours(hours);
+    this.setState({ resDateTime: new Date(hoursChanged) });
     this.props.reservationFormChange({
       numPeople: this.state.numPeople,
       resDateTime: this.state.resDateTime
-    })
+    });
   }
 
   handleNumPeople(e) {
