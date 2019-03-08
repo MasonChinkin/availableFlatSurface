@@ -11,7 +11,7 @@ I designed and built this app in 10 days and plan on implementing the remaining 
 ## Features
 
 * Secure frontend to backend user authentication using BCrypt.
-* User can search restaurants and see restaurant details on show page.
+* User can search restaurants and see restaurant details on their show pages.
 * User can make reservations and see them in their profile page
 * Secure AWS photo hosting with Rails Active Storage
 * Styled VERY closely to opentable.com (see examples below)
