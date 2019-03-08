@@ -14,7 +14,6 @@ class ProfileReservationItem extends Component {
     let time = hours + ':' + minutes;
     let dateTime = (resDate > new Date()) ? date + ' ' + time : date;
 
-
     return (
       <div className="profile-reservation-item">
         <NavLink to={`/restaurants/${rest.id}#top`}><img src={rest.profilePhotoURL} alt="restaurant photo" /></NavLink>
