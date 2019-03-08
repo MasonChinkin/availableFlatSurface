@@ -116,3 +116,9 @@ const sidebarDetails = sidebarDataArr.map((detail, i) => {
 ```
 
 ### Styling: Attention to Detail!
+
+This project sought to closely replicate the design of OpenTable. At times (see below), one could argue AvailableFlatSurface has a more aesthetically pleasing arrangement of elements.
+
+AvailableFlatSurface            |  OpenTable
+:-------------------------:|:-------------------------:
+![](/app/assets/images/readme/myListItem.png?raw=true) | ![](/app/assets/images/readme/openTableListItem.png?raw=true)
