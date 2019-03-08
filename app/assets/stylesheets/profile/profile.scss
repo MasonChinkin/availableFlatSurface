@@ -122,3 +122,18 @@
     margin-right: 5px;
   }
 }
+
+#new-reservation {
+  background-color: lightyellow !important;
+  animation: glow 1s infinite alternate !important;
+}
+
+@keyframes glow {
+  from {
+    background-color: lightyellow;
+  }
+
+  to {
+    background-color: gold;
+  }
+}

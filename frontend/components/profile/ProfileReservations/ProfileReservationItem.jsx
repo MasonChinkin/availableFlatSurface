@@ -2,8 +2,20 @@ import React, { Component } from 'react';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
 
 class ProfileReservationItem extends Component {
+
+  componentDidMount() {
+    // https://stackoverflow.com/questions/8922107/javascript-scrollintoview-middle-alignment
+    if (this.props.newReservationId) {
+      Element.prototype.documentOffsetTop = function () {
+        return this.offsetTop + (this.offsetParent ? this.offsetParent.documentOffsetTop() : 0);
+      };
+
+      let top = document.getElementById('new-reservation').documentOffsetTop() - (window.innerHeight / 2);
+      window.scrollTo(0, top);
+    }
+  }
+
   render() {
-    debugger
     if (this.props.restaurant.id === undefined) return null;
     let rest = this.props.restaurant;
     let res = this.props.reservation;
@@ -14,8 +26,10 @@ class ProfileReservationItem extends Component {
     let time = hours + ':' + minutes;
     let dateTime = (resDate > new Date()) ? date + ' ' + time : date;
 
+    let id = (this.props.newReservationId === res.id) ? 'new-reservation' : '';
+
     return (
-      <div className="profile-reservation-item">
+      <div className="profile-reservation-item" id={id}>
         <NavLink to={`/restaurants/${rest.id}#top`}><img src={rest.profilePhotoURL} alt="restaurant photo" /></NavLink>
         <div>
           <NavLink to={`/restaurants/${rest.id}#top`}><h2>{rest.name}</h2></NavLink>

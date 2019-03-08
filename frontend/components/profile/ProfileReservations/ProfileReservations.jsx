@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ProfileReservationItem from './ProfileReservationItem';
 
 class ProfileReservations extends Component {
+
   componentWillUnmount() {
     // clear ui slice of state so new reservation does not remain highlighted
     this.props.clearNewReservation();
@@ -14,8 +15,10 @@ class ProfileReservations extends Component {
     if (rests === undefined) return null;
 
     let upcoming = upcomingReservations.map(res => {
+
       return <ProfileReservationItem
         key={res.id}
+        newReservationId={this.props.newReservationId}
         reservation={res}
         restaurant={rests[res.restaurantId]} />
     })
