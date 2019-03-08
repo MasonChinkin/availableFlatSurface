@@ -1,22 +1,20 @@
-# README
-
 # AvailableFlatSurface
 
-Hello! Thanks for checking out my App Academy full stack project.
+Hello! Thanks for checking out this project.
 
 [AvailableFlatSurface](https://available-flat-surface.herokuapp.com/ "AvailableFlatSurface") is a clone of [AvailableFlatSurface](opentable.com "OpenTable") using a react/redux front end calling to a rails backend hosted on Heroku. 
 
-There is a demo account with full seeded features, but the user can currently only make an account, search for restaurants, and make reservations. I will implement saving restaurants and a fully CRUD review system after graduating from App Academy in April.
+# 
 
 # Code Highlights
 
-### Ratings and cost symbols
+### Dynamic icons with react
 
-Early in the project, when I was thinking about how to implement OpenTable's heavy use of symbols in a clean dynamic way, I had one of those Beautiful Mind/Orchestral background music moments when React really made sense to me. Below are screenshots comparing my site to OpenTable, and my then my code.
+Early in the project, when I was thinking about how to implement OpenTable's heavy use of icons in a clean, dynamic way, I had one of those Beautiful Mind/orchestral background music moments when React really started to make sense to me. Below are screenshots comparing my site to OpenTable, and then my code.
 
 AvailableFlatSurface            |  OpenTable
 :-------------------------:|:-------------------------:
-![](/app/assets/images/readme/myShowDetails.png?raw=true) | ![](/app/assets/images/readme/openTableShowDetails.png?raw=true)
+![](/app/assets/images/readme/myShowDetails.png?raw=true) | ![](/app/assets/images/readme/openTableShowDetails.png?raw=true height="20px")
 
 ```javascript
 sidebarDataArr(rest) {
