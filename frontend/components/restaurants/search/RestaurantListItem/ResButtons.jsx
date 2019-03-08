@@ -12,6 +12,8 @@ class ResButtons extends Component {
   handleReservation(e) {
     e.preventDefault();
 
+    if (this.props.userId === null) return this.props.history.push(`/search/signin`);
+
     let reservation = {
       reservation: (this.props.searchedDateTime.getTime()) / 1000,
       num_people: this.props.numPeople,
