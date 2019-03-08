@@ -18,7 +18,7 @@ class ProfileReservationItem extends Component {
   }
 
   render() {
-    if (this.props.restaurant.id === undefined) return null;
+    if (this.props.restaurant === undefined) return null;
     let rest = this.props.restaurant;
     let res = this.props.reservation;
     let resDate = new Date(res.reservation);
