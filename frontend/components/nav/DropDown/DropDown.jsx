@@ -1,12 +1,19 @@
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import React from 'react';
 
 class DropDown extends React.Component {
   constructor(props) {
     super(props);
     this.state = { class: 'drop-down' };
+    this.handleSignOut = this.handleSignOut.bind(this);
   }
 
+  handleSignOut() {
+    this.props.signout();
+    if (this.props.history.location.pathname.includes('profile')) {
+      this.props.history.push('/');
+    }
+  }
 
   componentDidMount() {
     setTimeout(() => this.setState({ class: 'drop-down drop-down-active' }), 1);
@@ -14,16 +21,16 @@ class DropDown extends React.Component {
   }
 
   render() {
-    let { currentUserId, signout } = this.props;
+    let { currentUserId } = this.props;
     return (
       <ul className={this.state.class} >
         <Link to={`/profile/${currentUserId}/reservations#top`}>My Profile</Link>
         <Link to={`/profile/${currentUserId}/reservations#past`}>Dining History</Link>
         <Link to={`/profile/${currentUserId}/saved-restaurants`}>Saved Restaurants</Link>
-        <a onClick={signout}>Sign out</a>
+        <a onClick={this.handleSignOut}>Sign out</a>
       </ul>
     )
   }
 }
 
-export default DropDown;
+export default withRouter(DropDown);
