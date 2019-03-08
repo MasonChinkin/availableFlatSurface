@@ -11,7 +11,6 @@ class ProfileReservationItem extends Component {
     let minutes = (resDate.getMinutes() < 10) ? `0${resDate.getMinutes()} PM` : `${resDate.getMinutes()} PM`;
     let hours = (resDate.getHours() === 12) ? `${resDate.getHours()}` : `${resDate.getHours() - 12}`;
     let time = hours + ':' + minutes;
-
     let dateTime = date + ' ' + time;
 
     return (
