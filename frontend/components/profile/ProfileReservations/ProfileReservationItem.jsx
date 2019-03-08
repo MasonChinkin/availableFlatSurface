@@ -6,12 +6,14 @@ class ProfileReservationItem extends Component {
   componentDidMount() {
     // https://stackoverflow.com/questions/8922107/javascript-scrollintoview-middle-alignment
     if (this.props.newReservationId) {
-      Element.prototype.documentOffsetTop = function () {
-        return this.offsetTop + (this.offsetParent ? this.offsetParent.documentOffsetTop() : 0);
-      };
+      document.addEventListener("DOMContentLoaded", () => {
+        Element.prototype.documentOffsetTop = function () {
+          return this.offsetTop + (this.offsetParent ? this.offsetParent.documentOffsetTop() : 0);
+        };
 
-      let top = document.getElementById('new-reservation').documentOffsetTop() - (window.innerHeight / 2);
-      window.scrollTo(0, top);
+        let top = document.getElementById('new-reservation').documentOffsetTop() - (window.innerHeight / 2);
+        window.scrollTo(0, top);
+      })
     }
   }
 
