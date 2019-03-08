@@ -1,49 +1,31 @@
 import React, { Component } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import * as ResButtonsUtil from '../../../../utils/resButtonUtils';
 
 class ResButtons extends Component {
 
   constructor(props) {
     super(props);
-    this.handleReservation = this.handleReservation.bind(this)
+    this.handleReservation = this.handleReservation.bind(this);
   }
 
   handleReservation(e) {
     e.preventDefault();
 
     let reservation = {
-      reservation: this.props.searchedDateTime.getTime(),
+      reservation: (this.props.searchedDateTime.getTime()) / 1000,
       num_people: this.props.numPeople,
       user_id: this.props.userId,
       restaurant_id: this.props.restaurantId // threaded in from above
     };
 
     this.props.makeReservation(reservation)
-      .then(this.props.history.push(`/profile/${this.props.userId}/reservations#top`))
-  }
-
-  getResTimes() {
-    const time = this.props.searchedDateTime;
-
-    const resTimes = [];
-    for (let i = 0; i < 5; i++) {
-      let newTime = new Date(time);
-      let minutes = time.getMinutes();
-      minutes += (i === 0) ? 0 : i * 15;
-      newTime.setMinutes(minutes);
-
-      let buttonHours = newTime.getHours()
-      let buttonMinutes = newTime.getMinutes();
-
-      resTimes.push([buttonHours, buttonMinutes]);
-    }
-
-    return resTimes;
+      .then(this.props.history.push(`/profile/${this.props.userId}/reservations#new-reservation`));
   }
 
   render() {
 
-    const buttons = this.getResTimes().map((time, i) => {
+    const buttons = ResButtonsUtil.getResTimes(this.props.searchedDateTime).map((time, i) => {
       let hour = time[0];
       let min = time[1];
       let minutes = (min < 10) ? `0${min}` : `${min}`;

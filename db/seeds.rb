@@ -146,7 +146,7 @@ r = Restaurant.create!(
   rating: "#{[2,3,4,5].sample}",
   email: "firstever@gmail.com",
   phone: "555-555-5555",
-  website: "firstever.com",
+  website: "available-flat-surface.herokuapp.com",
   payment_options: "Visa",
   dress_code: "Formal",
   neighborhood: "FiDi",

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Calendar from 'react-calendar';
+import { withRouter } from 'react-router-dom';
 import * as FormUtils from '../../../../utils/formUtils';
 
 class RestaurantShowForm extends Component {
@@ -34,20 +35,21 @@ class RestaurantShowForm extends Component {
   handleInput(field) {
     return (e) => {
       this.setState({ [field]: e.currentTarget.value });
-    }
+    };
   }
 
   handleSubmit(e) {
     e.preventDefault();
 
     let reservation = {
-      reservation: this.state.resDateTime.getTime(),
+      reservation: (this.state.resDateTime.getTime()) / 1000,
       num_people: this.state.numPeople,
       user_id: this.props.currId,
       restaurant_id: this.props.restaurantId
-    }
+    };
 
-    this.props.makeReservation(reservation);
+    this.props.makeReservation(reservation)
+      .then(this.props.history.push(`/profile/${this.props.currId}/reservations#new-reservation`));
   }
 
   handleDayPick(date) {
@@ -137,4 +139,4 @@ class RestaurantShowForm extends Component {
   }
 }
 
-export default RestaurantShowForm;
+export default withRouter(RestaurantShowForm);

@@ -42,7 +42,7 @@ class RestaurantListItem extends Component {
 
     return (
       <div className="restaurant-profile-photo-wrapper">
-        <img src={rest.profilePhotoURL} alt="restaurant photo" />
+        <Link smooth to={`/restaurants/${rest.id}#top`}><img src={rest.profilePhotoURL} alt="restaurant photo" /></Link>
         <div className="search-item">
           <Link className="restaurant-item-link" smooth to={`/restaurants/${rest.id}#top`}>{rest.name}</Link>
           <div className="restaurant-item-top">

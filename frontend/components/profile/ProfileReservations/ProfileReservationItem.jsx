@@ -6,7 +6,7 @@ class ProfileReservationItem extends Component {
     if (this.props.restaurant.id === undefined) return null;
     let rest = this.props.restaurant;
     let res = this.props.reservation;
-    let resDate = new Date(res.reservation / 1000);
+    let resDate = new Date(res.reservation);
     let date = (resDate.getMonth() + 1) + '/' + resDate.getDate() + '/' + resDate.getFullYear();
     let minutes = (resDate.getMinutes() < 10) ? `0${resDate.getMinutes()} PM` : `${resDate.getMinutes()} PM`;
     let hours = (resDate.getHours() === 12) ? `${resDate.getHours()}` : `${resDate.getHours() - 12}`;
