@@ -4,8 +4,10 @@ json.user do
   end
 end
 
-json.saved_restaurants do
-  @user.saved_restaurants_data.each do |rest|
+saved_and_reserved_rests = @user.saved_restaurants_data + @user.reserved_restaurants_data
+
+json.restaurants do
+  saved_and_reserved_rests.each do |rest|
     json.set! rest.id do
       json.extract! rest, :id, :name, :cuisine, :neighborhood, :rating
       json.profilePhotoURL url_for(rest.profile_photo)
@@ -13,8 +15,21 @@ json.saved_restaurants do
   end
 end
 
+# json.saved_restaurants do
+#   @user.saved_restaurants_data.each do |rest|
+#     json.set! rest.id do
+#       json.extract! rest, :id, :name, :cuisine, :neighborhood, :rating
+#       json.profilePhotoURL url_for(rest.profile_photo)
+#     end
+#   end
+# end
+
 json.saved_restaurants_join do
-  json.array! @user.saved_restaurants
+  @user.saved_restaurants.each do |saved|
+    json.set! saved.id do
+      json.extract! saved, :id, :restaurant_id, :user_id
+    end
+  end
 end
 
 json.reservations do
@@ -26,11 +41,11 @@ json.reservations do
   end
 end
 
-json.reserved_restaurants do
-  @user.reserved_restaurants_data.each do |rest|
-    json.set! rest.id do
-      json.extract! rest, :id, :name, :cuisine, :neighborhood
-      json.profilePhotoURL url_for(rest.profile_photo)
-    end
-  end
-end
+# json.reserved_restaurants do
+#   @user.reserved_restaurants_data.each do |rest|
+#     json.set! rest.id do
+#       json.extract! rest, :id, :name, :cuisine, :neighborhood
+#       json.profilePhotoURL url_for(rest.profile_photo)
+#     end
+#   end
+# end

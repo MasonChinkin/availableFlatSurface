@@ -65,6 +65,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, .08);
   margin-bottom: 6px;
   font-weight: 375;
+  font-size: 1.1rem;
 
   & img {
     height: 80px;
@@ -79,7 +80,8 @@
   }
 
   & h3 {
-    color: rgb(150, 150, 150);
+    color: rgb(130, 130, 130);
+    font-size: .9rem;
   }
 }
 

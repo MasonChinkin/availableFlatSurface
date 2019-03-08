@@ -8,6 +8,7 @@ import { NavHashLink as NavLink } from 'react-router-hash-link';
 class RestaurantShow extends Component {
   sidebarDataArr(rest) {
     let details = {
+      'Address': [rest.address, 'fas fa-map-marker-alt'],
       'Cross Street': [rest.crossStreet, 'fas fa-car-alt'],
       'Neighborhood': [rest.neighborhood, 'far fa-building'],
       'Hours': [rest.hours, 'far fa-clock'],
@@ -43,7 +44,7 @@ class RestaurantShow extends Component {
         let val = detail[1][0] || 'N/A';
         let icon = detail[1][1];
 
-        val = (label === 'Website') ? <a href={val}>{val}</a> : val
+        val = (label === 'Website' && val !== 'N/A') ? <a href={val}>{val}</a> : val
         return (
           <li key={i}>
             <i className={icon} />

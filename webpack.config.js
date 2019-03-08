@@ -1,5 +1,4 @@
 var path = require('path');
-var LiveReloadPlugin = require('webpack-livereload-plugin');
 
 module.exports = {
   entry: './frontend/index.jsx',
@@ -28,7 +27,7 @@ module.exports = {
   resolve: {
     extensions: ['.js', '.jsx', '*']
   },
-  plugins: [
-    new LiveReloadPlugin()
-  ]
+  // plugins: [
+  //   new LiveReloadPlugin()
+  // ]
 };

@@ -3,16 +3,16 @@ import ProfileSavedRestaurantsItem from './ProfileSavedRestaurantsItem';
 
 class ProfileSavedRestaurants extends Component {
   render() {
-    let rests = Object.values(this.props.restaurants);
-    if (rests === undefined) return null;
+    let { restaurants } = this.props;
+    if (restaurants === undefined) return null;
 
-    let savedRestaurants = rests.map(rest => {
+    let restaurantItems = restaurants.map(rest => {
       return <ProfileSavedRestaurantsItem key={rest.id} restaurant={rest} />
     });
 
     return (
       <section className="saved-restaurants">
-        {savedRestaurants}
+        {restaurantItems}
       </section>
     );
   }

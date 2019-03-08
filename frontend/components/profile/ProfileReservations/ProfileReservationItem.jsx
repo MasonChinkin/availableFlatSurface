@@ -1,19 +1,25 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { NavHashLink as NavLink } from 'react-router-hash-link';
 
 class ProfileReservationItem extends Component {
   render() {
+    if (this.props.restaurant.id === undefined) return null;
     let rest = this.props.restaurant;
     let res = this.props.reservation;
-    let resDate = new Date(res.reservation);
-    let date = (resDate.getMonth()) + '/' + resDate.getDate() + '/' + resDate.getFullYear();
+    let resDate = new Date(res.reservation / 1000);
+    let date = (resDate.getMonth() + 1) + '/' + resDate.getDate() + '/' + resDate.getFullYear();
+    let minutes = (resDate.getMinutes() < 10) ? `0${resDate.getMinutes()} PM` : `${resDate.getMinutes()} PM`;
+    let hours = (resDate.getHours() === 12) ? `${resDate.getHours()}` : `${resDate.getHours() - 12}`;
+    let time = hours + ':' + minutes;
+
+    let dateTime = date + ' ' + time;
 
     return (
       <div className="profile-reservation-item">
-        <Link to={`/restaurants/${rest.id}#top`}><img src={rest.profilePhotoURL} alt="restaurant photo" /></Link>
+        <NavLink to={`/restaurants/${rest.id}#top`}><img src={rest.profilePhotoURL} alt="restaurant photo" /></NavLink>
         <div>
-          <Link to={`/restaurants/${rest.id}#top`}><h2>{rest.name}</h2></Link>
-          <h2>{date}</h2>
+          <NavLink to={`/restaurants/${rest.id}#top`}><h2>{rest.name}</h2></NavLink>
+          <h2>{dateTime}</h2>
           <h3>Table for {res.numPeople} people</h3>
         </div>
       </div>

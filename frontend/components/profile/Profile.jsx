@@ -11,7 +11,6 @@ class Profile extends Component {
   render() {
     if (this.props.user === undefined) return null;
     let { user } = this.props;
-    console.log(this.props.history.location)
     let mainContent = (this.props.history.location.pathname.includes('reservations')) ?
       <ProfileReservationsContainer /> :
       <ProfileSavedRestaurantsContainer />

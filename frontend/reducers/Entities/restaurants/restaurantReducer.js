@@ -23,9 +23,9 @@ export const restaurantReducer = (oldState = {}, action) => {
         [restaurant[0][0]]: restaurant[0][1]
       });
     case RECEIVE_PROFILE:
-      return Object.assign({}, oldState, action.user.reservedRestaurants);
-    case RECEIVE_PROFILE:
-      return Object.assign({}, oldState, action.user.savedRestaurants);
+      return Object.assign({}, oldState, action.user.restaurants);
+      // case RECEIVE_PROFILE:
+      //   return Object.assign({}, oldState, action.user.savedRestaurants);
     default:
       return oldState;
   }
