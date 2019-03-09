@@ -75,7 +75,7 @@ Early in the project, when I was thinking about how to implement OpenTable's hea
 
 AvailableFlatSurface            |  OpenTable
 :-------------------------:|:-------------------------:
-![](/app/assets/images/readme/myShowDetails.png?raw=true height="100px") | ![](/app/assets/images/readme/openTableShowDetails.png?raw=true)
+![](/app/assets/images/readme/myShowDetails.png?raw=true) | ![](/app/assets/images/readme/openTableShowDetails.png?raw=true)
 
 ```javascript
 sidebarDataArr(rest) {
