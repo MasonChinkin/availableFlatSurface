@@ -4,11 +4,11 @@ import RestaurantShowForm from './RestaurantShowForm';
 import { makeReservation } from '../../../../actions/reservationActions';
 
 const mSP = ({ entities, ui, session }) => {
-  let currId = (session.currentUser.id === null) ? null : session.currentUser.id;
+  let userId = (session.currentUser.id === null) ? null : session.currentUser.id;
   return {
     searchCalendar: ui.searchCalendar,
     restaurant: entities.restaurants,
-    currId: currId
+    userId: userId
   };
 };
 

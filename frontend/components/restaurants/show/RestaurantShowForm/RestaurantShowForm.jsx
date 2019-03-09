@@ -41,15 +41,17 @@ class RestaurantShowForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
 
+    if (this.props.userId === null) return this.props.history.push(`${this.props.history.location.pathname}/signin`);
+
     let reservation = {
       reservation: (this.state.resDateTime.getTime()) / 1000,
       num_people: this.state.numPeople,
-      user_id: this.props.currId,
+      user_id: this.props.userId,
       restaurant_id: this.props.restaurantId
     };
 
     this.props.makeReservation(reservation)
-      .then(this.props.history.push(`/profile/${this.props.currId}/reservations#new-reservation`));
+      .then(this.props.history.push(`/profile/${this.props.userId}/reservations#new-reservation`));
   }
 
   handleDayPick(date) {
