@@ -37,13 +37,9 @@ One of the biggest functional challenges was gathering all necessary data to mak
 
 ```javascript
 // UI REDUCER
-case RECEIVE_RESERVATION:
+case RECEIVE_RESERVATION_FORM_CHANGE:
   return merge({}, oldState, {
-    newReservation: { id: action.reservation.id }
-  });
-case CLEAR_NEW_RESERVATION:
-  return merge({}, oldState, {
-    newReservation: { id: null }
+    reservationForm: action.reservationData
   });
 
 // RESERVATION BUTTON CONTAINER
