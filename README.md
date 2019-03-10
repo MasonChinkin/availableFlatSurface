@@ -31,7 +31,7 @@ I designed and built this app in 10 days and plan on implementing the remaining 
 
 ### Making Reservations with redux
 
-One of the biggest functional challenges was gathering all necessary data to make a reservation upon clicking the time buttons on the search page. Hello redux! I tracked the party size and date of a reservation using the ui slice of state.
+One of the biggest functional challenges was gathering all necessary data to make a reservation upon clicking the time buttons on the search page. Hello redux! I tracked the party size and dateTime of a reservation using the ui slice of state.
 
 ![](/app/assets/images/readme/demo-min.gif?raw=true)
 
