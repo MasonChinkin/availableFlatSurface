@@ -24,8 +24,8 @@ I designed and built this app in 10 days and plan on implementing the remaining 
 * Secure AWS photo hosting with Rails Active Storage
 * Styled VERY closely to opentable.com (see examples below)
 
-* Planned- User can make/edit/delete reviews
-* Planned- User can save/unsave restaurants
+* Coming Soon- User can make/edit/delete reviews
+* Coming Soon- User can save/unsave restaurants
 
 ## Highlights
 
