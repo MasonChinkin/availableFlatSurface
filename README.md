@@ -36,15 +36,24 @@ One of the biggest functional challenges was gathering all necessary data to mak
 ![](/app/assets/images/readme/demo-min.gif?raw=true)
 
 ```javascript
+// UI REDUCER
+case RECEIVE_RESERVATION:
+  return merge({}, oldState, {
+    newReservation: { id: action.reservation.id }
+  });
+case CLEAR_NEW_RESERVATION:
+  return merge({}, oldState, {
+    newReservation: { id: null }
+  });
 
-// CONTAINER
+// RESERVATION BUTTON CONTAINER
 const mapStateToProps = ({ ui, session }, ownProps) => ({
   searchedDateTime: ui.reservationForm.resDateTime || null,
   numPeople: ui.reservationForm.numPeople,
   userId: (session.currentUser === null) ? null : session.currentUser.id,
 });
 
-// COMPONENT
+// RESERVATION BUTTON COMPONENT
 handleReservation(e) {
   e.preventDefault();
 
@@ -61,7 +70,7 @@ handleReservation(e) {
     .then(this.props.history.push(`/profile/${this.props.userId}/reservations#new-reservation`));
 }
 
-// BUTTON RENDER
+// RESERVATION BUTTON RENDER
 <Link onClick={this.handleReservation}
   key={i}
   className="submit-button res-submit-button"
