@@ -21,6 +21,13 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by(session_token: session[:session_token])
   end
 
+  # add one to bookings today number when reservation made
+  def increment_bookings_today(restaurant_id)
+    rest = Restaurant.find(restaurant_id)
+    rest.booked_times_today += 1
+    rest.save
+  end
+
   # return status 403 Forbidden if user is unauthorized
   def require_sign_in
     render status: 403
