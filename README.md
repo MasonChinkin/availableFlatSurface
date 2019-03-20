@@ -10,7 +10,7 @@ I designed and built this app in 10 days. The user can search restaurants, make 
 
 ## Index
 
-* [Features](https://github.com/MasonChinkin/availableFlatSurface/blob/master/README.md#features)
+* [Technologies](https://github.com/MasonChinkin/availableFlatSurface/blob/master/README.md#Technologies)
 * [Highlights](https://github.com/MasonChinkin/availableFlatSurface/blob/master/README.md#highlights)
   * [Making Reservations with redux](https://github.com/MasonChinkin/availableFlatSurface/blob/master/README.md#Making-Reservations-with-redux)
   * [Dynamic icons with react](https://github.com/MasonChinkin/availableFlatSurface/blob/master/README.md#Dynamic-icons-with-react)
