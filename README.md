@@ -6,7 +6,7 @@ Hello! Thanks for checking out this project.
 
 AvailableFlatSurface is a clone of [OpenTable](opentable.com "OpenTable") using a react/redux front end calling to a rails/PostgreSQL backend hosted on Heroku. 
 
-I designed and built this app in 10 days and plan on implementing the remaining features once I graduate App Academy (early April)
+I designed and built this app in 10 days. The user can search restaurants, make reservations, save and review restaurants (coming soon), and see their save and reservation history on thier profile.
 
 ## Index
 
@@ -16,16 +16,12 @@ I designed and built this app in 10 days and plan on implementing the remaining 
   * [Dynamic icons with react](https://github.com/MasonChinkin/availableFlatSurface/blob/master/README.md#Dynamic-icons-with-react)
   * [Styling: Attention to Detail!](https://github.com/MasonChinkin/availableFlatSurface/blob/master/README.md#styling-attention-to-detail)
 
-## Features
+## Technologies
 
-* Secure frontend to backend user authentication using BCrypt.
-* User can search restaurants and see restaurant details on their show pages.
-* User can make reservations and see them in their profile page
+* Rails backend with custom postgreSQL database
+* react/redux front end with sass styling
 * Secure AWS photo hosting with Rails Active Storage
-* Styled VERY closely to opentable.com (see examples below)
-
-* Coming Soon- User can make/edit/delete reviews
-* Coming Soon- User can save/unsave restaurants
+* Secure frontend to backend user authentication with BCrypt.
 
 ## Highlights
 
