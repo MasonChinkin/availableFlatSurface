@@ -122,6 +122,7 @@ class SearchForm extends Component {
         activeStartDate={this.state.resDateTime}
         onClickDay={this.handleDayPick}
         minDetail="month"
+        minDate={new Date()}
       /> :
       undefined;
 

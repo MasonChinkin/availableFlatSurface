@@ -98,6 +98,7 @@ class RestaurantShowForm extends Component {
         value={this.state.resDateTime}
         onClickDay={this.handleDayPick}
         minDetail="month"
+        minDate={new Date()}
       /> :
       undefined;
 
