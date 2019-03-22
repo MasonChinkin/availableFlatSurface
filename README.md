@@ -39,7 +39,7 @@ case RECEIVE_RESERVATION_FORM_CHANGE:
   });
 
 // RESERVATION BUTTON CONTAINER
-const mapStateToProps = ({ ui, session }, ownProps) => ({
+const mapStateToProps = ({ ui, session }) => ({
   searchedDateTime: ui.reservationForm.resDateTime || null,
   numPeople: ui.reservationForm.numPeople,
   userId: (session.currentUser === null) ? null : session.currentUser.id,
