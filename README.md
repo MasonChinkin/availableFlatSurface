@@ -19,7 +19,7 @@ I designed and built this app in 10 days. The user can search restaurants, make 
 ## Technologies
 
 * Rails backend with postgreSQL database
-* react/redux front end with sass styling
+* React + Redux front end with SASS styling
 * Secure AWS photo hosting with Rails Active Storage
 * Secure frontend to backend user authentication with BCrypt.
 
