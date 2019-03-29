@@ -16,7 +16,7 @@ class Api::UsersController < ApplicationController
     if @user
       render :show
     else
-      render ["uh-oh, you should not be here"], status: 403
+      render json: ["uh-oh, you should not be here"], status: 403
     end
   end
 

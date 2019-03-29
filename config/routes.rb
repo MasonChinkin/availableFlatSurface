@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     resources :restaurants, only: [:show, :index] #edit and destroy are bonus features
     resource :session, only: [:create, :destroy]
     resources :reservations, only: [:create]
+    resources :saved_restaurants, only: [:create]
   end
 end

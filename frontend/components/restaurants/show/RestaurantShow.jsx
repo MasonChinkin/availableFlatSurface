@@ -6,6 +6,11 @@ import RestaurantReviewItem from './RestaurantShowReviewItem';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
 
 class RestaurantShow extends Component {
+  constructor(props) {
+    super(props);
+    this.handleSave = this.handleSave.bind(this)
+  }
+
   sidebarDataArr(rest) {
     let details = {
       'Address': [rest.address, 'fas fa-map-marker-alt'],
@@ -21,6 +26,17 @@ class RestaurantShow extends Component {
     }
 
     return Object.entries(details);
+  }
+
+  handleSave() {
+    let savedRestaurant = {
+      user_id: this.props.currentUser.id,
+      restaurant_id: this.props.restaurant.id
+    }
+
+    console.log(savedRestaurant)
+
+    this.props.createSavedRestaurant(savedRestaurant)
   }
 
   componentDidMount() {
@@ -66,7 +82,7 @@ class RestaurantShow extends Component {
     return (
       <div className="restaurant-show-page">
         <header style={{ backgroundImage: `url(${restaurant.wallpaperURL})` }}>
-          <button className="save-restaurant-button">
+          <button className="save-restaurant-button" onClick={this.handleSave}>
             <i id="Overview" className='far fa-bookmark' />Save this Restaurant
             </button>
         </header>
