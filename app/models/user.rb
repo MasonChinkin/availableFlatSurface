@@ -25,7 +25,7 @@ class User < ApplicationRecord
   has_many :saved_restaurants
   has_many :reviews
 
-  has_many :saved_restaurants_data, # data because I gave the joins table a poorly thought out name
+  has_many :saved_restaurants_data, # data because "saved_restaurants" is just
     through: :saved_restaurants,
     source: :restaurant
 

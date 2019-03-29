@@ -172,7 +172,7 @@ r = Restaurant.create!(
   website: "http://www.schroederssf.com/",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(5..12).to_a.sample}",
+  tables_left: "#{(15..20).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -190,7 +190,7 @@ r = Restaurant.create!(
   website: "http://www.alimentsf.com/home.html",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(5..12).to_a.sample}",
+  tables_left: "#{(15..20).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -211,7 +211,7 @@ r = Restaurant.create!(
   neighborhood: "Tenderloin",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(5..12).to_a.sample}",
+  tables_left: "#{(15..20).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -233,7 +233,7 @@ r = Restaurant.create!(
   cross_street: "Union",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(5..12).to_a.sample}",
+  tables_left: "#{(15..20).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -255,7 +255,7 @@ r = Restaurant.create!(
   parking_details: "occasional street parking",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(5..12).to_a.sample}",
+  tables_left: "#{(15..20).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -277,7 +277,7 @@ r = Restaurant.create!(
   neighborhood: "SoMa",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(5..12).to_a.sample}",
+  tables_left: "#{(15..20).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -297,7 +297,7 @@ r = Restaurant.create!(
   neighborhood: "SoMa",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(5..12).to_a.sample}",
+  tables_left: "#{(15..20).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -318,7 +318,7 @@ r = Restaurant.create!(
   neighborhood: "Marina",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(5..12).to_a.sample}",
+  tables_left: "#{(15..20).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -338,7 +338,7 @@ r = Restaurant.create!(
   neighborhood: "Mission",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(5..12).to_a.sample}",
+  tables_left: "#{(15..20).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -360,7 +360,7 @@ r = Restaurant.create!(
   cross_street: "Sanchez",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(5..12).to_a.sample}",
+  tables_left: "#{(15..20).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -379,7 +379,7 @@ r = Restaurant.create!(
   neighborhood: "Inner Sunset",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(5..12).to_a.sample}",
+  tables_left: "#{(15..20).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -399,7 +399,7 @@ r = Restaurant.create!(
   neighborhood: "Inner Sunset",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(5..12).to_a.sample}",
+  tables_left: "#{(15..20).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -419,7 +419,7 @@ r = Restaurant.create!(
   neighborhood: "Outer Richmond",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(5..12).to_a.sample}",
+  tables_left: "#{(15..20).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -440,7 +440,7 @@ r = Restaurant.create!(
   parking_details: "street parking",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(5..12).to_a.sample}",
+  tables_left: "#{(15..20).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -459,7 +459,7 @@ r = Restaurant.create!(
   neighborhood: "Inner Richmond",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(5..12).to_a.sample}",
+  tables_left: "#{(15..20).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -478,7 +478,7 @@ r = Restaurant.create!(
   neighborhood: "Outer Sunset",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(5..12).to_a.sample}",
+  tables_left: "#{(15..20).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -498,7 +498,7 @@ r = Restaurant.create!(
   neighborhood: "Bernal Heights",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(5..12).to_a.sample}",
+  tables_left: "#{(15..20).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)

@@ -28,6 +28,13 @@ class ApplicationController < ActionController::Base
     rest.save
   end
 
+  # subtract from tables left when reservation made
+  def decrement_tables_left(restaurant_id)
+    rest = Restaurant.find(restaurant_id)
+    rest.tables_left -= 1
+    rest.save
+  end
+
   # return status 403 Forbidden if user is unauthorized
   def require_sign_in
     render status: 403
