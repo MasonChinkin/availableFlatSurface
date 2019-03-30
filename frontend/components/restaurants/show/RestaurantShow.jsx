@@ -40,7 +40,12 @@ class RestaurantShow extends Component {
   }
 
   componentDidMount() {
-    this.props.requestRestaurant(this.props.match.params.id);
+    let payload = {
+      user_id: this.props.currentUserId,
+      restaurant_id: this.props.match.params.id
+    }
+
+    this.props.requestRestaurant(payload);
   }
 
   render() {

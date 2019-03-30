@@ -5,10 +5,13 @@ export const fetchAllRestaurants = () => {
   });
 };
 
-export const fetchRestaurant = id => {
+export const fetchRestaurant = payload => {
   return $.ajax({
     method: 'GET',
-    url: `/api/restaurants/${id}`
+    url: `/api/restaurants/${payload.restaurant_id}`,
+    data: {
+      payload
+    }
   });
 };
 

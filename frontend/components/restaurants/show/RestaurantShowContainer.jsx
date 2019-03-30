@@ -7,11 +7,11 @@ const mSP = ({ entities, session }, ownProps) => ({
   restaurant: entities.restaurants[ownProps.match.params.id],
   reviews: Object.values(entities.reviews),
   users: entities.users,
-  currentUser: entities.users[session.currentUser.id]
+  currentUserId: session.currentUser.id
 });
 
 const mDP = dispatch => ({
-  requestRestaurant: id => dispatch(requestRestaurant(id)),
+  requestRestaurant: payload => dispatch(requestRestaurant(payload)),
   createSavedRestaurant: savedRestaurant => dispatch(createSavedRestaurant(savedRestaurant))
 });
 

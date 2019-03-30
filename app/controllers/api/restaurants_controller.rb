@@ -10,7 +10,13 @@ class Api::RestaurantsController < ApplicationController
   end
 
   def show
-    @restaurant = Restaurant.with_attached_photos.with_attached_wallpaper.with_attached_profile_photo.find(params[:id])
+    @restaurant = Restaurant.with_attached_photos.with_attached_wallpaper.with_attached_profile_photo
+      .find(params[:payload][:restaurant_id])
+    @save = SavedRestaurant.where(
+      restaurant_id: params[:payload][:restaurant_id],
+      user_id: params[:payload][:user_id],
+    )
+
     render :show
   end
 end

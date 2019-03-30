@@ -33,7 +33,7 @@ export const requestSearchedRestaurants = searchTerm => dispatch => {
     .then(restaurants => dispatch(receiveSearchedRestaurants(restaurants)));
 };
 
-export const requestRestaurant = id => dispatch => {
-  return RestaurantUtils.fetchRestaurant(id)
+export const requestRestaurant = payload => dispatch => {
+  return RestaurantUtils.fetchRestaurant(payload)
     .then(restaurant => dispatch(receiveRestaurant(restaurant)));
 };
