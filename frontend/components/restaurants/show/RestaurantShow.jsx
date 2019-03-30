@@ -93,7 +93,7 @@ class RestaurantShow extends Component {
             </ul>
             <div className="restaurant-show-main-content">
               <h1>{restaurant.name}</h1>
-              <VisualSummary restaurant={restaurant} />
+              <VisualSummary restaurant={restaurant} reviews={reviews} />
               <div className="restaurant-show-main-content-desc">{restaurant.description}</div>
               <div id="Photos" className="restaurant-photos">
                 <h2>Photos</h2>

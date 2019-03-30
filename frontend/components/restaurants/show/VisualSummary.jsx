@@ -29,7 +29,7 @@ class VisualSummary extends Component {
           {ratingSymbol} {rest.rating}
         </div>
         <div className="visual-summary-reviews">
-          <i className="far fa-comment-alt" /> (WIP) reviews
+          <i className="far fa-comment-alt" /> {this.props.reviews.length} reviews
         </div>
         <div className="visual-summary-cost">
           <i className="far fa-money-bill-alt" /> ${rest.cost * 10} and under
