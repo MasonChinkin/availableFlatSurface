@@ -30,7 +30,7 @@ class RestaurantShow extends Component {
 
   handleSave() {
     let savedRestaurant = {
-      user_id: this.props.currentUser.id,
+      user_id: this.props.currentUserId,
       restaurant_id: this.props.restaurant.id
     }
 

@@ -1,6 +1,6 @@
 import * as savedRestaurantUtils from '../utils/savedRestaurantUtil';
 
-const CREATE_SAVED_RESTAURANT = "CREATE_SAVED_RESTAURANT"
+export const CREATE_SAVED_RESTAURANT = "CREATE_SAVED_RESTAURANT"
 
 const receiveSavedRestaurant = savedRestaurant => ({
   type: CREATE_SAVED_RESTAURANT,

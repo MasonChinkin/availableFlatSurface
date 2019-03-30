@@ -22,7 +22,7 @@ json.reviewers do
   end
 end
 
-json.reviewers do
+json.saved_restaurants_join do
   if @save.length > 0
     json.set! @save[0].id do
       json.extract! @save[0], :id, :restaurant_id, :user_id

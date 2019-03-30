@@ -1,11 +1,11 @@
 class Api::SavedRestaurantsController < ApplicationController
   def create
-    @saved_restaurant = SavedRestaurant.new(save_params)
+    @save = SavedRestaurant.new(save_params)
 
-    if @saved_restaurant.save
-      render json: ["Restaurant saved!"], status: 200
+    if @save.save
+      render :create
     else
-      render json: @saved_restaurant.errors.full_messages, status: 422
+      render json: @save.errors.full_messages, status: 422
     end
   end
 

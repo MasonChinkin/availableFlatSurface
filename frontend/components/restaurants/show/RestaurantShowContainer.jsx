@@ -3,12 +3,19 @@ import { requestRestaurant } from '../../../actions/restaurantActions';
 import RestaurantShow from './RestaurantShow';
 import { createSavedRestaurant } from '../../../actions/savedRestaurantActions';
 
-const mSP = ({ entities, session }, ownProps) => ({
-  restaurant: entities.restaurants[ownProps.match.params.id],
-  reviews: Object.values(entities.reviews),
-  users: entities.users,
-  currentUserId: session.currentUser.id
-});
+const mSP = ({ entities, session }, ownProps) => {
+  // savedRestaurantsJoin returns empty object if not saved
+  let isSaved = (Object.values(entities.savedRestaurantsJoin).length === 1) ?
+    true : false
+
+  return {
+    restaurant: entities.restaurants[ownProps.match.params.id],
+    reviews: Object.values(entities.reviews),
+    users: entities.users,
+    currentUserId: session.currentUser.id,
+    isSaved: isSaved
+  }
+};
 
 const mDP = dispatch => ({
   requestRestaurant: payload => dispatch(requestRestaurant(payload)),
