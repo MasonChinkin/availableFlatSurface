@@ -6,45 +6,46 @@ Hello! Thanks for checking out this project.
 
 AvailableFlatSurface is a clone of [OpenTable](opentable.com "OpenTable") using a react/redux front end calling to a rails/PostgreSQL backend hosted on Heroku. 
 
-I designed and built this app in 10 days and plan on implementing the remaining features once I graduate App Academy (early April)
+The user can search restaurants, make reservations, save and review restaurants (coming soon), and see their save and reservation history on their profile.
 
 ## Index
 
-* [Features](https://github.com/MasonChinkin/availableFlatSurface/blob/master/README.md#features)
+* [Technologies](https://github.com/MasonChinkin/availableFlatSurface/blob/master/README.md#Technologies)
 * [Highlights](https://github.com/MasonChinkin/availableFlatSurface/blob/master/README.md#highlights)
   * [Making Reservations with redux](https://github.com/MasonChinkin/availableFlatSurface/blob/master/README.md#Making-Reservations-with-redux)
   * [Dynamic icons with react](https://github.com/MasonChinkin/availableFlatSurface/blob/master/README.md#Dynamic-icons-with-react)
   * [Styling: Attention to Detail!](https://github.com/MasonChinkin/availableFlatSurface/blob/master/README.md#styling-attention-to-detail)
 
-## Features
+## Technologies
 
-* Secure frontend to backend user authentication using BCrypt.
-* User can search restaurants and see restaurant details on their show pages.
-* User can make reservations and see them in their profile page
+* Ruby on Rails backend using RESTful routes and a custom postgreSQL database
+* React + Redux front end with SASS styling
 * Secure AWS photo hosting with Rails Active Storage
-* Styled VERY closely to opentable.com (see examples below)
-
-* Planned- User can make/edit/delete reviews
-* Planned- User can save/unsave restaurants
+* Secure frontend to backend user authentication with BCrypt.
 
 ## Highlights
 
 ### Making Reservations with redux
 
-One of the biggest functional challenges was gathering all necessary data to make a reservation upon clicking the time buttons on the search page. Hello redux! I tracked the party size and date of a reservation using the ui slice of state.
+One of the biggest functional challenges was gathering all necessary data to make a reservation upon clicking the time buttons on the search page. Hello redux! I tracked the party size and dateTime of a reservation using the ui slice of state.
 
 ![](/app/assets/images/readme/demo-min.gif?raw=true)
 
 ```javascript
+// UI REDUCER
+case RECEIVE_RESERVATION_FORM_CHANGE:
+  return merge({}, oldState, {
+    reservationForm: action.reservationData
+  });
 
-// CONTAINER
-const mapStateToProps = ({ ui, session }, ownProps) => ({
+// RESERVATION BUTTON CONTAINER
+const mapStateToProps = ({ ui, session }) => ({
   searchedDateTime: ui.reservationForm.resDateTime || null,
   numPeople: ui.reservationForm.numPeople,
   userId: (session.currentUser === null) ? null : session.currentUser.id,
 });
 
-// COMPONENT
+// RESERVATION BUTTON COMPONENT
 handleReservation(e) {
   e.preventDefault();
 
@@ -61,7 +62,7 @@ handleReservation(e) {
     .then(this.props.history.push(`/profile/${this.props.userId}/reservations#new-reservation`));
 }
 
-// BUTTON RENDER
+// RESERVATION BUTTON RENDER
 <Link onClick={this.handleReservation}
   key={i}
   className="submit-button res-submit-button"
@@ -75,7 +76,7 @@ Early in the project, when I was thinking about how to implement OpenTable's hea
 
 AvailableFlatSurface            |  OpenTable
 :-------------------------:|:-------------------------:
-![](/app/assets/images/readme/myShowDetails.png?raw=true height="100px") | ![](/app/assets/images/readme/openTableShowDetails.png?raw=true)
+![](/app/assets/images/readme/myShowDetails.png?raw=true) | ![](/app/assets/images/readme/openTableShowDetails.png?raw=true)
 
 ```javascript
 sidebarDataArr(rest) {
