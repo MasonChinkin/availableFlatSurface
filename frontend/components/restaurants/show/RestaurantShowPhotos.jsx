@@ -14,7 +14,6 @@ class RestaurantShowPhotos extends Component {
   }
 
   handleClick(event) {
-    debugger
     this.setState({
       photoIndex: event.currentTarget.attributes[0].value, // [0] accesses the index attribute
       lightBox: true
@@ -24,7 +23,7 @@ class RestaurantShowPhotos extends Component {
   render() {
     let rest = this.props.restaurant;
     let URLs = rest.photoURLs;
-    let photoIndex = this.state.photoIndex
+    let photoIndex = parseInt(this.state.photoIndex)
 
     if (URLs === undefined) return null;
 

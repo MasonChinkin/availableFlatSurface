@@ -116,7 +116,12 @@ class RestaurantShow extends Component {
                 <RestaurantShowPhotos restaurant={restaurant} />
               </div>
               <div id="Reviews" className="restaurant-reviews">
-                <h2>Reviews</h2>
+                <div className="review-header">
+                  <h2>Reviews</h2>
+                  <h3><i className='fas fa-plus' /> Make a review</h3>
+                  <h3><i className='fas fa-edit' /> Edit your review</h3>
+                  <h3><i className='fa fa-close' /> Delete your review</h3>
+                </div>
                 {reviewList}
               </div>
             </div>
