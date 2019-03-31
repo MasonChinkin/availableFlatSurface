@@ -3,6 +3,15 @@ import { Link } from 'react-router-dom';
 
 class ProfileSavedRestaurantsItem extends Component {
 
+  constructor(props) {
+    super(props);
+    this.handleSaveClick = this.handleSaveClick.bind(this)
+  }
+
+  handleSaveClick() {
+    this.props.unSaveRestaurant(this.props.save.id)
+  }
+
   ratingSymbol(rating) {
     const filledStar = key => (
       <i key={key} className='fa fa-star' style={{ color: 'rgb(250, 160, 10)' }}></i>
@@ -31,7 +40,7 @@ class ProfileSavedRestaurantsItem extends Component {
         <Link to={`/restaurants/${rest.id}`}><img src={rest.profilePhotoURL} alt="restaurant photo" /></Link>
         <div>
           <Link to={`/restaurants/${rest.id}`}><h2>{rest.name}</h2></Link>
-          <h3><i className='fas fa-bookmark' />Remove from saved restaurants</h3>
+          <h3 className="profile-unsave" onClick={this.handleSaveClick}><i className='fas fa-bookmark' />Remove from saved restaurants</h3>
           <h2>{rating}</h2>
           <h3>{rest.cuisine} | {rest.neighborhood}</h3>
         </div>

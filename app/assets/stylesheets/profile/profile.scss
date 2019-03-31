@@ -104,13 +104,14 @@
   }
 
   &>div>* {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
   }
 
   & h2 {
     color: $not-quite-black;
     display: flex;
     align-items: center;
+    margin-bottom: 6px;
   }
 
   & h3 {
@@ -121,6 +122,10 @@
   & i {
     margin-right: 5px;
   }
+}
+
+.profile-unsave {
+  cursor: pointer;
 }
 
 #new-reservation {

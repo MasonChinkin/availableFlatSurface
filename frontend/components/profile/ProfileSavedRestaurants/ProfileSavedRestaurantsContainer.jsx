@@ -1,19 +1,19 @@
 import { connect } from 'react-redux';
 import ProfileSavedRestaurants from './ProfileSavedRestaurants';
 import { withRouter } from 'react-router-dom';
+import { unSaveRestaurant } from '../../../actions/savedRestaurantActions';
 
-const selectSavedRestaurants = (state, ownProps) => {
-  let rests = state.entities.restaurants;
-  let saves = Object.values(state.entities.savedRestaurantsJoin);
-  let userSaves = saves.filter(save => save.userId == ownProps.match.params.id);
-  return userSaves.map(save => rests[save.restaurantId]);
+const mSP = ({ entities }) => {
+  return {
+    restaurants: entities.restaurants,
+    savedRestaurantsJoin: entities.savedRestaurantsJoin
+  }
 };
 
-const mSP = (state, ownProps) => ({
-  // restaurants: Object.values(entities.restaurants)
-  restaurants: selectSavedRestaurants(state, ownProps)
+const mDP = dispatch => ({
+  unSaveRestaurant: id => dispatch(unSaveRestaurant(id))
 });
 
-export const ProfileSavedRestaurantsContainer = connect(mSP)(ProfileSavedRestaurants);
+export const ProfileSavedRestaurantsContainer = connect(mSP, mDP)(ProfileSavedRestaurants);
 
 export default withRouter(ProfileSavedRestaurantsContainer);

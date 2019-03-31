@@ -10,12 +10,12 @@ class Api::SavedRestaurantsController < ApplicationController
   end
 
   def destroy
-    @save = SavedRestaurant.find(params[:id])
+    @deleted = SavedRestaurant.find(params[:id])
 
-    if @save.delete
-      render json: ["Saved restaurant deleted"]
+    if @deleted.delete
+      render :destroy
     else
-      render json: @save.errors.full_messages, status: 404
+      render json: @deleted.errors.full_messages, status: 404
     end
   end
 

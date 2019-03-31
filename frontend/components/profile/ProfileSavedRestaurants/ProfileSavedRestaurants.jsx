@@ -5,9 +5,10 @@ class ProfileSavedRestaurants extends Component {
   render() {
     let { restaurants } = this.props;
     if (restaurants === undefined) return null;
-
-    let restaurantItems = restaurants.map(rest => {
-      return <ProfileSavedRestaurantsItem key={rest.id} restaurant={rest} />
+    let savedRestaurantsIds = Object.values(this.props.savedRestaurantsJoin)
+    let restaurantItems = savedRestaurantsIds.map(save => {
+      let rest = restaurants[save.restaurantId]
+      return <ProfileSavedRestaurantsItem unSaveRestaurant={this.props.unSaveRestaurant} key={save.id} save={save} restaurant={rest} />
     });
 
     return (

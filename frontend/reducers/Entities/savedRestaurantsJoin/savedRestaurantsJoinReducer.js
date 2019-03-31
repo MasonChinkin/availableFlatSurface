@@ -19,7 +19,9 @@ export const savedRestaurantsJoinReducer = (oldState = {}, action) => {
     case CREATE_SAVED_RESTAURANT:
       return action.savedRestaurant.savedRestaurantsJoin
     case DELETE_SAVED_RESTAURANT:
-      return {}
+      let newState = Object.assign({}, oldState)
+      delete newState[action.payload.id]
+      return newState
     default:
       return oldState
   }

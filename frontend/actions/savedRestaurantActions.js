@@ -8,8 +8,9 @@ const receiveSavedRestaurant = savedRestaurant => ({
   savedRestaurant
 })
 
-const deleteSavedRestaurant = () => ({
-  type: DELETE_SAVED_RESTAURANT
+const deleteSavedRestaurant = payload => ({
+  type: DELETE_SAVED_RESTAURANT,
+  payload
 })
 
 export const createSavedRestaurant = savedRestaurant => dispatch => {
@@ -19,5 +20,5 @@ export const createSavedRestaurant = savedRestaurant => dispatch => {
 
 export const unSaveRestaurant = id => dispatch => {
   return savedRestaurantUtils.deleteSavedRestaurant(id)
-    .then(() => dispatch(deleteSavedRestaurant()))
+    .then(payload => dispatch(deleteSavedRestaurant(payload)))
 }
