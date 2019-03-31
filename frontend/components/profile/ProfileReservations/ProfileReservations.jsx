@@ -15,9 +15,9 @@ class ProfileReservations extends Component {
     if (rests === undefined) return null;
 
     let upcoming = upcomingReservations.map(res => {
-
       return <ProfileReservationItem
         key={res.id}
+        cancelReservation={this.props.cancelReservation}
         newReservationId={this.props.newReservationId}
         reservation={res}
         restaurant={rests[res.restaurantId]} />

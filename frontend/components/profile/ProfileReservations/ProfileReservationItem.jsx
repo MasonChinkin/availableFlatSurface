@@ -2,8 +2,14 @@ import React, { Component } from 'react';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
 
 class ProfileReservationItem extends Component {
+  constructor(props) {
+    super(props);
+    this.handleCancelClick = this.handleCancelClick.bind(this)
+  }
+
 
   componentDidMount() {
+    // scroll to new reservation
     // https://stackoverflow.com/questions/8922107/javascript-scrollintoview-middle-alignment
     if (this.props.newReservationId) {
       document.addEventListener("DOMContentLoaded", () => {
@@ -15,6 +21,10 @@ class ProfileReservationItem extends Component {
         window.scrollTo(0, top);
       })
     }
+  }
+
+  handleCancelClick() {
+    this.props.cancelReservation(this.props.reservation.id)
   }
 
   render() {
@@ -38,6 +48,7 @@ class ProfileReservationItem extends Component {
           <h2>{dateTime}</h2>
           <h3>Table for {res.numPeople} people</h3>
         </div>
+        <i onClick={this.handleCancelClick} className="fa fa-close" />
       </div>
     );
   }

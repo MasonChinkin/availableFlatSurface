@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import ProfileReservations from './ProfileReservations';
-import { clearNewReservation } from '../../../actions/reservationActions';
+import { clearNewReservation, cancelReservation } from '../../../actions/reservationActions';
 
 
 const mSP = ({ entities, ui }) => {
@@ -17,7 +17,8 @@ const mSP = ({ entities, ui }) => {
 };
 
 const mDP = dispatch => ({
-  clearNewReservation: () => dispatch(clearNewReservation())
+  clearNewReservation: () => dispatch(clearNewReservation()),
+  cancelReservation: id => dispatch(cancelReservation(id))
 });
 
 const ProfileReservationsContainer = connect(mSP, mDP)(ProfileReservations);

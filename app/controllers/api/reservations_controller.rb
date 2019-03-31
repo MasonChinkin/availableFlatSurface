@@ -12,6 +12,16 @@ class Api::ReservationsController < ApplicationController
     end
   end
 
+  def destroy
+    @deleted = Reservation.find(params[:id])
+
+    if @deleted.delete
+      render :destroy
+    else
+      render @deleted.errors.full_messages
+    end
+  end
+
   private
 
   def res_params
