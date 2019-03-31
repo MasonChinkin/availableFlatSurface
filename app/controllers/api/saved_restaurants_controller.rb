@@ -9,6 +9,16 @@ class Api::SavedRestaurantsController < ApplicationController
     end
   end
 
+  def destroy
+    @save = SavedRestaurant.find(params[:id])
+
+    if @save.delete
+      render json: ["Saved restaurant deleted"]
+    else
+      render json: @save.errors.full_messages, status: 404
+    end
+  end
+
   private
 
   def save_params

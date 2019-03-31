@@ -8,7 +8,8 @@ import { NavHashLink as NavLink } from 'react-router-hash-link';
 class RestaurantShow extends Component {
   constructor(props) {
     super(props);
-    this.handleSave = this.handleSave.bind(this)
+
+    this.handleSaveClick = this.handleSaveClick.bind(this)
   }
 
   sidebarDataArr(rest) {
@@ -28,15 +29,19 @@ class RestaurantShow extends Component {
     return Object.entries(details);
   }
 
-  handleSave() {
+  handleSaveClick() {
+    if (this.props.currentUserId === null) return this.props.history.push(`${this.props.history.location.pathname}/signin`);
+
     let savedRestaurant = {
       user_id: this.props.currentUserId,
       restaurant_id: this.props.restaurant.id
     }
 
-    console.log(savedRestaurant)
-
-    this.props.createSavedRestaurant(savedRestaurant)
+    if (this.props.savedRestaurant) {
+      this.props.unSaveRestaurant(this.props.savedRestaurant.id)
+    } else {
+      this.props.createSavedRestaurant(savedRestaurant)
+    }
   }
 
   componentDidMount() {
@@ -45,11 +50,12 @@ class RestaurantShow extends Component {
       restaurant_id: this.props.match.params.id
     }
 
-    this.props.requestRestaurant(payload);
+    this.props.requestRestaurant(payload)
   }
 
   render() {
     if (!this.props.restaurant) return null;
+
     let { restaurant, users, reviews } = this.props;
 
     const sidebarDataArr = this.sidebarDataArr(restaurant);
@@ -84,12 +90,19 @@ class RestaurantShow extends Component {
         reviewer={users[rev.userId]} />
     })
 
+    let saveButton = (this.props.savedRestaurant) ?
+      <button className="save-restaurant-button saved-restaurant-button" onClick={this.handleSaveClick}>
+        <i id="Overview" className='fa fa-bookmark' />Restaurant Saved!
+            </button> :
+      <button className="save-restaurant-button" onClick={this.handleSaveClick}>
+        <i id="Overview" className='far fa-bookmark' />Save this Restaurant
+            </button>
+
+
     return (
       <div className="restaurant-show-page">
         <header style={{ backgroundImage: `url(${restaurant.wallpaperURL})` }}>
-          <button className="save-restaurant-button" onClick={this.handleSave}>
-            <i id="Overview" className='far fa-bookmark' />Save this Restaurant
-            </button>
+          {saveButton}
         </header>
         <main>
           <section className="restaurant-show-main">

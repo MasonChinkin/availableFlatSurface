@@ -19,4 +19,20 @@
   &>i {
     margin-right: 6px;
   }
+
+  &:hover {
+    outline: 3px solid red;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.saved-restaurant-button:hover {
+  outline: 3px solid red;
+}
+
+.saved-restaurant-button>i {
+  color: red;
 }

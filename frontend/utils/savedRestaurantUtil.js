@@ -7,3 +7,10 @@ export const postSavedRestaurant = savedRestaurant => {
     }
   });
 };
+
+export const deleteSavedRestaurant = id => {
+  return $.ajax({
+    method: 'DELETE',
+    url: `/api/saved_restaurants/${id}`
+  });
+};

@@ -44,7 +44,7 @@ export const signin = user => dispatch => {
 export const signout = () => dispatch => {
   return SessionUtils.signout()
     .then(
-      userId => dispatch(signoutUser()),
+      () => dispatch(signoutUser()),
       errors => dispatch(receiveSessionErrors(errors.responseJSON))
     );
 };

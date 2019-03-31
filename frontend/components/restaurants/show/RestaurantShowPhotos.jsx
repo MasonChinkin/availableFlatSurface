@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 class RestaurantShowPhotos extends Component {
+
   render() {
     let rest = this.props.restaurant;
     let URLs = rest.photoURLs;

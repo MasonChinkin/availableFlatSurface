@@ -5,7 +5,8 @@ import {
   RECEIVE_RESTAURANT
 } from '../../../actions/restaurantActions';
 import {
-  CREATE_SAVED_RESTAURANT
+  CREATE_SAVED_RESTAURANT,
+  DELETE_SAVED_RESTAURANT
 } from '../../../actions/savedRestaurantActions';
 
 export const savedRestaurantsJoinReducer = (oldState = {}, action) => {
@@ -17,7 +18,9 @@ export const savedRestaurantsJoinReducer = (oldState = {}, action) => {
       return action.restaurant.savedRestaurantsJoin || {}
     case CREATE_SAVED_RESTAURANT:
       return action.savedRestaurant.savedRestaurantsJoin
+    case DELETE_SAVED_RESTAURANT:
+      return {}
     default:
-      return oldState;
+      return oldState
   }
 };
