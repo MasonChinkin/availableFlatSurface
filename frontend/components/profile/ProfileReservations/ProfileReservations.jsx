@@ -24,7 +24,10 @@ class ProfileReservations extends Component {
     })
 
     let past = pastReservations.map(res => {
-      return <ProfileReservationItem key={res.id} reservation={res} restaurant={rests[res.restaurantId]} />
+      return <ProfileReservationItem key={res.id}
+        reservation={res}
+        restaurant={rests[res.restaurantId]}
+        cancelReservation={this.props.cancelReservation} />
     })
 
     return (

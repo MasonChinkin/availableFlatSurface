@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
 
 class ProfileReservationItem extends Component {
@@ -24,7 +26,19 @@ class ProfileReservationItem extends Component {
   }
 
   handleCancelClick() {
-    this.props.cancelReservation(this.props.reservation.id)
+    confirmAlert({
+      message: 'Are you sure to cancel this reservation?',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => this.props.cancelReservation(this.props.reservation.id)
+        },
+        {
+          label: 'No',
+          onClick: () => { }
+        }
+      ]
+    })
   }
 
   render() {

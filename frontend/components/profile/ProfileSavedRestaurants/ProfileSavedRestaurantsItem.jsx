@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 import { Link } from 'react-router-dom';
 
 class ProfileSavedRestaurantsItem extends Component {
@@ -9,7 +11,19 @@ class ProfileSavedRestaurantsItem extends Component {
   }
 
   handleSaveClick() {
-    this.props.unSaveRestaurant(this.props.save.id)
+    confirmAlert({
+      message: 'Are you sure to unsave this restaurant?',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => this.props.unSaveRestaurant(this.props.save.id)
+        },
+        {
+          label: 'No',
+          onClick: () => { }
+        }
+      ]
+    })
   }
 
   ratingSymbol(rating) {

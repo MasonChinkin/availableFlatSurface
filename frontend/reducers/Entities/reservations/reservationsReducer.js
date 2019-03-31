@@ -11,7 +11,6 @@ export const reservationsReducer = (oldState = {}, action) => {
     case RECEIVE_PROFILE:
       return (action.user.reservations === undefined) ? {} : (action.user.reservations);
     case DELETE_RESERVATION:
-      debugger
       let newState = Object.assign({}, oldState)
       delete newState[action.payload.id]
       return newState
