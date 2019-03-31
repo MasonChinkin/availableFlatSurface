@@ -92,11 +92,9 @@ class RestaurantShow extends Component {
 
     let saveButton = (this.props.savedRestaurant) ?
       <button className="save-restaurant-button saved-restaurant-button" onClick={this.handleSaveClick}>
-        <i id="Overview" className='fa fa-bookmark' />Restaurant Saved!
-            </button> :
+        <i id="Overview" className='fa fa-bookmark' />Restaurant Saved!</button> :
       <button className="save-restaurant-button" onClick={this.handleSaveClick}>
-        <i id="Overview" className='far fa-bookmark' />Save this Restaurant
-            </button>
+        <i id="Overview" className='far fa-bookmark' />Save this Restaurant</button>
 
 
     return (

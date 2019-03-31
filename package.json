@@ -5,6 +5,7 @@
     "css-loader": "^2.1.0",
     "react-calendar": "^2.18.1",
     "react-confirm-alert": "^2.4.0",
+    "react-image-lightbox": "^5.1.0",
     "react-loader-spinner": "^2.3.0",
     "react-router-hash-link": "^1.2.1",
     "react-transition-group": "^2.6.0",
