@@ -34,8 +34,6 @@ class RestaurantReviewPatch extends Component {
       body: this.state.body
     }
 
-    console.log(review);
-
     this.props.editReview(review)
       .then(this.props.handleReviewSubmit)
   }

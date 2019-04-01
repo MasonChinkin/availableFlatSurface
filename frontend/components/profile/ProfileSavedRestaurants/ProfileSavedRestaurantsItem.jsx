@@ -12,7 +12,7 @@ class ProfileSavedRestaurantsItem extends Component {
 
   handleSaveClick() {
     confirmAlert({
-      message: 'Are you sure to unsave this restaurant?',
+      message: 'Are you sure you want to unsave this restaurant?',
       buttons: [
         {
           label: 'Yes',

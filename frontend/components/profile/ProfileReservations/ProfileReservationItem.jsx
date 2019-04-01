@@ -27,7 +27,7 @@ class ProfileReservationItem extends Component {
 
   handleCancelClick() {
     confirmAlert({
-      message: 'Are you sure to cancel this reservation?',
+      message: 'Are you sure you want to cancel this reservation?',
       buttons: [
         {
           label: 'Yes',

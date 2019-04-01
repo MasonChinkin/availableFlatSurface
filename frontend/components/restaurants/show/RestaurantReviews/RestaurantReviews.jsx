@@ -44,7 +44,7 @@ class RestaurantReviews extends Component {
 
   handleDeleteClick() {
     confirmAlert({
-      message: 'Are you sure to delete your review?',
+      message: 'Are you sure you want to delete your review?',
       buttons: [
         {
           label: 'Yes',
