@@ -10,8 +10,12 @@ class SplashRestaurants extends Component {
   }
 
   componentDidMount() {
-    this.props.requestAllRestaurants()
-      .then(() => this.setState({ status: 'ready' }))
+    if (this.props.restaurants.length === 0) {
+      this.props.requestAllRestaurants()
+        .then(() => this.setState({ status: 'ready' }))
+    } else {
+      this.setState({ status: 'ready' })
+    }
   }
 
   render() {
