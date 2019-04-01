@@ -78,6 +78,9 @@ class SigninForm extends Component {
       )
     })
 
+    let URL = this.props.history.location.pathname
+    let signupURL = URL.split('signin').join('signup')
+
     return (
       <div className="modal-background" onClick={this.handleModalClick}>
         <div className='signin-splash-form'>
@@ -101,7 +104,7 @@ class SigninForm extends Component {
             <input className="submit-button" type="submit" onClick={this.demoSignin} value=" Demo Account" />
 
             <div className="form-footer">
-              <h2>Don't want to complete the form? (not implemented)</h2>
+              <h2>Don't want to complete the form? Use the demo account!</h2>
               <ul>
                 <li className="facebook-button">
                   <a href="https://www.linkedin.com/in/mason-chinkin/" target="_blank">
@@ -116,7 +119,7 @@ class SigninForm extends Component {
                   </a>
                 </li>
               </ul>
-              <h2>New to AvailableFlatSurface? <Link className="form-footer-link" to={`/signup`}>Create an account</Link></h2>
+              <h2>New to AvailableFlatSurface? <Link className="form-footer-link" to={signupURL}>Create an account</Link></h2>
             </div>
           </form>
         </div>

@@ -22,7 +22,8 @@ class SignupForm extends Component {
   }
 
   handleModalClick() {
-    if (event.target.className === "modal-background") this.props.history.goBack();
+    let URL = this.props.history.location.pathname
+    if (event.target.className === "modal-background") this.props.history.push(URL.split('/signup')[0]);
   }
 
   handleSubmit(e) {
@@ -77,7 +78,7 @@ class SignupForm extends Component {
             <input type="submit" className="submit-button" onSubmit={this.handleSubmit} value="Create Account" />
 
             <div className="form-footer">
-              <h2>Don't want to complete the form? (not implemented)</h2>
+              <h2>Don't want to complete the form? Use the demo account!</h2>
               <ul>
                 <li className="facebook-button">
                   <a href="https://www.linkedin.com/in/mason-chinkin/" target="_blank">
