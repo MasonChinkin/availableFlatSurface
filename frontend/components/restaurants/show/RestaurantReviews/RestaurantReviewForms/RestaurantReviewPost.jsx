@@ -30,6 +30,7 @@ class RestaurantReviewPost extends Component {
     }
 
     this.props.createReview(review)
+      .then(this.props.handleReviewSubmit)
   }
 
   handleBodyChange(event) {

@@ -13,7 +13,7 @@ class Api::ReviewsController < ApplicationController
     @deleted_review = Review.find(params[:id])
 
     if @deleted_review.delete
-      render json: ["Review deleted successfuly"]
+      render :destroy
     else
       render @deleted_review.errors.full_messages
     end

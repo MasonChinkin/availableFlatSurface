@@ -40,7 +40,7 @@
 }
 
 .review-item {
-  height: aut0;
+  position: relative;
   width: 608px;
   padding: 1rem 0;
   display: flex;
@@ -104,4 +104,13 @@
 .review-item-body {
   line-height: 1.5;
   margin-top: 1rem;
+}
+
+.user-review {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: rgb(207, 53, 32);
+  font-size: 1.5rem;
+  font-weight: bold;
 }

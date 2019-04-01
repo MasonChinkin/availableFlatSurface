@@ -10,6 +10,7 @@ class SplashRestaurants extends Component {
   }
 
   componentDidMount() {
+    // so that it does not rerender on signin/signup
     if (this.props.restaurants.length === 0) {
       this.props.requestAllRestaurants()
         .then(() => this.setState({ status: 'ready' }))

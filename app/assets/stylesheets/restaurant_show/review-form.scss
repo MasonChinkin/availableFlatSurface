@@ -41,4 +41,8 @@
   padding: 0.5rem 2rem;
   color: white;
   background: #cf3520;
+
+  &:hover {
+    filter: brightness(85%)
+  }
 }

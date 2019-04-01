@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import RestaurantReviewItem from './RestaurantShowReviewItem';
 import RestaurantReviewPatch from './RestaurantReviewForms/RestaurantReviewPatch';
 import RestaurantReviewPost from './RestaurantReviewForms/RestaurantReviewPost';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 import { withRouter } from 'react-router-dom'
 
 class RestaurantReviews extends Component {
@@ -10,21 +12,22 @@ class RestaurantReviews extends Component {
 
     this.state = {
       // does the user have a review
-      isReviewed: this.isReviewed(),
+      userReview: this.isReviewed(),
       reviewFormDisplay: false
     }
 
     this.handleDeleteClick = this.handleDeleteClick.bind(this)
     this.handleFormClick = this.handleFormClick.bind(this)
+    this.handleReviewSubmit = this.handleReviewSubmit.bind(this)
   }
 
   isReviewed() {
     for (let i = 0; i < this.props.reviews.length; i++) {
       const review = this.props.reviews[i]
-      if (review.userId === this.props.currentUserId) return true
+      if (review.userId === this.props.currentUserId) return review
     }
 
-    return false
+    return null
   }
 
   handleFormClick() {
@@ -33,37 +36,65 @@ class RestaurantReviews extends Component {
   }
 
   handleReviewSubmit() {
-    this.setState({ reviewFormDisplay: !this.state.reviewFormDisplay })
+    this.setState({
+      reviewFormDisplay: !this.state.reviewFormDisplay,
+      userReview: this.isReviewed()
+    })
   }
 
   handleDeleteClick() {
-    this.props.deleteReview()
+    confirmAlert({
+      message: 'Are you sure to delete your review?',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => this.props.deleteReview(this.state.userReview.id)
+            .then(() => this.setState({ userReview: this.isReviewed() }))
+        },
+        {
+          label: 'No',
+          onClick: () => { }
+        }
+      ]
+    })
   }
 
   render() {
     if (!this.props.reviews.length) return null
     let { reviews, users, currentUserId, createReview, editReview } = this.props
-    let { isReviewed, reviewFormDisplay } = this.state
-    debugger
+    let { userReview, reviewFormDisplay } = this.state
+
     let restaurantId = reviews[0].restaurantId
     let IDs = { currentUserId: currentUserId, restaurantId: restaurantId }
 
-    const reviewButtons = (this.state.isReviewed) ?
+    const reviewButtons = (userReview) ?
       <>
         <h3 onClick={this.handleFormClick}><i className='fas fa-edit' /> Edit your review</h3>
         <h3 onClick={this.handleDeleteClick}><i className='fa fa-close' /> Delete your review</h3>
       </> :
       <h3 onClick={this.handleFormClick}><i className='fas fa-plus' /> Make a review</h3>
 
-    const reviewList = reviews.map(rev => {
-      return <RestaurantReviewItem key={rev.id}
-        review={rev}
-        reviewer={users[rev.userId]} />
+    let currUserReview;
+    const reviewList = reviews.map(review => {
+      // put user's review at top
+      if (review.userId === currentUserId) {
+        currUserReview = <RestaurantReviewItem key={review.id}
+          review={review}
+          reviewer={users[review.userId]}
+          belongsToUser={true} />
+      } else {
+        return <RestaurantReviewItem key={review.id}
+          review={review}
+          reviewer={users[review.userId]}
+          belongsToUser={false} />
+      }
     })
 
-    const reviewForm = (isReviewed) ?
-      <RestaurantReviewPatch IDs={IDs} editReview={editReview} /> :
-      <RestaurantReviewPost IDs={IDs} createReview={createReview} />
+    reviewList.unshift(currUserReview)
+
+    const reviewForm = (userReview) ?
+      <RestaurantReviewPatch IDs={IDs} handleReviewSubmit={this.handleReviewSubmit} editReview={editReview} /> :
+      <RestaurantReviewPost IDs={IDs} handleReviewSubmit={this.handleReviewSubmit} createReview={createReview} />
 
     return (
       <div id="Reviews" className="restaurant-reviews">

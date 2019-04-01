@@ -19,6 +19,7 @@ class RestaurantReviewItem extends Component {
     if (this.props.reviewer === undefined) return null;
     let { reviewer, review } = this.props
     let rating = this.ratingSymbol(this.props.review.overallRating)
+    let yourReview = <h2 className="user-review">Your review</h2>
 
     return (
       <div className="review-item">
@@ -47,6 +48,8 @@ class RestaurantReviewItem extends Component {
             <p>{review.body}</p>
           </div>
         </div>
+
+        {this.props.belongsToUser && yourReview}
       </div>
     );
   }
