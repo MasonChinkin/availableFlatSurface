@@ -11,7 +11,8 @@ class SplashRestaurants extends Component {
 
   componentDidMount() {
     // so that it does not rerender on signin/signup
-    if (this.props.restaurants.length === 0) {
+    // quick fix for spash bug if restaurant slice of state has > 0 but not the top 3
+    if (this.props.restaurants.length < 30) {
       this.props.requestAllRestaurants()
         .then(() => this.setState({ status: 'ready' }))
     } else {

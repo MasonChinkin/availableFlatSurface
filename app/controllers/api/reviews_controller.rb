@@ -19,10 +19,11 @@ class Api::ReviewsController < ApplicationController
     end
   end
 
-  def edit
-    @updated_review = Review.update_attributes(review_params)
-    if @update_attributes.save
-      render :edit
+  def update
+    @updated_review = Review.find(params[:id])
+    if @updated_review
+      @updated_review.update(review_params)
+      render :update
     else
       render @updated_review.errors.full_messages
     end

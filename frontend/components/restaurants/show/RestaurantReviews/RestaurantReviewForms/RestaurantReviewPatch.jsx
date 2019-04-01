@@ -4,12 +4,16 @@ import StarRatings from 'react-star-ratings';
 class RestaurantReviewPatch extends Component {
   constructor(props) {
     super(props);
+    let { review } = this.props
+
     this.state = {
-      overallRating: 1,
-      foodRating: 1,
-      serviceRating: 1,
-      ambienceRating: 1,
-      body: ''
+      userId: review.userId,
+      restaurantId: review.restaurantId,
+      overallRating: review.overallRating,
+      foodRating: review.foodRating,
+      serviceRating: review.serviceRating,
+      ambienceRating: review.ambienceRating,
+      body: review.body
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
@@ -20,8 +24,9 @@ class RestaurantReviewPatch extends Component {
   handleSubmit(e) {
     e.preventDefault()
     let review = {
-      user_id: this.props.IDs.currentUserId,
-      restaurant_id: this.props.IDs.restaurantId,
+      id: this.props.review.id,
+      user_id: this.state.userId,
+      restaurant_id: this.state.restaurantId,
       overall_rating: this.state.overallRating,
       food_rating: this.state.foodRating,
       service_rating: this.state.serviceRating,
@@ -29,7 +34,10 @@ class RestaurantReviewPatch extends Component {
       body: this.state.body
     }
 
-    this.props.createReview(review)
+    console.log(review);
+
+    this.props.editReview(review)
+      .then(this.props.handleReviewSubmit)
   }
 
   handleBodyChange(event) {
@@ -73,7 +81,7 @@ class RestaurantReviewPatch extends Component {
           name="body"
           cols="30"
           rows="10"
-          placeholder="Write review here" />
+          value={this.state.body} />
         <button className="review-submit-button">Update Review</button>
       </form>
     );

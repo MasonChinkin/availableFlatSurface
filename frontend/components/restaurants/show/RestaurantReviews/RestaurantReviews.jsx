@@ -51,10 +51,7 @@ class RestaurantReviews extends Component {
           onClick: () => this.props.deleteReview(this.state.userReview.id)
             .then(() => this.setState({ userReview: this.isReviewed() }))
         },
-        {
-          label: 'No',
-          onClick: () => { }
-        }
+        { label: 'No', onClick: () => { } }
       ]
     })
   }
@@ -90,10 +87,11 @@ class RestaurantReviews extends Component {
       }
     })
 
-    reviewList.unshift(currUserReview)
+    // conditional removes user's review while they edit it
+    if (!reviewFormDisplay) reviewList.unshift(currUserReview)
 
     const reviewForm = (userReview) ?
-      <RestaurantReviewPatch IDs={IDs} handleReviewSubmit={this.handleReviewSubmit} editReview={editReview} /> :
+      <RestaurantReviewPatch review={this.state.userReview} handleReviewSubmit={this.handleReviewSubmit} editReview={editReview} /> :
       <RestaurantReviewPost IDs={IDs} handleReviewSubmit={this.handleReviewSubmit} createReview={createReview} />
 
     return (
