@@ -4,7 +4,7 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  width: 760px;
+  width: 840px;
   min-height: 420px;
 
   &>h2 {
@@ -26,6 +26,8 @@
   bottom: 0;
   width: 32%;
   border: 1px solid $input-border;
+  border-radius: 5px;
+  overflow: hidden;
   box-shadow: none;
   transition: all 0.3s;
 
@@ -55,6 +57,7 @@
 .recommendation-details-row {
   display: flex;
   justify-content: flex-start;
+  font-size: 0.9rem;
   color: rgb(30, 30, 30);
 
   &>* {
@@ -64,6 +67,7 @@
 
 .rec-booked {
   color: black;
+  font-size: 0.9rem;
 
   &>i {
     margin-right: 6px;

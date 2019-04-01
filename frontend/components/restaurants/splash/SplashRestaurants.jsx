@@ -27,7 +27,6 @@ class SplashRestaurants extends Component {
       return <SplashRestaurantsItem key={i} restaurant={rec} />
     })
 
-    console.log(recs);
     return (
       <section className="splash-recommendations">
         <h2>Recommended for you{header}</h2>
