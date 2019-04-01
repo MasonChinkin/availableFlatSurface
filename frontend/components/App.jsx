@@ -9,6 +9,7 @@ import RestaurantListContainer from './restaurants/search/RestaurantListContaine
 import SearchFormContainer from './restaurants/search/SearchForm/SearchFormContainer';
 import RestaurantShowContainer from './restaurants/show/RestaurantShowContainer';
 import ProfileContainer from './profile/ProfileContainer';
+import SplashRestaurantsContainer from './restaurants/splash/SplashRestaurantsContainer';
 
 const App = () => (
   <>
@@ -19,6 +20,11 @@ const App = () => (
     <Route exact path={`/`} component={SearchFormContainer} />
     <Route exact path={`/signup`} component={SearchFormContainer} />
     <Route exact path={`/signin`} component={SearchFormContainer} />
+
+    {/* splash recommendations */}
+    <Route exact path={`/`} component={SplashRestaurantsContainer} />
+    <Route exact path={`/signup`} component={SplashRestaurantsContainer} />
+    <Route exact path={`/signin`} component={SplashRestaurantsContainer} />
 
     {/* Index Page */}
     <Route path={`/search`} component={RestaurantListContainer} />

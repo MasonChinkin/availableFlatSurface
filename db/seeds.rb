@@ -142,7 +142,7 @@ r = Restaurant.create!(
   description: "The first restaurant to bless this glorious website.",
   user: u,
   cuisine: "Jewish-Chinese fusion",
-  rating: "#{[2, 3, 4, 5].sample}",
+  rating: "4",
   email: "firstever@gmail.com",
   phone: "555-555-5555",
   website: "available-flat-surface.herokuapp.com",

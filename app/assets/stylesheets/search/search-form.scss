@@ -10,7 +10,8 @@ $font-size: 15px;
 
 .root-search-form {
   background: grey;
-  height: 1000px;
+  // header is 60px high, footer is 245
+  height: 400px;
   display: flex;
   flex-direction: column;
   justify-content: center;

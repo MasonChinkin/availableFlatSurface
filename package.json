@@ -8,6 +8,7 @@
     "react-image-lightbox": "^5.1.0",
     "react-loader-spinner": "^2.3.0",
     "react-router-hash-link": "^1.2.1",
+    "react-star-ratings": "^2.3.0",
     "react-transition-group": "^2.6.0",
     "style-loader": "^0.23.1"
   },

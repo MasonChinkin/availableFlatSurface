@@ -1,7 +1,16 @@
 class Api::RestaurantsController < ApplicationController
   def index
+    # fetch from splash for recs
+    if params[:searchTerm].nil?
+      @restaurants = Restaurant.all
+      render :index
+      return
+    end
+
     search = params[:searchTerm][:searchTerm]
-    if search.length == 0
+    if search.nil?
+      @restaurant = Restaurant.all
+    elsif search.length == 0
       @restaurants = Restaurant.with_attached_profile_photo.all
     else
       @restaurants = Restaurant.with_attached_profile_photo.find_by_name(params[:searchTerm][:searchTerm])

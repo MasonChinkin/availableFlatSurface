@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import VisualSummary from './VisualSummary';
 import RestaurantShowFormContainer from './RestaurantShowForm/RestaurantShowFormContainer';
 import RestaurantShowPhotos from './RestaurantShowPhotos';
-import RestaurantReviewItem from './RestaurantShowReviewItem';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
+import RestaurantReviewsContainer from './RestaurantReviews/RestaurantReviewsContainter';
 
 class RestaurantShow extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      // does the user have a review
+      isReviewed: !!this.props.reviews[this.props.currentUserId]
+    }
 
     this.handleSaveClick = this.handleSaveClick.bind(this)
   }
@@ -56,7 +60,7 @@ class RestaurantShow extends Component {
   render() {
     if (!this.props.restaurant) return null;
 
-    let { restaurant, users, reviews } = this.props;
+    let { restaurant, reviews } = this.props;
 
     const sidebarDataArr = this.sidebarDataArr(restaurant);
     let tabArr = ['Overview', 'Photos', 'Reviews'];
@@ -84,18 +88,11 @@ class RestaurantShow extends Component {
       }
     })
 
-    const reviewList = reviews.map(rev => {
-      return <RestaurantReviewItem key={rev.id}
-        review={rev}
-        reviewer={users[rev.userId]} />
-    })
-
     let saveButton = (this.props.savedRestaurant) ?
       <button className="save-restaurant-button saved-restaurant-button" onClick={this.handleSaveClick}>
         <i id="Overview" className='fa fa-bookmark' />Restaurant Saved!</button> :
       <button className="save-restaurant-button" onClick={this.handleSaveClick}>
         <i id="Overview" className='far fa-bookmark' />Save this Restaurant</button>
-
 
     return (
       <div className="restaurant-show-page">
@@ -115,15 +112,7 @@ class RestaurantShow extends Component {
                 <h2>Photos</h2>
                 <RestaurantShowPhotos restaurant={restaurant} />
               </div>
-              <div id="Reviews" className="restaurant-reviews">
-                <div className="review-header">
-                  <h2>Reviews</h2>
-                  <h3><i className='fas fa-plus' /> Make a review</h3>
-                  <h3><i className='fas fa-edit' /> Edit your review</h3>
-                  <h3><i className='fa fa-close' /> Delete your review</h3>
-                </div>
-                {reviewList}
-              </div>
+              <RestaurantReviewsContainer />
             </div>
           </section>
           <section className="restaurant-show-sidebar">

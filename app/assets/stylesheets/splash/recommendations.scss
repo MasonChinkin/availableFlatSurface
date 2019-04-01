@@ -1,0 +1,71 @@
+@import '../_/constants';
+
+.splash-recommendations {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 760px;
+  min-height: 420px;
+
+  &>h2 {
+    font-size: 1.6rem;
+    font-weight: 400;
+    padding: 20px 0;
+    border-bottom: 1px solid $input-border;
+  }
+}
+
+.splash-recommendations-list {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.restaurant-recommendation-item {
+  position: relative;
+  bottom: 0;
+  width: 32%;
+  border: 1px solid $input-border;
+  box-shadow: none;
+  transition: all 0.3s;
+
+  &:hover {
+    bottom: 8px;
+    box-shadow: 0 6px 8px rgba(30, 30, 30, 0.4)
+  }
+}
+
+.restaurant-recommendation-photo {
+  width: 100%;
+}
+
+.recommendation-name {
+  font-weight: bold;
+  color: black;
+}
+
+.recommendation-details {
+  padding: 0.5rem;
+
+  &>* {
+    margin-bottom: 0.5rem;
+  }
+}
+
+.recommendation-details-row {
+  display: flex;
+  justify-content: flex-start;
+  color: rgb(30, 30, 30);
+
+  &>* {
+    margin-right: 8px;
+  }
+}
+
+.rec-booked {
+  color: black;
+
+  &>i {
+    margin-right: 6px;
+  }
+}

@@ -29,7 +29,13 @@
     padding: 6px;
     margin-left: 15px;
     border-radius: 4px;
-    border: 1px solid red;
+    border: 1px white solid;
+    transition: border 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      border-color: red;
+    }
   }
 }
 
@@ -77,10 +83,6 @@
 .review-item-right-top {
   display: flex;
   justify-content: flex-start;
-
-  &>h2 {
-    margin-left: 15px;
-  }
 }
 
 .review-item-right-middle {

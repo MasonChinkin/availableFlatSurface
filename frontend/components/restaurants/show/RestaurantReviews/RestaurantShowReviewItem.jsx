@@ -17,17 +17,16 @@ class RestaurantReviewItem extends Component {
 
   render() {
     if (this.props.reviewer === undefined) return null;
-    let review = this.props.review
-    let name = this.props.reviewer.name
+    let { reviewer, review } = this.props
     let rating = this.ratingSymbol(this.props.review.overallRating)
 
     return (
       <div className="review-item">
         <div className="review-item-left">
           <div className="user-letter-circle">
-            {name.split('')[0]}
+            {reviewer.name.split('')[0]}
           </div>
-          <h2>{name.split(' ')[0]}</h2>
+          <h2>{reviewer.name.split(' ')[0]}</h2>
           <h3>San Francisco</h3>
         </div>
         <div className="review-item-right">

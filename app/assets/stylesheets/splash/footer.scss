@@ -3,20 +3,17 @@
 html,
 body {
   height: 100%;
+  font-family: $font-main;
 }
 
 #root {
   height: 100%;
 }
 
-main {
-  min-height: 76%;
-}
-
 footer {
   background: rgb(38, 38, 38);
   font-family: $font-main;
-  height: 260px;
+  height: 245px;
   padding: 20px 0;
 }
 

@@ -1,25 +1,9 @@
 import React, { Component } from 'react';
+import * as SymbolUtils from '../../../../utils/symbolUtils'
 import { HashLink as Link } from 'react-router-hash-link';
 import ResButtonsContainer from './ResButtonsContainer';
 
 class RestaurantListItem extends Component {
-
-  costSymbol(cost) {
-    const darkDollar = key => (
-      <i key={key} className='fas fa-dollar-sign' style={{ color: 'black' }}></i>
-    )
-
-    const lightDollar = key => (
-      <i key={key} className='fas fa-dollar-sign' style={{ color: 'lightgrey' }}></i>
-    )
-
-    let dollars = []
-    for (let i = 0; i < 4; i++) {
-      (i < cost) ? dollars.push(darkDollar(i)) : dollars.push(lightDollar(i))
-    }
-
-    return dollars;
-  }
 
   ratingSymbol(rating) {
     const filledStar = key => <i key={key} className='fa fa-star' style={{ color: 'rgb(250, 160, 10)' }}></i>
@@ -37,7 +21,7 @@ class RestaurantListItem extends Component {
   render() {
     const rest = this.props.restaurant;
 
-    let costSymbol = this.costSymbol(rest.cost)
+    let costSymbol = SymbolUtils.costSymbol(rest.cost)
     let ratingSymbol = this.ratingSymbol(rest.rating)
 
     return (

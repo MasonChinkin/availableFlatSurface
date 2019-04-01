@@ -1,27 +1,11 @@
 import React, { Component } from 'react';
+import * as SymbolUtils from '../../../utils/symbolUtils'
 
 class VisualSummary extends Component {
 
-  ratingSymbol(rating) {
-    const filledStar = key => (
-      <i key={key} className='fa fa-star' style={{ color: 'rgb(210, 40, 60)' }}></i>
-    )
-
-    const emptyStar = key => (
-      <i key={key} className='fa fa-star' style={{ color: 'rgb(220, 210, 200)' }}></i>
-    )
-
-    let dollars = []
-    for (let i = 0; i < 5; i++) {
-      (i < rating) ? dollars.push(filledStar(i)) : dollars.push(emptyStar(i))
-    }
-
-    return <i>{dollars}</i>;
-  }
-
   render() {
     let rest = this.props.restaurant;
-    let ratingSymbol = this.ratingSymbol(rest.rating)
+    let ratingSymbol = SymbolUtils.ratingSymbol(rest.rating)
 
     return (
       <div className="restaurant-show-main-content-visual-summary">

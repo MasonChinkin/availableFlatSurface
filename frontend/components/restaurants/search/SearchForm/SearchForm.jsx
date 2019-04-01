@@ -159,7 +159,7 @@ class SearchForm extends Component {
       )
     } else {
       return (
-        <main>
+        <section>
           <div className='root-search-form' style={{
             backgroundImage: "url(https://s3-us-west-1.amazonaws.com/availableflatsurface-seed/one-off-use/splash.png)"
           }}>
@@ -191,7 +191,7 @@ class SearchForm extends Component {
                 value="Let's go" />
             </form>
           </div >
-        </main>
+        </section>
       )
     }
   }
