@@ -92,11 +92,13 @@ class SigninForm extends Component {
             <input
               type="text"
               placeholder="Email *"
+              autoComplete="off"
               value={this.state.email}
               onChange={this.handleInput('email')} />
             <input
               type="password"
               placeholder="Password *"
+              autoComplete="off"
               value={this.state.password}
               onChange={this.handleInput('password')} />
 
