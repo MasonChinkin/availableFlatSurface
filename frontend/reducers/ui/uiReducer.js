@@ -1,6 +1,7 @@
 import {
   DROP_DOWN_DROPPED,
-  SEARCH_CALENDAR_DROPPED
+  SEARCH_CALENDAR_DROPPED,
+  REVIEW_FORM
 } from "../../actions/uiActions";
 import {
   merge
@@ -17,7 +18,8 @@ const defaultUIState = {
   reservationForm: null,
   newReservation: {
     id: null
-  }
+  },
+  displayReviewForm: false,
 };
 
 const uiReducer = (oldState = defaultUIState, action) => {
@@ -46,6 +48,10 @@ const uiReducer = (oldState = defaultUIState, action) => {
         newReservation: {
           id: null
         }
+      });
+    case REVIEW_FORM:
+      return merge({}, oldState, {
+        displayReviewForm: action.bool
       });
     default:
       return oldState;

@@ -32,14 +32,12 @@ class RestaurantReviews extends Component {
 
   handleFormClick() {
     if (this.props.currentUserId === null) return this.props.history.push(`${this.props.history.location.pathname}/signin`);
-    this.setState({ reviewFormDisplay: !this.state.reviewFormDisplay })
+    this.props.flipReviewForm(!this.props.displayReviewForm)
   }
 
   handleReviewSubmit() {
-    this.setState({
-      reviewFormDisplay: !this.state.reviewFormDisplay,
-      userReview: this.isReviewed()
-    })
+    this.setState({ userReview: this.isReviewed() })
+    this.props.flipReviewForm(!this.props.displayReviewForm)
   }
 
   handleDeleteClick() {
@@ -58,7 +56,7 @@ class RestaurantReviews extends Component {
 
   render() {
     if (!this.props.reviews.length) return null
-    let { reviews, users, currentUserId, createReview, editReview } = this.props
+    let { reviews, users, currentUserId, createReview, editReview, displayReviewForm } = this.props
     let { userReview, reviewFormDisplay } = this.state
 
     let restaurantId = reviews[0].restaurantId
@@ -88,7 +86,7 @@ class RestaurantReviews extends Component {
     })
 
     // conditional removes user's review while they edit it
-    if (!reviewFormDisplay) reviewList.unshift(currUserReview)
+    if (!displayReviewForm) reviewList.unshift(currUserReview)
 
     const reviewForm = (userReview) ?
       <RestaurantReviewPatch review={this.state.userReview} handleReviewSubmit={this.handleReviewSubmit} editReview={editReview} /> :
@@ -100,7 +98,7 @@ class RestaurantReviews extends Component {
           <h2>Reviews</h2>
           {reviewButtons}
         </div>
-        {reviewFormDisplay && reviewForm}
+        {displayReviewForm && reviewForm}
         {reviewList}
       </div>
     );

@@ -10,6 +10,7 @@ class DropDown extends React.Component {
 
   handleSignOut() {
     this.props.signout();
+    this.props.flipReviewForm(false) // close review form if open
     if (this.props.history.location.pathname.includes('profile')) {
       this.props.history.push('/');
     }

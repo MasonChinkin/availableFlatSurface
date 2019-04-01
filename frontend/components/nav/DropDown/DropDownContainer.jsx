@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import DropDown from './DropDown';
 import { signout } from '../../../actions/sessionActions';
+import { flipReviewForm } from '../../../actions/uiActions';
 
 const mSP = ({ session, ui }) => ({
   currentUserId: session.currentUser.id,
@@ -8,7 +9,8 @@ const mSP = ({ session, ui }) => ({
 });
 
 const mDP = dispatch => ({
-  signout: () => dispatch(signout())
+  signout: () => dispatch(signout()),
+  flipReviewForm: bool => dispatch(flipReviewForm(bool))
 });
 
 const DropDownContainer = connect(mSP, mDP)(DropDown);

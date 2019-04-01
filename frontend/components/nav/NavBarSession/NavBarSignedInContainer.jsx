@@ -9,7 +9,7 @@ const mSP = ({ entities, session, ui }, ownProps) => {
   return {
     fname: fname(entities.users[session.currentUser.id].name),
     currId: session.currentUser.id,
-    dropDown: ui.dropDown,
+    dropDown: ui.dropDown
   }
 };
 
