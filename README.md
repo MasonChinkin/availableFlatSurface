@@ -4,9 +4,9 @@
 
 Hello! Thanks for checking out this project.
 
-AvailableFlatSurface is a clone of [OpenTable](opentable.com "OpenTable") using a react/redux front end calling to a rails/PostgreSQL backend hosted on Heroku. 
+AvailableFlatSurface is a clone of [OpenTable](opentable.com "OpenTable") using a React + Redux front end calling to a Rails + PostgreSQL backend. 
 
-The user can search restaurants, make reservations, save and review restaurants (coming soon), and see their save and reservation history on their profile.
+CRUD features include reservations, reviews, and saved restaurants.
 
 ## Index
 
@@ -27,7 +27,7 @@ The user can search restaurants, make reservations, save and review restaurants 
 
 ### Making Reservations with redux
 
-One of the biggest functional challenges was gathering all necessary data to make a reservation upon clicking the time buttons on the search page. Hello redux! I tracked the party size and dateTime of a reservation using the ui slice of state.
+One of the biggest functional challenges was gathering all necessary data to make a reservation upon clicking the time buttons on the search page. Hello Redux! I tracked the party size and dateTime of a reservation using the ui slice of state.
 
 ![](/app/assets/images/readme/demo-min.gif?raw=true)
 
