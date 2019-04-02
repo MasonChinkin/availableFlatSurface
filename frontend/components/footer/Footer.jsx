@@ -3,26 +3,14 @@ import { Link, withRouter } from 'react-router-dom';
 
 const Footer = () => {
   const aboutMe = (
-    <ul className="about-me">About Me
-      <li><a href="https://www.linkedin.com/in/mason-chinkin/" target="_blank"><i className="fab fa-linkedin" />LinkedIn</a></li>
-      <li><a href="https://github.com/MasonChinkin" target="_blank"><i className="fab fa-github" /> Github</a></li>
-      <li><a href="https://masonchinkin.github.io/" target="_blank"><i className="fas fa-chart-bar" />d3.js data visualization</a></li>
-    </ul>
-  )
-
-  const availableFlatSurface = (
-    <ul>AvailableFlatSurface
-      <li><Link to={`/`}>About us</Link></li>
-      <li><Link to={`/`}>Blog</Link></li>
-      <li><Link to={`/`}>Careers</Link></li>
-      <li><Link to={`/`}>Press</Link></li>
-    </ul>
-  )
-
-  const more = (
-    <ul>More
-      <li><Link to={`/`}>Contact us</Link></li>
-    </ul>
+    <>
+      <h2>About Me</h2>
+      <ul className="about-me">
+        <li><a href="https://www.linkedin.com/in/mason-chinkin/" target="_blank"><i className="fab fa-linkedin" />LinkedIn</a></li>
+        <li><a href="https://github.com/MasonChinkin" target="_blank"><i className="fab fa-github" /> Github</a></li>
+        <li><a href="https://masonchinkin.github.io/" target="_blank"><i className="fas fa-chart-bar" />Portfolio</a></li>
+      </ul>
+    </>
   )
 
   const legal = (
@@ -40,8 +28,6 @@ const Footer = () => {
     <footer>
       <div className="footer-flex">
         {aboutMe}
-        {availableFlatSurface}
-        {more}
       </div>
       {legal}
     </footer>

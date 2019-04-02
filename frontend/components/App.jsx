@@ -21,11 +21,6 @@ const App = () => (
     <Route exact path={`/signup`} component={SearchFormContainer} />
     <Route exact path={`/signin`} component={SearchFormContainer} />
 
-    {/* splash recommendations */}
-    <Route exact path={`/`} component={SplashRestaurantsContainer} />
-    <Route exact path={`/signup`} component={SplashRestaurantsContainer} />
-    <Route exact path={`/signin`} component={SplashRestaurantsContainer} />
-
     {/* Index Page */}
     <Route path={`/search`} component={RestaurantListContainer} />
 

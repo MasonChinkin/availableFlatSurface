@@ -2,29 +2,11 @@ import React, { Component } from 'react';
 import SplashRestaurantsItem from './SplashRestaurantsItem';
 
 class SplashRestaurants extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      status: 'loading'
-    }
-  }
-
   componentDidMount() {
-    // so that it does not rerender on signin/signup
-    // quick fix for spash bug if restaurant slice of state has > 0 but not the top 3
-    if (this.props.restaurants.length < 30) {
-      this.props.requestAllRestaurants()
-        .then(() => this.setState({ status: 'ready' }))
-    } else {
-      this.setState({ status: 'ready' })
-    }
+    this.props.requestAllRestaurants()
   }
 
   render() {
-    if (this.state.status === 'loading') return (
-      <section className="splash-recommendations"></section>
-    );
-
     let { fname, restaurants } = this.props
     let header = (fname) ? `, ${this.props.fname}` : ''
 

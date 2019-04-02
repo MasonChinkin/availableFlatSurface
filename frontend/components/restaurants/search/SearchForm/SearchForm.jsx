@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Calendar from 'react-calendar';
 import * as FormUtils from '../../../../utils/formUtils';
+import SplashRestaurantsContainer from '../../splash/SplashRestaurantsContainer';
 
 class SearchForm extends Component {
 
@@ -159,8 +160,8 @@ class SearchForm extends Component {
       )
     } else {
       return (
-        <section>
-          <div className='root-search-form' style={{
+        <main>
+          <section className='root-search-form' style={{
             backgroundImage: "url(https://s3-us-west-1.amazonaws.com/availableflatsurface-seed/one-off-use/splash.png)"
           }}>
             <h1>Find your table for any occasion</h1>
@@ -190,8 +191,11 @@ class SearchForm extends Component {
                 className="submit-button"
                 value="Let's go" />
             </form>
-          </div >
-        </section>
+          </section >
+          <section>
+            <SplashRestaurantsContainer />
+          </section>
+        </main>
       )
     }
   }
