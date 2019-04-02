@@ -4,7 +4,7 @@ import ProfileSavedRestaurantsItem from './ProfileSavedRestaurantsItem';
 class ProfileSavedRestaurants extends Component {
   render() {
     let { restaurants } = this.props;
-    if (restaurants === undefined) return null;
+    if (restaurants === undefined || this.props.savedRestaurantsJoin === null) return null;
     let savedRestaurantsIds = Object.values(this.props.savedRestaurantsJoin)
     let restaurantItems = savedRestaurantsIds.map(save => {
       let rest = restaurants[save.restaurantId]

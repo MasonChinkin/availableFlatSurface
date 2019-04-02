@@ -6,10 +6,11 @@ import {
 } from '../../../actions/restaurantActions';
 import {
   CREATE_SAVED_RESTAURANT,
-  DELETE_SAVED_RESTAURANT
+  DELETE_SAVED_RESTAURANT,
+  CLEAR_SAVED_RESTAURANT
 } from '../../../actions/savedRestaurantActions';
 
-export const savedRestaurantsJoinReducer = (oldState = {}, action) => {
+export const savedRestaurantsJoinReducer = (oldState = null, action) => {
   Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_PROFILE:
@@ -22,6 +23,8 @@ export const savedRestaurantsJoinReducer = (oldState = {}, action) => {
       let newState = Object.assign({}, oldState)
       delete newState[action.payload.id]
       return newState
+    case CLEAR_SAVED_RESTAURANT:
+      return null
     default:
       return oldState
   }

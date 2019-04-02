@@ -41,8 +41,10 @@ class RestaurantShow extends Component {
       restaurant_id: this.props.restaurant.id
     }
 
-    if (this.props.savedRestaurant) {
-      this.props.unSaveRestaurant(this.props.savedRestaurant.id)
+    let alreadySavedRestaurant = Object.values(this.props.savedRestaurantsJoin)
+
+    if (Object.values(alreadySavedRestaurant).length > 0) {
+      this.props.unSaveRestaurant(alreadySavedRestaurant[0].id)
     } else {
       this.props.createSavedRestaurant(savedRestaurant)
     }
@@ -57,10 +59,14 @@ class RestaurantShow extends Component {
     this.props.requestRestaurant(payload)
   }
 
+  componentWillUnmount() {
+    this.props.clearSavedRestaurant()
+  }
+
   render() {
     if (!this.props.restaurant) return null;
 
-    let { restaurant, reviews } = this.props;
+    let { restaurant, reviews, savedRestaurantsJoin } = this.props;
 
     const sidebarDataArr = this.sidebarDataArr(restaurant);
     let tabArr = ['Overview', 'Photos', 'Reviews'];
@@ -88,7 +94,8 @@ class RestaurantShow extends Component {
       }
     })
 
-    let saveButton = (this.props.savedRestaurant) ?
+    // without &&, Object.values return error on first render, since savedrestaurantjoin initially null
+    let saveButton = (savedRestaurantsJoin && Object.values(savedRestaurantsJoin).length > 0) ?
       <button className="save-restaurant-button saved-restaurant-button" onClick={this.handleSaveClick}>
         <i id="Overview" className='fa fa-bookmark' />Restaurant Saved!</button> :
       <button className="save-restaurant-button" onClick={this.handleSaveClick}>
@@ -97,7 +104,7 @@ class RestaurantShow extends Component {
     return (
       <div className="restaurant-show-page">
         <header style={{ backgroundImage: `url(${restaurant.wallpaperURL})` }}>
-          {saveButton}
+          {savedRestaurantsJoin && saveButton}
         </header>
         <main>
           <section className="restaurant-show-main">

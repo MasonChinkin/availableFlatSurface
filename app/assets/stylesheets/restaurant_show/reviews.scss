@@ -27,15 +27,17 @@
   &>h3 {
     display: flex;
     align-items: center;
-    padding: 6px;
-    margin-left: 15px;
+    padding: 10px;
+    margin-left: 30px;
     border-radius: 4px;
     border: 1px white solid;
     transition: border 0.3s;
     cursor: pointer;
+    background: rgb(207, 53, 32);
+    color: white;
 
     &:hover {
-      border-color: red;
+      filter: brightness(85%)
     }
   }
 }

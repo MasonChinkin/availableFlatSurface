@@ -67,7 +67,7 @@ class RestaurantReviews extends Component {
         <h3 onClick={this.handleFormClick}><i className='fas fa-edit' /> Edit your review</h3>
         <h3 onClick={this.handleDeleteClick}><i className='fa fa-close' /> Delete your review</h3>
       </> :
-      <h3 onClick={this.handleFormClick}><i className='fas fa-plus' /> Make a review</h3>
+      <h3 onClick={this.handleFormClick}><i className='fas fa-plus' /> Write a review</h3>
 
     let currUserReview;
     const reviewList = reviews.map(review => {
