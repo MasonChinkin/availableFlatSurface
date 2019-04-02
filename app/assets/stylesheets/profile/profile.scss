@@ -138,9 +138,44 @@
   cursor: pointer;
 }
 
-#new-reservation {
+.new-reservation {
   background-color: lightyellow !important;
   animation: glow 1s infinite alternate !important;
+  position: absolute;
+  top: 80px;
+  right: 20px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.new-reservation-read {
+  position: relative;
+  top: 0px;
+  right: 0px;
+  box-shadow: none;
+  background-color: lightyellow !important;
+  animation: glow 1s infinite alternate !important;
+
+  & .mark-read {
+    visibility: hidden;
+  }
+}
+
+.mark-read {
+  cursor: pointer;
+  background: rgb(207, 53, 32);
+  padding: 1rem;
+  color: white;
+  position: absolute;
+  top: 211px;
+  right: 20px;
+  text-align: right;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+
+  &:active {
+    box-shadow: none;
+  }
 }
 
 @keyframes glow {

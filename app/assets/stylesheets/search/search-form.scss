@@ -10,7 +10,6 @@ $font-size: 15px;
 
 .root-search-form {
   background: grey;
-  // header is 60px high, footer is 245
   height: 400px;
   display: flex;
   flex-direction: column;
@@ -24,6 +23,10 @@ $font-size: 15px;
     color: white;
     margin: 0 0 30px;
   }
+}
+
+.react-calendar {
+  z-index: 1;
 }
 
 // below necessary to remove select border radius

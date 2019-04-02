@@ -51,6 +51,8 @@ class RestaurantShow extends Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0)
+
     let payload = {
       user_id: this.props.currentUserId,
       restaurant_id: this.props.match.params.id

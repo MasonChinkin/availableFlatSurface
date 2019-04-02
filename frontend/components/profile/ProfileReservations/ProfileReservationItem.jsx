@@ -7,22 +7,14 @@ class ProfileReservationItem extends Component {
   constructor(props) {
     super(props);
     this.handleCancelClick = this.handleCancelClick.bind(this)
+    this.handleMarkRead = this.handleMarkRead.bind(this)
   }
 
+  handleMarkRead() {
+    document.getElementsByClassName('new-reservation')[0]
+      .className = 'profile-reservation-item new-reservation-read'
 
-  componentDidMount() {
-    // scroll to new reservation
-    // https://stackoverflow.com/questions/8922107/javascript-scrollintoview-middle-alignment
-    if (this.props.newReservationId) {
-      document.addEventListener("DOMContentLoaded", () => {
-        Element.prototype.documentOffsetTop = function () {
-          return this.offsetTop + (this.offsetParent ? this.offsetParent.documentOffsetTop() : 0);
-        };
-
-        let top = document.getElementById('new-reservation').documentOffsetTop() - (window.innerHeight / 2);
-        window.scrollTo(0, top);
-      })
-    }
+    document.getElementsByClassName('mark-read')[0].style.visibility = 'hidden'
   }
 
   handleCancelClick() {
@@ -52,17 +44,23 @@ class ProfileReservationItem extends Component {
     let time = hours + ':' + minutes;
     let dateTime = (resDate > new Date()) ? date + ' ' + time : date;
 
-    let id = (this.props.newReservationId === res.id) ? 'new-reservation' : '';
+    let newReservationClass = (this.props.newReservationId === res.id) ? ' new-reservation' : '';
+
+    let markRead = <h2 className="mark-read" onClick={this.handleMarkRead}>Mark as Read</h2>
 
     return (
-      <div className="profile-reservation-item" id={id}>
-        <NavLink to={`/restaurants/${rest.id}#top`}><img src={rest.profilePhotoURL} alt="restaurant photo" /></NavLink>
-        <div>
-          <NavLink to={`/restaurants/${rest.id}#top`}><h2>{rest.name}</h2></NavLink>
-          <h2>{dateTime}</h2>
-          <h3>Table for {res.numPeople} people</h3>
+      <div>
+        <div className={"profile-reservation-item" + newReservationClass}>
+          <NavLink to={`/restaurants/${rest.id}#top`}><img src={rest.profilePhotoURL} alt="restaurant photo" /></NavLink>
+          <div>
+            <NavLink to={`/restaurants/${rest.id}#top`}><h2>{rest.name}</h2></NavLink>
+            <h2>{dateTime}</h2>
+            <h3>Table for {res.numPeople} people</h3>
+          </div>
+          <i onClick={this.handleCancelClick} className="fa fa-close" />
         </div>
-        <i onClick={this.handleCancelClick} className="fa fa-close" />
+        {/* if a new reservation */}
+        {newReservationClass && markRead}
       </div>
     );
   }

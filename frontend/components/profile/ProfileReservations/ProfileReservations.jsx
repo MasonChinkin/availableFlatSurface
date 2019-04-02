@@ -8,6 +8,10 @@ class ProfileReservations extends Component {
     this.props.clearNewReservation();
   }
 
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+
   render() {
     let { upcomingReservations, pastReservations } = this.props;
 
