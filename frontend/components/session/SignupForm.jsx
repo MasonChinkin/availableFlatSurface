@@ -93,9 +93,7 @@ class SignupForm extends Component {
                   </a>
                 </li>
               </ul>
-              <p>Selecting "Create Account" you are agreeing to the terms and conditions
-              of the <Link className="form-footer-link" to={`user-agreement-privacy`}>AvailableFlatSurface User
-               Agreement</Link> and <Link className="form-footer-link" to={`user-agreement-privacy`}>Privacy Policy</Link>.</p>
+              <p>By selecting "Create Account" you are agreeing to our draconian terms and conditions.</p>
             </div>
           </form>
         </div>

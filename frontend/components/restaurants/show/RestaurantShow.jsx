@@ -82,6 +82,7 @@ class RestaurantShow extends Component {
         let icon = detail[1][1];
 
         val = (label === 'Website' && val !== 'N/A') ? <a href={val}>{val}</a> : val
+
         return (
           <li key={i}>
             <i className={icon} />

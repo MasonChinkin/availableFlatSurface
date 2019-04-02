@@ -72,6 +72,10 @@ nav>ul>* {
   background: rgb(36, 121, 155);
   border-radius: 5px;
   margin: 10px 0;
+
+  &:hover {
+    filter: brightness(85%);
+  }
 }
 
 .signin-button {
