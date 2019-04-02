@@ -57,7 +57,7 @@ class RestaurantReviews extends Component {
   render() {
     if (!this.props.reviews.length) return null
     let { reviews, users, currentUserId, createReview, editReview, displayReviewForm } = this.props
-    let { userReview, reviewFormDisplay } = this.state
+    let { userReview } = this.state
 
     let restaurantId = reviews[0].restaurantId
     let IDs = { currentUserId: currentUserId, restaurantId: restaurantId }

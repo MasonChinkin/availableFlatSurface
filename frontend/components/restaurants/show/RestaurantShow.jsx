@@ -9,6 +9,7 @@ class RestaurantShow extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      loaded: false,
       // does the user have a review
       isReviewed: !!this.props.reviews[this.props.currentUserId]
     }
@@ -58,7 +59,8 @@ class RestaurantShow extends Component {
       restaurant_id: this.props.match.params.id
     }
 
-    this.props.requestRestaurant(payload)
+    this.props.requestRestaurant(payload).
+      then(() => this.setState({ loaded: true }))
   }
 
   componentWillUnmount() {
@@ -69,6 +71,7 @@ class RestaurantShow extends Component {
     if (!this.props.restaurant) return null;
 
     let { restaurant, reviews, savedRestaurantsJoin } = this.props;
+    let { loaded } = this.state
 
     const sidebarDataArr = this.sidebarDataArr(restaurant);
     let tabArr = ['Overview', 'Photos', 'Reviews'];
@@ -98,7 +101,7 @@ class RestaurantShow extends Component {
     })
 
     // without &&, Object.values return error on first render, since savedrestaurantjoin initially null
-    let saveButton = (savedRestaurantsJoin && Object.values(savedRestaurantsJoin).length > 0) ?
+    let saveButton = (loaded && Object.values(savedRestaurantsJoin).length > 0) ?
       <button className="save-restaurant-button saved-restaurant-button" onClick={this.handleSaveClick}>
         <i id="Overview" className='fa fa-bookmark' />Restaurant Saved!</button> :
       <button className="save-restaurant-button" onClick={this.handleSaveClick}>
@@ -107,7 +110,7 @@ class RestaurantShow extends Component {
     return (
       <div className="restaurant-show-page">
         <header style={{ backgroundImage: `url(${restaurant.wallpaperURL})` }}>
-          {savedRestaurantsJoin && saveButton}
+          {loaded && saveButton}
         </header>
         <main>
           <section className="restaurant-show-main">
@@ -122,7 +125,7 @@ class RestaurantShow extends Component {
                 <h2>Photos</h2>
                 <RestaurantShowPhotos restaurant={restaurant} />
               </div>
-              <RestaurantReviewsContainer />
+              {loaded && <RestaurantReviewsContainer />}
             </div>
           </section>
           <section className="restaurant-show-sidebar">

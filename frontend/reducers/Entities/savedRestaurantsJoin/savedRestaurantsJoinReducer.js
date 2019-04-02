@@ -10,7 +10,7 @@ import {
   CLEAR_SAVED_RESTAURANT
 } from '../../../actions/savedRestaurantActions';
 
-export const savedRestaurantsJoinReducer = (oldState = null, action) => {
+export const savedRestaurantsJoinReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   switch (action.type) {
     case RECEIVE_PROFILE:
@@ -24,7 +24,7 @@ export const savedRestaurantsJoinReducer = (oldState = null, action) => {
       delete newState[action.payload.id]
       return newState
     case CLEAR_SAVED_RESTAURANT:
-      return null
+      return {}
     default:
       return oldState
   }
