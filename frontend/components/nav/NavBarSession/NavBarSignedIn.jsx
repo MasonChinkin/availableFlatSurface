@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-
 import React, { Component } from 'react';
 import DropDownContainer from '../DropDown/DropDownContainer';
 
@@ -17,7 +16,7 @@ class NavBarSignedIn extends Component {
 
   render() {
     let { currId, fname, dropDown } = this.props;
-    const component = dropDown ? <DropDownContainer /> : "";
+    const component = dropDown ? <DropDownContainer /> : ""
 
     return (
       <ul className="right-nav">

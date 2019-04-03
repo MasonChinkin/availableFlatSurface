@@ -63,3 +63,14 @@ export function sidebarDataArr(rest) {
     }
   })
 }
+
+export function saveButton(loaded, savedRestaurantsJoin, handleSaveClick) {
+  // without &&, Object.values return error on first render, since savedrestaurantjoin initially null
+  let saveButton = (loaded && Object.values(savedRestaurantsJoin).length > 0) ?
+    <button className="save-restaurant-button saved-restaurant-button" onClick={handleSaveClick}>
+      <i id="Overview" className='fa fa-bookmark' />Restaurant Saved!</button> :
+    <button className="save-restaurant-button" onClick={handleSaveClick}>
+      <i id="Overview" className='far fa-bookmark' />Save this Restaurant</button>
+
+  return saveButton
+}

@@ -6,7 +6,7 @@ class SplashRestaurantsItem extends Component {
   render() {
     let { restaurant } = this.props
 
-    let rating = SymbolUtils.ratingSymbol(restaurant.rating)
+    let rating = SymbolUtils.ratingSymbol(restaurant.rating, 'rgb(210, 40, 60)')
     let cost = SymbolUtils.costSymbol(restaurant.cost)
 
     return (

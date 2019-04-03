@@ -82,11 +82,9 @@ class SearchForm extends Component {
   }
 
   componentDidUpdate(prevProps, prevState) {
-    if (this.props.searchCalendar) {
-      addEventListener('click', this.flipCalendar);
-    } else {
+    (this.props.searchCalendar) ?
+      addEventListener('click', this.flipCalendar) :
       removeEventListener('click', this.flipCalendar)
-    }
 
     // below structure necessary to avoid lag inducing processing
     if (this.props.searchCalendar && prevState.calendarClass === 'search-calendar') {

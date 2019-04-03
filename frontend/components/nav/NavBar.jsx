@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
-import DropDownContainer from './DropDown/DropDownContainer';
+import { withRouter } from 'react-router-dom';
 import { AuthedRoute, NotAuthedRoute } from '../../utils/routesUtils';
 import NavBarSignedInContainer from './NavBarSession/NavBarSignedInContainer';
 import NavBarSignedOutContainer from './NavBarSession/NavBarSignOutContainer';
@@ -12,9 +11,7 @@ class NavBar extends React.Component {
     this.rootPage = this.rootPage.bind(this)
   }
 
-  rootPage() {
-    this.props.history.push('/')
-  }
+  rootPage() { this.props.history.push('/') }
 
   dropDown() {
     this.props.flipWindowListener(!this.props.dropDown);
@@ -22,11 +19,9 @@ class NavBar extends React.Component {
   }
 
   componentDidUpdate() {
-    if (this.props.dropDown) {
-      window.addEventListener('click', this.dropDown);
-    } else {
+    (this.props.dropDown) ?
+      window.addEventListener('click', this.dropDown) :
       window.removeEventListener('click', this.dropDown);
-    }
   }
 
   render() {
@@ -47,6 +42,5 @@ class NavBar extends React.Component {
       </nav>)
   }
 }
-
 
 export default withRouter(NavBar);

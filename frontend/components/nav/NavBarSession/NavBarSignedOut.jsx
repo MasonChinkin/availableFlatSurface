@@ -1,13 +1,12 @@
 import { Link, withRouter } from 'react-router-dom';
-
 import React, { Component } from 'react';
 
 class NavBarSignedOut extends Component {
 
   render() {
-    let { path } = this.props;
-    const signupPath = (path === '/') ? '/signup' : `${path}/signup`;
-    const signinPath = (path === '/') ? '/signin' : `${path}/signin`;
+    let { path } = this.props
+    const signupPath = (path === '/') ? '/signup' : `${path}/signup`
+    const signinPath = (path === '/') ? '/signin' : `${path}/signin`
 
     return (
       <ul className="right-nav">

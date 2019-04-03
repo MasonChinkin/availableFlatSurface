@@ -17,9 +17,9 @@ export function costSymbol(cost) {
   return dollars;
 }
 
-export function ratingSymbol(rating) {
+export function ratingSymbol(rating, filledColor) {
   const filledStar = key => (
-    <i key={key} className='fa fa-star' style={{ color: 'rgb(210, 40, 60)' }}></i>
+    <i key={key} className='fa fa-star' style={{ color: filledColor }}></i>
   )
 
   const emptyStar = key => (

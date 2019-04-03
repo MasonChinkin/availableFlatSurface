@@ -4,25 +4,11 @@ import { HashLink as Link } from 'react-router-hash-link';
 import ResButtonsContainer from './ResButtonsContainer';
 
 class RestaurantListItem extends Component {
-
-  ratingSymbol(rating) {
-    const filledStar = key => <i key={key} className='fa fa-star' style={{ color: 'rgb(250, 160, 10)' }}></i>
-
-    const emptyStar = key => <i key={key} className='fa fa-star' style={{ color: 'rgb(220, 210, 200)' }}></i>
-
-    let dollars = []
-    for (let i = 0; i < 5; i++) {
-      (i < rating) ? dollars.push(filledStar(i)) : dollars.push(emptyStar(i))
-    }
-
-    return dollars;
-  }
-
   render() {
     const rest = this.props.restaurant;
 
     let costSymbol = SymbolUtils.costSymbol(rest.cost)
-    let ratingSymbol = this.ratingSymbol(rest.rating)
+    let ratingSymbol = SymbolUtils.ratingSymbol(rest.rating, 'rgb(250, 160, 10)')
 
     return (
       <div className="restaurant-profile-photo-wrapper">

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import { Link } from 'react-router-dom';
+import * as SymbolUtils from '../../../utils/symbolUtils';
 
 class ProfileSavedRestaurantsItem extends Component {
 
@@ -18,36 +19,16 @@ class ProfileSavedRestaurantsItem extends Component {
           label: 'Yes',
           onClick: () => this.props.unSaveRestaurant(this.props.save.id)
         },
-        {
-          label: 'No',
-          onClick: () => { }
-        }
+        { label: 'No', onClick: () => { } }
       ]
     })
-  }
-
-  ratingSymbol(rating) {
-    const filledStar = key => (
-      <i key={key} className='fa fa-star' style={{ color: 'rgb(250, 160, 10)' }}></i>
-    )
-
-    const emptyStar = key => (
-      <i key={key} className='fa fa-star' style={{ color: 'rgb(220, 210, 200)' }}></i>
-    )
-
-    let dollars = []
-    for (let i = 0; i < 5; i++) {
-      (i < rating) ? dollars.push(filledStar(i)) : dollars.push(emptyStar(i))
-    }
-
-    return dollars;
   }
 
   render() {
     if (this.props.restaurant === undefined) return null;
     let rest = this.props.restaurant;
 
-    let rating = this.ratingSymbol(rest.rating);
+    let rating = SymbolUtils.ratingSymbol(rest.rating, 'rgb(250, 160, 10)');
 
     return (
       <div className="profile-saved_restaurant-item">

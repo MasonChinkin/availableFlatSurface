@@ -52,7 +52,6 @@ class RestaurantShow extends Component {
 
   render() {
     if (!this.props.restaurant) return null;
-
     let { restaurant, reviews, savedRestaurantsJoin } = this.props;
     let { loaded } = this.state
 
@@ -63,12 +62,7 @@ class RestaurantShow extends Component {
       return <li key={i}><NavLink smooth to={`/restaurants/${restaurant.id}#${tab}`}>{tab}</NavLink></li>
     })
 
-    // without &&, Object.values return error on first render, since savedrestaurantjoin initially null
-    let saveButton = (loaded && Object.values(savedRestaurantsJoin).length > 0) ?
-      <button className="save-restaurant-button saved-restaurant-button" onClick={this.handleSaveClick}>
-        <i id="Overview" className='fa fa-bookmark' />Restaurant Saved!</button> :
-      <button className="save-restaurant-button" onClick={this.handleSaveClick}>
-        <i id="Overview" className='far fa-bookmark' />Save this Restaurant</button>
+    let saveButton = RestaurantUtils.saveButton(loaded, savedRestaurantsJoin, this.handleSaveClick)
 
     return (
       <div className="restaurant-show-page">

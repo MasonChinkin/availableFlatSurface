@@ -5,7 +5,7 @@ class VisualSummary extends Component {
 
   render() {
     let rest = this.props.restaurant;
-    let ratingSymbol = SymbolUtils.ratingSymbol(rest.rating)
+    let ratingSymbol = SymbolUtils.ratingSymbol(rest.rating, 'rgb(210, 40, 60)')
 
     return (
       <div className="restaurant-show-main-content-visual-summary">

@@ -1,24 +1,11 @@
 import React, { Component } from 'react';
+import * as SymbolUtils from '../../../../utils/symbolUtils'
 
 class RestaurantReviewItem extends Component {
-
-  ratingSymbol(rating) {
-    const filledStar = key => <i key={key} className='fa fa-star' style={{ color: 'rgb(210, 40, 60)' }}></i>
-
-    const emptyStar = key => <i key={key} className='fa fa-star' style={{ color: 'rgb(220, 210, 200)' }}></i>
-
-    let dollars = []
-    for (let i = 0; i < 5; i++) {
-      (i < rating) ? dollars.push(filledStar(i)) : dollars.push(emptyStar(i))
-    }
-
-    return dollars;
-  }
-
   render() {
     if (this.props.reviewer === undefined) return null;
     let { reviewer, review } = this.props
-    let rating = this.ratingSymbol(this.props.review.overallRating)
+    let rating = SymbolUtils.ratingSymbol(this.props.review.overallRating, 'rgb(210, 40, 60)')
     let yourReview = <h2 className="user-review">Your review</h2>
 
     return (

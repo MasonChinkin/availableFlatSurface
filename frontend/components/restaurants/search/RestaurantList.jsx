@@ -3,8 +3,8 @@ import RestaurantListItem from './RestaurantListItem/RestaurantListItem';
 import SearchFormContainer from './SearchForm/SearchFormContainer';
 
 class RestaurantList extends Component {
-  componentDidUpdate() {
-
+  componentDidMount() {
+    window.scroll(0, 0)
   }
 
   render() {
