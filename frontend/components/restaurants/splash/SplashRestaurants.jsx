@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SplashRestaurantsItem from './SplashRestaurantsItem';
+import { withRouter } from 'react-router-dom'
 
 class SplashRestaurants extends Component {
   constructor(props) {
@@ -8,8 +9,13 @@ class SplashRestaurants extends Component {
   }
 
   componentDidMount() {
-    this.props.requestAllRestaurants()
-      .then(() => this.setState({ loaded: true }))
+    // quick fix for stopping rerender on signing/signout modal
+    if (this.props.restaurants.length !== 33) {
+      this.props.requestAllRestaurants()
+        .then(() => this.setState({ loaded: true }))
+    } else {
+      this.setState({ loaded: true })
+    }
   }
 
   render() {
@@ -32,4 +38,4 @@ class SplashRestaurants extends Component {
   }
 }
 
-export default SplashRestaurants;
+export default withRouter(SplashRestaurants);

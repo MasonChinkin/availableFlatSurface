@@ -8,7 +8,13 @@ class RestaurantList extends Component {
   }
 
   render() {
-    let restaurants = this.props.restaurants.map(rest => {
+    let sortedRestaurants = this.props.restaurants.sort((a, b) => {
+      var textA = a.name.toUpperCase();
+      var textB = b.name.toUpperCase();
+      return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;
+    })
+
+    let restaurants = sortedRestaurants.map(rest => {
       return <RestaurantListItem key={rest.id} restaurant={rest} />
     });
 
