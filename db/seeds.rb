@@ -12,6 +12,9 @@ require "cgi"
 require "date"
 require "active_storage"
 
+# Heroku uses UTC 0 by default
+Time.zone = "Pacific Time (US & Canada)"
+
 def seed_pics_res_and_saves(r, u)
   dir = "https://s3-us-west-1.amazonaws.com/availableflatsurface-seed/img/#{CGI::escape(r.name)}"
   new_dir = dir.split("%27").join("%E2%80%99")
@@ -46,7 +49,7 @@ def seed_pics_res_and_saves(r, u)
 
   # upcoming reservations
   if [1, 2, 3, 4, 5, 6].sample == 1
-    t = Time.now.change({hour: 0})
+    t = Time.zone.now.change({hour: 0})
     month = (4..12).to_a.sample * (60 * 60 * 24 * 30)
     day = (1..30).to_a.sample * (60 * 60 * 24)
     hour = (12...22).to_a.sample * (60 * 60)
@@ -64,7 +67,7 @@ def seed_pics_res_and_saves(r, u)
 
   # past reservations
   if [1, 2, 3, 4].sample == 1
-    t = Time.now.change({hour: 0})
+    t = Time.zone.now.change({hour: 0})
     month = (4..12).to_a.sample * (60 * 60 * 24 * 30)
     day = (1..30).to_a.sample * (60 * 60 * 24)
     hour = (12...22).to_a.sample * (60 * 60)
