@@ -25,8 +25,6 @@ class RestaurantShowPhotos extends Component {
     let URLs = rest.photoURLs;
     let photoIndex = parseInt(this.state.photoIndex)
 
-    console.log(URLs)
-
     if (URLs === undefined) return null;
 
     let photos = URLs.map((URL, i) => {
