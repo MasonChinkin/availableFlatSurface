@@ -7,9 +7,16 @@ class RestaurantShowForm extends Component {
 
   constructor(props) {
     super(props);
+
+    let date = new Date();
+    let hours = date.getHours();
+    date.setHours(hours + 24);
+    date.setHours(12);
+    date.setMinutes(0);
+
     this.state = {
       searchTerm: '',
-      resDateTime: new Date(),
+      resDateTime: date,
       numPeople: 2,
       calendarClass: 'search-calendar'
     };
@@ -51,11 +58,13 @@ class RestaurantShowForm extends Component {
     };
 
     this.props.makeReservation(reservation)
-      .then(this.props.history.push(`/profile/${this.props.userId}/reservations#new-reservation`));
+      .then(this.props.history.push(`/profile/${this.props.userId}/reservations`));
   }
 
   handleDayPick(date) {
-    this.setState({ resDateTime: date });
+    let hours = this.state.resDateTime.getHours();
+    let hoursChanged = date.setHours(hours);
+    this.setState({ resDateTime: new Date(hoursChanged) });
   }
 
   handleNumPeoplePick(e) {
@@ -69,7 +78,8 @@ class RestaurantShowForm extends Component {
     let newMinutes = parseInt(selected.split(':')[1])
     newDateTime.setHours(newHours)
     newDateTime.setMinutes(newMinutes)
-    this.setState({ resDateTime: newDateTime });
+    console.log(newDateTime)
+    this.setState({ resDateTime: newDateTime })
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -109,7 +119,7 @@ class RestaurantShowForm extends Component {
         <h1>Make a reservation</h1>
         <form onSubmit={this.handleSubmit}>
           <h2>Party Size</h2>
-          <select className="show-party show-res-input" onClick={this.handleNumPeoplePick} defaultValue='2 people'>
+          <select className="show-party show-res-input" onChange={this.handleNumPeoplePick} defaultValue='2 people'>
             {numPeopleOptions}
           </select>
           <div className="show-date-time">
