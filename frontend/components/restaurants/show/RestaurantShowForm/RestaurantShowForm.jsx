@@ -109,7 +109,7 @@ class RestaurantShowForm extends Component {
         <h1>Make a reservation</h1>
         <form onSubmit={this.handleSubmit}>
           <h2>Party Size</h2>
-          <select className="show-party" onClick={this.handleNumPeoplePick} id="show-res-input" defaultValue='2 people'>
+          <select className="show-party show-res-input" onClick={this.handleNumPeoplePick} defaultValue='2 people'>
             {numPeopleOptions}
           </select>
           <div className="show-date-time">
@@ -125,7 +125,7 @@ class RestaurantShowForm extends Component {
             </div>
             <div>
               <h2>Time</h2>
-              <select id="show-res-input" onChange={this.handleTimeChange} defaultValue='12:00 PM'>
+              <select className="show-res-input" onChange={this.handleTimeChange} defaultValue='12:00 PM'>
                 {times}
               </select>
             </div>

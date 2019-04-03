@@ -39,11 +39,11 @@
   }
 }
 
-#show-res-input {
+.show-res-input {
   -webkit-appearance: none;
   -moz-appearance: none;
   border-radius: 0px;
-  border-bottom: 1px $input-border solid;
+  border-bottom: 1px $input-border solid !important;
   height: 35px;
   font-size: 13px;
   font-weight: 300;
