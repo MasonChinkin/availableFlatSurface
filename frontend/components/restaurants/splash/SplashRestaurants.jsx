@@ -7,14 +7,12 @@ class SplashRestaurants extends Component {
     this.state = { loaded: false }
   }
 
-
   componentDidMount() {
     this.props.requestAllRestaurants()
       .then(() => this.setState({ loaded: true }))
   }
 
   render() {
-    if (this.state.loaded === false) return null;
     let { fname, restaurants } = this.props
     let header = (fname) ? `, ${this.props.fname}` : ''
 
@@ -27,7 +25,7 @@ class SplashRestaurants extends Component {
       <section className="splash-recommendations">
         <h2>Recommended for you{header}</h2>
         <div className="splash-recommendations-list">
-          {recs}
+          {this.state.loaded && recs}
         </div>
       </section>
     );
