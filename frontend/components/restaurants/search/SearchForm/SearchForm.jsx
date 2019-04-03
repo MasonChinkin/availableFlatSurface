@@ -100,17 +100,22 @@ class SearchForm extends Component {
     const localeDateOptions = { day: 'numeric', month: 'short', year: 'numeric' }
     const times = FormUtils.times();
     let numPeopleOptions = FormUtils.numPeople();
-    let defaultTime;
 
-    if (this.props.reservationForm === null) {
-      defaultTime = times[0]
+    let searchTime;
+
+    if (this.props.reservationForm) {
+      searchTime = this.props.reservationForm.resDateTime
     } else {
-      const searchTime = this.props.reservationForm.resDateTime
-      const defaultHours = (searchTime.getHours() === 12) ? '12' : `${searchTime.getHours() - 12}`
-      const min = searchTime.getMinutes()
-      const defaultMinutes = (min < 10) ? `0${min} PM` : `${min} PM`
-      defaultTime = `${defaultHours}:${defaultMinutes}`
+      let date = new Date()
+      let hours = date.getHours();
+      date.setHours(hours + 1);
+      date.setMinutes(0);
+      searchTime = date
     }
+    const defaultHours = (searchTime.getHours() === 12) ? '12' : `${searchTime.getHours() - 12}`
+    const min = searchTime.getMinutes()
+    const defaultMinutes = (min < 10) ? `0${min} PM` : `${min} PM`
+    let defaultTime = `${defaultHours}:${defaultMinutes}`
 
     let numPeople = this.state.numPeople
     let numPeopleString = (numPeople === 1) ? `${numPeople} person` : `${numPeople} people`
@@ -174,7 +179,7 @@ class SearchForm extends Component {
                 {this.state.resDateTime.toLocaleDateString('en-US', localeDateOptions)}
                 {calendarDropDown}
               </div>
-              <select id="res-search-input-right" onChange={this.handleTimeChange} defaultValue={times[0]}>
+              <select id="res-search-input-right" onChange={this.handleTimeChange} defaultValue={defaultTime}>
                 {times}
               </select>
               <input
