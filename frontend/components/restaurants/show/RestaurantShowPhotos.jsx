@@ -25,6 +25,8 @@ class RestaurantShowPhotos extends Component {
     let URLs = rest.photoURLs;
     let photoIndex = parseInt(this.state.photoIndex)
 
+    console.log(URLs)
+
     if (URLs === undefined) return null;
 
     let photos = URLs.map((URL, i) => {
@@ -32,11 +34,12 @@ class RestaurantShowPhotos extends Component {
     });
 
     return (
-      <>
+      <div id="Photos" className="restaurant-photos">
+        <h2>Photos</h2>
         <ul className="show-photos">
           {photos}
         </ul>
-        {this.state.lightBox && ( // short circuits if false
+        {this.state.lightBox && (
           <Lightbox
             mainSrc={URLs[photoIndex]}
             nextSrc={URLs[(photoIndex + 1) % URLs.length]}
@@ -54,7 +57,7 @@ class RestaurantShowPhotos extends Component {
             }
           />
         )}
-      </>
+      </div>
     );
   }
 }

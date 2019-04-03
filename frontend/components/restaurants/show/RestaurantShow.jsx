@@ -4,34 +4,17 @@ import RestaurantShowFormContainer from './RestaurantShowForm/RestaurantShowForm
 import RestaurantShowPhotos from './RestaurantShowPhotos';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
 import RestaurantReviewsContainer from './RestaurantReviews/RestaurantReviewsContainter';
+import * as RestaurantUtils from '../../../utils/restaurantUtils';
 
 class RestaurantShow extends Component {
   constructor(props) {
     super(props);
     this.state = {
       loaded: false,
-      // does the user have a review
       isReviewed: !!this.props.reviews[this.props.currentUserId]
     }
 
     this.handleSaveClick = this.handleSaveClick.bind(this)
-  }
-
-  sidebarDataArr(rest) {
-    let details = {
-      'Address': [rest.address, 'fas fa-map-marker-alt'],
-      'Cross Street': [rest.crossStreet, 'fas fa-car-alt'],
-      'Neighborhood': [rest.neighborhood, 'far fa-building'],
-      'Hours': [rest.hours, 'far fa-clock'],
-      'Cuisine': [rest.cuisine, 'fas fa-utensils'],
-      'Dress Code': [rest.dressCode, 'fas fa-tshirt'],
-      'Parking Details': [rest.parkingDetails, 'fas fa-parking'],
-      'Payment Options': [rest.paymentOptions, 'fas fa-credit-card'],
-      'Phone Number': [rest.phone, 'fas fa-phone'],
-      'Website': [rest.website, 'far fa-share-square'],
-    }
-
-    return Object.entries(details);
   }
 
   handleSaveClick() {
@@ -73,31 +56,11 @@ class RestaurantShow extends Component {
     let { restaurant, reviews, savedRestaurantsJoin } = this.props;
     let { loaded } = this.state
 
-    const sidebarDataArr = this.sidebarDataArr(restaurant);
+    const sidebarDetails = RestaurantUtils.sidebarDataArr(restaurant);
     let tabArr = ['Overview', 'Photos', 'Reviews'];
 
     const mainTabs = tabArr.map((tab, i) => {
       return <li key={i}><NavLink smooth to={`/restaurants/${restaurant.id}#${tab}`}>{tab}</NavLink></li>
-    })
-
-    const sidebarDetails = sidebarDataArr.map((detail, i) => {
-      if (detail[1]) {
-        let label = detail[0];
-        let val = detail[1][0] || 'N/A';
-        let icon = detail[1][1];
-
-        val = (label === 'Website' && val !== 'N/A') ? <a href={val}>{val}</a> : val
-
-        return (
-          <li key={i}>
-            <i className={icon} />
-            <div>
-              <label>{label}</label>
-              <p>{val}</p>
-            </div>
-          </li>
-        )
-      }
     })
 
     // without &&, Object.values return error on first render, since savedrestaurantjoin initially null
@@ -109,9 +72,9 @@ class RestaurantShow extends Component {
 
     return (
       <div className="restaurant-show-page">
-        <header style={{ backgroundImage: `url(${restaurant.wallpaperURL})` }}>
-          {loaded && saveButton}
-        </header>
+        {loaded && <header style={{ backgroundImage: `url(${restaurant.wallpaperURL})` }}>
+          {saveButton}
+        </header>}
         <main>
           <section className="restaurant-show-main">
             <ul>
@@ -121,10 +84,7 @@ class RestaurantShow extends Component {
               <h1>{restaurant.name}</h1>
               <VisualSummary restaurant={restaurant} reviews={reviews} />
               <div className="restaurant-show-main-content-desc">{restaurant.description}</div>
-              <div id="Photos" className="restaurant-photos">
-                <h2>Photos</h2>
-                <RestaurantShowPhotos restaurant={restaurant} />
-              </div>
+              <RestaurantShowPhotos restaurant={restaurant} />
               {loaded && <RestaurantReviewsContainer />}
             </div>
           </section>
@@ -135,7 +95,7 @@ class RestaurantShow extends Component {
             </ul>
           </section>
         </main>
-      </div>
+      </div >
     );
   }
 }
