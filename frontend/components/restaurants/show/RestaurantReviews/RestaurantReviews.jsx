@@ -46,8 +46,11 @@ class RestaurantReviews extends Component {
       buttons: [
         {
           label: 'Yes',
-          onClick: () => this.props.deleteReview(this.state.userReview.id)
-            .then(() => this.setState({ userReview: this.isReviewed() }))
+          onClick: () => {
+            if (this.props.displayReviewForm) this.props.flipReviewForm(!this.props.displayReviewForm)
+            this.props.deleteReview(this.state.userReview.id)
+              .then(() => this.setState({ userReview: this.isReviewed() }))
+          }
         },
         { label: 'No', onClick: () => { } }
       ]
