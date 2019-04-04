@@ -10,8 +10,7 @@ class RestaurantShowForm extends Component {
 
     let date = new Date();
     let hours = date.getHours();
-    date.setHours(hours + 24);
-    date.setHours(12);
+    date.setHours(hours + 1);
     date.setMinutes(0);
 
     this.state = {
@@ -78,7 +77,6 @@ class RestaurantShowForm extends Component {
     let newMinutes = parseInt(selected.split(':')[1])
     newDateTime.setHours(newHours)
     newDateTime.setMinutes(newMinutes)
-    console.log(newDateTime)
     this.setState({ resDateTime: newDateTime })
   }
 
