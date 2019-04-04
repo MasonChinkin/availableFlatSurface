@@ -11,7 +11,9 @@ class ResButtons extends Component {
 
   handleReservation(hours, minutes) {
     event.preventDefault();
-    if (this.props.userId === null) return this.props.history.push(`/search/signin`);
+
+    if (this.props.currentUserId === null) return this.props.history.push(`/search/signin`);
+
     hours = parseInt(hours)
     hours = (hours < 12) ? hours + 12 : 0
     minutes = parseInt(minutes)
@@ -21,12 +23,12 @@ class ResButtons extends Component {
     let reservation = {
       reservation: setMinutes / 1000,
       num_people: this.props.numPeople,
-      user_id: this.props.userId,
+      user_id: this.props.currentUserId,
       restaurant_id: this.props.restaurantId // threaded in from above
     };
 
     this.props.makeReservation(reservation)
-      .then(this.props.history.push(`/profile/${this.props.userId}/reservations`));
+      .then(this.props.history.push(`/profile/${this.props.currentUserId}/reservations`));
   }
 
   render() {
@@ -39,11 +41,12 @@ class ResButtons extends Component {
 
       let buttonTime = `${hours}:${minutes}`;
 
-      return <Link
+      return <input
+        type="submit"
         onClick={() => this.handleReservation(hours, minutes)}
         key={i}
         className="submit-button res-submit-button"
-        to={`/profile/${this.props.userId}/reservations`}>{buttonTime}</Link>
+        value={buttonTime} />
     })
 
     return (

@@ -5,7 +5,7 @@ import { makeReservation } from '../../../../actions/reservationActions';
 const mSP = ({ ui, session }) => ({
   searchedDateTime: ui.reservationForm.resDateTime || null,
   numPeople: ui.reservationForm.numPeople,
-  userId: (session.currentUser === null) ? null : session.currentUser.id,
+  currentUserId: session.currentUser.id,
 });
 
 const mDP = dispatch => ({

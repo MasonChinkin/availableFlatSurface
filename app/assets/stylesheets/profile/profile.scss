@@ -172,6 +172,7 @@
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
+  z-index: 1;
 
   &:active {
     box-shadow: none;
