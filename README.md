@@ -59,7 +59,7 @@ handleReservation(e) {
   };
 
   this.props.makeReservation(reservation)
-    .then(this.props.history.push(`/profile/${this.props.userId}/reservations#new-reservation`));
+    .then(this.props.history.push(`/profile/${this.props.userId}/reservations`));
 }
 
 // RESERVATION BUTTON RENDER
