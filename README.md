@@ -18,8 +18,8 @@ CRUD features include reservations, reviews, and saved restaurants.
 
 * Ruby on Rails backend using a normalized PostgreSQL database, RESTful routes, and JBuilder
 * React + Redux front end with SASS styling
-* Secure AWS photo hosting with Rails Active Storage
-* Secure frontend to backend user authentication with BCrypt
+* Secure photo hosting on Amazon Web Services S3 with Rails Active Storage
+* Compiled to ES5 using Webpack and Babel.js
 
 ## Highlights
 
