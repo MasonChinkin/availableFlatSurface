@@ -2,8 +2,6 @@
 
 [Live Demo](https://available-flat-surface.herokuapp.com/ "AvailableFlatSurface")
 
-Hello! Thanks for checking out this project.
-
 AvailableFlatSurface is a clone of [OpenTable](opentable.com "OpenTable") using a React + Redux front end calling to a Rails + PostgreSQL backend. 
 
 CRUD features include reservations, reviews, and saved restaurants.
