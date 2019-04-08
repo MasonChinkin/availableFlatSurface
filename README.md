@@ -12,6 +12,7 @@ CRUD features include reservations, reviews, and saved restaurants.
 * [Highlights](https://github.com/MasonChinkin/availableFlatSurface/blob/master/README.md#highlights)
   * [Making Reservations with Redux](https://github.com/MasonChinkin/availableFlatSurface/blob/master/README.md#Making-Reservations-with-redux)
   * [Dynamic icons with React](https://github.com/MasonChinkin/availableFlatSurface/blob/master/README.md#Dynamic-icons-with-react)
+  * [Make, edit, and delete reviews](https://github.com/MasonChinkin/availableFlatSurface/blob/master/README.md#Make-edit-and-delete-reviews)
   * [Styling: Attention to Detail!](https://github.com/MasonChinkin/availableFlatSurface/blob/master/README.md#styling-attention-to-detail)
 
 ## Technologies
@@ -27,7 +28,7 @@ CRUD features include reservations, reviews, and saved restaurants.
 
 One of the biggest functional challenges was gathering all necessary data to make a reservation upon clicking the time buttons on the search page. Hello Redux! I tracked the party size and dateTime of a reservation using the ui slice of state.
 
-![](/app/assets/images/readme/demo-min.gif?raw=true)
+![](/app/assets/images/readme/reservation-demo.gif?raw=true)
 
 ```javascript
 // UI REDUCER
@@ -112,6 +113,10 @@ function sidebarDataArr(rest) {
   })
 }
 ```
+
+### Make, edit, and delete reviews
+
+![](/app/assets/images/readme/review-demo.gif?raw=true)
 
 ### Styling: Attention to Detail!
 
