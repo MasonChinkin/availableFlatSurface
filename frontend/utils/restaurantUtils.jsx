@@ -28,39 +28,37 @@ export const searchRestaurants = searchTerm => {
 };
 
 export function sidebarDataArr(rest) {
-  let details = {
-    'Address': [rest.address, 'fas fa-map-marker-alt'],
-    'Cross Street': [rest.crossStreet, 'fas fa-car-alt'],
-    'Neighborhood': [rest.neighborhood, 'far fa-building'],
-    'Hours': [rest.hours, 'far fa-clock'],
-    'Cuisine': [rest.cuisine, 'fas fa-utensils'],
-    'Dress Code': [rest.dressCode, 'fas fa-tshirt'],
-    'Parking Details': [rest.parkingDetails, 'fas fa-parking'],
-    'Payment Options': [rest.paymentOptions, 'fas fa-credit-card'],
-    'Phone Number': [rest.phone, 'fas fa-phone'],
-    'Website': [rest.website, 'far fa-share-square'],
-  }
+  let details = [
+    ['Address', rest.address, 'fas fa-map-marker-alt'],
+    ['Cross Street', rest.crossStreet, 'fas fa-car-alt'],
+    ['Neighborhood', rest.neighborhood, 'far fa-building'],
+    ['Hours', rest.hours, 'far fa-clock'],
+    ['Cuisine', rest.cuisine, 'fas fa-utensils'],
+    ['Dress Code', rest.dressCode, 'fas fa-tshirt'],
+    ['Parking Details', rest.parkingDetails, 'fas fa-parking'],
+    ['Payment Options', rest.paymentOptions, 'fas fa-credit-card'],
+    ['Phone Number', rest.phone, 'fas fa-phone'],
+    ['Website', rest.website, 'far fa-share-square'],
+  ]
 
-  let sidebarDataArr = Object.entries(details);
+  return details.map((detail, i) => {
+    if (!details[1]) return null;
 
-  return sidebarDataArr.map((detail, i) => {
-    if (detail[1]) {
-      let label = detail[0];
-      let val = detail[1][0] || 'N/A';
-      let icon = detail[1][1];
+    let label = detail[0];
+    let val = detail[1] || 'N/A';
+    let icon = detail[2];
 
-      val = (label === 'Website' && val !== 'N/A') ? <a href={val}>{val}</a> : val
+    val = (label === 'Website' && val !== 'N/A') ? <a href={val}>{val}</a> : val
 
-      return (
-        <li key={i}>
-          <i className={icon} />
-          <div>
-            <label>{label}</label>
-            <p>{val}</p>
-          </div>
-        </li>
-      )
-    }
+    return (
+      <li key={i}>
+        <i className={icon} />
+        <div>
+          <label>{label}</label>
+          <p>{val}</p>
+        </div>
+      </li>
+    )
   })
 }
 
