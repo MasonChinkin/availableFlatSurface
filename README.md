@@ -71,7 +71,7 @@ handleReservation(e) {
 
 ### Dynamic icons with react
 
-Early in the project, when I was thinking about how to implement OpenTable's heavy use of icons in a clean, dynamic way, I had one of those Beautiful Mind/orchestral background music moments when React really started to make sense to me. Below, you can see how I built and then mapped over a javascript object to make the restaurant page sidebar.
+Early in the project, when I was thinking about how to implement OpenTable's heavy use of icons in a clean, dynamic way, I had one of those Beautiful Mind/orchestral background music moments when React really started to make sense to me. Below, you can see how I built and then mapped over a nested array library to make the restaurant page sidebar.
 
 AvailableFlatSurface            |  OpenTable
 :-------------------------:|:-------------------------:
