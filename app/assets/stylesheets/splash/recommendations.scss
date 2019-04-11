@@ -47,6 +47,9 @@
 }
 
 .recommendation-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   padding: 0.5rem;
 
   &>* {
