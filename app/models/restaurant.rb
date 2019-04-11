@@ -42,6 +42,14 @@ class Restaurant < ApplicationRecord
     through: :reviews,
     source: :user
 
+  # return 2 four star and 1 5 start restaurant
+  def self.find_recommendations
+    four_stars = Restaurant.where(rating: "4").shuffle
+    five_stars = Restaurant.where(rating: "5").shuffle
+
+    return [four_stars.pop(), four_stars.pop(), five_stars.sample]
+  end
+
   def self.find_by_name(str)
     return Restaurant.all if str.nil?
 

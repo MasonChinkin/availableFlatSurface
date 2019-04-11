@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
-import { requestAllRestaurants } from '../../../actions/restaurantActions';
 import SplashRestaurants from './SplashRestaurants';
+import { requestRecommendedRestaurants } from '../../../actions/restaurantActions';
 
 const fname = (name) => name.split(' ')[0];
 
@@ -10,7 +10,7 @@ const mSP = ({ entities, session }) => ({
 })
 
 const mDP = dispatch => ({
-  requestAllRestaurants: restaurants => dispatch(requestAllRestaurants(restaurants))
+  requestRecommendedRestaurants: restaurants => dispatch(requestRecommendedRestaurants(restaurants))
 })
 
 const SplashRestaurantsContainer = connect(mSP, mDP)(SplashRestaurants)

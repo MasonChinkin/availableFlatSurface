@@ -11,7 +11,6 @@ const mSP = ({ ui }) => ({
 
 const mDP = dispatch => ({
   requestSearchedRestaurants: restaurants => dispatch(requestSearchedRestaurants(restaurants)),
-  requestAllRestaurants: restaurants => dispatch(requestAllRestaurants(restaurants)),
   flipSearchCalendar: bool => dispatch(flipSearchCalendar(bool)),
   reservationFormChange: reservationData => dispatch(receiveReservationFormChange(reservationData))
 });

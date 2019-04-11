@@ -1,7 +1,7 @@
 import {
   RECEIVE_SEARCHED_RESTAURANTS,
-  RECEIVE_ALL_RESTAURANTS,
-  RECEIVE_RESTAURANT
+  RECEIVE_RESTAURANT,
+  RECEIVE_RECOMMENDED_RESTAURANTS
 } from "../../../actions/restaurantActions";
 import {
   merge
@@ -15,7 +15,7 @@ export const restaurantReducer = (oldState = {}, action) => {
   switch (action.type) {
     case RECEIVE_SEARCHED_RESTAURANTS:
       return action.restaurants;
-    case RECEIVE_ALL_RESTAURANTS:
+    case RECEIVE_RECOMMENDED_RESTAURANTS:
       return action.restaurants;
     case RECEIVE_RESTAURANT:
       let restaurant = Object.entries(action.restaurant.restaurant);

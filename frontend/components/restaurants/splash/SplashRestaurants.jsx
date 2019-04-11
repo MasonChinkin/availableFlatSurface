@@ -10,8 +10,8 @@ class SplashRestaurants extends Component {
 
   componentDidMount() {
     // quick fix for stopping rerender on signing/signout modal
-    if (this.props.restaurants.length !== 33) {
-      this.props.requestAllRestaurants()
+    if (this.props.restaurants.length !== 3) {
+      this.props.requestRecommendedRestaurants()
         .then(() => this.setState({ loaded: true }))
     } else {
       this.setState({ loaded: true })

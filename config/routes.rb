@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   root to: "static_pages#root"
 
   namespace :api, format: {default: :json} do
-    resources :users, only: [:create, :show] #edit and destroy are bonus features
-    resources :restaurants, only: [:show, :index] #edit and destroy are bonus features
+    resources :users, only: [:create, :show]
+    resources :restaurants, only: [:show, :index]
+    resources :recommended_restaurants, only: [:index]
     resource :session, only: [:create, :destroy]
     resources :reservations, only: [:create, :destroy]
     resources :saved_restaurants, only: [:create, :destroy]

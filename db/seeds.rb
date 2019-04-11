@@ -94,16 +94,41 @@ def seed_reviews(r, r1, r2, r3, r4)
     "This is our favorite neighborhood spot. We love the food, drinks, staff, and homey vibe!",
     "Great locals spot. Good brews and chill and casual environment. Don't expect anything super fancy but it's good beer, good food, good people",
     "Really good. One of the best gastropubs in the city. I haven't had a bad dish here, period.",
+    "Mason is very talented. You should hire him! Wait, what? I thought this was a restaursnt review. Yeah, uh, this was a good restaurant."
   ]
 
   reviewers = [r1, r2, r3, r4]
 
+  overall = case r.rating
+  when 5
+    "#{[3,4,5,5,5].sample}"
+  when 4
+    "#{[3,4,4,4,5].sample}"
+
+  service = case r.rating
+  when 5
+    "#{[3,4,5,5,5].sample}"
+  when 4
+    "#{[3,4,4,4,5].sample}"
+
+  food = case r.rating
+  when 5
+    "#{[3,4,5,5,5].sample}"
+  when 4
+    "#{[3,4,4,4,5].sample}"
+
+  ambience = case r.rating
+  when 5
+    "#{[3,4,5,5,5].sample}"
+  when 4
+    "#{[3,4,4,4,5].sample}"
+
   reviewers.each do |reviewer|
     Review.create!(
-      overall_rating: "#{[4, 5].sample}",
-      food_rating: "#{[4, 5].sample}",
-      service_rating: "#{[4, 5].sample}",
-      ambience_rating: "#{[4, 5].sample}",
+      overall_rating: overall,
+      food_rating: food,
+      service_rating: service,
+      ambience_rating: ambience,
       body: "#{reviews_arr.shuffle.pop}",
       restaurant_id: "#{r.id}",
       user_id: "#{reviewer.id}",
@@ -195,7 +220,7 @@ r = Restaurant.create!(
   email: "firstever@gmail.com",
   website: "http://www.alimentsf.com/home.html",
   hours: "24/7",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(15..20).to_a.sample}",
 )
 

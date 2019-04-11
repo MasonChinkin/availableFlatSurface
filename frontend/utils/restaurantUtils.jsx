@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const fetchAllRestaurants = () => {
+export const fetchRecommendedRestaurants = () => {
   return $.ajax({
     method: 'GET',
-    url: `/api/restaurants/`
+    url: `/api/recommended_restaurants/`
   });
 };
 
