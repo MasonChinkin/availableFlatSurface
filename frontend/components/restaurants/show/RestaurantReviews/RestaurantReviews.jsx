@@ -59,7 +59,7 @@ class RestaurantReviews extends Component {
 
   render() {
     if (!this.props.reviews.length) return null
-    let { reviews, users, currentUserId, createReview, editReview, displayReviewForm } = this.props
+    let { reviews, users, currentUserId, createReview, editReview, displayReviewForm, reviewErrors } = this.props
     let { userReview } = this.state
 
     let restaurantId = reviews[0].restaurantId
@@ -92,8 +92,8 @@ class RestaurantReviews extends Component {
     if (!displayReviewForm) reviewList.unshift(currUserReview)
 
     const reviewForm = (userReview) ?
-      <RestaurantReviewPatch review={this.state.userReview} handleReviewSubmit={this.handleReviewSubmit} editReview={editReview} /> :
-      <RestaurantReviewPost IDs={IDs} handleReviewSubmit={this.handleReviewSubmit} createReview={createReview} />
+      <RestaurantReviewPatch reviewErrors={reviewErrors} review={this.state.userReview} handleReviewSubmit={this.handleReviewSubmit} editReview={editReview} /> :
+      <RestaurantReviewPost reviewErrors={reviewErrors} IDs={IDs} handleReviewSubmit={this.handleReviewSubmit} createReview={createReview} />
 
     return (
       <div id="Reviews" className="restaurant-reviews">

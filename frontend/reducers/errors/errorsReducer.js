@@ -4,6 +4,7 @@ import {
 import sessionErrorsReducer from './sessionErrorsReducer';
 import reservationErrorsReducer from './reservationErrorsReducer';
 import restaurantErrorsReducer from './restaurantErrorsReducer';
+import reviewErrorsReducer from './reviewErrorsReducer';
 
 const errorsReducer = combineReducers({
   // Failure to log in
@@ -13,7 +14,10 @@ const errorsReducer = combineReducers({
   reservationErrors: reservationErrorsReducer,
 
   // No restaurants found
-  restaurantErrors: restaurantErrorsReducer
+  restaurantErrors: restaurantErrorsReducer,
+
+  // Review body can't be blank
+  reviewErrors: reviewErrorsReducer
 });
 
 export default errorsReducer;

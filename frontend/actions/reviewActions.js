@@ -1,6 +1,7 @@
 import * as ReviewUtils from '../utils/reviewUtils';
 
 export const RECEIVE_REVIEW = 'RECEIVE_REVIEW';
+export const RECEIVE_REVIEW_ERRORS = 'RECEIVE_REVIEW_ERRORS';
 export const DELETE_REVIEW = 'DELETE_REVIEW';
 
 const receiveReview = payload => {
@@ -17,14 +18,27 @@ const removeReview = payload => {
   };
 };
 
+const receiveReviewErrors = err => {
+  return {
+    type: RECEIVE_REVIEW_ERRORS,
+    err
+  };
+};
+
 export const createReview = payload => dispatch => {
   return ReviewUtils.postReview(payload)
-    .then(review => dispatch(receiveReview(review)));
+    .then(
+      review => dispatch(receiveReview(review)),
+      err => dispatch(receiveReviewErrors(err))
+    );
 };
 
 export const editReview = payload => dispatch => {
   return ReviewUtils.patchReview(payload)
-    .then(review => dispatch(receiveReview(review)));
+    .then(
+      review => dispatch(receiveReview(review)),
+      err => dispatch(receiveReviewErrors(err))
+    );
 };
 
 export const deleteReview = id => dispatch => {

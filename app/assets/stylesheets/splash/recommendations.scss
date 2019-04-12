@@ -51,10 +51,7 @@
   flex-direction: column;
   justify-content: space-evenly;
   padding: 0.5rem;
-
-  &>* {
-    margin-bottom: 0.5rem;
-  }
+  height: 122px;
 }
 
 .recommendation-details-row {

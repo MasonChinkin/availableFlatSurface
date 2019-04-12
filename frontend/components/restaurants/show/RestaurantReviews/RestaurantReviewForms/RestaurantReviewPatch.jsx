@@ -74,6 +74,7 @@ class RestaurantReviewPatch extends Component {
         <div className="review-stars">
           {ratings}
         </div>
+        <h2 className="review-error">{this.props.reviewErrors}</h2>
         <textarea className="review-body"
           onChange={this.handleBodyChange}
           name="body"

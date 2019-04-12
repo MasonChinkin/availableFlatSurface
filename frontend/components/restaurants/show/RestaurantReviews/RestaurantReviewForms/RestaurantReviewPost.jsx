@@ -5,10 +5,10 @@ class RestaurantReviewPost extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      overallRating: 1,
-      foodRating: 1,
-      serviceRating: 1,
-      ambienceRating: 1,
+      overallRating: 3,
+      foodRating: 3,
+      serviceRating: 3,
+      ambienceRating: 3,
       body: ''
     }
 
@@ -69,6 +69,7 @@ class RestaurantReviewPost extends Component {
         <div className="review-stars">
           {ratings}
         </div>
+        <h2 className="review-error">{this.props.reviewErrors}</h2>
         <textarea className="review-body"
           onChange={this.handleBodyChange}
           name="body"

@@ -6,7 +6,7 @@ class Api::ReviewsController < ApplicationController
       @restaurant = Restaurant.find(@review.restaurant_id)
       render :create
     else
-      render @review.errors.full_messages
+      render json: @review.errors.full_messages, status: 422
     end
   end
 
@@ -18,18 +18,17 @@ class Api::ReviewsController < ApplicationController
       @restaurant.set_rating
       render :destroy
     else
-      render @deleted_review.errors.full_messages
+      render json: @deleted_review.errors.full_messages, status: 422
     end
   end
 
   def update
     @updated_review = Review.find(params[:id])
-    if @updated_review
-      @updated_review.update(review_params)
+    if @updated_review && @updated_review.update(review_params)
       @restaurant = Restaurant.find(@updated_review.restaurant_id)
       render :update
     else
-      render @updated_review.errors.full_messages
+      render json: @updated_review.errors.full_messages, status: 422
     end
   end
 

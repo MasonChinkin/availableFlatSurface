@@ -3,12 +3,13 @@ import RestaurantReviews from './RestaurantReviews';
 import { createReview, editReview, deleteReview } from '../../../../actions/reviewActions';
 import { flipReviewForm } from '../../../../actions/uiActions';
 
-const mSP = ({ entities, session, ui }, ownProps) => {
+const mSP = ({ entities, session, ui, errors }, ownProps) => {
   return {
     reviews: Object.values(entities.reviews),
     users: entities.users,
     currentUserId: session.currentUser.id,
-    displayReviewForm: ui.displayReviewForm
+    displayReviewForm: ui.displayReviewForm,
+    reviewErrors: errors.reviewErrors
   }
 };
 
