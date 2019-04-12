@@ -28,7 +28,8 @@
   align-items: center;
   justify-content: flex-start;
   font-family: $font-main;
-  height: auto;
+  min-height: 65vh;
+  max-height: auto;
 }
 
 .search-item {
@@ -73,11 +74,11 @@
   font-weight: 500;
 }
 
-.no-results {
+#no-results {
   margin: 0 auto;
-  padding: 3rem;
+  position: relative;
+  top: 10vh;
   font-size: 24px;
   font-weight: 400;
   color: red;
-  height: 65vh;
 }

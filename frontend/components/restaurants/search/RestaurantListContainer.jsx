@@ -1,8 +1,9 @@
 import { connect } from 'react-redux';
 import RestaurantList from './RestaurantList';
 
-const mSP = ({ entities }) => ({
-  restaurants: Object.values(entities.restaurants)
+const mSP = ({ entities, errors }) => ({
+  restaurants: Object.values(entities.restaurants),
+  noRestaurantFound: errors.restaurantErrors
 });
 
 const mDP = dispatch => ({

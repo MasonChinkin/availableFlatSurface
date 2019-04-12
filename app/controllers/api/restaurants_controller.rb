@@ -2,12 +2,18 @@ class Api::RestaurantsController < ApplicationController
   def index
     search = params[:searchTerm][:searchTerm]
     if search.nil?
-      @restaurant = Restaurant.all
+      @restaurant = Restaurant.with_attached_profile_photo.all
     elsif search.length == 0
       @restaurants = Restaurant.with_attached_profile_photo.all
     else
       @restaurants = Restaurant.with_attached_profile_photo.find_by_name(params[:searchTerm][:searchTerm])
     end
+
+    if @restaurants.length == 0
+      render json: "No restaurants found!"
+      return
+    end
+
     render :index
   end
 

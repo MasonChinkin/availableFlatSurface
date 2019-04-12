@@ -4,9 +4,6 @@ import {
   REVIEW_FORM
 } from "../../actions/uiActions";
 import {
-  merge
-} from 'lodash'
-import {
   RECEIVE_RESERVATION_FORM_CHANGE,
   RECEIVE_RESERVATION,
   CLEAR_NEW_RESERVATION
@@ -19,40 +16,31 @@ const defaultUIState = {
   newReservation: {
     id: null
   },
-  displayReviewForm: false,
+  displayReviewForm: false
 };
 
 const uiReducer = (oldState = defaultUIState, action) => {
   Object.freeze(oldState)
+  let newState = Object.assign({}, oldState)
   switch (action.type) {
     case DROP_DOWN_DROPPED:
-      return merge({}, oldState, {
-        dropDown: action.bool
-      });
+      newState.dropDown = action.bool
+      return newState
     case SEARCH_CALENDAR_DROPPED:
-      return merge({}, oldState, {
-        searchCalendar: action.bool
-      });
+      newState.searchCalendar = action.bool
+      return newState
     case RECEIVE_RESERVATION_FORM_CHANGE:
-      return merge({}, oldState, {
-        reservationForm: action.reservationData
-      });
+      newState.reservationForm = action.reservationData
+      return newState
     case RECEIVE_RESERVATION:
-      return merge({}, oldState, {
-        newReservation: {
-          id: action.reservation.id
-        }
-      });
+      newState.newReservation.id = action.reservation.id
+      return newState
     case CLEAR_NEW_RESERVATION:
-      return merge({}, oldState, {
-        newReservation: {
-          id: null
-        }
-      });
+      newState.newReservation.id = null
+      return newState
     case REVIEW_FORM:
-      return merge({}, oldState, {
-        displayReviewForm: action.bool
-      });
+      newState.displayReviewForm = action.bool
+      return newState
     default:
       return oldState;
   }

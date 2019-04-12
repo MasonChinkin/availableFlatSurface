@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import SearchForm from './SearchForm';
-import { requestSearchedRestaurants, requestAllRestaurants } from '../../../../actions/restaurantActions';
+import { requestSearchedRestaurants, clearRestaurants } from '../../../../actions/restaurantActions';
 import { flipSearchCalendar } from '../../../../actions/uiActions';
 import { receiveReservationFormChange } from '../../../../actions/reservationActions';
 
@@ -12,7 +12,8 @@ const mSP = ({ ui }) => ({
 const mDP = dispatch => ({
   requestSearchedRestaurants: restaurants => dispatch(requestSearchedRestaurants(restaurants)),
   flipSearchCalendar: bool => dispatch(flipSearchCalendar(bool)),
-  reservationFormChange: reservationData => dispatch(receiveReservationFormChange(reservationData))
+  reservationFormChange: reservationData => dispatch(receiveReservationFormChange(reservationData)),
+  clearRestaurants: () => dispatch(clearRestaurants())
 });
 
 const SearchFormContainer = connect(mSP, mDP)(SearchForm);

@@ -18,14 +18,15 @@ class RestaurantList extends Component {
       return <RestaurantListItem key={rest.id} restaurant={rest} />
     });
 
-    restaurants = (this.props.restaurants.length === 0) ?
-      <h2 className="no-results">No Results Found!</h2> :
-      restaurants
+    // restaurants = (this.props.restaurants.length === 0) ?
+    //   <h2 id="no-results">No Results Found!</h2> :
+    //   restaurants
 
     return (
       <>
         <SearchFormContainer />
         <main className="search-content">
+          <h2 id="no-results">{this.props.noRestaurantFound}</h2>
           {restaurants}
         </main>
       </>

@@ -53,8 +53,13 @@ class SearchForm extends Component {
       resDateTime: this.state.resDateTime
     })
 
+    // clear recommended restaurants
+    if (this.props.history.location.pathname === '/') {
+      this.props.clearRestaurants()
+    }
+
     this.props.requestSearchedRestaurants(this.state)
-      .then(this.props.history.push('/search#top'));
+      .then(this.props.history.push('/search#top'))
   }
 
   handleDayPick(date) {

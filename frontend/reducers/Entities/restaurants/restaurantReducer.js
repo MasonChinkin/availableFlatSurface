@@ -1,11 +1,10 @@
 import {
   RECEIVE_SEARCHED_RESTAURANTS,
   RECEIVE_RESTAURANT,
-  RECEIVE_RECOMMENDED_RESTAURANTS
+  RECEIVE_RECOMMENDED_RESTAURANTS,
+  CLEAR_RESTAURANTS,
+  RECEIVE_NO_RESTAURANTS_FOUND
 } from "../../../actions/restaurantActions";
-import {
-  merge
-} from 'lodash';
 import {
   RECEIVE_PROFILE
 } from "../../../actions/userActions";
@@ -19,13 +18,15 @@ export const restaurantReducer = (oldState = {}, action) => {
       return action.restaurants;
     case RECEIVE_RESTAURANT:
       let restaurant = Object.entries(action.restaurant.restaurant);
-      return merge({}, oldState, {
+      return Object.assign({}, oldState, {
         [restaurant[0][0]]: restaurant[0][1]
       });
     case RECEIVE_PROFILE:
       return Object.assign({}, oldState, action.user.restaurants);
-      // case RECEIVE_PROFILE:
-      //   return Object.assign({}, oldState, action.user.savedRestaurants);
+    case CLEAR_RESTAURANTS:
+      return {}
+    case RECEIVE_NO_RESTAURANTS_FOUND:
+      return {}
     default:
       return oldState;
   }
