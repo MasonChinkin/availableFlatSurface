@@ -17,7 +17,7 @@ class SplashRestaurantsItem extends Component {
           <div>{rating}</div>
           <div className="recommendation-details-row">
             <h3 className="">{restaurant.cuisine}</h3>
-            <div>{cost}</div>
+            <div className="cost-symbols">{cost}</div>
             <h3>{restaurant.neighborhood}</h3>
           </div>
           <div className="rec-booked"><i className="fa fa-line-chart" />Booked {restaurant.bookedTimesToday} times today</div>

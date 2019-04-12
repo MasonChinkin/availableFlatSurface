@@ -14,10 +14,10 @@ export const reviewsReducer = (oldState = {}, action) => {
     case RECEIVE_RESTAURANT:
       return action.restaurant.reviews;
     case RECEIVE_REVIEW:
-      newState[action.payload.id] = action.payload
+      newState[action.payload.review.id] = action.payload.review
       return newState
     case DELETE_REVIEW:
-      delete newState[action.payload.id]
+      delete newState[action.payload.review.id]
       return newState
     default:
       return oldState;

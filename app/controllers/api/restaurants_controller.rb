@@ -14,6 +14,8 @@ class Api::RestaurantsController < ApplicationController
       return
     end
 
+    @restaurants.each { |rest| rest.check_tables_left }
+
     render :index
   end
 

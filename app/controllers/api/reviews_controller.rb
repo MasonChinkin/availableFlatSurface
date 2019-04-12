@@ -3,6 +3,7 @@ class Api::ReviewsController < ApplicationController
     @review = Review.new(review_params)
 
     if @review.save
+      @restaurant = Restaurant.find(@review.restaurant_id)
       render :create
     else
       render @review.errors.full_messages
@@ -13,6 +14,8 @@ class Api::ReviewsController < ApplicationController
     @deleted_review = Review.find(params[:id])
 
     if @deleted_review.delete
+      @restaurant = Restaurant.find(@deleted_review.restaurant_id)
+      @restaurant.set_rating
       render :destroy
     else
       render @deleted_review.errors.full_messages
@@ -23,6 +26,7 @@ class Api::ReviewsController < ApplicationController
     @updated_review = Review.find(params[:id])
     if @updated_review
       @updated_review.update(review_params)
+      @restaurant = Restaurant.find(@updated_review.restaurant_id)
       render :update
     else
       render @updated_review.errors.full_messages

@@ -22,13 +22,26 @@ export function ratingSymbol(rating, filledColor) {
     <i key={key} className='fa fa-star' style={{ color: filledColor }}></i>
   )
 
-  const emptyStar = key => (
-    <i key={key} className='fa fa-star' style={{ color: 'rgb(220, 210, 200)' }}></i>
+  const halfStar = key => (
+    <i key={key} className='fa fa-star-half-full' style={{ color: filledColor }}></i>
   )
+
+  const emptyStar = key => (
+    <i key={key} className='fa fa-star-o' style={{ color: 'rgb(220, 210, 200)' }}></i>
+  )
+
+  let roundedRating = Math.round(rating)
 
   let stars = []
   for (let i = 0; i < 5; i++) {
-    (i < rating) ? stars.push(filledStar(i)) : stars.push(emptyStar(i))
+    if (i <= rating - 1) {
+      stars.push(filledStar(i))
+    }
+    else if (i < rating && rating % 1 > 0.5) {
+      stars.push(halfStar(i))
+    } else {
+      stars.push(emptyStar(i))
+    }
   }
 
   return <i>{stars}</i>;

@@ -94,36 +94,40 @@ def seed_reviews(r, r1, r2, r3, r4)
     "This is our favorite neighborhood spot. We love the food, drinks, staff, and homey vibe!",
     "Great locals spot. Good brews and chill and casual environment. Don't expect anything super fancy but it's good beer, good food, good people",
     "Really good. One of the best gastropubs in the city. I haven't had a bad dish here, period.",
-    "Mason is very talented. You should hire him! Wait, what? I thought this was a restaursnt review. Yeah, uh, this was a good restaurant."
+    "Mason is very talented. You should hire him! Wait, what? I thought this was a restaursnt review. Yeah, uh, this was a good restaurant.",
   ]
 
   reviewers = [r1, r2, r3, r4]
 
-  overall = case r.rating
-  when 5
-    "#{[3,4,5,5,5].sample}"
-  when 4
-    "#{[3,4,4,4,5].sample}"
-
-  service = case r.rating
-  when 5
-    "#{[3,4,5,5,5].sample}"
-  when 4
-    "#{[3,4,4,4,5].sample}"
-
-  food = case r.rating
-  when 5
-    "#{[3,4,5,5,5].sample}"
-  when 4
-    "#{[3,4,4,4,5].sample}"
-
-  ambience = case r.rating
-  when 5
-    "#{[3,4,5,5,5].sample}"
-  when 4
-    "#{[3,4,4,4,5].sample}"
-
   reviewers.each do |reviewer|
+    overall = case r.rating
+              when 5
+                "#{[3, 4, 5, 5].sample}"
+              when 4
+                "#{[3, 3, 4, 5].sample}"
+              end
+
+    service = case r.rating
+              when 5
+                "#{[3, 4, 5, 5].sample}"
+              when 4
+                "#{[3, 3, 4, 5].sample}"
+              end
+
+    food = case r.rating
+           when 5
+             "#{[3, 4, 5, 5].sample}"
+           when 4
+             "#{[3, 3, 4, 5].sample}"
+           end
+
+    ambience = case r.rating
+               when 5
+                 "#{[3, 4, 5, 5].sample}"
+               when 4
+                 "#{[3, 3, 4, 5].sample}"
+               end
+
     Review.create!(
       overall_rating: overall,
       food_rating: food,
@@ -134,6 +138,8 @@ def seed_reviews(r, r1, r2, r3, r4)
       user_id: "#{reviewer.id}",
     )
   end
+
+  r.set_rating
 end
 
 # Demo user
@@ -203,7 +209,7 @@ r = Restaurant.create!(
   website: "http://www.schroederssf.com/",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -221,7 +227,7 @@ r = Restaurant.create!(
   website: "http://www.alimentsf.com/home.html",
   hours: "24/7",
   booked_times_today: "#{(5..40).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -242,7 +248,7 @@ r = Restaurant.create!(
   neighborhood: "Tenderloin",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -264,7 +270,7 @@ r = Restaurant.create!(
   cross_street: "Union",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -286,7 +292,7 @@ r = Restaurant.create!(
   parking_details: "occasional street parking",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -308,7 +314,7 @@ r = Restaurant.create!(
   neighborhood: "SoMa",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -328,7 +334,7 @@ r = Restaurant.create!(
   neighborhood: "SoMa",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -349,7 +355,7 @@ r = Restaurant.create!(
   neighborhood: "Marina",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -369,7 +375,7 @@ r = Restaurant.create!(
   neighborhood: "Mission",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -391,7 +397,7 @@ r = Restaurant.create!(
   cross_street: "Sanchez",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -410,7 +416,7 @@ r = Restaurant.create!(
   neighborhood: "Inner Sunset",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -430,7 +436,7 @@ r = Restaurant.create!(
   neighborhood: "Inner Sunset",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -450,7 +456,7 @@ r = Restaurant.create!(
   neighborhood: "Outer Richmond",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -471,7 +477,7 @@ r = Restaurant.create!(
   parking_details: "street parking",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -490,7 +496,7 @@ r = Restaurant.create!(
   neighborhood: "Inner Richmond",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -509,7 +515,7 @@ r = Restaurant.create!(
   neighborhood: "Outer Sunset",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -529,7 +535,7 @@ r = Restaurant.create!(
   neighborhood: "Bernal Heights",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
 )
 
 seed_pics_res_and_saves(r, u)
@@ -548,7 +554,7 @@ r = Restaurant.create!(
   neighborhood: "Tenderloin",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
   email: "email16@gmail.com",
 )
 
@@ -568,7 +574,7 @@ r = Restaurant.create!(
   neighborhood: "Lower Nob Hill",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
   email: "email17@gmail.com",
 )
 
@@ -588,7 +594,7 @@ r = Restaurant.create!(
   neighborhood: "Cow Hollow",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
   email: "email18@gmail.com",
 )
 
@@ -608,7 +614,7 @@ r = Restaurant.create!(
   neighborhood: "Russian Hill",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
   email: "email19@gmail.com",
 )
 
@@ -628,7 +634,7 @@ r = Restaurant.create!(
   neighborhood: "South of Market",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
   email: "email20@gmail.com",
 )
 
@@ -648,7 +654,7 @@ r = Restaurant.create!(
   neighborhood: "Pacific Heights",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
   email: "email21@gmail.com",
 )
 
@@ -668,7 +674,7 @@ r = Restaurant.create!(
   neighborhood: "Financial District",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
   email: "email22@gmail.com",
 )
 
@@ -688,7 +694,7 @@ r = Restaurant.create!(
   neighborhood: "Financial District",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
   email: "email23@gmail.com",
 )
 
@@ -708,7 +714,7 @@ r = Restaurant.create!(
   neighborhood: "Lower Nob Hill",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
   email: "email24@gmail.com",
 )
 
@@ -728,7 +734,7 @@ r = Restaurant.create!(
   neighborhood: "South of Market",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
   email: "email25@gmail.com",
 )
 
@@ -748,7 +754,7 @@ r = Restaurant.create!(
   neighborhood: "Marina",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
   email: "email26@gmail.com",
 )
 
@@ -768,7 +774,7 @@ r = Restaurant.create!(
   neighborhood: "Presidio Heights",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
   email: "email27@gmail.com",
 )
 
@@ -788,7 +794,7 @@ r = Restaurant.create!(
   neighborhood: "Civic Center/ Hayes Valley",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
   email: "email28@gmail.com",
 )
 
@@ -808,7 +814,7 @@ r = Restaurant.create!(
   neighborhood: "Financial District",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
   email: "email29@gmail.com",
 )
 
@@ -828,7 +834,7 @@ r = Restaurant.create!(
   neighborhood: "Lower Pacific Heights",
   hours: "24/7",
   booked_times_today: "#{(5..50).to_a.sample}",
-  tables_left: "#{(15..20).to_a.sample}",
+  tables_left: "#{(20..30).to_a.sample}",
   email: "email30@gmail.com",
 )
 

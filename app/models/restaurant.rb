@@ -28,7 +28,7 @@
 class Restaurant < ApplicationRecord
   validates :name, :description, :address, :cost, :email, :user_id, presence: true
   validates :cost, inclusion: {in: [1, 2, 3, 4]}
-  validates :rating, inclusion: {in: [1, 2, 3, 4, 5]}
+  validates :rating, inclusion: {in: 1..5}
 
   has_many_attached :photos
   has_one_attached :profile_photo
@@ -44,8 +44,8 @@ class Restaurant < ApplicationRecord
 
   # return 2 four star and 1 5 start restaurant
   def self.find_recommendations
-    four_stars = Restaurant.where(rating: "4").shuffle
-    five_stars = Restaurant.where(rating: "5").shuffle
+    four_stars = Restaurant.where(rating: 3.5..4.49).shuffle
+    five_stars = Restaurant.where(rating: 4.5..5).shuffle
 
     return [four_stars.pop(), four_stars.pop(), five_stars.sample]
   end
@@ -62,5 +62,21 @@ class Restaurant < ApplicationRecord
     end
 
     matches
+  end
+
+  # avoid tables left counter going negative
+  def check_tables_left
+    if self.tables_left <= 6
+      self.tables_left = (20..30).to_a.sample
+      self.save
+    end
+  end
+
+  # recalc rating ave with every new review
+  def set_rating
+    all_ratings = []
+    self.reviews.each { |review| all_ratings << review.overall_rating }
+    self.rating = all_ratings.reduce(:+) / (all_ratings.length * 1.0)
+    self.save
   end
 end

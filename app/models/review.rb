@@ -20,11 +20,17 @@ class Review < ApplicationRecord
   validates :overall_rating, :food_rating, :service_rating, :ambience_rating, inclusion: {in: [1, 2, 3, 4, 5]}
 
   before_validation :ensure_helpful_count_zero
+  after_save :adjust_restaurant_rating
 
   belongs_to :user
   belongs_to :restaurant
 
   def ensure_helpful_count_zero
     self.helpful_count = 0
+  end
+
+  def adjust_restaurant_rating
+    restaurant = Restaurant.find(self.restaurant_id)
+    restaurant.set_rating
   end
 end
