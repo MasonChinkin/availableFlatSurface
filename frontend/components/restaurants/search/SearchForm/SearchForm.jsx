@@ -15,7 +15,7 @@ class SearchForm extends Component {
     date.setMinutes(0);
 
     this.state = {
-      searchTerm: '',
+      searchTerm: (this.props.reservationForm === null) ? '' : this.props.reservationForm.searchTerm,
       numPeople: (this.props.reservationForm === null) ? 2 : this.props.reservationForm.numPeople,
       resDateTime: (this.props.reservationForm === null) ? date : this.props.reservationForm.resDateTime,
       calendarClass: 'search-calendar'
@@ -26,6 +26,12 @@ class SearchForm extends Component {
     this.handleDayPick = this.handleDayPick.bind(this);
     this.handleNumPeople = this.handleNumPeople.bind(this);
     this.handleTimeChange = this.handleTimeChange.bind(this);
+  }
+
+  componentDidMount() {
+    if (this.props.history.location.pathname === '/') {
+      this.setState({ searchTerm: '' })
+    }
   }
 
   flipCalendar() {
@@ -50,7 +56,8 @@ class SearchForm extends Component {
 
     this.props.reservationFormChange({
       numPeople: this.state.numPeople,
-      resDateTime: this.state.resDateTime
+      resDateTime: this.state.resDateTime,
+      searchTerm: this.state.searchTerm
     })
 
     // clear recommended restaurants
