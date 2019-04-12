@@ -1,6 +1,3 @@
-import React from 'react';
-import RestaurantReviewItem from '../components/restaurants/show/RestaurantReviews/RestaurantShowReviewItem'
-
 export const postReview = review => {
   return $.ajax({
     method: 'POST',
