@@ -44,7 +44,7 @@ class Restaurant < ApplicationRecord
 
   # return 2 four star and 1 5 start restaurant
   def self.find_recommendations
-    four_stars = Restaurant.where(rating: 3.5..4.49).shuffle
+    four_stars = Restaurant.where(rating: 4...4.5).shuffle
     five_stars = Restaurant.where(rating: 4.5..5).shuffle
 
     return [four_stars.pop(), four_stars.pop(), five_stars.sample]

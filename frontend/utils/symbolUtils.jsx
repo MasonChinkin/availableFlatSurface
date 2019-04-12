@@ -37,7 +37,7 @@ export function ratingSymbol(rating, filledColor) {
     if (i <= rating - 1) {
       stars.push(filledStar(i))
     }
-    else if (i < rating && rating % 1 > 0.5) {
+    else if (i < rating && rating % 1 >= 0.5) {
       stars.push(halfStar(i))
     } else {
       stars.push(emptyStar(i))
