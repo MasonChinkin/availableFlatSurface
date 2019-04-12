@@ -15,7 +15,12 @@ class ResButtons extends Component {
     if (this.props.currentUserId === null) return this.props.history.push(`/search/signin`);
 
     hours = parseInt(hours)
-    hours = (hours < 12) ? hours + 12 : 0
+    if (hours < 12) {
+      hours += 12
+    } else if (hours > 12) {
+      hours = 0
+    }
+
     minutes = parseInt(minutes)
     let setHours = this.props.searchedDateTime.setHours(hours)
     let setMinutes = new Date(setHours).setMinutes(minutes)
