@@ -30,8 +30,6 @@ export function ratingSymbol(rating, filledColor) {
     <i key={key} className='fa fa-star-o' style={{ color: 'rgb(220, 210, 200)' }}></i>
   )
 
-  let roundedRating = Math.round(rating)
-
   let stars = []
   for (let i = 0; i < 5; i++) {
     if (i <= rating - 1) {

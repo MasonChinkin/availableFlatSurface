@@ -21,6 +21,7 @@ class RestaurantReviews extends Component {
     this.handleReviewSubmit = this.handleReviewSubmit.bind(this)
   }
 
+  // iterate through reviews looking for current user's, return it if found
   isReviewed() {
     for (let i = 0; i < this.props.reviews.length; i++) {
       const review = this.props.reviews[i]

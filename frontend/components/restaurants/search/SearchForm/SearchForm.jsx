@@ -5,7 +5,6 @@ import * as FormUtils from '../../../../utils/formUtils';
 import SplashRestaurantsContainer from '../../splash/SplashRestaurantsContainer';
 
 class SearchForm extends Component {
-
   constructor(props) {
     super(props);
 
@@ -60,13 +59,8 @@ class SearchForm extends Component {
       searchTerm: this.state.searchTerm
     })
 
-    // clear recommended restaurants
-    if (this.props.history.location.pathname === '/') {
-      this.props.clearRestaurants()
-    }
-
     this.props.requestSearchedRestaurants(this.state)
-      .then(this.props.history.push('/search#top'))
+      .then(this.props.history.push('/search'))
   }
 
   handleDayPick(date) {
