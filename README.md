@@ -32,18 +32,18 @@ One of the biggest functional challenges was gathering all necessary data to mak
 
 ```javascript
 // UI REDUCER
-Object.freeze(oldState)
-  let newState = Object.assign({}, oldState)
-  switch (action.type) {
-    case RECEIVE_RESERVATION_FORM_CHANGE:
-      newState.reservationForm = action.reservationData
-      return newState
+Object.freeze(oldState);
+let newState = Object.assign({}, oldState);
+switch (action.type) {
+  case RECEIVE_RESERVATION_FORM_CHANGE:
+    newState.reservationForm = action.reservationData
+    return newState
 
 // RESERVATION BUTTON CONTAINER
 const mapStateToProps = ({ ui, session }) => ({
   searchedDateTime: ui.reservationForm.resDateTime || null,
   numPeople: ui.reservationForm.numPeople,
-  userId: (session.currentUser === null) ? null : session.currentUser.id,
+  userId: (session.currentUser === null) ? null : session.currentUser.id
 });
 
 // RESERVATION BUTTON COMPONENT
