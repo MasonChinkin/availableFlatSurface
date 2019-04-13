@@ -30,14 +30,8 @@ class SigninForm extends Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.clearSessionErrors();
-    debugger
     this.props.signin(this.state)
-      .then(() => {
-        debugger
-        this.props.history.goBack()
-      });
-
-    debugger
+      .then(() => this.props.history.goBack());
   }
 
   componentWillUnmount() {

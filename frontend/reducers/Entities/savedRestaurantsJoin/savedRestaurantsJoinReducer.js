@@ -9,6 +9,9 @@ import {
   DELETE_SAVED_RESTAURANT,
   CLEAR_SAVED_RESTAURANT
 } from '../../../actions/savedRestaurantActions';
+import {
+  LOGOUT_USER
+} from '../../../actions/sessionActions';
 
 export const savedRestaurantsJoinReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
@@ -24,6 +27,8 @@ export const savedRestaurantsJoinReducer = (oldState = {}, action) => {
       delete newState[action.payload.id]
       return newState
     case CLEAR_SAVED_RESTAURANT:
+      return {}
+    case LOGOUT_USER:
       return {}
     default:
       return oldState
