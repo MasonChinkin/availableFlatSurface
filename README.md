@@ -32,10 +32,12 @@ One of the biggest functional challenges was gathering all necessary data to mak
 
 ```javascript
 // UI REDUCER
-case RECEIVE_RESERVATION_FORM_CHANGE:
-  return merge({}, oldState, {
-    reservationForm: action.reservationData
-  });
+Object.freeze(oldState)
+  let newState = Object.assign({}, oldState)
+  switch (action.type) {
+    case RECEIVE_RESERVATION_FORM_CHANGE:
+      newState.reservationForm = action.reservationData
+      return newState
 
 // RESERVATION BUTTON CONTAINER
 const mapStateToProps = ({ ui, session }) => ({
