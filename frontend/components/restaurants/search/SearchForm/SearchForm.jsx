@@ -59,6 +59,10 @@ class SearchForm extends Component {
       searchTerm: this.state.searchTerm
     })
 
+    if (this.props.history.location.pathname === '/') {
+      this.props.clearRestaurants()
+    }
+
     this.props.requestSearchedRestaurants(this.state)
       .then(this.props.history.push('/search'))
   }
