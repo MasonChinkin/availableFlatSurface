@@ -89,12 +89,10 @@ def seed_reviews(r, r1, r2, r3, r4)
     "I'm happy I gave this place a try. I truly enjoyed the delicious food and good beer. The staff is pretty friendly and I met some very friendly customers at this bar. ",
     "Best Grilled Romaine Caesar! Smoked chicken with Brie sandwich was delicious as well. High quality food in a casual, friendly setting.",
     "Ok. Great spot to stop for happy hour. Very chill. Sat at the bar and had a terrific grilled Caesar salad and yummy French fries. Huge portions! Very casual and good service.",
-    "Rotating taps, flights of beer, exceptional service and food. New favorite spot.",
-    "Great food and decent pricing",
     "This is our favorite neighborhood spot. We love the food, drinks, staff, and homey vibe!",
     "Great locals spot. Good brews and chill and casual environment. Don't expect anything super fancy but it's good beer, good food, good people",
     "Really good. One of the best gastropubs in the city. I haven't had a bad dish here, period.",
-    "Mason is very talented. You should hire him! Wait, what? I thought this was a restaursnt review. Yeah, uh, this was a good restaurant.",
+    "Mason is very talented. You should hire him! Wait, what? This was supposed to be a restaurant review. Yeah, uh, this was a good restaurant.",
   ]
 
   reviewers = [r1, r2, r3, r4]
@@ -190,7 +188,7 @@ r = Restaurant.create!(
   parking_details: "Don't drive here",
   cost: "4",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(12..20).to_a.sample}",
 )
 
@@ -247,7 +245,7 @@ r = Restaurant.create!(
   dress_code: "casual",
   neighborhood: "Tenderloin",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
 )
 
@@ -269,7 +267,7 @@ r = Restaurant.create!(
   neighborhood: "North Beach",
   cross_street: "Union",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
 )
 
@@ -291,7 +289,7 @@ r = Restaurant.create!(
   cross_street: "Leavenworth",
   parking_details: "occasional street parking",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
 )
 
@@ -313,7 +311,7 @@ r = Restaurant.create!(
   dress_code: "casual",
   neighborhood: "SoMa",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
 )
 
@@ -333,7 +331,7 @@ r = Restaurant.create!(
   website: "azalinaa.com",
   neighborhood: "SoMa",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
 )
 
@@ -354,7 +352,7 @@ r = Restaurant.create!(
   payment_options: "Credit, debit, cash",
   neighborhood: "Marina",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
 )
 
@@ -374,7 +372,7 @@ r = Restaurant.create!(
   website: "elfarolitosf.com",
   neighborhood: "Mission",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
 )
 
@@ -396,7 +394,7 @@ r = Restaurant.create!(
   neighborhood: "Mission",
   cross_street: "Sanchez",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
 )
 
@@ -415,7 +413,7 @@ r = Restaurant.create!(
   phone: "(415) 731-9999",
   neighborhood: "Inner Sunset",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
 )
 
@@ -435,7 +433,7 @@ r = Restaurant.create!(
   website: "santung.net",
   neighborhood: "Inner Sunset",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
 )
 
@@ -455,7 +453,7 @@ r = Restaurant.create!(
   website: "cassavasf.com",
   neighborhood: "Outer Richmond",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
 )
 
@@ -476,7 +474,7 @@ r = Restaurant.create!(
   neighborhood: "Outer Richmond",
   parking_details: "street parking",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
 )
 
@@ -495,7 +493,7 @@ r = Restaurant.create!(
   phone: "(415) 742-5265",
   neighborhood: "Inner Richmond",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
 )
 
@@ -514,7 +512,7 @@ r = Restaurant.create!(
   phone: "(415) 682-7889",
   neighborhood: "Outer Sunset",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
 )
 
@@ -534,7 +532,7 @@ r = Restaurant.create!(
   dress_code: "casual",
   neighborhood: "Bernal Heights",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
 )
 
@@ -553,7 +551,7 @@ r = Restaurant.create!(
   dress_code: "casual",
   neighborhood: "Tenderloin",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
   email: "email16@gmail.com",
 )
@@ -573,7 +571,7 @@ r = Restaurant.create!(
   dress_code: "semi-formal",
   neighborhood: "Lower Nob Hill",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
   email: "email17@gmail.com",
 )
@@ -593,7 +591,7 @@ r = Restaurant.create!(
   dress_code: "casual",
   neighborhood: "Cow Hollow",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
   email: "email18@gmail.com",
 )
@@ -613,7 +611,7 @@ r = Restaurant.create!(
   dress_code: "casual",
   neighborhood: "Russian Hill",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
   email: "email19@gmail.com",
 )
@@ -633,7 +631,7 @@ r = Restaurant.create!(
   dress_code: "casual",
   neighborhood: "South of Market",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
   email: "email20@gmail.com",
 )
@@ -653,7 +651,7 @@ r = Restaurant.create!(
   dress_code: "formal",
   neighborhood: "Pacific Heights",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
   email: "email21@gmail.com",
 )
@@ -673,7 +671,7 @@ r = Restaurant.create!(
   dress_code: "semi-formal",
   neighborhood: "Financial District",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
   email: "email22@gmail.com",
 )
@@ -693,7 +691,7 @@ r = Restaurant.create!(
   dress_code: "casual",
   neighborhood: "Financial District",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
   email: "email23@gmail.com",
 )
@@ -713,7 +711,7 @@ r = Restaurant.create!(
   dress_code: "semi-formal",
   neighborhood: "Lower Nob Hill",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
   email: "email24@gmail.com",
 )
@@ -733,7 +731,7 @@ r = Restaurant.create!(
   dress_code: "casual",
   neighborhood: "South of Market",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
   email: "email25@gmail.com",
 )
@@ -753,7 +751,7 @@ r = Restaurant.create!(
   dress_code: "casual",
   neighborhood: "Marina",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
   email: "email26@gmail.com",
 )
@@ -773,7 +771,7 @@ r = Restaurant.create!(
   dress_code: "casual",
   neighborhood: "Presidio Heights",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
   email: "email27@gmail.com",
 )
@@ -793,7 +791,7 @@ r = Restaurant.create!(
   dress_code: "casual",
   neighborhood: "Civic Center/ Hayes Valley",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
   email: "email28@gmail.com",
 )
@@ -813,7 +811,7 @@ r = Restaurant.create!(
   dress_code: "casual",
   neighborhood: "Financial District",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
   email: "email29@gmail.com",
 )
@@ -833,7 +831,7 @@ r = Restaurant.create!(
   dress_code: "casual",
   neighborhood: "Lower Pacific Heights",
   hours: "12pm - Midnight",
-  booked_times_today: "#{(5..50).to_a.sample}",
+  booked_times_today: "#{(5..40).to_a.sample}",
   tables_left: "#{(20..30).to_a.sample}",
   email: "email30@gmail.com",
 )
