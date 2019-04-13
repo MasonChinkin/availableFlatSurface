@@ -86,12 +86,12 @@ end
 
 def seed_reviews(r, r1, r2, r3, r4)
   reviews_arr = [
-    "I'm happy I gave this place a try. I truly enjoyed the delicious food and good beer. The staff is pretty friendly and I met some very friendly customers at this bar. ",
-    "Best Grilled Romaine Caesar! Smoked chicken with Brie sandwich was delicious as well. High quality food in a casual, friendly setting.",
-    "Ok. Great spot to stop for happy hour. Very chill. Sat at the bar and had a terrific grilled Caesar salad and yummy French fries. Huge portions! Very casual and good service.",
+    "I'm happy I gave this place a try. I truly enjoyed the delicious food and good booze. The staff is pretty friendly and I met some very friendly customers at this bar. ",
+    "Sandwiches were delicious. High quality food in a casual, friendly setting.",
+    "Ok. Great spot to stop for happy hour. Very chill. Sat at the bar and had a terrific salad and yummy sides. Huge portions! Very casual and good service.",
     "This is our favorite neighborhood spot. We love the food, drinks, staff, and homey vibe!",
     "Great locals spot. Good brews and chill and casual environment. Don't expect anything super fancy but it's good beer, good food, good people",
-    "Really good. One of the best gastropubs in the city. I haven't had a bad dish here, period.",
+    "Really good. One of the best spots in the city. I haven't had a bad dish here, period.",
     "Mason is very talented. You should hire him! Wait, what? This was supposed to be a restaurant review. Yeah, uh, this was a good restaurant.",
   ]
 
@@ -542,7 +542,7 @@ seed_reviews(r, r1, r2, r3, r4)
 r = Restaurant.create!(
   name: "Beyond Burma",
   address: "154 McAllister St, San Francisco, CA 94102",
-  description: "Vibrant spot serving pasta, other Italian standards, plus cocktails, in an offbeat, hip space",
+  description: "BeyondBurma was created with passion for food and inspiration to share Burmese culture in the most diverse city, San Francisco. When the founders came to US 18 years ago, they had only one thing in mind. It was to live American dream by running their own business and introducing delicious Burmese cuisine. Little did they know, Burmese food was already popular and well liked by everyone who had tried. However, they found that there is more demand than the supply when it comes to Burmese food establishment and most restaurants keep it very traditional. That is why the founders decided to come up with something more authentic but also being creative by adding a few twists to their fun menu. Now, BeyondBurma is open for dinner during the week and open for brunch and dinner on weekends.",
   rating: "4",
   cost: "2",
   user: u,
