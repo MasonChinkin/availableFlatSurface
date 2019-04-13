@@ -19,21 +19,11 @@ class RestaurantList extends Component {
       return <RestaurantListItem key={rest.id} restaurant={rest} />
     });
 
-    let makeNewSearch;
-    if (this.props.history.location.pathname === '/search' &&
-      sortedRestaurants.length === 0 &&
-      this.props.noRestaurantFound === '') {
-      makeNewSearch = 'Make a new search!'
-    } else {
-      makeNewSearch = ''
-    }
-
     return (
       <>
         <SearchFormContainer />
         <main className="search-content">
           <h2 id="no-results">{this.props.noRestaurantFound}</h2>
-          <h2 id="no-results">{makeNewSearch}</h2>
           {restaurants}
         </main>
       </>
