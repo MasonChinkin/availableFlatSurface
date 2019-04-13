@@ -142,7 +142,7 @@ class SearchForm extends Component {
       /> :
       undefined;
 
-    if (this.props.history.location.pathname === '/search') {
+    if (this.props.history.location.pathname.includes('/search')) {
       return (
         <div className='restaurant-index-search-form'>
           <form onSubmit={this.handleSubmit}>
