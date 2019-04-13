@@ -93,7 +93,7 @@ def seed_reviews(r, r1, r2, r3, r4)
     "Great locals spot. Good brews and chill and casual environment. Don't expect anything super fancy but it's good beer, good food, good people",
     "Really good. One of the best spots in the city. I haven't had a bad dish here, period.",
     "Mason is very talented. You should hire him! Wait, what? This was supposed to be a restaurant review. Yeah, uh, this was a good restaurant.",
-  ]
+  ].shuffle!
 
   reviewers = [r1, r2, r3, r4]
 
@@ -131,7 +131,7 @@ def seed_reviews(r, r1, r2, r3, r4)
       food_rating: food,
       service_rating: service,
       ambience_rating: ambience,
-      body: "#{reviews_arr.shuffle.pop}",
+      body: "#{reviews_arr.pop}",
       restaurant_id: "#{r.id}",
       user_id: "#{reviewer.id}",
     )
