@@ -328,7 +328,7 @@ r = Restaurant.create!(
   cuisine: "Malaysian",
   email: "email5@gmail.com",
   phone: "(415) 660-2020",
-  website: "azalinaa.com",
+  website: "https://www.azalinas.com/",
   neighborhood: "SoMa",
   hours: "12pm - Midnight",
   booked_times_today: "#{(5..40).to_a.sample}",

@@ -48,7 +48,12 @@ export function sidebarDataArr(rest) {
     let val = detail[1] || 'N/A';
     let icon = detail[2];
 
-    val = (label === 'Website' && val !== 'N/A') ? <a href={val}>{val}</a> : val
+    if (label === 'Website' && val !== 'N/A') debugger;
+
+    if (label === 'Website' && val !== 'N/A') {
+      val = (val.includes('www')) ? val : 'http://www.' + val
+      val = <a href={val}>{val}</a>
+    } else { val }
 
     return (
       <li key={i}>
