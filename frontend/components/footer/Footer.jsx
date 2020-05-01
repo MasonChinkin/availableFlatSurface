@@ -8,7 +8,7 @@ const Footer = () => {
       <ul className="about-me">
         <li><a href="https://www.linkedin.com/in/mason-chinkin/" target="_blank"><i className="fab fa-linkedin" />LinkedIn</a></li>
         <li><a href="https://github.com/MasonChinkin" target="_blank"><i className="fab fa-github" /> Github</a></li>
-        <li><a href="https://masonchinkin.github.io/" target="_blank"><i className="fas fa-chart-bar" />Portfolio</a></li>
+        <li><a href="https://masonchinkin.com/" target="_blank"><i className="fas fa-chart-bar" />Portfolio</a></li>
       </ul>
     </>
   )
