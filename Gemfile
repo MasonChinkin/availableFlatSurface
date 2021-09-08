@@ -62,7 +62,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "pry-rails", "~> 0.3.9"
 gem "table_print", "~> 1.5", :group => :development
 gem "annotate", "~> 2.7", :group => :development
-gem "better_errors", "~> 2.5", :group => :development
+gem "better_errors", "~> 2.8", :group => :development
 gem "binding_of_caller", "~> 0.8.0", :group => :development
 gem "jquery-rails", "~> 4.3"
 gem "aws-sdk-s3"
